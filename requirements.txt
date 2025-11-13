@@ -1,0 +1,9 @@
+haystack-ai>=2.7.0
+ollama-haystack>=2.4.0
+neo4j==5.18.0
+pandas
+numpy
+tqdm
+python-dotenv
+jupyter
+

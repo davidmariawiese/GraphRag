@@ -1,0 +1,45 @@
+services:
+  neo4j:
+    image: neo4j:5
+    container_name: neo4j
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: graphrag-app
+    depends_on:
+      - neo4j
+      - ollama
+    ports:
+      - "8888:8888"
+    volumes:
+      - ../src:/app/src
+      - ../notebooks:/app/notebooks
+      - ../data:/app/data
+    environment:
+      - PYTHONPATH=/app
+    restart: unless-stopped
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
+  ollama_data:
