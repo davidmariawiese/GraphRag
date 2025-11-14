@@ -11,8 +11,8 @@ venv/
 .ipynb_checkpoints/
 
 # Data
-data/raw/*
-data/processed/*
+data/graph/*
+data/base/*
 
 # Neo4j
 neo4j_data/
