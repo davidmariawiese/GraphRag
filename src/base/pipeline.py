@@ -5,7 +5,7 @@ from haystack.components.retrievers.in_memory import InMemoryBM25Retriever
 from haystack.components.builders.prompt_builder import PromptBuilder
 from haystack.document_stores.in_memory import InMemoryDocumentStore
 
-def create_rag_pipeline(documents, ollama_model="phi3", ollama_url="http://ollama:11434", generation_kwargs={"num_predict": 100, "temperature": 0.9}):
+def create_rag_pipeline(documents, ollama_model="llama3", ollama_url="http://ollama:11434", generation_kwargs={"num_predict": 100, "temperature": 0.9}):
   """
   Erstellt eine einfache RAG-Pipeline mit BM25-Retriever und Ollama-Generator.
   """
