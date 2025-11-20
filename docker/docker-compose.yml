@@ -13,6 +13,15 @@ services:
       - ./data/graph:/var/lib/neo4j/import   # shared CSV folder
     restart: unless-stopped
 
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
   app:
     build:
       context: ..
@@ -27,8 +36,16 @@ services:
       - ../src:/app/src
       - ../notebooks:/app/notebooks
       - ../data:/app/data
-      - ./data/graph:/neo4j-import          # same folder for notebook export
+      - ./data/graph:/neo4j-import          # unified import folder for Neo4j + notebooks
     environment:
       - PYTHONPATH=/app
       - NEO4J_IMPORT_DIR=/neo4j-import
+      - NEO4J_URI=neo4j://neo4j:7687
+      - OLLAMA_HOST=http://ollama:11434
     restart: unless-stopped
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
+  ollama_data:
+
