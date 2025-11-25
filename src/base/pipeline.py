@@ -28,14 +28,14 @@ def create_rag_pipeline(documents, ollama_model="llama3", ollama_url="http://oll
     
   prompt_builder = PromptBuilder(template=template)
 
-  pipe = Pipeline()
-  pipe.add_component("retriever", retriever)
-  pipe.add_component("prompt_builder", prompt_builder)
-  pipe.add_component("llm", generator)
-  pipe.connect("retriever", "prompt_builder.documents")
-  pipe.connect("prompt_builder", "llm")
+  pipeline = Pipeline()
+  pipeline.add_component("retriever", retriever)
+  pipeline.add_component("prompt_builder", prompt_builder)
+  pipeline.add_component("llm", generator)
+  pipeline.connect("retriever", "prompt_builder.documents")
+  pipeline.connect("prompt_builder", "llm")
 
-  return pipe
+  return pipeline
 
 def run_rag_pipeline(pipe, query):
   result = pipe.run({"prompt_builder": {"query": query},"retriever": {"query": query}})
