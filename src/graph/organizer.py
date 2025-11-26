@@ -1,4 +1,3 @@
-# pipeline/organizer.py
 from haystack import component
 import json
 
@@ -11,53 +10,57 @@ class Organizer:
     @component.output_types(context=str)
     def run(self, documents: list):
         """
-        Haystack will pass a list of Document objects here.
-        We do NOT type this as List[Document] because Pipeline
-        would consider that a mismatch.
+        Erwartet eine Liste von Document-Objekten, deren content
+        eine Python-Liste von Dicts wie
+        [{'m': {...}}, {'m': {...}}, ...]
+        enthält.
         """
-        
-        parsed = []
 
-        # --- parse raw Neo4j document contents ---
+        measurements = []
+
         for doc in documents[: self.max_records]:
-            content = doc.content  # doc is a Document → but type is list for Haystack
+            content = doc.content
             try:
-                rec = json.loads(content)
+                # content -> Python-Objekt (Liste von Dicts)
+                data = json.loads(content)
             except Exception:
                 try:
-                    rec = eval(content)
+                    data = eval(content)
                 except Exception:
-                    rec = {"raw": content}
-            parsed.append(rec)
+                    # Fallback: Rohstring mit aufnehmen
+                    measurements.append({"raw": content})
+                    continue
 
-        # --- group records ---
-        groups = {}
-        for r in parsed:
-            sensor = r.get("sensor_id") or r.get("sensorId") or "UNKNOWN_SENSOR"
-            epoch = r.get("epoch_id") or r.get("epochId") or "UNKNOWN_EPOCH"
-            key = f"Sensor {sensor} (Epoch {epoch})"
-            groups.setdefault(key, []).append(r)
+            # data kann Liste oder einzelnes Dict sein
+            if isinstance(data, dict):
+                data = [data]
 
-        # --- build context block ---
+            for item in data:
+                if isinstance(item, dict) and "m" in item and isinstance(item["m"], dict):
+                    m = item["m"]
+                elif isinstance(item, dict):
+                    m = item
+                else:
+                    m = {"raw": str(item)}
+
+                measurements.append(m)
+
+        # --- Kontext-String bauen ---
         lines = []
         lines.append("GRAPH CONTEXT\n")
 
-        for group_key, items in groups.items():
-            lines.append(group_key + ":")
-            for r in items[:10]:
-                date = r.get("date")
-                time = r.get("time")
-                temp = r.get("temperature")
-                hum = r.get("humidity")
-                light = r.get("light")
-                volt = r.get("voltage")
+        for m in measurements[: self.max_records]:
+            date_time = m.get("time") or ""
+            temperature = m.get("temperature")
+            humidity = m.get("humidity")
+            light = m.get("light")
+            voltage = m.get("voltage")
 
-                lines.append(
-                    f"- {date or ''} {time or ''} | "
-                    f"temp={temp}, hum={hum}, light={light}, volt={volt}"
-                )
-            lines.append("")
+            lines.append(
+                f"- {date_time} | "
+                f"temp={temperature}, hum={humidity}, light={light}, volt={voltage}"
+            )
 
         context = "\n".join(lines)
-        print("[KONTEXT]:"+ context)
+        print("[ORGANIZER]:" + context)
         return {"context": context}

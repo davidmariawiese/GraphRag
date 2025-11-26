@@ -94,7 +94,8 @@ class QueryProcessor:
         response = self.llm.run(prompt=prompt)
 
         #Cypher Ausgeben
-        print("[QUERY_PROCESSOR]:"+ response)
+        print("[QUERY_PROCESSOR:]")
+        print(response)
 
         # Antwort extrahieren
         answer = response["replies"][0]

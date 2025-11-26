@@ -33,7 +33,7 @@ class Generator:
                 {{query}}
 
                 GRAPH CONTEXT:
-                {{documents}}
+                {{context}}
 
                 ANSWER:
                 Provide an accurate answer based strictly on the graph context. If insufficient data is available, say so clearly.
@@ -42,7 +42,7 @@ class Generator:
         )
 
         # Verbindung zur lokalen Ollama-API
-        self.llm = OllamaGenerator(model=model, url="http://ollama:11434", generation_kwargs={"num_predict": 64, "temperature": 0.2})
+        self.llm = OllamaGenerator(model=model, url="http://ollama:11434", generation_kwargs={"num_predict": 256, "temperature": 0.3})
 
     @component.output_types(answer=str)
     def run(self, context: str, query: str):
