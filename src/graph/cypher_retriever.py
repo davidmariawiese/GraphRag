@@ -13,6 +13,6 @@ class CypherRetriever:
 
         with self.driver.session() as session:
             result = session.run(cypher).data()
-
+        print(result)
         docs = [Document(content=str(r)) for r in result]
         return {"documents": docs}

@@ -26,3 +26,17 @@ def build_pipeline():
     pipeline.connect("organizer.context", "generator.context")
 
     return pipeline
+
+def run_pipeline(pipe, query: str):
+    """
+    Führt die Haystack-2.x-Pipeline aus und gibt die Antwort zurück.
+    """
+    result = pipe.run(
+        {
+            "query_processor": {"query": query},
+            "generator": {"query": query}
+        }
+    )
+
+    # Der Generator enthält die finale Antwort
+    return result["generator"]["answer"]
