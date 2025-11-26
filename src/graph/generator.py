@@ -1,42 +1,38 @@
-from typing import List
-from haystack import component, Document
-
-
-DEFAULT_GENERATOR_PROMPT = """
-Nutze den folgenden Graph-Kontext, um die Nutzerfrage präzise zu beantworten:
-
-{context}
-
-Nutzerfrage: {query}
-
-Antwort:
-"""
-
+# pipeline/generator.py
+from haystack import component
+from haystack.components.generators import OllamaGenerator
+from haystack.components.builders import PromptBuilder
 
 @component
 class Generator:
-    """
-    Nimmt eine Liste von Kontext-Dokumenten und eine Frage
-    und erzeugt eine natürliche Sprache Antwort.
-    """
 
-    def __init__(self):
-        # hier später: self.generator = OllamaGenerator(...) oder anderer LLM-Connector
-        ...
+    def __init__(self, model: str = "llama3"):
 
-    @component.output_types(answer=str)
-    def run(self, documents: List[Document], query: str):
-        # Kontext zusammenbauen
-        context_snippets = [doc.content for doc in documents]
-        context = "\n\n".join(context_snippets)
-
-        prompt = DEFAULT_GENERATOR_PROMPT.format(context=context, query=query)
-
-        # TODO: Echten LLM-Aufruf einbauen
-        # reply = self.generator.run(prompt=prompt)["replies"][0]
-        reply = (
-            "Dies ist eine Platzhalter-Antwort. "
-            "Hier würde der LLM basierend auf dem Kontext antworten."
+        # Prompt-Vorlage
+        self.prompt_builder = PromptBuilder(
+            template=(
+                "You are an expert IoT and Sensor-Data assistant.\n"
+                "Answer the question strictly based on the following context.\n\n"
+                "Context:\n{{context}}\n\n"
+                "Question: {{query}}\n"
+            )
         )
 
-        return {"answer": reply}
+        # Verbindung zur lokalen Ollama-API
+        self.llm = OllamaGenerator(model=model, url="http://ollama:11434", temperature=0.2)
+
+    @component.output_types(answer=str)
+    def run(self, context: str, query: str):
+
+        # Prompt erstellen
+        prompt = self.prompt_builder.run(
+            context=context, 
+            query=query
+        )["prompt"]
+
+        # LLM-Aufruf über Ollama
+        response = self.llm.run(prompt=prompt)
+
+        # Antwort extrahieren
+        answer = response["replies"][0]
+        return {"answer": answer}
