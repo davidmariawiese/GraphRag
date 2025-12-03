@@ -11,32 +11,24 @@ class Generator:
         # Prompt-Vorlage
         self.prompt_builder = PromptBuilder(
             template=("""
-                You are a highly reliable assistant answering questions strictly from a Neo4j knowledge graph.
+                Du bist ein hilfreicher Assistent für einen IoT-Messdaten-Graphen.
+                Deine Aufgabe ist es, die Nutzerfrage präzise und natürlich auf Deutsch zu beantworten, basierend auf den bereitgestellten Daten.
 
-                RULES (must follow):
-                1. You must only use the information contained in the provided graph data (documents).
-                2. If information is missing, incomplete, or ambiguous, explicitly state that it is not available.
-                3. Do not infer or guess any values, relationships, or interpretations that cannot be directly confirmed.
-                4. Do not fabricate measurements, timestamps, or sensor attributes.
-                5. When measurements are shown, interpret them exactly as given.
-                6. Always separate what "is in the graph" from what "is not in the graph".
+                REGELN:
+                1. Nutze AUSSCHLIESSLICH die Informationen aus dem Abschnitt "GRAPH CONTEXT".
+                2. Erfinde keine Daten. Wenn der Kontext leer ist oder die Antwort nicht enthält, sage: "Dazu liegen mir keine Daten vor."
+                3. Fasse die Messwerte sinnvoll zusammen (z.B. "Es gibt 5 Messungen im Zeitraum X" oder "Die Temperatur lag zwischen A und B").
+                4. Nenne konkrete Werte (Temperatur, Zeit, Sensor-ID), wenn danach gefragt wird.
+                5. Antworte immer auf Deutsch.
+                6. Der Sensorname ist eine ID(mote_id)
 
-                GRAPH SCHEMA (for context):
-                Nodes:
-                - Sensor, Measurement, Epoch, Date, Week, Hour, Minute
-
-                Edges:
-                - GENERATED, EPOCH_IN, AT_DATE, AT_WEEK, AT_HOUR, AT_MINUTE, 
-                HAS_DATE, HAS_HOUR, HAS_MINUTE
-
-                QUESTION:
+                NUTZERFRAGE:
                 {{query}}
 
-                GRAPH CONTEXT:
+                GRAPH CONTEXT (Gefundene Daten):
                 {{context}}
 
-                ANSWER:
-                Provide an accurate answer based strictly on the graph context. If insufficient data is available, say so clearly.
+                ANTWORT:
                 """
             )
         )

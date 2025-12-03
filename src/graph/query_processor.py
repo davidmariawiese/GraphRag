@@ -56,13 +56,13 @@ class QueryProcessor:
                         Which sensors measured in epoch 2?
                         Cypher:
                         MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 2})
-                        RETURN DISTINCT s
+                        RETURN DISTINCT s,e
 
                         User question:
                         Show all Measurements of sensor 12 on date "2025-01-03".
                         Cypher:
                         MATCH (s:Sensor {mote_id: 12})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: "2025-01-03"})
-                        RETURN m
+                        RETURN m,s
 
                         User question:
                         Which hours and minutes belong to epoch 1?
