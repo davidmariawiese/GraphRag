@@ -17,13 +17,16 @@ class Generator:
                 REGELN:
                 1. Nutze AUSSCHLIESSLICH die Informationen aus dem Abschnitt "GRAPH CONTEXT".
                 2. Erfinde keine Daten. Wenn der Kontext leer ist oder die Antwort nicht enthält, sage: "Dazu liegen mir keine Daten vor."
-                3. Fasse die Messwerte sinnvoll zusammen (z.B. "Es gibt 5 Messungen im Zeitraum X" oder "Die Temperatur lag zwischen A und B").
+                3. Bitte 
                 4. Nenne konkrete Werte (Temperatur, Zeit, Sensor-ID), wenn danach gefragt wird.
                 5. Antworte immer auf Deutsch.
                 6. Der Sensorname ist eine ID(mote_id)
 
                 NUTZERFRAGE:
                 {{query}}
+                
+                HINTERGRUND-QUERY (Cypher):
+                {{cypher_query}}
 
                 GRAPH CONTEXT (Gefundene Daten):
                 {{context}}
@@ -34,17 +37,20 @@ class Generator:
         )
 
         # Verbindung zur lokalen Ollama-API
-        self.llm = OllamaGenerator(model=model, url="http://ollama:11434", generation_kwargs={"num_predict": 256, "temperature": 0.3})
+        self.llm = OllamaGenerator(model=model, url="http://ollama:11434", generation_kwargs={"num_predict": 256, "temperature": 0.4})
 
     @component.output_types(answer=str)
-    def run(self, context: str, query: str):
+    def run(self, context: str, query: str, cypher_query: str = "N/A"):
 
         # Prompt erstellen
         prompt = self.prompt_builder.run(
             context=context, 
-            query=query
+            query=query,
+            cypher_query=cypher_query
         )["prompt"]
 
+        # print("[GENERATOR]:")
+        # print(prompt)
         # LLM-Aufruf über Ollama
         response = self.llm.run(prompt=prompt)
 

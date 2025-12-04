@@ -21,6 +21,7 @@ class QueryProcessor:
                         6. Always use short lowercase aliases (s, m, e, d, w, h, mi).
                         7. Do not invent labels, properties, or relationships that are not listed below.
                         8. If the question is ambiguous, choose the simplest correct interpretation.
+                        9. Do not use leading zeros for integer values (e.g. use `4` instead of `04`).
 
                         GRAPH SCHEMA:
                         Node labels and properties:

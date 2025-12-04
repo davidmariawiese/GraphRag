@@ -1,6 +1,4 @@
-# pipeline/build.py
 from haystack import Pipeline
-
 from .query_processor import QueryProcessor
 from .cypher_retriever import CypherRetriever
 from .organizer import Organizer
@@ -24,7 +22,7 @@ def build_pipeline():
     pipeline.connect("query_processor.cypher", "retriever.cypher")
     pipeline.connect("retriever.documents", "organizer.documents")
     pipeline.connect("organizer.context", "generator.context")
-
+    pipeline.connect("query_processor.cypher", "generator.cypher_query") 
     return pipeline
 
 def run_pipeline(pipe, query: str):
