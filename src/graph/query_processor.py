@@ -1,6 +1,11 @@
 from haystack import component
 from haystack_integrations.components.generators.ollama import OllamaGenerator
 from haystack.components.builders import PromptBuilder
+import os
+
+
+def _debug_enabled() -> bool:
+    return os.getenv("GRAPH_RAG_DEBUG", "").strip().lower() in {"1", "true", "yes", "on"}
 
 @component
 class QueryProcessor:
@@ -78,7 +83,8 @@ class QueryProcessor:
                         {{query}}
 
                         """
-            )
+            ),
+            required_variables=["query"]
         )
 
         # Verbindung zur lokalen Ollama-API
@@ -87,16 +93,26 @@ class QueryProcessor:
 
     @component.output_types(cypher=str)
     def run(self, query: str):
+
+        if _debug_enabled():
+            print("\n[query_processor] input.query:")
+            print(query)
         
         # Prompt erstellen
         prompt = self.prompt_builder.run(query=query)["prompt"]
+
+        if _debug_enabled():
+            preview = prompt[:600].rstrip()
+            suffix = "..." if len(prompt) > 600 else ""
+            print("[query_processor] input.prompt_preview:")
+            print(preview + suffix)
 
         # LLM-Aufruf über Ollama
         response = self.llm.run(prompt=prompt)
 
         #Cypher Ausgeben
-        print("[QUERY_PROCESSOR:]")
-        print(response)
+        # print("[QUERY_PROCESSOR:]")
+        # print(response)
 
         # Antwort extrahieren
         answer = response["replies"][0]

@@ -1,6 +1,11 @@
 from haystack import component
 from haystack.dataclasses import Document
 from neo4j import GraphDatabase
+import os
+
+
+def _debug_enabled() -> bool:
+    return os.getenv("GRAPH_RAG_DEBUG", "").strip().lower() in {"1", "true", "yes", "on"}
 
 @component
 class CypherRetriever:
@@ -11,8 +16,12 @@ class CypherRetriever:
     @component.output_types(documents=list)
     def run(self, cypher: str):
 
+        if _debug_enabled():
+            print("\n[retriever] input.cypher:")
+            print(cypher)
+
         with self.driver.session() as session:
             result = session.run(cypher).data()
-        print(result)
+        # print(result)
         docs = [Document(content=str(r)) for r in result]
         return {"documents": docs}

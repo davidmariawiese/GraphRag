@@ -1,5 +1,6 @@
 from haystack import component
 import json
+import os
 from statistics import mean
 from typing import List, Dict, Any
 
@@ -12,8 +13,9 @@ class Organizer:
     - Entscheidet basierend auf 'threshold_k' zwischen Detailansicht und Zusammenfassung.
     """
 
-    def __init__(self, threshold_k: int = 10):
+    def __init__(self, threshold_k: int = 10, float_precision: int | None = None):
         self.threshold_k = threshold_k
+        self.float_precision = float_precision
         
         self.alias_map = {
             "s": "Sensor",
@@ -25,8 +27,35 @@ class Organizer:
             "mi": "Minute"
         }
 
+        # When Cypher returns scalar projections like `m.temperature AS m.temperature`
+        # (or without an alias), these often appear as dotted keys.
+        # We normalize common entity-prefixed keys into stable column names.
+        self._flatten_key_prefixes = {
+            "Measurement": {"temperature", "humidity", "light", "voltage", "mote_id", "moteid"},
+            "Sensor": {"mote_id", "moteid"},
+            "Date": {"date"},
+            "Week": {"week"},
+            "Hour": {"hour"},
+            "Minute": {"minute"},
+            "Epoch": {"epoch_id"},
+        }
+
     @component.output_types(context=str)
     def run(self, documents: list):
+        if os.getenv("GRAPH_RAG_DEBUG", "").strip().lower() in {"1", "true", "yes", "on"}:
+            print("\n[organizer] input.documents:")
+            try:
+                total = len(documents) if isinstance(documents, list) else 0
+            except Exception:
+                total = 0
+            print(f"documents_total={total}")
+            if isinstance(documents, list) and documents:
+                for i, d in enumerate(documents[:5], start=1):
+                    content = getattr(d, "content", None)
+                    if isinstance(content, str) and len(content) > 500:
+                        content = content[:500].rstrip() + "..."
+                    print(f"- doc[{i}] content: {content}")
+
         raw_data = self._parse_documents(documents)
         
         if not raw_data:
@@ -46,8 +75,8 @@ class Organizer:
             context_lines.append(self._create_summary_view(mapped_data))
 
         final_context = "\n".join(context_lines)
-        print("[ORGANIZER]:")
-        print(final_context)
+        # print("[ORGANIZER]:")
+        # print(final_context)
         return {"context": final_context}
 
     def _parse_documents(self, documents) -> List[Dict[str, Any]]:
@@ -71,9 +100,43 @@ class Organizer:
     def _map_aliases(self, record: Dict[str, Any]) -> Dict[str, Any]:
         new_record = {}
         for key, value in record.items():
-            new_key = self.alias_map.get(key, key)
+            # Handle both entity aliases (e.g. `m`) and dotted projections (e.g. `m.temperature`).
+            if isinstance(key, str) and "." in key:
+                prefix, suffix = key.split(".", 1)
+                mapped_prefix = self.alias_map.get(prefix, prefix)
+                new_key = f"{mapped_prefix}.{suffix}"
+            else:
+                new_key = self.alias_map.get(key, key)
             new_record[new_key] = value
         return new_record
+
+    def _format_scalar(self, value: Any) -> str:
+        if value is None:
+            return "-"
+        if isinstance(value, float):
+            # Do not apply any fixed rounding. Use Python's shortest round-trip representation.
+            if self.float_precision is None:
+                return str(value)
+
+            # Optional: allow rounding if explicitly configured.
+            formatted = format(value, f".{self.float_precision}f")
+            if "." in formatted:
+                formatted = formatted.rstrip("0").rstrip(".")
+            return formatted
+        return str(value)
+
+    def _normalize_column_key(self, key: str) -> str:
+        if not isinstance(key, str) or "." not in key:
+            return key
+        prefix, suffix = key.split(".", 1)
+
+        allowed_suffixes = self._flatten_key_prefixes.get(prefix)
+        if allowed_suffixes and suffix in allowed_suffixes:
+            # Prefer stable, user-friendly column names.
+            if suffix in {"moteid", "mote_id"}:
+                return "SensorID"
+            return suffix
+        return key
 
     def _create_markdown_table(self, data: List[Dict[str, Any]]) -> str:
         """
@@ -90,14 +153,19 @@ class Organizer:
             sensor = record.get("Sensor", {})
             meas = record.get("Measurement", {})
             
-            sensor_id = sensor.get("mote_id") or meas.get("moteid")
+            sensor_id = (
+                sensor.get("mote_id")
+                or sensor.get("moteid")
+                or meas.get("mote_id")
+                or meas.get("moteid")
+            )
             if sensor_id:
                 row["SensorID"] = sensor_id
             
             if meas:
                 for k, v in meas.items():
                     if k != "moteid":
-                        row[k] = v
+                        row[self._normalize_column_key(k)] = v
 
             # 2. Andere Entitäten und flache Werte (Aggregationen)
             for key, val in record.items():
@@ -107,10 +175,10 @@ class Organizer:
                 if isinstance(val, dict):
                     # Verschachtelte Objekte (z.B. Date {date: ...})
                     for sub_k, sub_v in val.items():
-                        row[f"{key}.{sub_k}"] = sub_v
+                        row[self._normalize_column_key(f"{key}.{sub_k}")] = sub_v
                 else:
                     # Flache Werte (z.B. max_humidity: 41.4)
-                    row[key] = val
+                    row[self._normalize_column_key(key)] = val
             
             flattened_rows.append(row)
             all_keys.update(row.keys())
@@ -133,10 +201,7 @@ class Organizer:
         for row in flattened_rows:
             values = []
             for col in sorted_cols:
-                val = row.get(col, "-")
-                if isinstance(val, float):
-                    val = f"{val:.2f}"
-                values.append(str(val))
+                values.append(self._format_scalar(row.get(col, None)))
             lines.append("| " + " | ".join(values) + " |")
 
         return "\n".join(lines)
@@ -167,7 +232,13 @@ class Organizer:
             if not meas: continue
             
             sensor_node = record.get("Sensor", {})
-            sensor_id = sensor_node.get("mote_id") or meas.get("moteid") or "Unknown"
+            sensor_id = (
+                sensor_node.get("mote_id")
+                or sensor_node.get("moteid")
+                or meas.get("mote_id")
+                or meas.get("moteid")
+                or "Unknown"
+            )
 
             if sensor_id not in sensor_stats:
                 sensor_stats[sensor_id] = {
@@ -189,7 +260,9 @@ class Organizer:
                     _min = min(values)
                     _max = max(values)
                     _avg = mean(values)
-                    lines.append(f"- *{field_name}*: Min={_min:.2f} | Max={_max:.2f} | Avg={_avg:.2f}")
+                    lines.append(
+                        f"- *{field_name}*: Min={self._format_scalar(_min)} | Max={self._format_scalar(_max)} | Avg={self._format_scalar(_avg)}"
+                    )
             if not stats_found:
                 lines.append("- Keine numerischen Daten.")
             lines.append("")

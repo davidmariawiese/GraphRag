@@ -1,8 +1,9 @@
 from haystack import Pipeline
 from .query_processor import QueryProcessor
-from .cypher_retriever import CypherRetriever
+from .retriever import CypherRetriever
 from .organizer import Organizer
 from .generator import Generator
+import os
 
 
 def build_pipeline():
@@ -25,16 +26,28 @@ def build_pipeline():
     pipeline.connect("query_processor.cypher", "generator.cypher_query") 
     return pipeline
 
-def run_pipeline(pipe, query: str):
-    """
-    Führt die Haystack-2.x-Pipeline aus und gibt die Antwort zurück.
-    """
-    result = pipe.run(
-        {
-            "query_processor": {"query": query},
-            "generator": {"query": query}
-        }
-    )
+def run_pipeline(pipe, query: str, debug: bool = False):
+    """Führt die Haystack-2.x-Pipeline aus und gibt die Antwort zurück.
 
-    # Der Generator enthält die finale Antwort
-    return result["generator"]["answer"]
+    Wenn `debug=True`, geben alle Komponenten live ihre Inputs auf stdout aus.
+    """
+    env_key = "GRAPH_RAG_DEBUG"
+    prev = os.environ.get(env_key)
+    try:
+        if debug:
+            os.environ[env_key] = "1"
+        else:
+            os.environ.pop(env_key, None)
+
+        result = pipe.run(
+            {
+                "query_processor": {"query": query},
+                "generator": {"query": query},
+            }
+        )
+        return result["generator"]["answer"]
+    finally:
+        if prev is None:
+            os.environ.pop(env_key, None)
+        else:
+            os.environ[env_key] = prev
