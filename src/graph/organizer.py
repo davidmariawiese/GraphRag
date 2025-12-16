@@ -95,8 +95,9 @@ class Organizer:
 
     def _group_data(self, data: List[Dict[str, Any]]) -> Dict[str, Dict[str, List[Tuple[datetime, float]]]]:
         grouped = {}
+        base_time = datetime.utcnow()
         
-        for record in data:
+        for idx, record in enumerate(data):
             # Resolve aliases
             mapped = self._map_aliases(record)
             
@@ -127,7 +128,8 @@ class Organizer:
             # Try explicit time field, or construct from Date/Hour/Minute if available
             ts = self._extract_timestamp(mapped, meas)
             if not ts:
-                continue
+                # If no temporal info, synthesize a stable ordering timestamp
+                ts = base_time + timedelta(seconds=idx)
 
             if sensor_id not in grouped:
                 grouped[sensor_id] = {}

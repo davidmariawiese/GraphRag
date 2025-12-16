@@ -71,8 +71,6 @@ class Generator:
             cypher_query=cypher_query
         )["prompt"]
 
-        # print("[GENERATOR]:")
-        # print(prompt)
         # LLM-Aufruf über Ollama
         response = self.llm.run(prompt=prompt)
 

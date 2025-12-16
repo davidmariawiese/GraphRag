@@ -2,6 +2,7 @@ from haystack import component
 from haystack.dataclasses import Document
 from neo4j import GraphDatabase
 import os
+import json
 from typing import List
 
 
@@ -23,6 +24,13 @@ class CypherRetriever:
 
         with self.driver.session() as session:
             result = session.run(cypher).data()
-        # print(result)
-        docs = [Document(content=str(r)) for r in result]
+
+        # Serialize Neo4j rows as JSON strings to keep structure and ensure organizer can parse
+        docs = []
+        for row in result:
+            try:
+                docs.append(Document(content=json.dumps(row)))
+            except Exception:
+                # Fallback: plain string serialization
+                docs.append(Document(content=str(row)))
         return {"documents": docs}
