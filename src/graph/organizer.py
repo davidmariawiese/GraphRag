@@ -13,9 +13,15 @@ class Organizer:
     - Entscheidet basierend auf 'threshold_k' zwischen Detailansicht und Zusammenfassung.
     """
 
-    def __init__(self, threshold_k: int = 10, float_precision: int | None = None):
-        self.threshold_k = threshold_k
-        self.float_precision = float_precision
+    def __init__(self, threshold_k: int | None = None, float_precision: int | None = None):
+        
+        self.threshold_k = threshold_k if threshold_k is not None else int(os.getenv("ORGANIZER_THRESHOLD_K", "10"))
+        
+        if float_precision is not None:
+            self.float_precision = float_precision
+        else:
+            env_prec = os.getenv("ORGANIZER_FLOAT_PRECISION", "")
+            self.float_precision = int(env_prec) if env_prec.strip() else None
         
         self.alias_map = {
             "s": "Sensor",
@@ -42,7 +48,7 @@ class Organizer:
 
     @component.output_types(context=str)
     def run(self, documents: list):
-        if os.getenv("GRAPH_RAG_DEBUG", "").strip().lower() in {"1", "true", "yes", "on"}:
+        if os.getenv("GRAPH_RAG_DEBUG") == "true":
             print("\n[organizer] input.documents:")
             try:
                 total = len(documents) if isinstance(documents, list) else 0
@@ -245,24 +251,63 @@ class Organizer:
                     "temperature": [], "humidity": [], "light": [], "voltage": []
                 }
             
+            # Versuche Zeitstempel zu finden (für Trend-Analyse)
+            timestamp = meas.get("time") or record.get("time")
+
             for field in ["temperature", "humidity", "light", "voltage"]:
                 val = meas.get(field)
                 if val is not None and isinstance(val, (int, float)):
-                    sensor_stats[sensor_id][field].append(val)
+                    # Speichere (Wert, Zeitstempel)
+                    sensor_stats[sensor_id][field].append((val, timestamp))
 
         lines = []
         for sid, fields in sensor_stats.items():
-            lines.append(f"**Sensor {sid}**:")
+            # Count total measurements for this sensor
+            count = 0
+            for fvals in fields.values():
+                if len(fvals) > count:
+                    count = len(fvals)
+
+            lines.append(f"**Sensor {sid}** ({count} Messwerte):")
             stats_found = False
-            for field_name, values in fields.items():
-                if values:
+            
+            for field_name, values_with_time in fields.items():
+                if values_with_time:
                     stats_found = True
-                    _min = min(values)
-                    _max = max(values)
-                    _avg = mean(values)
-                    lines.append(
-                        f"- *{field_name}*: Min={self._format_scalar(_min)} | Max={self._format_scalar(_max)} | Avg={self._format_scalar(_avg)}"
-                    )
+                    
+                    # Werte extrahieren
+                    values_only = [v[0] for v in values_with_time]
+                    
+                    # Min/Max/Avg berechnen
+                    _min_tuple = min(values_with_time, key=lambda x: x[0])
+                    _max_tuple = max(values_with_time, key=lambda x: x[0])
+                    _avg = mean(values_only)
+                    
+                    min_val, min_ts = _min_tuple
+                    max_val, max_ts = _max_tuple
+                    
+                    # Formatierung
+                    min_str = self._format_scalar(min_val)
+                    if min_ts:
+                        min_str += f" (@{min_ts})"
+                        
+                    max_str = self._format_scalar(max_val)
+                    if max_ts:
+                        max_str += f" (@{max_ts})"
+                        
+                    line = f"- *{field_name}*: Min={min_str} | Max={max_str} | Avg={self._format_scalar(_avg)}"
+
+                    # Trend-Analyse (Start -> Ende), falls Zeitstempel vorhanden
+                    valid_times = [vt for vt in values_with_time if vt[1]]
+                    if len(valid_times) > 1:
+                        # Sortiere nach Zeit
+                        sorted_by_time = sorted(valid_times, key=lambda x: x[1])
+                        start_val = sorted_by_time[0][0]
+                        end_val = sorted_by_time[-1][0]
+                        line += f" | Trend: {self._format_scalar(start_val)} -> {self._format_scalar(end_val)}"
+                    
+                    lines.append(line)
+
             if not stats_found:
                 lines.append("- Keine numerischen Daten.")
             lines.append("")

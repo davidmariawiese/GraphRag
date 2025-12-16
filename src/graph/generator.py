@@ -6,12 +6,16 @@ import os
 
 
 def _debug_enabled() -> bool:
-    return os.getenv("GRAPH_RAG_DEBUG", "").strip().lower() in {"1", "true", "yes", "on"}
+    return os.getenv("GRAPH_RAG_DEBUG") == "true"
 
 @component
 class Generator:
 
-    def __init__(self, model: str = "llama3.1:8b"):
+    def __init__(self, model: str | None = None):
+        
+        # Prefer specific generator model, fallback to general model, then default
+        model_name = model or os.getenv("OLLAMA_GENERATOR_MODEL") or os.getenv("OLLAMA_MODEL", "llama3.1:8b")
+        ollama_url = os.getenv("OLLAMA_URL", "http://ollama:11434")
 
         # Prompt-Vorlage
         self.prompt_builder = PromptBuilder(
@@ -22,7 +26,7 @@ class Generator:
                 REGELN:
                 1. Nutze AUSSCHLIESSLICH die Informationen aus dem Abschnitt "GRAPH CONTEXT".
                 2. Erfinde keine Daten. Wenn der Kontext leer ist oder die Antwort nicht enthält, sage: "Dazu liegen mir keine Daten vor."
-                3. Bitte antworte neutral und sachlich
+                3. Antworte direkt und ohne Einleitung wie "Ich kann dir helfen" oder "Hier ist die Antwort".
                 4. Nenne konkrete Werte (Temperatur, Zeit, Sensor-ID), wenn danach gefragt wird.
                 5. Antworte immer auf Deutsch.
                 6. Der Sensorname ist eine ID(mote_id)
@@ -43,7 +47,7 @@ class Generator:
         )
 
         # Verbindung zur lokalen Ollama-API
-        self.llm = OllamaGenerator(model=model, url="http://ollama:11434", generation_kwargs={"num_predict": 256, "temperature": 0.0})
+        self.llm = OllamaGenerator(model=model_name, url=ollama_url, generation_kwargs={"num_predict": 256, "temperature": 0.0})
 
     @component.output_types(answer=str)
     def run(self, context: str, query: str, cypher_query: str = "N/A"):

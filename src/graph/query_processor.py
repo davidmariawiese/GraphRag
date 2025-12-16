@@ -5,12 +5,16 @@ import os
 
 
 def _debug_enabled() -> bool:
-    return os.getenv("GRAPH_RAG_DEBUG", "").strip().lower() in {"1", "true", "yes", "on"}
+    return os.getenv("GRAPH_RAG_DEBUG") == "true"
 
 @component
 class QueryProcessor:
 
-    def __init__(self, model: str = "llama3.1:8b"):
+    def __init__(self, model: str | None = None):
+        
+        # Prefer specific query model, fallback to general model, then default
+        model_name = model or os.getenv("OLLAMA_QUERY_MODEL") or os.getenv("OLLAMA_MODEL", "llama3.1:8b")
+        ollama_url = os.getenv("OLLAMA_URL", "http://ollama:11434")
 
         # Prompt-Vorlage
         self.prompt_builder = PromptBuilder(
@@ -88,7 +92,7 @@ class QueryProcessor:
         )
 
         # Verbindung zur lokalen Ollama-API
-        self.llm = OllamaGenerator(model=model, url="http://ollama:11434", generation_kwargs={"num_predict": 128, "temperature": 0.0})
+        self.llm = OllamaGenerator(model=model_name, url=ollama_url, generation_kwargs={"num_predict": 128, "temperature": 0.0})
 
 
     @component.output_types(cypher=str)

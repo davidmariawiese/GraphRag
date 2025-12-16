@@ -5,7 +5,7 @@ import os
 
 
 def _debug_enabled() -> bool:
-    return os.getenv("GRAPH_RAG_DEBUG", "").strip().lower() in {"1", "true", "yes", "on"}
+    return os.getenv("GRAPH_RAG_DEBUG") == "true"
 
 @component
 class CypherRetriever:

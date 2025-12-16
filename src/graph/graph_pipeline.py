@@ -4,6 +4,9 @@ from .retriever import CypherRetriever
 from .organizer import Organizer
 from .generator import Generator
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def build_pipeline():
@@ -12,9 +15,9 @@ def build_pipeline():
 
     pipeline.add_component("query_processor", QueryProcessor())
     pipeline.add_component("retriever", CypherRetriever(
-        uri="bolt://neo4j:7687",
-        user="neo4j",
-        password="password"
+        uri=os.getenv("NEO4J_URI", "bolt://neo4j:7687"),
+        user=os.getenv("NEO4J_USER", "neo4j"),
+        password=os.getenv("NEO4J_PASSWORD", "password")
     ))
     pipeline.add_component("organizer", Organizer())
     pipeline.add_component("generator", Generator())
@@ -26,18 +29,27 @@ def build_pipeline():
     pipeline.connect("query_processor.cypher", "generator.cypher_query") 
     return pipeline
 
-def run_pipeline(pipe, query: str, debug: bool = False):
+def run_pipeline(pipe, query: str, debug: bool | None = None):
     """Führt die Haystack-2.x-Pipeline aus und gibt die Antwort zurück.
 
-    Wenn `debug=True`, geben alle Komponenten live ihre Inputs auf stdout aus.
+    Wenn `debug=True` (oder via env GRAPH_RAG_DEBUG), geben alle Komponenten live ihre Inputs auf stdout aus.
     """
     env_key = "GRAPH_RAG_DEBUG"
+    
+    # Determine effective debug state: arg overrides env, env defaults to False
+    if debug is None:
+        should_debug = os.getenv(env_key) == "true"
+    else:
+        should_debug = debug
+
     prev = os.environ.get(env_key)
     try:
-        if debug:
+        if should_debug:
             os.environ[env_key] = "1"
         else:
-            os.environ.pop(env_key, None)
+            # Ensure it's off for this run if explicitly disabled or default off
+            if env_key in os.environ:
+                os.environ.pop(env_key)
 
         result = pipe.run(
             {
@@ -47,6 +59,7 @@ def run_pipeline(pipe, query: str, debug: bool = False):
         )
         return result["generator"]["answer"]
     finally:
+        # Restore original environment state
         if prev is None:
             os.environ.pop(env_key, None)
         else:
