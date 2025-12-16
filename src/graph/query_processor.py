@@ -105,18 +105,14 @@ class QueryProcessor:
         # Prompt erstellen
         prompt = self.prompt_builder.run(query=query)["prompt"]
 
-        if _debug_enabled():
-            preview = prompt[:600].rstrip()
-            suffix = "..." if len(prompt) > 600 else ""
-            print("[query_processor] input.prompt_preview:")
-            print(preview + suffix)
-
         # LLM-Aufruf über Ollama
         response = self.llm.run(prompt=prompt)
 
-        #Cypher Ausgeben
-        # print("[QUERY_PROCESSOR:]")
-        # print(response)
+        cypher = response["replies"][0]
+
+        if _debug_enabled():
+            print("[query_processor] output.cypher:")
+            print(cypher)
 
         # Antwort extrahieren
         answer = response["replies"][0]

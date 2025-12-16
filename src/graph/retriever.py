@@ -33,4 +33,15 @@ class CypherRetriever:
             except Exception:
                 # Fallback: plain string serialization
                 docs.append(Document(content=str(row)))
+
+        if _debug_enabled():
+            print("[retriever] output.documents_total:", len(docs))
+            if docs:
+                try:
+                    preview = docs[0].content
+                    suffix = "" if len(preview) <= 800 else "..."
+                    print("[retriever] output.first_document:")
+                    print(preview[:800] + suffix)
+                except Exception:
+                    print("[retriever] output.first_document: <unprintable>")
         return {"documents": docs}

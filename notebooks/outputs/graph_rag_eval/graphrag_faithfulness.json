@@ -2,9 +2,9 @@
   "summary": {
     "samples": 30,
     "exact_match": 0.0,
-    "avg_f1": 0.1757,
-    "faithfulness_score": 0.2856,
-    "hallucination_rate": 0.7144,
+    "avg_f1": 0.1259,
+    "faithfulness_score": 0.3222,
+    "hallucination_rate": 0.6778,
     "faithfulness_valid_samples": 30,
     "judge_model": "llama3.1:8b",
     "ollama_url": "http://ollama:11434",
@@ -56,7 +56,7 @@
     {
       "id": 2,
       "category": "factual",
-      "question": "Welche Temperatur hat Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen?",
+      "question": "Welche Luftfeuchtigkeit hat Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen?",
       "gold_answer": "Sensor 1 hat am 2004-02-28 um 00:59:16.02785 eine Temperatur von 19.9884 Grad gemessen.",
       "prediction": "Dazu liegen mir keine Daten vor.",
       "context": "",
@@ -65,34 +65,36 @@
       "faithfulness": 0.0,
       "faithfulness_details": {
         "statements": [
-          "Welche Temperatur hat Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen?"
+          "Welche Luftfeuchtigkeit hat Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen?",
+          "Dazu liegen mir keine Daten vor."
         ],
         "statement_scores": [
+          0,
           0
         ],
         "score": 0.0
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (s:Sensor {mote_id: 1})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 0})-[:HAS_MINUTE]->(mi:Minute {minute: 59})\nRETURN m.temperature AS temperature"
+          "cypher": "MATCH (s:Sensor {mote_id: 1})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 0})-[:HAS_MINUTE]->(mi:Minute {minute: 59})\nRETURN m.voltage AS Luftfeuchtigkeit"
         },
         "retriever": {
           "documents_total": 4,
           "documents": [
             {
-              "content": "{\"temperature\": 19.1652}",
+              "content": "{\"Luftfeuchtigkeit\": 2.68742}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 19.175}",
+              "content": "{\"Luftfeuchtigkeit\": 2.69964}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 19.9884}",
+              "content": "{\"Luftfeuchtigkeit\": 2.69964}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 19.3024}",
+              "content": "{\"Luftfeuchtigkeit\": 2.68742}",
               "meta": {}
             }
           ]
@@ -108,33 +110,33 @@
     {
       "id": 3,
       "category": "factual",
-      "question": "Welche Temperatur hat Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen?",
+      "question": "Welche Spannung hat Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen?",
       "gold_answer": "Sensor 2 hat am 2004-04-01 um 04:34:48.130427 eine Temperatur von 89.5488 Grad gemessen.",
-      "prediction": "Die Temperatur, die Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen hat, beträgt 89,5488 Grad Celsius.",
+      "prediction": "Die Spannung, die Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen hat, beträgt 1,95368 Volt.",
       "context": "",
       "exact_match": false,
-      "f1": 0.8500000000000001,
-      "faithfulness": 1.0,
+      "f1": 0.6666666666666667,
+      "faithfulness": 0.0,
       "faithfulness_details": {
         "statements": [
-          "Die Temperatur, die Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen hat.",
-          "beträgt 89,5488 Grad Celsius."
+          "Die Spannung, die Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen hat.",
+          "beträgt 1,95368 Volt."
         ],
         "statement_scores": [
-          1,
-          1
+          0,
+          0
         ],
-        "score": 1.0
+        "score": 0.0
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (s:Sensor {mote_id: 2})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-04-01\"})-[:HAS_HOUR]->(h:Hour {hour: 4})-[:HAS_MINUTE]->(mi:Minute {minute: 34})\nRETURN m.temperature"
+          "cypher": "MATCH (s:Sensor {mote_id: 2})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-04-01\"})-[:HAS_HOUR]->(h:Hour {hour: 4})-[:HAS_MINUTE]->(mi:Minute {minute: 34})\nRETURN m.voltage"
         },
         "retriever": {
           "documents_total": 1,
           "documents": [
             {
-              "content": "{\"m.temperature\": 89.5488}",
+              "content": "{\"m.voltage\": 1.95368}",
               "meta": {}
             }
           ]
@@ -143,14 +145,14 @@
           "context": ""
         },
         "generator": {
-          "answer": "Die Temperatur, die Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen hat, beträgt 89,5488 Grad Celsius."
+          "answer": "Die Spannung, die Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen hat, beträgt 1,95368 Volt."
         }
       }
     },
     {
       "id": 4,
       "category": "factual",
-      "question": "Welche Temperatur hat Sensor 3 am 2004-03-31 um 02:58:45.763421 gemessen?",
+      "question": "Welche Helligkeit hat Sensor 3 am 2004-03-31 um 02:58:45.763421 gemessen?",
       "gold_answer": "Sensor 3 hat am 2004-03-31 um 02:58:45.763421 eine Temperatur von 122.153 Grad gemessen.",
       "prediction": "Dazu liegen mir keine Daten vor.",
       "context": "",
@@ -159,7 +161,7 @@
       "faithfulness": 0.0,
       "faithfulness_details": {
         "statements": [
-          "Welche Temperatur hat Sensor 3 am 2004-03-31 um 02:58:45.763421 gemessen?",
+          "Welche Helligkeit hat Sensor 3 am 2004-03-31 um 02:58:45.763421 gemessen?",
           "Dazu liegen mir keine Daten vor."
         ],
         "statement_scores": [
@@ -170,13 +172,13 @@
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-31\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 58})\nRETURN m.temperature AS temperature"
+          "cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-31\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 58})\nRETURN m.light AS light"
         },
         "retriever": {
           "documents_total": 1,
           "documents": [
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"light\": 19.32}",
               "meta": {}
             }
           ]
@@ -194,7 +196,7 @@
       "category": "factual",
       "question": "Welche Temperatur hat Sensor 3 am 2004-02-28 um 00:58:46.497331 gemessen?",
       "gold_answer": "Sensor 3 hat am 2004-02-28 um 00:58:46.497331 eine Temperatur von 20.204 Grad gemessen.",
-      "prediction": "Die Temperatur, die Sensor 3 am 2004-02-28 um 00:58:46.497331 gemessen hat, beträgt 19,3612 Grad Celsius.",
+      "prediction": "Die Temperatur, die Sensor 3 am 2004-02-28 um 00:58:46.497331 gemessen hat, beträgt 19,5138 Grad Celsius.",
       "context": "",
       "exact_match": false,
       "f1": 0.7500000000000001,
@@ -202,7 +204,7 @@
       "faithfulness_details": {
         "statements": [
           "Die Temperatur, die Sensor 3 am 2004-02-28 um 00:58:46.497331 gemessen hat.",
-          "beträgt 19,3612 Grad Celsius."
+          "beträgt 19,5138 Grad Celsius."
         ],
         "statement_scores": [
           1,
@@ -251,14 +253,14 @@
           "context": ""
         },
         "generator": {
-          "answer": "Die Temperatur, die Sensor 3 am 2004-02-28 um 00:58:46.497331 gemessen hat, beträgt 19,3612 Grad Celsius."
+          "answer": "Die Temperatur, die Sensor 3 am 2004-02-28 um 00:58:46.497331 gemessen hat, beträgt 19,5138 Grad Celsius."
         }
       }
     },
     {
       "id": 6,
       "category": "factual",
-      "question": "Welche Temperatur hat Sensor 3 am 2004-03-30 um 16:04:46.552435 gemessen?",
+      "question": "Welche Luftfeuchtigkeit hat Sensor 3 am 2004-03-30 um 16:04:46.552435 gemessen?",
       "gold_answer": "Sensor 3 hat am 2004-03-30 um 16:04:46.552435 eine Temperatur von 122.153 Grad gemessen.",
       "prediction": "Dazu liegen mir keine Daten vor.",
       "context": "",
@@ -267,50 +269,52 @@
       "faithfulness": 0.0,
       "faithfulness_details": {
         "statements": [
-          "Welche Temperatur hat Sensor 3 am 2004-03-30 um 16:04:46.552435 gemessen?"
+          "Welche Luftfeuchtigkeit hat Sensor 3 am 2004-03-30 um 16:04:46.552435 gemessen?",
+          "Dazu liegen mir keine Daten vor."
         ],
         "statement_scores": [
+          0,
           0
         ],
         "score": 0.0
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-30\"})-[:HAS_HOUR]->(h:Hour {hour: 16})-[:HAS_MINUTE]->(mi:Minute {minute: 4})\nRETURN m.temperature AS temperature"
+          "cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-30\"})-[:HAS_HOUR]->(h:Hour {hour: 16})-[:HAS_MINUTE]->(mi:Minute {minute: 4})\nRETURN m.voltage AS Luftfeuchtigkeit"
         },
         "retriever": {
           "documents_total": 8,
           "documents": [
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"Luftfeuchtigkeit\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"Luftfeuchtigkeit\": 2.12875}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"Luftfeuchtigkeit\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"Luftfeuchtigkeit\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"Luftfeuchtigkeit\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"Luftfeuchtigkeit\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"Luftfeuchtigkeit\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"Luftfeuchtigkeit\": 2.1364}",
               "meta": {}
             }
           ]
@@ -326,7 +330,7 @@
     {
       "id": 7,
       "category": "factual",
-      "question": "Welche Temperatur hat Sensor 3 am 2004-03-30 um 14:43:05.262873 gemessen?",
+      "question": "Welche Spannung hat Sensor 3 am 2004-03-30 um 14:43:05.262873 gemessen?",
       "gold_answer": "Sensor 3 hat am 2004-03-30 um 14:43:05.262873 eine Temperatur von 122.153 Grad gemessen.",
       "prediction": "Dazu liegen mir keine Daten vor.",
       "context": "",
@@ -335,7 +339,7 @@
       "faithfulness": 0.0,
       "faithfulness_details": {
         "statements": [
-          "Welche Temperatur hat Sensor 3 am 2004-03-30 um 14:43:05.262873 gemessen?",
+          "Welche Spannung hat Sensor 3 am 2004-03-30 um 14:43:05.262873 gemessen?",
           "Dazu liegen mir keine Daten vor."
         ],
         "statement_scores": [
@@ -346,41 +350,41 @@
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-30\"})-[:HAS_HOUR]->(h:Hour {hour: 14})-[:HAS_MINUTE]->(mi:Minute {minute: 43})\nRETURN m.temperature AS temperature"
+          "cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-30\"})-[:HAS_HOUR]->(h:Hour {hour: 14})-[:HAS_MINUTE]->(mi:Minute {minute: 43})\nRETURN m.voltage AS voltage"
         },
         "retriever": {
           "documents_total": 8,
           "documents": [
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"voltage\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"voltage\": 2.12875}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"voltage\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"voltage\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"voltage\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"voltage\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"voltage\": 2.1364}",
               "meta": {}
             },
             {
-              "content": "{\"temperature\": 122.153}",
+              "content": "{\"voltage\": 2.1364}",
               "meta": {}
             }
           ]
@@ -396,17 +400,17 @@
     {
       "id": 8,
       "category": "factual",
-      "question": "Welche Temperatur hat Sensor 4 am 2004-03-12 um 09:32:12.399288 gemessen?",
+      "question": "Welche Helligkeit hat Sensor 4 am 2004-03-12 um 09:32:12.399288 gemessen?",
       "gold_answer": "Sensor 4 hat am 2004-03-12 um 09:32:12.399288 eine Temperatur von 23.0558 Grad gemessen.",
-      "prediction": "Die Temperatur, die Sensor 4 am 2004-03-12 um 09:32:12.399288 gemessen hat, beträgt 23,0264 Grad Celsius.",
+      "prediction": "Dazu liegen mir keine Daten vor.",
       "context": "",
       "exact_match": false,
-      "f1": 0.8,
+      "f1": 0.0,
       "faithfulness": 0.0,
       "faithfulness_details": {
         "statements": [
-          "Die Temperatur, die Sensor 4 am 2004-03-12 um 09:32:12.399288 gemessen hat.",
-          "beträgt 23,0264 Grad Celsius."
+          "Welche Helligkeit hat Sensor 4 am 2004-03-12 um 09:32:12.399288 gemessen?",
+          "Dazu liegen mir keine Daten vor."
         ],
         "statement_scores": [
           0,
@@ -416,21 +420,21 @@
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (s:Sensor {mote_id: 4})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-12\"})-[:HAS_HOUR]->(h:Hour {hour: 9})-[:HAS_MINUTE]->(mi:Minute {minute: 32})\nRETURN m.temperature"
+          "cypher": "MATCH (s:Sensor {mote_id: 4})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-12\"})-[:HAS_HOUR]->(h:Hour {hour: 9})-[:HAS_MINUTE]->(mi:Minute {minute: 32})\nRETURN m.light AS light"
         },
         "retriever": {
           "documents_total": 3,
           "documents": [
             {
-              "content": "{\"m.temperature\": 22.9872}",
+              "content": "{\"light\": 368.0}",
               "meta": {}
             },
             {
-              "content": "{\"m.temperature\": 23.0558}",
+              "content": "{\"light\": 368.0}",
               "meta": {}
             },
             {
-              "content": "{\"m.temperature\": 23.0362}",
+              "content": "{\"light\": 368.0}",
               "meta": {}
             }
           ]
@@ -439,7 +443,7 @@
           "context": ""
         },
         "generator": {
-          "answer": "Die Temperatur, die Sensor 4 am 2004-03-12 um 09:32:12.399288 gemessen hat, beträgt 23,0264 Grad Celsius."
+          "answer": "Dazu liegen mir keine Daten vor."
         }
       }
     },
@@ -548,23 +552,21 @@
       "category": "trend",
       "question": "Wie entwickelt sich die Temperatur von Sensor 1 über alle seine Messungen?",
       "gold_answer": "Sensor 1 weist über alle Messungen eine durchschnittliche Temperatur von 71.071 Grad auf.",
-      "prediction": "Die Temperatur von Sensor 1 entwickelt sich über alle seine Messungen zunächst auf 19,1652 Grad Celsius am 16.12.2025 um 14:11 Uhr und steigt dann bis zu 122,153 Grad Celsius am 16.12.2025 um 14:11 Uhr. Der Durchschnittswert der Temperatur liegt bei 39,9568 Grad Celsius.",
+      "prediction": "Die Temperatur von Sensor 1 entwickelt sich über alle seine Messungen zunächst von 19,1652 Grad Celsius um 14:22:43 Uhr auf ein Maximum von 122,153 Grad Celsius um 14:22:47 Uhr. Der Trend zeigt eine steigende Entwicklung mit einer Steigung von 74444,04 Grad Celsius pro Stunde.",
       "context": "",
       "exact_match": false,
-      "f1": 0.27272727272727276,
-      "faithfulness": 0.0,
+      "f1": 0.3076923076923077,
+      "faithfulness": 1.0,
       "faithfulness_details": {
         "statements": [
-          "Die Temperatur von Sensor 1 entwickelt sich über alle seine Messungen zunächst auf 19,1652 Grad Celsius am 16.12.2025 um 14:11 Uhr.",
-          "Die Temperatur von Sensor 1 steigt dann bis zu 122,153 Grad Celsius am 16.12.2025 um 14:11 Uhr.",
-          "Der Durchschnittswert der Temperatur liegt bei 39,9568 Grad Celsius."
+          "Die Temperatur von Sensor 1 entwickelt sich über alle seine Messungen zunächst von 19,1652 Grad Celsius um 14:22:43 Uhr auf ein Maximum von 122,153 Grad Celsius um 14:22:47 Uhr.",
+          "Der Trend zeigt eine steigende Entwicklung mit einer Steigung von 74444,04 Grad Celsius pro Stunde."
         ],
         "statement_scores": [
-          0,
-          0,
-          0
+          1,
+          1
         ],
-        "score": 0.0
+        "score": 1.0
       },
       "component_outputs": {
         "query_processor": {
@@ -599,40 +601,38 @@
           "context": ""
         },
         "generator": {
-          "answer": "Die Temperatur von Sensor 1 entwickelt sich über alle seine Messungen zunächst auf 19,1652 Grad Celsius am 16.12.2025 um 14:11 Uhr und steigt dann bis zu 122,153 Grad Celsius am 16.12.2025 um 14:11 Uhr. Der Durchschnittswert der Temperatur liegt bei 39,9568 Grad Celsius."
+          "answer": "Die Temperatur von Sensor 1 entwickelt sich über alle seine Messungen zunächst von 19,1652 Grad Celsius um 14:22:43 Uhr auf ein Maximum von 122,153 Grad Celsius um 14:22:47 Uhr. Der Trend zeigt eine steigende Entwicklung mit einer Steigung von 74444,04 Grad Celsius pro Stunde."
         }
       }
     },
     {
       "id": 12,
       "category": "trend",
-      "question": "Wie entwickelt sich die Temperatur von Sensor 2 über alle seine Messungen?",
+      "question": "Wie entwickelt sich die Luftfeuchtigkeit von Sensor 2 über alle seine Messungen?",
       "gold_answer": "Sensor 2 weist über alle Messungen eine durchschnittliche Temperatur von 89.549 Grad auf.",
-      "prediction": "Die Temperatur von Sensor 2 beträgt 89,5488 Grad Celsius. Es gibt keine Informationen über die Entwicklung der Temperatur, da alle Messungen gleich sind und es keine Änderung in Richtung steigend oder fallend gibt.",
+      "prediction": "Die Luftfeuchtigkeit von Sensor 2 beträgt 29,26 %.",
       "context": "",
       "exact_match": false,
-      "f1": 0.37499999999999994,
-      "faithfulness": 0.5,
+      "f1": 0.2727272727272727,
+      "faithfulness": 0.0,
       "faithfulness_details": {
         "statements": [
-          "Die Temperatur von Sensor 2 beträgt 89,5488 Grad Celsius.",
-          "Es gibt keine Informationen über die Entwicklung der Temperatur, da alle Messungen gleich sind und es keine Änderung in Richtung steigend oder fallend gibt."
+          "Die Luftfeuchtigkeit von Sensor 2 beträgt 29,26 %."
         ],
         "statement_scores": [
-          1,
           0
         ],
-        "score": 0.5
+        "score": 0.0
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (s:Sensor {mote_id: 2})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nRETURN DISTINCT m ORDER BY m.temperature ASC LIMIT 10"
+          "cypher": "MATCH (s:Sensor {mote_id: 2})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)-[:HAS_DATE]->(d)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)-[:HAS_MINUTE]->(mi:Minute)\nWHERE d.date = \"2025-01-03\"\nRETURN DISTINCT m, s, h, mi"
         },
         "retriever": {
           "documents_total": 1,
           "documents": [
             {
-              "content": "{\"m\": {\"light\": 11.96, \"temperature\": 89.5488, \"humidity\": 29.2581, \"time\": \"2004-04-01T04:34:48.130427\", \"voltage\": 1.95368}}",
+              "content": "{\"m\": {\"light\": 11.96, \"temperature\": 89.5488, \"humidity\": 29.2581, \"time\": \"2004-04-01T04:34:48.130427\", \"voltage\": 1.95368}, \"s\": {\"mote_id\": 2}, \"h\": null, \"mi\": null}",
               "meta": {}
             }
           ]
@@ -641,26 +641,51 @@
           "context": ""
         },
         "generator": {
-          "answer": "Die Temperatur von Sensor 2 beträgt 89,5488 Grad Celsius. Es gibt keine Informationen über die Entwicklung der Temperatur, da alle Messungen gleich sind und es keine Änderung in Richtung steigend oder fallend gibt."
+          "answer": "Die Luftfeuchtigkeit von Sensor 2 beträgt 29,26 %."
         }
       }
     },
     {
       "id": 13,
       "category": "trend",
-      "question": "Wie entwickelt sich die Temperatur von Sensor 3 über alle seine Messungen?",
+      "question": "Wie entwickelt sich die Spannung von Sensor 3 über alle seine Messungen?",
       "gold_answer": "Sensor 3 weist über alle Messungen eine durchschnittliche Temperatur von 96.666 Grad auf.",
-      "prediction": "Die Temperatur von Sensor 3 entwickelt sich über alle seine Messungen zunächst von 19,36°C um 14:11:51 Uhr auf ein Maximum von 122,15°C um 14:11:58 Uhr. Der Trend zeigt eine steigende Temperatur mit einer Steigung von 47.144 K/h.",
+      "prediction": "[ERROR] The following component failed to run:\nComponent name: 'retriever'\nComponent type: 'CypherRetriever'\nError: {code: Neo.ClientError.Statement.SyntaxError} {message: In a WITH/RETURN with DISTINCT or an aggregation, it is not possible to access variables declared before the WITH/RETURN: m (line 2, column 71 (offset: 153))\n\"RETURN DISTINCT m.voltage AS voltage, e.epoch_id AS epoch_id ORDER BY m.time LIMIT 100\"\n                                                                       ^}",
       "context": "",
       "exact_match": false,
-      "f1": 0.29508196721311475,
+      "f1": 0.0,
+      "faithfulness": 0.0,
+      "faithfulness_details": {
+        "statements": [
+          "Die Spannung von Sensor 3 entwickelt sich über alle seine Messungen."
+        ],
+        "statement_scores": [
+          0
+        ],
+        "score": 0.0
+      },
+      "component_outputs": {
+        "error": "The following component failed to run:\nComponent name: 'retriever'\nComponent type: 'CypherRetriever'\nError: {code: Neo.ClientError.Statement.SyntaxError} {message: In a WITH/RETURN with DISTINCT or an aggregation, it is not possible to access variables declared before the WITH/RETURN: m (line 2, column 71 (offset: 153))\n\"RETURN DISTINCT m.voltage AS voltage, e.epoch_id AS epoch_id ORDER BY m.time LIMIT 100\"\n                                                                       ^}"
+      }
+    },
+    {
+      "id": 14,
+      "category": "trend",
+      "question": "Wie entwickelt sich die Helligkeit von Sensor 4 über alle seine Messungen?",
+      "gold_answer": "Sensor 4 weist über alle Messungen eine durchschnittliche Temperatur von 23.026 Grad auf.",
+      "prediction": "Die Helligkeit von Sensor 4 entwickelt sich über alle seine Messungen mit einer durchschnittlichen Helligkeit von 213,44 und einem Standardabweichung von 144,58. Die Mindesthelligkeit beträgt 97,52 und die Maximalhelligkeit 368,0. Der Trend zeigt eine Abnahme der Helligkeit in Richtung des Sensors.",
+      "context": "",
+      "exact_match": false,
+      "f1": 0.23728813559322035,
       "faithfulness": 1.0,
       "faithfulness_details": {
         "statements": [
-          "Die Temperatur von Sensor 3 entwickelt sich über alle seine Messungen zunächst von 19,36°C um 14:11:51 Uhr auf ein Maximum von 122,15°C um 14:11:58 Uhr.",
-          "Der Trend zeigt eine steigende Temperatur mit einer Steigung von 47.144 K/h."
+          "Die Helligkeit von Sensor 4 entwickelt sich über alle seine Messungen mit einer durchschnittlichen Helligkeit von 213,44 und einem Standardabweichung von 144,58.",
+          "Die Mindesthelligkeit beträgt 97,52 und die Maximalhelligkeit 368,0.",
+          "Der Trend zeigt eine Abnahme der Helligkeit in Richtung des Sensors."
         ],
         "statement_scores": [
+          1,
           1,
           1
         ],
@@ -668,117 +693,37 @@
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nRETURN DISTINCT m ORDER BY m.temperature ASC LIMIT 10"
-        },
-        "retriever": {
-          "documents_total": 10,
-          "documents": [
-            {
-              "content": "{\"m\": {\"light\": 48.76, \"temperature\": 19.3612, \"humidity\": 38.872, \"time\": \"2004-02-28T01:07:16.073929\", \"voltage\": 2.68742}}",
-              "meta": {}
-            },
-            {
-              "content": "{\"m\": {\"light\": 48.76, \"temperature\": 19.371, \"humidity\": 38.8039, \"time\": \"2004-02-28T01:06:16.347982\", \"voltage\": 2.68742}}",
-              "meta": {}
-            },
-            {
-              "content": "{\"m\": {\"light\": 50.6, \"temperature\": 19.4004, \"humidity\": 38.8039, \"time\": \"2004-02-28T01:05:46.344834\", \"voltage\": 2.68742}}",
-              "meta": {}
-            },
-            {
-              "content": "{\"m\": {\"light\": 48.76, \"temperature\": 19.4102, \"humidity\": 38.7357, \"time\": \"2004-02-28T01:04:46.797534\", \"voltage\": 2.67532}}",
-              "meta": {}
-            },
-            {
-              "content": "{\"m\": {\"light\": 48.76, \"temperature\": 19.4102, \"humidity\": 38.7357, \"time\": \"2004-02-28T01:05:16.212397\", \"voltage\": 2.68742}}",
-              "meta": {}
-            },
-            {
-              "content": "{\"m\": {\"light\": 50.6, \"temperature\": 19.4396, \"humidity\": 38.6334, \"time\": \"2004-02-28T01:03:46.702054\", \"voltage\": 2.68742}}",
-              "meta": {}
-            },
-            {
-              "content": "{\"m\": {\"light\": 50.6, \"temperature\": 20.204, \"humidity\": 36.8871, \"time\": \"2004-02-28T00:58:46.497331\", \"voltage\": 2.69964}}",
-              "meta": {}
-            },
-            {
-              "content": "{\"m\": {\"light\": 382.72, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-30T14:45:51.291381\", \"voltage\": 2.1364}}",
-              "meta": {}
-            },
-            {
-              "content": "{\"m\": {\"light\": 397.44, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-30T14:43:05.262873\", \"voltage\": 2.1364}}",
-              "meta": {}
-            },
-            {
-              "content": "{\"m\": {\"light\": 382.72, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-30T14:45:16.407291\", \"voltage\": 2.1364}}",
-              "meta": {}
-            }
-          ]
-        },
-        "organizer": {
-          "context": ""
-        },
-        "generator": {
-          "answer": "Die Temperatur von Sensor 3 entwickelt sich über alle seine Messungen zunächst von 19,36°C um 14:11:51 Uhr auf ein Maximum von 122,15°C um 14:11:58 Uhr. Der Trend zeigt eine steigende Temperatur mit einer Steigung von 47.144 K/h."
-        }
-      }
-    },
-    {
-      "id": 14,
-      "category": "trend",
-      "question": "Wie entwickelt sich die Temperatur von Sensor 4 über alle seine Messungen?",
-      "gold_answer": "Sensor 4 weist über alle Messungen eine durchschnittliche Temperatur von 23.026 Grad auf.",
-      "prediction": "Die Temperatur von Sensor 4 entwickelt sich über alle seine Messungen aufsteigend. Der Mindestwert lag bei 19,812 Grad am 16. Dezember 2025 um 14:11 Uhr und der Maximalwert betrug 23,0558 Grad am 16. Dezember 2025 um 14:12 Uhr.",
-      "context": "",
-      "exact_match": false,
-      "f1": 0.32142857142857145,
-      "faithfulness": 0.3333333333333333,
-      "faithfulness_details": {
-        "statements": [
-          "Die Temperatur von Sensor 4 entwickelt sich über alle seine Messungen aufsteigend.",
-          "Der Mindestwert lag bei 19,812 Grad am 16. Dezember 2025 um 14:11 Uhr.",
-          "Der Maximalwert betrug 23,0558 Grad am 16. Dezember 2025 um 14:12 Uhr."
-        ],
-        "statement_scores": [
-          1,
-          0,
-          0
-        ],
-        "score": 0.3333333333333333
-      },
-      "component_outputs": {
-        "query_processor": {
-          "cypher": "MATCH (s:Sensor {mote_id: 4})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nRETURN DISTINCT m ORDER BY m.temperature ASC LIMIT 10"
+          "cypher": "MATCH (s:Sensor {mote_id: 4})-[:GENERATED]->(m:Measurement)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (m)-[:AT_MINUTE]->(mi:Minute)\nRETURN DISTINCT m, h, mi, m.light AS light"
         },
         "retriever": {
           "documents_total": 7,
           "documents": [
             {
-              "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.812, \"humidity\": 39.0763, \"time\": \"2004-02-28T01:06:46.29605\", \"voltage\": 2.65143}}",
+              "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.8806, \"humidity\": 38.8379, \"time\": \"2004-02-28T01:05:16.781015\", \"voltage\": 2.65143}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 5}, \"light\": 97.52}",
               "meta": {}
             },
             {
-              "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.8316, \"humidity\": 38.9742, \"time\": \"2004-02-28T01:06:16.591499\", \"voltage\": 2.65143}}",
+              "content": "{\"m\": {\"light\": 368.0, \"temperature\": 23.0558, \"humidity\": 38.4629, \"time\": \"2004-03-12T09:32:12.399288\", \"voltage\": 2.51661}, \"h\": {\"hour\": 9}, \"mi\": {\"minute\": 32}, \"light\": 368.0}",
               "meta": {}
             },
             {
-              "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.8512, \"humidity\": 38.872, \"time\": \"2004-02-28T01:05:46.292571\", \"voltage\": 2.65143}}",
+              "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.812, \"humidity\": 39.0763, \"time\": \"2004-02-28T01:06:46.29605\", \"voltage\": 2.65143}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 6}, \"light\": 97.52}",
               "meta": {}
             },
             {
-              "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.8806, \"humidity\": 38.8379, \"time\": \"2004-02-28T01:05:16.781015\", \"voltage\": 2.65143}}",
+              "content": "{\"m\": {\"light\": 368.0, \"temperature\": 23.0362, \"humidity\": 38.4629, \"time\": \"2004-03-12T09:32:29.519989\", \"voltage\": 2.51661}, \"h\": {\"hour\": 9}, \"mi\": {\"minute\": 32}, \"light\": 368.0}",
               "meta": {}
             },
             {
-              "content": "{\"m\": {\"light\": 368.0, \"temperature\": 22.9872, \"humidity\": 38.5993, \"time\": \"2004-03-12T09:33:08.794034\", \"voltage\": 2.51661}}",
+              "content": "{\"m\": {\"light\": 368.0, \"temperature\": 22.9872, \"humidity\": 38.5993, \"time\": \"2004-03-12T09:33:08.794034\", \"voltage\": 2.51661}, \"h\": {\"hour\": 9}, \"mi\": {\"minute\": 33}, \"light\": 368.0}",
               "meta": {}
             },
             {
-              "content": "{\"m\": {\"light\": 368.0, \"temperature\": 23.0362, \"humidity\": 38.4629, \"time\": \"2004-03-12T09:32:29.519989\", \"voltage\": 2.51661}}",
+              "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.8316, \"humidity\": 38.9742, \"time\": \"2004-02-28T01:06:16.591499\", \"voltage\": 2.65143}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 6}, \"light\": 97.52}",
               "meta": {}
             },
             {
-              "content": "{\"m\": {\"light\": 368.0, \"temperature\": 23.0558, \"humidity\": 38.4629, \"time\": \"2004-03-12T09:32:12.399288\", \"voltage\": 2.51661}}",
+              "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.8512, \"humidity\": 38.872, \"time\": \"2004-02-28T01:05:46.292571\", \"voltage\": 2.65143}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 5}, \"light\": 97.52}",
               "meta": {}
             }
           ]
@@ -787,7 +732,7 @@
           "context": ""
         },
         "generator": {
-          "answer": "Die Temperatur von Sensor 4 entwickelt sich über alle seine Messungen aufsteigend. Der Mindestwert lag bei 19,812 Grad am 16. Dezember 2025 um 14:11 Uhr und der Maximalwert betrug 23,0558 Grad am 16. Dezember 2025 um 14:12 Uhr."
+          "answer": "Die Helligkeit von Sensor 4 entwickelt sich über alle seine Messungen mit einer durchschnittlichen Helligkeit von 213,44 und einem Standardabweichung von 144,58. Die Mindesthelligkeit beträgt 97,52 und die Maximalhelligkeit 368,0. Der Trend zeigt eine Abnahme der Helligkeit in Richtung des Sensors."
         }
       }
     },
@@ -796,23 +741,29 @@
       "category": "trend",
       "question": "Wie entwickelt sich die Temperatur von Sensor 6 über alle seine Messungen?",
       "gold_answer": "Sensor 6 weist über alle Messungen eine durchschnittliche Temperatur von 20.42 Grad auf.",
-      "prediction": "Die Temperatur von Sensor 6 entwickelt sich langsam ansteigend. Der Mindestwert lag bei 19,90°C und der Maximalwert bei 20,42°C. Die durchschnittliche Temperatur betrug 20,16°C.",
+      "prediction": "Die Temperatur von Sensor 6 entwickelt sich über alle seine Messungen wie folgt:\n\n* Der Mindestwert beträgt 19,90 Grad Celsius und wurde am 16.12.2025 um 14:22:54 gemessen.\n* Der Maximalwert beträgt 20,42 Grad Celsius und wurde am 16.12.2025 um 14:22:55 gemessen.\n* Die durchschnittliche Temperatur liegt bei 20,16 Grad Celsius.\n* Die Temperatur steigt mit einer Steigung von 1869,84 Grad pro Stunde.\n\nEs gibt keine Anomalien in den Messungen.",
       "context": "",
       "exact_match": false,
-      "f1": 0.3181818181818182,
-      "faithfulness": 0.3333333333333333,
+      "f1": 0.24175824175824173,
+      "faithfulness": 0.8333333333333334,
       "faithfulness_details": {
         "statements": [
-          "Die Temperatur von Sensor 6 entwickelt sich langsam ansteigend.",
-          "Der Mindestwert lag bei 19,90°C und der Maximalwert bei 20,42°C.",
-          "Die durchschnittliche Temperatur betrug 20,16°C."
+          "Die Temperatur von Sensor 6 entwickelt sich über alle seine Messungen wie folgt:",
+          "Der Mindestwert beträgt 19,90 Grad Celsius und wurde am 16.12.2025 um 14:22:54 gemessen.",
+          "Der Maximalwert beträgt 20,42 Grad Celsius und wurde am 16.12.2025 um 14:22:55 gemessen.",
+          "Die durchschnittliche Temperatur liegt bei 20,16 Grad Celsius.",
+          "Die Temperatur steigt mit einer Steigung von 1869,84 Grad pro Stunde.",
+          "Es gibt keine Anomalien in den Messungen."
         ],
         "statement_scores": [
-          1,
           0,
-          0
+          1,
+          1,
+          1,
+          1,
+          1
         ],
-        "score": 0.3333333333333333
+        "score": 0.8333333333333334
       },
       "component_outputs": {
         "query_processor": {
@@ -835,58 +786,60 @@
           "context": ""
         },
         "generator": {
-          "answer": "Die Temperatur von Sensor 6 entwickelt sich langsam ansteigend. Der Mindestwert lag bei 19,90°C und der Maximalwert bei 20,42°C. Die durchschnittliche Temperatur betrug 20,16°C."
+          "answer": "Die Temperatur von Sensor 6 entwickelt sich über alle seine Messungen wie folgt:\n\n* Der Mindestwert beträgt 19,90 Grad Celsius und wurde am 16.12.2025 um 14:22:54 gemessen.\n* Der Maximalwert beträgt 20,42 Grad Celsius und wurde am 16.12.2025 um 14:22:55 gemessen.\n* Die durchschnittliche Temperatur liegt bei 20,16 Grad Celsius.\n* Die Temperatur steigt mit einer Steigung von 1869,84 Grad pro Stunde.\n\nEs gibt keine Anomalien in den Messungen."
         }
       }
     },
     {
       "id": 16,
       "category": "trend",
-      "question": "Wie verändert sich die Luftfeuchtigkeit in Epoche 0 im Durchschnitt?",
+      "question": "Wie verändert sich die Temperatur in Epoche 0 im Durchschnitt?",
       "gold_answer": "In Epoche 0 beträgt die durchschnittliche Luftfeuchtigkeit 38.651 Prozent.",
       "prediction": "Dazu liegen mir keine Daten vor.",
       "context": "",
       "exact_match": false,
       "f1": 0.0,
-      "faithfulness": 0.0,
+      "faithfulness": 0.5,
       "faithfulness_details": {
         "statements": [
-          "Die Luftfeuchtigkeit in Epoche 0 ändert sich im Durchschnitt."
+          "Die Temperatur in Epoche 0 verändert sich.",
+          "Ich habe keine Daten über die durchschnittliche Temperaturveränderung in Epoche 0."
         ],
         "statement_scores": [
-          0
+          0,
+          1
         ],
-        "score": 0.0
+        "score": 0.5
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 0})\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (m)-[:AT_MINUTE]->(mi:Minute)\nWHERE e.epoch_id = 0\nWITH m, avg(m.humidity) AS average_humidity\nRETURN average_humidity"
+          "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 0})\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (m)-[:AT_MINUTE]->(mi:Minute)\nWHERE e.epoch_id = 0\nWITH m, avg(m.temperature) AS average_temperature\nRETURN DISTINCT average_temperature"
         },
         "retriever": {
           "documents_total": 6,
           "documents": [
             {
-              "content": "{\"average_humidity\": -3.91901}",
+              "content": "{\"average_temperature\": 122.153}",
               "meta": {}
             },
             {
-              "content": "{\"average_humidity\": 49.2585}",
+              "content": "{\"average_temperature\": 21.772}",
               "meta": {}
             },
             {
-              "content": "{\"average_humidity\": 50.5463}",
+              "content": "{\"average_temperature\": 19.5964}",
               "meta": {}
             },
             {
-              "content": "{\"average_humidity\": 44.879}",
+              "content": "{\"average_temperature\": 22.0856}",
               "meta": {}
             },
             {
-              "content": "{\"average_humidity\": 46.2297}",
+              "content": "{\"average_temperature\": 88.2062}",
               "meta": {}
             },
             {
-              "content": "{\"average_humidity\": 44.9121}",
+              "content": "{\"average_temperature\": 21.8798}",
               "meta": {}
             }
           ]
@@ -946,7 +899,7 @@
     {
       "id": 18,
       "category": "trend",
-      "question": "Wie verändert sich die Luftfeuchtigkeit in Epoche 2 im Durchschnitt?",
+      "question": "Wie verändert sich die Helligkeit in Epoche 2 im Durchschnitt?",
       "gold_answer": "In Epoche 2 beträgt die durchschnittliche Luftfeuchtigkeit 25.682 Prozent.",
       "prediction": "Dazu liegen mir keine Daten vor.",
       "context": "",
@@ -955,7 +908,7 @@
       "faithfulness": 0.0,
       "faithfulness_details": {
         "statements": [
-          "Die Luftfeuchtigkeit in Epoche 2 ändert sich im Durchschnitt."
+          "Die Helligkeit in Epoche 2 ändert sich im Durchschnitt."
         ],
         "statement_scores": [
           0
@@ -964,13 +917,13 @@
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 2})\nRETURN avg(m.humidity) AS average_humidity"
+          "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 2})\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (m)-[:AT_MINUTE]->(mi:Minute)\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nWHERE e.epoch_id = 2\nWITH s, m, COLLECT({h: h.hour, mi: mi.minute}) AS times\nRETURN avg(m.light) AS average"
         },
         "retriever": {
           "documents_total": 1,
           "documents": [
             {
-              "content": "{\"average_humidity\": 25.682480434782608}",
+              "content": "{\"average\": 262.6708743565218}",
               "meta": {}
             }
           ]
@@ -986,147 +939,33 @@
     {
       "id": 19,
       "category": "trend",
-      "question": "Wie verändert sich die Luftfeuchtigkeit in Epoche 3 im Durchschnitt?",
+      "question": "Wie verändert sich die Spannung in Epoche 3 im Durchschnitt?",
       "gold_answer": "In Epoche 3 beträgt die durchschnittliche Luftfeuchtigkeit 29.028 Prozent.",
       "prediction": "Dazu liegen mir keine Daten vor.",
       "context": "",
       "exact_match": false,
       "f1": 0.0,
-      "faithfulness": 0.0,
+      "faithfulness": 0.5,
       "faithfulness_details": {
         "statements": [
-          "Die Luftfeuchtigkeit in Epoche 3 ändert sich im Durchschnitt."
+          "Die Spannung in Epoche 3 verändert sich",
+          "Dazu liegen mir keine Daten vor"
         ],
         "statement_scores": [
-          0
+          0,
+          1
         ],
-        "score": 0.0
+        "score": 0.5
       },
       "component_outputs": {
         "query_processor": {
-          "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3})\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (m)-[:AT_MINUTE]->(mi:Minute)\nWHERE e.epoch_id = 3\nWITH m, avg(m.humidity) AS average_humidity\nRETURN average_humidity"
+          "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3})\nRETURN avg(m.voltage) AS average_voltage"
         },
         "retriever": {
-          "documents_total": 30,
+          "documents_total": 1,
           "documents": [
             {
-              "content": "{\"average_humidity\": 41.6461}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 38.1897}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": -3.91901}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 37.8477}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 35.7148}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": -3.91901}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 35.611}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 39.1783}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 39.9929}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 38.1897}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 37.3336}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 37.0246}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": -3.91901}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 38.7698}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": -3.91901}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 35.3687}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 38.4629}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 36.3362}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 21.6575}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 32.3698}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 39.8913}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 34.8487}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 37.7792}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 40.4328}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": -3.91901}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": -3.91901}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 43.2525}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 39.8913}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 37.4708}",
-              "meta": {}
-            },
-            {
-              "content": "{\"average_humidity\": 37.0933}",
+              "content": "{\"average_voltage\": 2.505831666666667}",
               "meta": {}
             }
           ]
@@ -2358,29 +2197,27 @@
       "category": "interpretation",
       "question": "Gibt es Auffälligkeiten in den Messwerten von Sensor 20 über den gesamten Zeitraum?",
       "gold_answer": "Die Messwerte von Sensor 20 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.",
-      "prediction": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 20 über den gesamten Zeitraum. Die Temperatur schwankt zwischen 20,4°C und 23,8692°C, die relative Luftfeuchtigkeit zwischen 32,2293% und 35,9912%, die Helligkeit zwischen 128,8 und 1494,08 Lux und die Spannung zwischen 2,73696 und 3,15915 Volt. Alle Werte liegen innerhalb eines normalen Bereichs.",
+      "prediction": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 20 über den gesamten Zeitraum. Die Temperatur schwankte zwischen 20,4°C und 23,8692°C, die relative Luftfeuchtigkeit zwischen 32,2293% und 35,9912%, die Helligkeit zwischen 128,8 und 1494,08 Lux und die Spannung zwischen 2,73696 und 3,15915 Volt.",
       "context": "",
       "exact_match": false,
-      "f1": 0.1219512195121951,
-      "faithfulness": 0.16666666666666666,
+      "f1": 0.13333333333333336,
+      "faithfulness": 0.6,
       "faithfulness_details": {
         "statements": [
           "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 20.",
-          "Die Temperatur schwankt zwischen 20,4°C und 23,8692°C.",
-          "Die relative Luftfeuchtigkeit schwankt zwischen 32,2293% und 35,9912%",
-          "Die Helligkeit schwankt zwischen 128,8 und 1494,08 Lux",
-          "Die Spannung schwankt zwischen 2,73696 und 3,15915 Volt",
-          "Alle Werte liegen innerhalb eines normalen Bereichs"
+          "Die Temperatur schwankte zwischen 20,4°C und 23,8692°C.",
+          "Die relative Luftfeuchtigkeit schwankte zwischen 32,2293% und 35,9912%",
+          "Die Helligkeit schwang zwischen 128,8 und 1494,08 Lux",
+          "Die Spannung schwang zwischen 2,73696 und 3,15915 Volt"
         ],
         "statement_scores": [
           1,
-          0,
-          0,
-          0,
+          1,
+          1,
           0,
           0
         ],
-        "score": 0.16666666666666666
+        "score": 0.6
       },
       "component_outputs": {
         "query_processor": {
@@ -2435,7 +2272,7 @@
           "context": ""
         },
         "generator": {
-          "answer": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 20 über den gesamten Zeitraum. Die Temperatur schwankt zwischen 20,4°C und 23,8692°C, die relative Luftfeuchtigkeit zwischen 32,2293% und 35,9912%, die Helligkeit zwischen 128,8 und 1494,08 Lux und die Spannung zwischen 2,73696 und 3,15915 Volt. Alle Werte liegen innerhalb eines normalen Bereichs."
+          "answer": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 20 über den gesamten Zeitraum. Die Temperatur schwankte zwischen 20,4°C und 23,8692°C, die relative Luftfeuchtigkeit zwischen 32,2293% und 35,9912%, die Helligkeit zwischen 128,8 und 1494,08 Lux und die Spannung zwischen 2,73696 und 3,15915 Volt."
         }
       }
     }

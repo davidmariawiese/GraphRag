@@ -32,8 +32,9 @@ class Organizer:
 
     @component.output_types(analysis_json=Dict[str, Any])
     def run(self, documents: List[Document]):
-        # Debug output
-        if os.getenv("GRAPH_RAG_DEBUG") == "true":
+        debug = os.getenv("GRAPH_RAG_DEBUG") == "true"
+
+        if debug:
             print("\n[organizer] input.documents:")
             try:
                 total = len(documents) if isinstance(documents, list) else 0
@@ -72,6 +73,15 @@ class Organizer:
             },
             "analysis": analysis_results
         }
+
+        if debug:
+            try:
+                preview = json.dumps(final_output, ensure_ascii=False)[:1000]
+                suffix = "..." if len(json.dumps(final_output, ensure_ascii=False)) > 1000 else ""
+                print("[organizer] output.analysis_json preview (len={}):".format(len(json.dumps(final_output, ensure_ascii=False))))
+                print(preview + suffix)
+            except Exception:
+                print("[organizer] output.analysis_json: <unserializable>")
 
         return {"analysis_json": final_output}
 
@@ -198,11 +208,17 @@ class Organizer:
         if isinstance(t_val, str):
             # Try common formats
             formats = [
+                "%Y-%m-%dT%H:%M:%S.%f",
                 "%Y-%m-%d %H:%M:%S.%f",
                 "%Y-%m-%d %H:%M:%S",
                 "%Y-%m-%dT%H:%M:%S",
                 "%Y-%m-%d"
             ]
+            # Fast path: ISO parser
+            try:
+                return datetime.fromisoformat(t_val)
+            except Exception:
+                pass
             for fmt in formats:
                 try:
                     return datetime.strptime(t_val, fmt)
