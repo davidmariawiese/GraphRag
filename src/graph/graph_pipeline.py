@@ -25,7 +25,7 @@ def build_pipeline():
     # CONNECT COMPONENTS (Output → Input)
     pipeline.connect("query_processor.cypher", "retriever.cypher")
     pipeline.connect("retriever.documents", "organizer.documents")
-    pipeline.connect("organizer.context", "generator.context")
+    pipeline.connect("organizer.analysis_json", "generator.analysis_json")
     pipeline.connect("query_processor.cypher", "generator.cypher_query") 
     return pipeline
 
@@ -45,7 +45,7 @@ def run_pipeline(pipe, query: str, debug: bool | None = None):
     prev = os.environ.get(env_key)
     try:
         if should_debug:
-            os.environ[env_key] = "1"
+            os.environ[env_key] = "true"
         else:
             # Ensure it's off for this run if explicitly disabled or default off
             if env_key in os.environ:

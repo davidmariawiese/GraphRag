@@ -2,6 +2,7 @@ from haystack import component
 from haystack.dataclasses import Document
 from neo4j import GraphDatabase
 import os
+from typing import List
 
 
 def _debug_enabled() -> bool:
@@ -13,7 +14,7 @@ class CypherRetriever:
     def __init__(self, uri: str, user: str, password: str):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
-    @component.output_types(documents=list)
+    @component.output_types(documents=List[Document])
     def run(self, cypher: str):
 
         if _debug_enabled():

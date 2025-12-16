@@ -3,6 +3,8 @@ from haystack import component
 from haystack_integrations.components.generators.ollama import OllamaGenerator
 from haystack.components.builders import PromptBuilder
 import os
+import json
+from typing import Dict, Any
 
 
 def _debug_enabled() -> bool:
@@ -50,22 +52,21 @@ class Generator:
         self.llm = OllamaGenerator(model=model_name, url=ollama_url, generation_kwargs={"num_predict": 256, "temperature": 0.0})
 
     @component.output_types(answer=str)
-    def run(self, context: str, query: str, cypher_query: str = "N/A"):
+    def run(self, analysis_json: Dict[str, Any], query: str, cypher_query: str = "N/A"):
 
         if _debug_enabled():
             print("\n[generator] input.query:")
             print(query)
             print("[generator] input.cypher_query:")
             print(cypher_query)
-            ctx = context or ""
-            preview = ctx[:800].rstrip()
-            suffix = "..." if len(ctx) > 800 else ""
-            print(f"[generator] input.context_preview (len={len(ctx)}):")
-            print(preview + suffix)
+            print(f"[generator] input.analysis_json keys: {list(analysis_json.keys())}")
+
+        # Convert JSON to string for the prompt
+        context_str = json.dumps(analysis_json, indent=2, ensure_ascii=False)
 
         # Prompt erstellen
         prompt = self.prompt_builder.run(
-            context=context, 
+            context=context_str, 
             query=query,
             cypher_query=cypher_query
         )["prompt"]
