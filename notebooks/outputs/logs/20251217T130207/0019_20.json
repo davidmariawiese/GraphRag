@@ -1,0 +1,41 @@
+{
+  "id": 20,
+  "category": "trend",
+  "question": "Wie verändert sich die Luftfeuchtigkeit in Epoche 4 im Durchschnitt?",
+  "gold_answer": "In Epoche 4 beträgt die durchschnittliche Luftfeuchtigkeit 25.883 Prozent.",
+  "prediction": "Der Durchschnitt der Luftfeuchtigkeit in Epoche 4 beträgt 25.88.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.6,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "The average humidity in Epoch 4 is 25.88."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "log_path": "outputs/logs/20251217T130207/0019_20.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 4})\nRETURN avg(m.humidity) AS average_humidity"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"average_humidity\": 25.882572222222223}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Der Durchschnitt der Luftfeuchtigkeit in Epoche 4 beträgt 25.88."
+    }
+  }
+}

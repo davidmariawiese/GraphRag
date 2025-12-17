@@ -1,0 +1,247 @@
+{
+  "id": 2,
+  "category": "factual",
+  "question": "Welche Luftfeuchtigkeit hat Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen?",
+  "gold_answer": "Sensor 1 hat am 2004-02-28 um 00:59:16.02785 eine Temperatur von 19.9884 Grad gemessen.",
+  "prediction": "```json\n{\n  \"data\": [\n    {\n      \"Luftfeuchtigkeit\": 2.67532,\n      \"Luftfeuchtigkeit\": 2.71196,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Lu",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.0,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "Sensor 1 measured 2.67532 relative humidity.",
+      "Sensor 1 measured 2.71196 relative humidity.",
+      "Sensor 1 measured 2.68742 relative humidity.",
+      "Sensor 1 measured 2.69964 relative humidity.",
+      "Sensor 1 measured 2.68742 relative humidity.",
+      "Sensor 1 measured 2.69964 relative humidity."
+    ],
+    "statement_scores": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "score": 1.0
+  },
+  "log_path": "outputs/logs/20251217T130207/0001_2.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 1})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 0})-[:HAS_MINUTE]->(mi:Minute {minute: 59})\nRETURN m.voltage AS Luftfeuchtigkeit"
+    },
+    "retriever": {
+      "documents_total": 855,
+      "documents": [
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.66332}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "```json\n{\n  \"data\": [\n    {\n      \"Luftfeuchtigkeit\": 2.67532,\n      \"Luftfeuchtigkeit\": 2.71196,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Luftfeuchtigkeit\": 2.68742,\n      \"Luftfeuchtigkeit\": 2.69964,\n      \"Lu"
+    }
+  }
+}

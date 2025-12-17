@@ -1,0 +1,121 @@
+{
+  "id": 29,
+  "category": "interpretation",
+  "question": "Gibt es Auffälligkeiten in den Messwerten von Sensor 19 über den gesamten Zeitraum?",
+  "gold_answer": "Die Messwerte von Sensor 19 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.",
+  "prediction": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 19 über den gesamten Zeitraum. Die Temperatur schwankte zwischen 18,99°C und 122,15°C, die relative Luftfeuchtigkeit zwischen -3,92% und 38,70%, die Helligkeit zwischen 0,46 und 90,16 Lux und die Spannung zwischen 2,04 V und 2,70 V. Es gibt keine Anzeichen für ungewöhnliche oder anomale Werte in den Messungen.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.11363636363636363,
+  "faithfulness": 0.8,
+  "faithfulness_details": {
+    "statements": [
+      "Es gibt Auffälligkeiten in den Messwerten von Sensor 19 über den gesamten Zeitraum.",
+      "Die Temperatur schwankte zwischen 18,99°C und 122,15°C",
+      "Die relative Luftfeuchtigkeit schwankte zwischen -3,92% und 38,70%",
+      "Die Helligkeit schwankte zwischen 0,46 und 90,16 Lux",
+      "Die Spannung schwankte zwischen 2,04 V und 2,70 V"
+    ],
+    "statement_scores": [
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "score": 0.8
+  },
+  "log_path": "outputs/logs/20251217T112501/0028_29.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 19})-[:GENERATED]->(m:Measurement)\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (w)-[:HAS_DATE]->(d2:Date)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (h)-[:HAS_MINUTE]->(mi:Minute)\nWHERE d IS NULL AND w IS NULL\nRETURN DISTINCT m"
+    },
+    "retriever": {
+      "documents_total": 19,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 12.88, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-25T06:24:19.766001\", \"voltage\": 2.048}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 18.9888, \"humidity\": 38.7016, \"time\": \"2004-02-28T01:05:18.853091\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 19.0182, \"humidity\": 38.6675, \"time\": \"2004-02-28T01:04:16.773761\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 79.12, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-21T19:06:33.897783\", \"voltage\": 2.23278}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 19.0084, \"humidity\": 38.6675, \"time\": \"2004-02-28T01:04:46.048704\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 19.0672, \"humidity\": 38.5652, \"time\": \"2004-02-28T01:03:16.699203\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 90.16, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-23T20:32:12.45202\", \"voltage\": 2.15971}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 90.16, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-23T20:27:47.053321\", \"voltage\": 2.16759}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 19.7336, \"humidity\": 37.0933, \"time\": \"2004-02-28T00:58:46.002832\", \"voltage\": 2.69964}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 90.16, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-23T20:29:43.216997\", \"voltage\": 2.16759}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 86.48, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-25T07:08:47.365232\", \"voltage\": 2.04096}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 90.16, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-23T20:34:20.946671\", \"voltage\": 2.16759}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 53.36, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-25T07:02:08.793505\", \"voltage\": 2.04096}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 0.46, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-25T05:40:11.983601\", \"voltage\": 2.048}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 19.0966, \"humidity\": 38.4287, \"time\": \"2004-02-28T01:02:47.034673\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 19.1358, \"humidity\": 38.3263, \"time\": \"2004-02-28T01:02:16.755522\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 90.16, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-23T20:35:43.906546\", \"voltage\": 2.16759}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 90.16, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-23T20:35:04.465767\", \"voltage\": 2.15971}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 19.1946, \"humidity\": 38.258, \"time\": \"2004-02-28T01:01:46.643121\", \"voltage\": 2.68742}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 19 über den gesamten Zeitraum. Die Temperatur schwankte zwischen 18,99°C und 122,15°C, die relative Luftfeuchtigkeit zwischen -3,92% und 38,70%, die Helligkeit zwischen 0,46 und 90,16 Lux und die Spannung zwischen 2,04 V und 2,70 V. Es gibt keine Anzeichen für ungewöhnliche oder anomale Werte in den Messungen."
+    }
+  }
+}

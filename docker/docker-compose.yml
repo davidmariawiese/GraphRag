@@ -40,7 +40,10 @@ services:
       - ollama
     ports:
       - "8888:8888"
+    env_file:
+      - ../.env
     volumes:
+      - ../.env:/app/.env:ro
       - ../src:/app/src
       - ../notebooks:/app/notebooks
       - ../data:/app/data

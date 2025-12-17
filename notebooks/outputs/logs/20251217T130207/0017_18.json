@@ -1,0 +1,41 @@
+{
+  "id": 18,
+  "category": "trend",
+  "question": "Wie verändert sich die Helligkeit in Epoche 2 im Durchschnitt?",
+  "gold_answer": "In Epoche 2 beträgt die durchschnittliche Luftfeuchtigkeit 25.682 Prozent.",
+  "prediction": "Der Durchschnittswert der Helligkeit in Epoche 2 beträgt 262.67.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.4000000000000001,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "The average value of brightness in Epoch 2 is 262.67."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "log_path": "outputs/logs/20251217T130207/0017_18.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 2})\nRETURN avg(m.light) AS average_light"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"average_light\": 262.6708743565217}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Der Durchschnittswert der Helligkeit in Epoche 2 beträgt 262.67."
+    }
+  }
+}

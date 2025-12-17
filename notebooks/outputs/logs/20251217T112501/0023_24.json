@@ -1,0 +1,65 @@
+{
+  "id": 24,
+  "category": "interpretation",
+  "question": "Gibt es Auffälligkeiten in den Messwerten von Sensor 14 über den gesamten Zeitraum?",
+  "gold_answer": "Die Messwerte von Sensor 14 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.",
+  "prediction": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 14 über den gesamten Zeitraum. Die Temperatur schwankte zwischen 17,85°C und 122,15°C, die relative Luftfeuchtigkeit zwischen -3,92% und 48,16%, die Helligkeit zwischen 19,32 und 93,84 Lux und die Spannung zwischen 2,06 V und 2,70 V.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.13157894736842105,
+  "faithfulness": 0.2,
+  "faithfulness_details": {
+    "statements": [
+      "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 14.",
+      "Die Temperatur schwankte zwischen 17,85°C und 122,15°C.",
+      "Die relative Luftfeuchtigkeit schwankte zwischen -3,92% und 48,16%.",
+      "Die Helligkeit schwankte zwischen 19,32 und 93,84 Lux.",
+      "Die Spannung schwankte zwischen 2,06 V und 2,70 V."
+    ],
+    "statement_scores": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "score": 0.2
+  },
+  "log_path": "outputs/logs/20251217T112501/0023_24.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 14})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (m)-[:AT_MINUTE]->(mi:Minute)\nWHERE e.epoch_id = 1\nRETURN DISTINCT m, s"
+    },
+    "retriever": {
+      "documents_total": 5,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 93.84, \"temperature\": 21.2722, \"humidity\": 48.1568, \"time\": \"2004-03-21T19:07:14.467243\", \"voltage\": 2.38522}, \"s\": {\"mote_id\": 14}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 21.16, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-31T06:03:13.102594\", \"voltage\": 2.06222}, \"s\": {\"mote_id\": 14}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 19.32, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-31T06:01:27.34431\", \"voltage\": 2.05509}, \"s\": {\"mote_id\": 14}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 24.84, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-31T06:05:34.93692\", \"voltage\": 2.05509}, \"s\": {\"mote_id\": 14}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 28.52, \"temperature\": 17.852, \"humidity\": 41.6125, \"time\": \"2004-02-28T01:05:46.412543\", \"voltage\": 2.69964}, \"s\": {\"mote_id\": 14}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 14 über den gesamten Zeitraum. Die Temperatur schwankte zwischen 17,85°C und 122,15°C, die relative Luftfeuchtigkeit zwischen -3,92% und 48,16%, die Helligkeit zwischen 19,32 und 93,84 Lux und die Spannung zwischen 2,06 V und 2,70 V."
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": 3,
+  "category": "factual",
+  "question": "Welche Spannung hat Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen?",
+  "gold_answer": "Sensor 2 hat am 2004-04-01 um 04:34:48.130427 eine Temperatur von 89.5488 Grad gemessen.",
+  "prediction": "1.95368",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.0,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "The value is 1.95368."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "log_path": "outputs/logs/20251217T130207/0002_3.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 2})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-04-01\"})-[:HAS_HOUR]->(h:Hour {hour: 4})-[:HAS_MINUTE]->(mi:Minute {minute: 34})\nRETURN m.voltage"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"m.voltage\": 1.95368}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "1.95368"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": 28,
+  "category": "interpretation",
+  "question": "Gibt es Auffälligkeiten in den Messwerten von Sensor 18 über den gesamten Zeitraum?",
+  "gold_answer": "Die Messwerte von Sensor 18 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.",
+  "prediction": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 18 über den gesamten Zeitraum. Die Temperatur schwankt zwischen 18,93°C und 19,25°C, die relative Luftfeuchtigkeit zwischen 38,19% und 38,80%, die Helligkeit bleibt konstant bei 57,04 Lux und die Spannung bei 2,50 V. Es gibt keine Anzeichen für Abweichungen oder Unregelmäßigkeiten in den Messwerten.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.1219512195121951,
+  "faithfulness": 0.8333333333333334,
+  "faithfulness_details": {
+    "statements": [
+      "Es gibt Auffälligkeiten in den Messwerten von Sensor 18 über den gesamten Zeitraum.",
+      "Die Temperatur schwankt zwischen 18,93°C und 19,25°C",
+      "Die relative Luftfeuchtigkeit schwankt zwischen 38,19% und 38,80%",
+      "Die Helligkeit bleibt konstant bei 57,04 Lux",
+      "Die Spannung bleibt konstant bei 2,50 V",
+      "Es gibt keine Anzeichen für Abweichungen oder Unregelmäßigkeiten in den Messwerten."
+    ],
+    "statement_scores": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "score": 0.8333333333333334
+  },
+  "log_path": "outputs/logs/20251217T112501/0027_28.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 18})-[:GENERATED]->(m:Measurement)\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (w)-[:HAS_DATE]->(d2:Date)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (h)-[:HAS_MINUTE]->(mi:Minute)\nWHERE d IS NULL AND w IS NULL\nRETURN DISTINCT m,s"
+    },
+    "retriever": {
+      "documents_total": 5,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 19.2534, \"humidity\": 38.1897, \"time\": \"2004-02-28T00:59:16.711581\", \"voltage\": 2.50599}, \"s\": {\"mote_id\": 18}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 18.93, \"humidity\": 38.8039, \"time\": \"2004-02-28T01:05:46.695873\", \"voltage\": 2.50599}, \"s\": {\"mote_id\": 18}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 18.9594, \"humidity\": 38.7698, \"time\": \"2004-02-28T01:03:46.871725\", \"voltage\": 2.50599}, \"s\": {\"mote_id\": 18}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 19.1456, \"humidity\": 38.3946, \"time\": \"2004-02-28T01:00:17.00383\", \"voltage\": 2.50599}, \"s\": {\"mote_id\": 18}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 18.9398, \"humidity\": 38.8039, \"time\": \"2004-02-28T01:05:18.861179\", \"voltage\": 2.50599}, \"s\": {\"mote_id\": 18}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es gibt keine Auffälligkeiten in den Messwerten von Sensor 18 über den gesamten Zeitraum. Die Temperatur schwankt zwischen 18,93°C und 19,25°C, die relative Luftfeuchtigkeit zwischen 38,19% und 38,80%, die Helligkeit bleibt konstant bei 57,04 Lux und die Spannung bei 2,50 V. Es gibt keine Anzeichen für Abweichungen oder Unregelmäßigkeiten in den Messwerten."
+    }
+  }
+}

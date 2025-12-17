@@ -1,0 +1,73 @@
+{
+  "id": 21,
+  "category": "interpretation",
+  "question": "Gibt es Auffälligkeiten in den Messwerten von Sensor 11 über den gesamten Zeitraum?",
+  "gold_answer": "Die Messwerte von Sensor 11 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.",
+  "prediction": "Es gibt Auffälligkeiten in den Messwerten von Sensor 11 im Bereich Temperatur. Die höchste Temperatur wurde am 31. März um 01:02 Uhr mit 121,96 Grad gemessen. Außerdem zeigt sich ein steiler Anstieg der Temperatur über den gesamten Zeitraum hinweg mit einer Steigung von 0,09453304244158864 pro Stunde.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.19718309859154928,
+  "faithfulness": 0.6666666666666666,
+  "faithfulness_details": {
+    "statements": [
+      "Es gibt Auffälligkeiten in den Messwerten von Sensor 11.",
+      "Die höchste Temperatur wurde am 31. März um 01:02 Uhr mit 121,96 Grad gemessen.",
+      "Ein steiler Anstieg der Temperatur über den gesamten Zeitraum hinweg mit einer Steigung von 0,09453304244158864 pro Stunde zeigt sich."
+    ],
+    "statement_scores": [
+      0,
+      1,
+      1
+    ],
+    "score": 0.6666666666666666
+  },
+  "log_path": "outputs/logs/20251217T112501/0020_21.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 11})-[:GENERATED]->(m:Measurement)\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (w)-[:HAS_DATE]->(d2:Date)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (h)-[:HAS_MINUTE]->(mi:Minute)\nWHERE d IS NULL AND w IS NULL\nRETURN DISTINCT m"
+    },
+    "retriever": {
+      "documents_total": 8,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 478.4, \"temperature\": 21.772, \"humidity\": 49.2585, \"time\": \"2004-03-21T19:06:38.75603\", \"voltage\": 2.32}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 861.12, \"temperature\": 18.5772, \"humidity\": 41.7133, \"time\": \"2004-02-28T01:06:16.439192\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 2.3, \"temperature\": 121.957, \"humidity\": 30.5363, \"time\": \"2004-03-31T04:51:15.753312\", \"voltage\": 1.96013}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 861.12, \"temperature\": 18.5576, \"humidity\": 41.5789, \"time\": \"2004-02-28T01:06:46.193628\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 890.56, \"temperature\": 18.5674, \"humidity\": 41.5116, \"time\": \"2004-02-28T01:05:16.317639\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 861.12, \"temperature\": 18.5674, \"humidity\": 41.6461, \"time\": \"2004-02-28T01:07:16.426815\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 890.56, \"temperature\": 18.5674, \"humidity\": 41.6461, \"time\": \"2004-02-28T01:05:46.775472\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 890.56, \"temperature\": 18.6556, \"humidity\": 41.2425, \"time\": \"2004-02-28T01:02:16.167383\", \"voltage\": 2.68742}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es gibt Auffälligkeiten in den Messwerten von Sensor 11 im Bereich Temperatur. Die höchste Temperatur wurde am 31. März um 01:02 Uhr mit 121,96 Grad gemessen. Außerdem zeigt sich ein steiler Anstieg der Temperatur über den gesamten Zeitraum hinweg mit einer Steigung von 0,09453304244158864 pro Stunde."
+    }
+  }
+}

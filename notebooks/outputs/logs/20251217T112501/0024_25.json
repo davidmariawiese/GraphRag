@@ -1,0 +1,86 @@
+{
+  "id": 25,
+  "category": "interpretation",
+  "question": "Gibt es Auffälligkeiten in den Messwerten von Sensor 15 über den gesamten Zeitraum?",
+  "gold_answer": "Die Messwerte von Sensor 15 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.",
+  "prediction": "Es gibt Auffälligkeiten in den Messwerten von Sensor 15 für die Temperatur. Die höchste Temperatur wurde am 2004-03-02T15:49:25.114608 mit 122,153 Grad gemessen. Es gab auch eine Anomalie am selben Tag um 15:07:16.983728 mit einem Score von 3,4573517816960146 und einer durchschnittlichen Temperatur von 122,153 Grad.\n\nEs gibt keine Auffälligkeiten in den Messwerten von Sensor 15 für die Feuchtigkeit. Die niedrigste Feuchtigkeit wurde am 2004-03-02T15:49:25.114608 mit -4,0 % gemessen. Es gab auch eine Anomalie am selben Tag um 15:07:16.983728 mit einem Score von -3,400974083414834 und einer durchschnittlichen Feuchtigkeit von -4,0 %.\n\nEs gibt keine Auffälligkeiten in den Messwerten von Sensor 15 für das Licht. Die höchste Leuchtkraft wurde am 2004-02-29T12:57:53.137333",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.06451612903225806,
+  "faithfulness": null,
+  "faithfulness_details": null,
+  "log_path": "outputs/logs/20251217T112501/0024_25.json",
+  "faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 15})-[:GENERATED]->(m:Measurement)\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (w)-[:HAS_DATE]->(d2:Date)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (h)-[:HAS_MINUTE]->(mi:Minute)\nWHERE d IS NULL AND w IS NULL\nRETURN DISTINCT m,s"
+    },
+    "retriever": {
+      "documents_total": 14,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 1.84, \"temperature\": 18.9398, \"humidity\": 43.2525, \"time\": \"2004-02-29T21:35:54.149475\", \"voltage\": 2.41431}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 1258.56, \"temperature\": 25.1628, \"humidity\": 34.8139, \"time\": \"2004-03-01T10:13:09.712291\", \"voltage\": 2.41431}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 46.92, \"temperature\": 17.95, \"humidity\": 42.2165, \"time\": \"2004-02-28T01:07:16.983728\", \"voltage\": 2.48502}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 4.6, \"temperature\": 15.7352, \"humidity\": 44.1172, \"time\": \"2004-02-28T06:25:46.464056\", \"voltage\": 2.42416}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 1847.36, \"temperature\": 21.527, \"humidity\": 39.8913, \"time\": \"2004-02-29T12:58:27.921901\", \"voltage\": 2.4644}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 1847.36, \"temperature\": 21.6348, \"humidity\": 39.62, \"time\": \"2004-02-29T12:57:53.137333\", \"voltage\": 2.4644}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 1.84, \"temperature\": 18.8712, \"humidity\": 43.4191, \"time\": \"2004-02-29T22:52:20.375033\", \"voltage\": 2.40453}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 1847.36, \"temperature\": 122.153, \"humidity\": -4.0, \"time\": \"2004-03-02T15:49:25.114608\", \"voltage\": 2.27556}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 5.52, \"temperature\": 15.6568, \"humidity\": 44.3162, \"time\": \"2004-02-28T06:26:46.945042\", \"voltage\": 2.42416}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 1847.36, \"temperature\": 21.331, \"humidity\": 40.3314, \"time\": \"2004-02-29T12:59:20.554515\", \"voltage\": 2.45421}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 1847.36, \"temperature\": 21.233, \"humidity\": 40.568, \"time\": \"2004-02-29T13:05:30.31111\", \"voltage\": 2.45421}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 1.84, \"temperature\": 18.9398, \"humidity\": 43.3525, \"time\": \"2004-02-29T21:36:52.724103\", \"voltage\": 2.41431}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 143.52, \"temperature\": 21.3604, \"humidity\": 41.5116, \"time\": \"2004-03-01T20:00:27.469388\", \"voltage\": 2.38522}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 7.36, \"temperature\": 15.794, \"humidity\": 43.9844, \"time\": \"2004-02-28T06:28:46.491738\", \"voltage\": 2.42416}, \"s\": {\"mote_id\": 15}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es gibt Auffälligkeiten in den Messwerten von Sensor 15 für die Temperatur. Die höchste Temperatur wurde am 2004-03-02T15:49:25.114608 mit 122,153 Grad gemessen. Es gab auch eine Anomalie am selben Tag um 15:07:16.983728 mit einem Score von 3,4573517816960146 und einer durchschnittlichen Temperatur von 122,153 Grad.\n\nEs gibt keine Auffälligkeiten in den Messwerten von Sensor 15 für die Feuchtigkeit. Die niedrigste Feuchtigkeit wurde am 2004-03-02T15:49:25.114608 mit -4,0 % gemessen. Es gab auch eine Anomalie am selben Tag um 15:07:16.983728 mit einem Score von -3,400974083414834 und einer durchschnittlichen Feuchtigkeit von -4,0 %.\n\nEs gibt keine Auffälligkeiten in den Messwerten von Sensor 15 für das Licht. Die höchste Leuchtkraft wurde am 2004-02-29T12:57:53.137333"
+    }
+  }
+}

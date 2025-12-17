@@ -1,0 +1,73 @@
+{
+  "id": 14,
+  "category": "trend",
+  "question": "Wie entwickelt sich die Helligkeit von Sensor 4 über alle seine Messungen?",
+  "gold_answer": "Sensor 4 weist über alle Messungen eine durchschnittliche Temperatur von 23.026 Grad auf.",
+  "prediction": "Die Helligkeit von Sensor 4 entwickelt sich über alle seine Messungen stetig nach oben. Der Durchschnittswert der Helligkeit liegt bei 213,44 und die Standardabweichung beträgt 144,58. Die Mindesthelligkeit wurde mit 97,52 gemessen und die Höchstwerte betrug 368,0.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.2181818181818182,
+  "faithfulness": 0.2,
+  "faithfulness_details": {
+    "statements": [
+      "Die Helligkeit von Sensor 4 entwickelt sich über alle seine Messungen stetig nach oben.",
+      "Der Durchschnittswert der Helligkeit liegt bei 213,44",
+      "Die Standardabweichung beträgt 144,58",
+      "Die Mindesthelligkeit wurde mit 97,52 gemessen",
+      "Die Höchstwerte betrug 368,0"
+    ],
+    "statement_scores": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "score": 0.2
+  },
+  "log_path": "outputs/logs/20251217T112501/0013_14.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 4})-[:GENERATED]->(m:Measurement)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (m)-[:AT_MINUTE]->(mi:Minute)\nRETURN DISTINCT m, h, mi, m.light AS light"
+    },
+    "retriever": {
+      "documents_total": 7,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.8806, \"humidity\": 38.8379, \"time\": \"2004-02-28T01:05:16.781015\", \"voltage\": 2.65143}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 5}, \"light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 368.0, \"temperature\": 23.0558, \"humidity\": 38.4629, \"time\": \"2004-03-12T09:32:12.399288\", \"voltage\": 2.51661}, \"h\": {\"hour\": 9}, \"mi\": {\"minute\": 32}, \"light\": 368.0}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.812, \"humidity\": 39.0763, \"time\": \"2004-02-28T01:06:46.29605\", \"voltage\": 2.65143}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 6}, \"light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 368.0, \"temperature\": 23.0362, \"humidity\": 38.4629, \"time\": \"2004-03-12T09:32:29.519989\", \"voltage\": 2.51661}, \"h\": {\"hour\": 9}, \"mi\": {\"minute\": 32}, \"light\": 368.0}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 368.0, \"temperature\": 22.9872, \"humidity\": 38.5993, \"time\": \"2004-03-12T09:33:08.794034\", \"voltage\": 2.51661}, \"h\": {\"hour\": 9}, \"mi\": {\"minute\": 33}, \"light\": 368.0}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.8316, \"humidity\": 38.9742, \"time\": \"2004-02-28T01:06:16.591499\", \"voltage\": 2.65143}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 6}, \"light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.8512, \"humidity\": 38.872, \"time\": \"2004-02-28T01:05:46.292571\", \"voltage\": 2.65143}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 5}, \"light\": 97.52}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die Helligkeit von Sensor 4 entwickelt sich über alle seine Messungen stetig nach oben. Der Durchschnittswert der Helligkeit liegt bei 213,44 und die Standardabweichung beträgt 144,58. Die Mindesthelligkeit wurde mit 97,52 gemessen und die Höchstwerte betrug 368,0."
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": 1,
+  "category": "factual",
+  "question": "Welche Temperatur hat Sensor 1 am 2004-03-31 um 03:38:15.757551 gemessen?",
+  "gold_answer": "Sensor 1 hat am 2004-03-31 um 03:38:15.757551 eine Temperatur von 122.153 Grad gemessen.",
+  "prediction": "122.153",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.1904761904761905,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "The temperature measured by sensor 1 on 2004-03-31 at 03:38:15.757551 is 122.153."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "log_path": "outputs/logs/20251217T130207/0000_1.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 1})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-31\"})-[:HAS_HOUR]->(h:Hour {hour: 3})-[:HAS_MINUTE]->(mi:Minute {minute: 38})\nRETURN m.temperature AS temperature"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"temperature\": 122.153}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "122.153"
+    }
+  }
+}

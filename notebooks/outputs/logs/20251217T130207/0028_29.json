@@ -1,0 +1,245 @@
+{
+  "id": 29,
+  "category": "interpretation",
+  "question": "Gibt es Auffälligkeiten in den Messwerten von Sensor 19 über den gesamten Zeitraum?",
+  "gold_answer": "Die Messwerte von Sensor 19 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.",
+  "prediction": "```json\n{\n  \"data\": [\n    {\n      \"light\": 41.4,\n      \"temperature\": 18.2244,\n      \"humidity\": 39.4162,\n      \"time\": \"2004-02-28T02:25:46.376319\",\n      \"voltage\": 2.67532\n    }\n  ]\n}\n```",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.0,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "The data contains a light measurement.",
+      "The light measurement is 41.4.",
+      "The temperature measurement is 18.2244.",
+      "The humidity measurement is 39.4162.",
+      "The voltage measurement is 2.67532."
+    ],
+    "statement_scores": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "score": 1.0
+  },
+  "log_path": "outputs/logs/20251217T130207/0028_29.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 19})-[:GENERATED]->(m:Measurement)\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (w)-[:HAS_DATE]->(d2:Date)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (h)-[:HAS_MINUTE]->(mi:Minute)\nWHERE d IS NULL AND w IS NULL\nRETURN DISTINCT m"
+    },
+    "retriever": {
+      "documents_total": 998,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 478.4, \"temperature\": 21.7034, \"humidity\": 33.2808, \"time\": \"2004-02-28T09:19:16.641087\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 39.56, \"temperature\": 17.1464, \"humidity\": 40.4328, \"time\": \"2004-02-28T04:39:17.040712\", \"voltage\": 2.66332}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 39.56, \"temperature\": 17.4208, \"humidity\": 40.2299, \"time\": \"2004-02-28T04:02:46.390032\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 16.4212, \"humidity\": 41.2425, \"time\": \"2004-02-28T06:55:17.258915\", \"voltage\": 2.65143}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 39.56, \"temperature\": 17.4306, \"humidity\": 40.2976, \"time\": \"2004-02-28T03:59:46.651064\", \"voltage\": 2.66332}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 39.56, \"temperature\": 16.6172, \"humidity\": 41.0067, \"time\": \"2004-02-28T06:14:46.364151\", \"voltage\": 2.65143}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 353.28, \"temperature\": 24.1632, \"humidity\": 32.3698, \"time\": \"2004-02-28T13:54:17.615137\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 566.72, \"temperature\": 17.411, \"humidity\": 39.7557, \"time\": \"2004-02-28T07:32:17.070124\", \"voltage\": 2.65143}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 294.4, \"temperature\": 23.1146, \"humidity\": 32.2995, \"time\": \"2004-02-28T10:47:16.906657\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 507.84, \"temperature\": 21.6838, \"humidity\": 33.2108, \"time\": \"2004-02-28T09:16:48.592906\", \"voltage\": 2.69964}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 41.4, \"temperature\": 18.3028, \"humidity\": 39.3483, \"time\": \"2004-02-28T02:17:46.186608\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 19.7336, \"humidity\": 37.0933, \"time\": \"2004-02-28T00:58:46.002832\", \"voltage\": 2.69964}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 46.92, \"temperature\": 16.4408, \"humidity\": 41.2425, \"time\": \"2004-02-28T06:42:47.572335\", \"voltage\": 2.65143}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 382.72, \"temperature\": 22.3306, \"humidity\": 32.7206, \"time\": \"2004-02-28T09:50:47.067933\", \"voltage\": 2.71196}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 41.4, \"temperature\": 17.8912, \"humidity\": 39.8235, \"time\": \"2004-02-28T03:00:46.166529\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 368.0, \"temperature\": 23.3596, \"humidity\": 33.2108, \"time\": \"2004-02-28T15:27:49.259176\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 172.96, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-25T08:31:35.745069\", \"voltage\": 2.02703}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 294.4, \"temperature\": 23.4478, \"humidity\": 31.8776, \"time\": \"2004-02-28T11:05:47.641507\", \"voltage\": 2.71196}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 39.56, \"temperature\": 17.46, \"humidity\": 40.1961, \"time\": \"2004-02-28T03:57:16.855865\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 18.9104, \"humidity\": 38.872, \"time\": \"2004-02-28T01:13:16.260405\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 18.8124, \"humidity\": 39.0082, \"time\": \"2004-02-28T01:24:16.546625\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 39.56, \"temperature\": 17.8618, \"humidity\": 39.8574, \"time\": \"2004-02-28T03:02:46.890053\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 338.56, \"temperature\": 23.6144, \"humidity\": 32.7206, \"time\": \"2004-02-28T12:26:18.049775\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 279.68, \"temperature\": 23.0166, \"humidity\": 34.188, \"time\": \"2004-02-28T16:20:17.462359\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 323.84, \"temperature\": 23.438, \"humidity\": 32.8608, \"time\": \"2004-02-28T12:14:17.278353\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 338.56, \"temperature\": 22.556, \"humidity\": 32.7206, \"time\": \"2004-02-28T10:08:18.282218\", \"voltage\": 2.71196}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 338.56, \"temperature\": 23.9476, \"humidity\": 32.44, \"time\": \"2004-02-28T13:22:49.857653\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 309.12, \"temperature\": 23.2616, \"humidity\": 32.7557, \"time\": \"2004-02-28T11:47:18.348315\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 338.56, \"temperature\": 23.6732, \"humidity\": 32.5102, \"time\": \"2004-02-28T12:34:18.388703\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 180.32, \"temperature\": 122.153, \"humidity\": -4.0, \"time\": \"2004-03-25T09:19:37.425412\", \"voltage\": 2.03397}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 294.4, \"temperature\": 23.4478, \"humidity\": 31.9832, \"time\": \"2004-02-28T11:19:17.292281\", \"voltage\": 2.71196}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 294.4, \"temperature\": 23.0362, \"humidity\": 32.2995, \"time\": \"2004-02-28T10:36:46.739936\", \"voltage\": 2.71196}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 323.84, \"temperature\": 22.7716, \"humidity\": 32.44, \"time\": \"2004-02-28T10:19:47.742071\", \"voltage\": 2.71196}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 18.9006, \"humidity\": 38.9061, \"time\": \"2004-02-28T01:09:46.477835\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 41.4, \"temperature\": 18.2734, \"humidity\": 39.3483, \"time\": \"2004-02-28T02:20:46.999963\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 279.68, \"temperature\": 23.7614, \"humidity\": 32.9659, \"time\": \"2004-02-28T14:19:19.623313\", \"voltage\": 2.73696}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 39.56, \"temperature\": 17.068, \"humidity\": 40.399, \"time\": \"2004-02-28T04:48:16.960211\", \"voltage\": 2.66332}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 39.56, \"temperature\": 17.6756, \"humidity\": 40.0268, \"time\": \"2004-02-28T03:28:17.226264\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 537.28, \"temperature\": 17.0876, \"humidity\": 40.0268, \"time\": \"2004-02-28T07:26:17.207721\", \"voltage\": 2.63964}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 323.84, \"temperature\": 23.5752, \"humidity\": 32.8608, \"time\": \"2004-02-28T12:19:16.914043\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 71.76, \"temperature\": 19.0966, \"humidity\": 38.4287, \"time\": \"2004-02-28T01:02:47.034673\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 294.4, \"temperature\": 23.0362, \"humidity\": 32.2995, \"time\": \"2004-02-28T10:37:17.05595\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 250.24, \"temperature\": 122.153, \"humidity\": -4.0, \"time\": \"2004-03-25T09:05:14.886758\", \"voltage\": 2.03397}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 478.4, \"temperature\": 21.7034, \"humidity\": 33.2108, \"time\": \"2004-02-28T09:17:47.767002\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 596.16, \"temperature\": 21.184, \"humidity\": 33.6651, \"time\": \"2004-02-28T08:54:46.762462\", \"voltage\": 2.69964}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 294.4, \"temperature\": 23.0068, \"humidity\": 32.4049, \"time\": \"2004-02-28T10:41:47.805681\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 39.56, \"temperature\": 17.0386, \"humidity\": 40.4666, \"time\": \"2004-02-28T04:51:46.241227\", \"voltage\": 2.65143}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 338.56, \"temperature\": 23.8202, \"humidity\": 32.44, \"time\": \"2004-02-28T12:45:47.209015\", \"voltage\": 2.7244}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 397.44, \"temperature\": 23.4184, \"humidity\": 33.0709, \"time\": \"2004-02-28T15:23:49.283624\", \"voltage\": 2.73696}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 566.72, \"temperature\": 18.3812, \"humidity\": 37.8477, \"time\": \"2004-02-28T07:44:46.888267\", \"voltage\": 2.67532}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "```json\n{\n  \"data\": [\n    {\n      \"light\": 41.4,\n      \"temperature\": 18.2244,\n      \"humidity\": 39.4162,\n      \"time\": \"2004-02-28T02:25:46.376319\",\n      \"voltage\": 2.67532\n    }\n  ]\n}\n```"
+    }
+  }
+}

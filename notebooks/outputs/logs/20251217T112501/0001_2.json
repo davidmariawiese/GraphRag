@@ -1,0 +1,55 @@
+{
+  "id": 2,
+  "category": "factual",
+  "question": "Welche Luftfeuchtigkeit hat Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen?",
+  "gold_answer": "Sensor 1 hat am 2004-02-28 um 00:59:16.02785 eine Temperatur von 19.9884 Grad gemessen.",
+  "prediction": "Die Luftfeuchtigkeit, die Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen hat, beträgt 2,69353.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.6842105263157895,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die Luftfeuchtigkeit, die Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen hat",
+      "beträgt 2,69353"
+    ],
+    "statement_scores": [
+      0,
+      0
+    ],
+    "score": 0.0
+  },
+  "log_path": "outputs/logs/20251217T112501/0001_2.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 1})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 0})-[:HAS_MINUTE]->(mi:Minute {minute: 59})\nRETURN m.voltage AS Luftfeuchtigkeit"
+    },
+    "retriever": {
+      "documents_total": 4,
+      "documents": [
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die Luftfeuchtigkeit, die Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen hat, beträgt 2,69353."
+    }
+  }
+}

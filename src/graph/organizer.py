@@ -71,7 +71,12 @@ class Organizer:
                 "entities": list(analysis_results.keys()),
                 "provenance": "Cypher Query Result"
             },
-            "analysis": analysis_results
+            "analysis": analysis_results,
+            # Keep raw records to answer list-style questions; capped to avoid blow-up.
+            "raw": {
+                "total_records": len(raw_data),
+                "records": raw_data[: self.max_buckets],
+            },
         }
 
         if debug:
@@ -135,17 +140,15 @@ class Organizer:
             )
             
             # Extract Timestamp
-            # Try explicit time field, or construct from Date/Hour/Minute if available
             ts = self._extract_timestamp(mapped, meas)
             if not ts:
-                # If no temporal info, synthesize a stable ordering timestamp
                 ts = base_time + timedelta(seconds=idx)
 
             if sensor_id not in grouped:
                 grouped[sensor_id] = {}
 
             # Extract Metrics
-            # We look for known numeric fields
+            added_metric = False
             numeric_fields = ["temperature", "humidity", "light", "voltage"]
             for field in numeric_fields:
                 val = meas.get(field)
@@ -155,8 +158,39 @@ class Organizer:
                         if field not in grouped[sensor_id]:
                             grouped[sensor_id][field] = []
                         grouped[sensor_id][field].append((ts, f_val))
+                        added_metric = True
                     except (ValueError, TypeError):
                         pass
+
+            # Fallback: take any numeric fields from meas
+            if not added_metric:
+                for k, v in meas.items():
+                    if k in ["time", "date", "epoch", "moteid", "mote_id"]:
+                        continue
+                    try:
+                        f_val = float(v)
+                        if k not in grouped[sensor_id]:
+                            grouped[sensor_id][k] = []
+                        grouped[sensor_id][k].append((ts, f_val))
+                        added_metric = True
+                    except (ValueError, TypeError):
+                        continue
+
+            # Final fallback: take numeric scalars from the mapped record (e.g., aggregates like average_temperature)
+            if not added_metric:
+                for k, v in mapped.items():
+                    if isinstance(v, (dict, list)):
+                        continue
+                    if k in ["Sensor", "Measurement", "Epoch", "Date", "Week", "Hour", "Minute"]:
+                        continue
+                    try:
+                        f_val = float(v)
+                        if k not in grouped[sensor_id]:
+                            grouped[sensor_id][k] = []
+                        grouped[sensor_id][k].append((ts, f_val))
+                        added_metric = True
+                    except (ValueError, TypeError):
+                        continue
                         
         return grouped
 

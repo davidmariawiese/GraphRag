@@ -1,0 +1,41 @@
+{
+  "id": 4,
+  "category": "factual",
+  "question": "Welche Helligkeit hat Sensor 3 am 2004-03-31 um 02:58:45.763421 gemessen?",
+  "gold_answer": "Sensor 3 hat am 2004-03-31 um 02:58:45.763421 eine Temperatur von 122.153 Grad gemessen.",
+  "prediction": "19.32",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.0,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "19.32"
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "log_path": "outputs/logs/20251217T130207/0003_4.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-31\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 58})\nRETURN m.light AS light"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"light\": 19.32}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "19.32"
+    }
+  }
+}

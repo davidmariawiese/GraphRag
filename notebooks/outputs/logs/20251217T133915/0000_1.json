@@ -1,0 +1,46 @@
+{
+  "id": 1,
+  "category": "factual",
+  "question": "Welche Temperatur hat Sensor 1.0 am 2004-03-31 um 03:38:15.757551 gemessen?",
+  "gold_answer": "Sensor 1.0 hat am 2004-03-31 um 03:38:15.757551 eine Temperatur von 122.153 Grad gemessen.",
+  "prediction": "Die Temperatur, die Sensor 1.0 am 2004-03-31 um 03:38:15.757551 gemessen hat, beträgt 122,153 Grad Celsius.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.8571428571428572,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die Temperatur, die Sensor 1.0 am 2004-03-31 um 03:38:15.757551 gemessen hat.",
+      "beträgt 122,153 Grad Celsius."
+    ],
+    "statement_scores": [
+      0,
+      0
+    ],
+    "score": 0.0
+  },
+  "log_path": "outputs/logs/20251217T133915/0000_1.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-31\"})-[:HAS_HOUR]->(h:Hour {hour: 3})-[:HAS_MINUTE]->(mi:Minute {minute: 38})\nRETURN m"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 11.04, \"temperature\": 122.153, \"humidity\": -3.91901, \"time\": \"2004-03-31T03:38:15.757551\", \"voltage\": 2.03397}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die Temperatur, die Sensor 1.0 am 2004-03-31 um 03:38:15.757551 gemessen hat, beträgt 122,153 Grad Celsius.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

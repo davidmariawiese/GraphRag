@@ -1,0 +1,41 @@
+{
+  "id": 19,
+  "category": "trend",
+  "question": "Wie verändert sich die Spannung in Epoche 3 im Durchschnitt?",
+  "gold_answer": "In Epoche 3 beträgt die durchschnittliche Luftfeuchtigkeit 29.028 Prozent.",
+  "prediction": "Der Durchschnitt der Spannung in Epoche 3 beträgt 2.505831666666667 Volt.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.380952380952381,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "The average voltage in Epoch 3 is 2.505831666666667 volts."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "log_path": "outputs/logs/20251217T130207/0018_19.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3})\nRETURN avg(m.voltage) AS average_voltage"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"average_voltage\": 2.505831666666667}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Der Durchschnitt der Spannung in Epoche 3 beträgt 2.505831666666667 Volt."
+    }
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "id": 14,
+  "category": "factual",
+  "question": "Welche Luftfeuchtigkeit hat Sensor 1.0 am 2004-02-28 um 02:01:46.132962 gemessen?",
+  "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 02:01:46.132962 eine Luftfeuchtigkeit von 38.9742 Prozent gemessen.",
+  "prediction": "Es scheint, als würde die Frage nach einer Antwort gefragt werden, aber es ist keine spezifische Frage enthalten. Der Text enthält eine Menge an Daten und Informationen über Luftfeuchtigkeit, aber keine klare Frage oder Anfrage.\n\nWenn Sie jedoch nach einer möglichen Antwort suchen, könnten einige Fragen gestellt werden, um die Situation zu klären:\n\n* Was möchten Sie wissen über die Daten in der Antwort?\n* Gibt es eine bestimmte Frage oder ein Thema, das Sie besprechen möchten?\n* Wie können wir Ihnen helfen, die Informationen besser zu verstehen oder anzuwenden?\n\nWenn Sie mir mehr über Ihre Anfrage erzählen könnten, stehe ich gerne zur Verfügung, um Ihnen bei der Beantwortung Ihrer Fragen zu helfen.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.04615384615384615,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Welche Luftfeuchtigkeit hat Sensor 1.0 am 2004-02-28 um 02:01:46.132962 gemessen?"
+    ],
+    "statement_scores": [
+      0
+    ],
+    "score": 0.0
+  },
+  "log_path": "outputs/logs/20251217T133915/0013_14.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 1})\nRETURN m.voltage AS Luftfeuchtigkeit"
+    },
+    "retriever": {
+      "documents_total": 855,
+      "documents": [
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.66332}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+          "meta": {}
+        },
+        {
+          "content": "{\"Luftfeuchtigkeit\": 2.74963}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es scheint, als würde die Frage nach einer Antwort gefragt werden, aber es ist keine spezifische Frage enthalten. Der Text enthält eine Menge an Daten und Informationen über Luftfeuchtigkeit, aber keine klare Frage oder Anfrage.\n\nWenn Sie jedoch nach einer möglichen Antwort suchen, könnten einige Fragen gestellt werden, um die Situation zu klären:\n\n* Was möchten Sie wissen über die Daten in der Antwort?\n* Gibt es eine bestimmte Frage oder ein Thema, das Sie besprechen möchten?\n* Wie können wir Ihnen helfen, die Informationen besser zu verstehen oder anzuwenden?\n\nWenn Sie mir mehr über Ihre Anfrage erzählen könnten, stehe ich gerne zur Verfügung, um Ihnen bei der Beantwortung Ihrer Fragen zu helfen.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

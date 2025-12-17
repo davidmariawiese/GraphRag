@@ -1,0 +1,45 @@
+{
+  "id": 17,
+  "category": "trend",
+  "question": "Wie verändert sich die Luftfeuchtigkeit in Epoche 1 im Durchschnitt?",
+  "gold_answer": "In Epoche 1 beträgt die durchschnittliche Luftfeuchtigkeit 45.002 Prozent.",
+  "prediction": "Die Luftfeuchtigkeit in Epoche 1 im Durchschnitt beträgt 45,0022 %.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.7,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die Luftfeuchtigkeit in Epoche 1 im Durchschnitt beträgt 45,0022 %."
+    ],
+    "statement_scores": [
+      0
+    ],
+    "score": 0.0
+  },
+  "log_path": "outputs/logs/20251217T112501/0016_17.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1})\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)\nOPTIONAL MATCH (m)-[:AT_MINUTE]->(mi:Minute)\nWHERE e.epoch_id = 1\nWITH m, avg(m.humidity) AS average_humidity\nRETURN average_humidity"
+    },
+    "retriever": {
+      "documents_total": 2,
+      "documents": [
+        {
+          "content": "{\"average_humidity\": 41.8476}",
+          "meta": {}
+        },
+        {
+          "content": "{\"average_humidity\": 48.1568}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die Luftfeuchtigkeit in Epoche 1 im Durchschnitt beträgt 45,0022 %."
+    }
+  }
+}

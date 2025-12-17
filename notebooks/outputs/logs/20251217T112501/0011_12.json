@@ -1,0 +1,43 @@
+{
+  "id": 12,
+  "category": "trend",
+  "question": "Wie entwickelt sich die Luftfeuchtigkeit von Sensor 2 über alle seine Messungen?",
+  "gold_answer": "Sensor 2 weist über alle Messungen eine durchschnittliche Temperatur von 89.549 Grad auf.",
+  "prediction": "Die Luftfeuchtigkeit von Sensor 2 beträgt bei seiner einzigen Messung 29,26 %. Da es nur eine Messung gibt, kann keine Entwicklung der Luftfeuchtigkeit über die Zeit ermittelt werden.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.2380952380952381,
+  "faithfulness": 0.5,
+  "faithfulness_details": {
+    "statements": [
+      "Die Luftfeuchtigkeit von Sensor 2 beträgt bei seiner einzigen Messung 29,26 %.",
+      "Da es nur eine Messung gibt, kann keine Entwicklung der Luftfeuchtigkeit über die Zeit ermittelt werden."
+    ],
+    "statement_scores": [
+      1,
+      0
+    ],
+    "score": 0.5
+  },
+  "log_path": "outputs/logs/20251217T112501/0011_12.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 2})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)-[:HAS_DATE]->(d)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)-[:HAS_MINUTE]->(mi:Minute)\nWHERE d.date = \"2025-01-03\"\nRETURN DISTINCT m, s, h, mi"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 11.96, \"temperature\": 89.5488, \"humidity\": 29.2581, \"time\": \"2004-04-01T04:34:48.130427\", \"voltage\": 1.95368}, \"s\": {\"mote_id\": 2}, \"h\": null, \"mi\": null}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die Luftfeuchtigkeit von Sensor 2 beträgt bei seiner einzigen Messung 29,26 %. Da es nur eine Messung gibt, kann keine Entwicklung der Luftfeuchtigkeit über die Zeit ermittelt werden."
+    }
+  }
+}

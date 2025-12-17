@@ -1,0 +1,73 @@
+{
+  "id": 7,
+  "category": "factual",
+  "question": "Welche Spannung hat Sensor 3 am 2004-03-30 um 14:43:05.262873 gemessen?",
+  "gold_answer": "Sensor 3 hat am 2004-03-30 um 14:43:05.262873 eine Temperatur von 122.153 Grad gemessen.",
+  "prediction": "Dazu liegen mir keine Daten vor, da die Frage nach der Spannung am spezifischen Zeitpunkt (2004-03-30 um 14:43:05.262873) geht und ich nur allgemeine Statistiken über den Zeitraum \"2025-12-17T11:25:18\" bis \"2025-12-17T11:25:19\" habe.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.28571428571428575,
+  "faithfulness": 0.6666666666666666,
+  "faithfulness_details": {
+    "statements": [
+      "Die Spannung am 2004-03-30 um 14:43:05.262873 wurde nicht gemessen.",
+      "Ich habe nur Statistiken für den Zeitraum '2025-12-17T11:25:18' bis '2025-12-17T11:25:19'.",
+      "Die Frage geht über den bereitgestellten Zeitraum hinaus."
+    ],
+    "statement_scores": [
+      1,
+      0,
+      1
+    ],
+    "score": 0.6666666666666666
+  },
+  "log_path": "outputs/logs/20251217T112501/0006_7.json",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-30\"})-[:HAS_HOUR]->(h:Hour {hour: 14})-[:HAS_MINUTE]->(mi:Minute {minute: 43})\nRETURN m.voltage AS voltage"
+    },
+    "retriever": {
+      "documents_total": 8,
+      "documents": [
+        {
+          "content": "{\"voltage\": 2.1364}",
+          "meta": {}
+        },
+        {
+          "content": "{\"voltage\": 2.12875}",
+          "meta": {}
+        },
+        {
+          "content": "{\"voltage\": 2.1364}",
+          "meta": {}
+        },
+        {
+          "content": "{\"voltage\": 2.1364}",
+          "meta": {}
+        },
+        {
+          "content": "{\"voltage\": 2.1364}",
+          "meta": {}
+        },
+        {
+          "content": "{\"voltage\": 2.1364}",
+          "meta": {}
+        },
+        {
+          "content": "{\"voltage\": 2.1364}",
+          "meta": {}
+        },
+        {
+          "content": "{\"voltage\": 2.1364}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Dazu liegen mir keine Daten vor, da die Frage nach der Spannung am spezifischen Zeitpunkt (2004-03-30 um 14:43:05.262873) geht und ich nur allgemeine Statistiken über den Zeitraum \"2025-12-17T11:25:18\" bis \"2025-12-17T11:25:19\" habe."
+    }
+  }
+}

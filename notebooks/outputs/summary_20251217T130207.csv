@@ -1,0 +1,343 @@
+id,category,question,gold_answer,prediction,exact_match,f1,faithfulness,faithfulness_error,log_path
+1,factual,Welche Temperatur hat Sensor 1 am 2004-03-31 um 03:38:15.757551 gemessen?,Sensor 1 hat am 2004-03-31 um 03:38:15.757551 eine Temperatur von 122.153 Grad gemessen.,122.153,False,0.1904761904761905,1.0,,outputs/logs/20251217T130207/0000_1.json
+2,factual,Welche Luftfeuchtigkeit hat Sensor 1 am 2004-02-28 um 00:59:16.02785 gemessen?,Sensor 1 hat am 2004-02-28 um 00:59:16.02785 eine Temperatur von 19.9884 Grad gemessen.,"```json
+{
+  ""data"": [
+    {
+      ""Luftfeuchtigkeit"": 2.67532,
+      ""Luftfeuchtigkeit"": 2.71196,
+      ""Luftfeuchtigkeit"": 2.68742,
+      ""Luftfeuchtigkeit"": 2.69964,
+      ""Luftfeuchtigkeit"": 2.68742,
+      ""Luftfeuchtigkeit"": 2.69964,
+      ""Luftfeuchtigkeit"": 2.68742,
+      ""Luftfeuchtigkeit"": 2.69964,
+      ""Luftfeuchtigkeit"": 2.68742,
+      ""Luftfeuchtigkeit"": 2.69964,
+      ""Luftfeuchtigkeit"": 2.68742,
+      ""Luftfeuchtigkeit"": 2.69964,
+      ""Luftfeuchtigkeit"": 2.68742,
+      ""Luftfeuchtigkeit"": 2.69964,
+      ""Lu",False,0.0,1.0,,outputs/logs/20251217T130207/0001_2.json
+3,factual,Welche Spannung hat Sensor 2 am 2004-04-01 um 04:34:48.130427 gemessen?,Sensor 2 hat am 2004-04-01 um 04:34:48.130427 eine Temperatur von 89.5488 Grad gemessen.,1.95368,False,0.0,1.0,,outputs/logs/20251217T130207/0002_3.json
+4,factual,Welche Helligkeit hat Sensor 3 am 2004-03-31 um 02:58:45.763421 gemessen?,Sensor 3 hat am 2004-03-31 um 02:58:45.763421 eine Temperatur von 122.153 Grad gemessen.,19.32,False,0.0,1.0,,outputs/logs/20251217T130207/0003_4.json
+5,factual,Welche Temperatur hat Sensor 3 am 2004-02-28 um 00:58:46.497331 gemessen?,Sensor 3 hat am 2004-02-28 um 00:58:46.497331 eine Temperatur von 20.204 Grad gemessen.,"```json
+{
+  ""data"": [
+    {
+      ""light"": 48.76,
+      ""temperature"": 19.322,
+      ""humidity"": 38.872,
+      ""time"": ""2004-02-28T01:13:46.4074"",
+      ""voltage"": 2.68742
+    },
+    {
+      ""light"": 48.76,
+      ""temperature"": 18.1362,
+      ""humidity"": 39.4842,
+      ""time"": ""2004-02-28T04:55:46.871246"",
+      ""voltage"": 2.66332
+    }
+  ]
+}
+```",False,0.10169491525423728,1.0,,outputs/logs/20251217T130207/0004_5.json
+6,factual,Welche Luftfeuchtigkeit hat Sensor 3 am 2004-03-30 um 16:04:46.552435 gemessen?,Sensor 3 hat am 2004-03-30 um 16:04:46.552435 eine Temperatur von 122.153 Grad gemessen.,2.1364,False,0.0,1.0,,outputs/logs/20251217T130207/0005_6.json
+7,factual,Welche Spannung hat Sensor 3 am 2004-03-30 um 14:43:05.262873 gemessen?,Sensor 3 hat am 2004-03-30 um 14:43:05.262873 eine Temperatur von 122.153 Grad gemessen.,2.1364,False,0.0,1.0,,outputs/logs/20251217T130207/0006_7.json
+8,factual,Welche Helligkeit hat Sensor 4 am 2004-03-12 um 09:32:12.399288 gemessen?,Sensor 4 hat am 2004-03-12 um 09:32:12.399288 eine Temperatur von 23.0558 Grad gemessen.,368.0,False,0.0,1.0,,outputs/logs/20251217T130207/0007_8.json
+9,factual,Welche Temperatur hat Sensor 4 am 2004-03-12 um 09:32:29.519989 gemessen?,Sensor 4 hat am 2004-03-12 um 09:32:29.519989 eine Temperatur von 23.0362 Grad gemessen.,23.0362,False,0.1904761904761905,1.0,,outputs/logs/20251217T130207/0008_9.json
+10,factual,Welche Temperatur hat Sensor 4 am 2004-03-12 um 09:33:08.794034 gemessen?,Sensor 4 hat am 2004-03-12 um 09:33:08.794034 eine Temperatur von 22.9872 Grad gemessen.,Dazu liegen mir keine Daten vor.,False,0.0,1.0,,outputs/logs/20251217T130207/0009_10.json
+11,trend,Wie entwickelt sich die Temperatur von Sensor 1 über alle seine Messungen?,Sensor 1 weist über alle Messungen eine durchschnittliche Temperatur von 71.071 Grad auf.,"```json
+{
+  ""data"": {
+    ""measurements"": [
+      {
+        ""timestamp"": ""2004-02-28T05:19:17.174981"",
+        ""light"": 338.56,
+        ""temperature"": 17.8618,
+        ""humidity"": 38.7357,
+        ""voltage"": 2.68742
+      },
+      {
+        ""timestamp"": ""2004-02-28T05:19:17.174981"",
+        ""light"": 338.56,
+        ""temperature"": 17.8618,
+        ""humidity"": 38.7357,
+        ""voltage"": 2.68742
+      },
+      {
+        ""timestamp"": ""2004-02-28T05:19:17.174981"",
+        ""light"": 338.56,
+        """,False,0.0,1.0,,outputs/logs/20251217T130207/0010_11.json
+12,trend,Wie entwickelt sich die Luftfeuchtigkeit von Sensor 2 über alle seine Messungen?,Sensor 2 weist über alle Messungen eine durchschnittliche Temperatur von 89.549 Grad auf.,"```json
+{
+  ""data"": [
+    {
+      ""light"": 250.24,
+      ""temperature"": 22.5462,
+      ""humidity"": 35.5072,
+      ""time"": ""2004-02-28T16:21:20.241609"",
+      ""voltage"": 2.69964
+    },
+    {
+      ""light"": 217.12,
+      ""temperature"": 22.164,
+      ""humidity"": 36.2328,
+      ""time"": ""2004-02-28T16:39:48.863794"",
+      ""voltage"": 2.69964
+    },
+    {
+      ""light"": 217.12,
+      ""temperature"": 17.9304,
+      ""humidity"": 40.1622,
+      ""time"": ""2004-02-28",False,0.029850746268656716,0.6666666666666666,,outputs/logs/20251217T130207/0011_12.json
+13,trend,Wie entwickelt sich die Spannung von Sensor 3 über alle seine Messungen?,Sensor 3 weist über alle Messungen eine durchschnittliche Temperatur von 96.666 Grad auf.,"[ERROR] The following component failed to run:
+Component name: 'retriever'
+Component type: 'CypherRetriever'
+Error: {code: Neo.ClientError.Statement.SyntaxError} {message: In a WITH/RETURN with DISTINCT or an aggregation, it is not possible to access variables declared before the WITH/RETURN: m (line 2, column 71 (offset: 153))
+""RETURN DISTINCT m.voltage AS voltage, e.epoch_id AS epoch_id ORDER BY m.time LIMIT 100""
+                                                                       ^}",False,0.0,0.0,,outputs/logs/20251217T130207/0012_13.json
+14,trend,Wie entwickelt sich die Helligkeit von Sensor 4 über alle seine Messungen?,Sensor 4 weist über alle Messungen eine durchschnittliche Temperatur von 23.026 Grad auf.,"```json
+{
+  ""data"": [
+    {
+      ""timestamp"": ""2024-01-26T10:00:00Z"",
+      ""sensor_id"": ""sensor_1"",
+      ""temperature"": 22.5,
+      ""humidity"": 60.2,
+      ""light"": 500
+    },
+    {
+      ""timestamp"": ""2024-01-26T10:05:00Z"",
+      ""sensor_id"": ""sensor_1"",
+      ""temperature"": 22.7,
+      ""humidity"": 60.5,
+      ""light"": 510
+    },
+    {
+      ""timestamp"": ""2024-01-26T10:10:00Z"",
+      ""sensor_id"": ""sensor_1"",
+      ""temperature"": 22.9,
+      ""humidity"": 61.0,
+      ""light"": 520
+    },
+    {
+      ""timestamp"": ""2024-01-",False,0.0,0.75,,outputs/logs/20251217T130207/0013_14.json
+15,trend,Wie entwickelt sich die Temperatur von Sensor 6 über alle seine Messungen?,Sensor 6 weist über alle Messungen eine durchschnittliche Temperatur von 20.42 Grad auf.,"Die Temperatur von Sensor 6 hatte im Zeitraum der Messungen einen Mittelwert von 17.77556, eine Standardabweichung von 0.01204687142419558 und erreichte Werte zwischen 17.754 und 17.7932.",False,0.2790697674418604,1.0,,outputs/logs/20251217T130207/0014_15.json
+16,trend,Wie verändert sich die Temperatur in Epoche 0 im Durchschnitt?,In Epoche 0 beträgt die durchschnittliche Luftfeuchtigkeit 38.651 Prozent.,Der Durchschnitt der Temperatur in Epoche 0 beträgt 49.28216666666667.,False,0.4000000000000001,1.0,,outputs/logs/20251217T130207/0015_16.json
+17,trend,Wie verändert sich die Luftfeuchtigkeit in Epoche 1 im Durchschnitt?,In Epoche 1 beträgt die durchschnittliche Luftfeuchtigkeit 45.002 Prozent.,Der Durchschnitt der Luftfeuchtigkeit in Epoche 1 beträgt 45.0022.,False,0.6,1.0,,outputs/logs/20251217T130207/0016_17.json
+18,trend,Wie verändert sich die Helligkeit in Epoche 2 im Durchschnitt?,In Epoche 2 beträgt die durchschnittliche Luftfeuchtigkeit 25.682 Prozent.,Der Durchschnittswert der Helligkeit in Epoche 2 beträgt 262.67.,False,0.4000000000000001,1.0,,outputs/logs/20251217T130207/0017_18.json
+19,trend,Wie verändert sich die Spannung in Epoche 3 im Durchschnitt?,In Epoche 3 beträgt die durchschnittliche Luftfeuchtigkeit 29.028 Prozent.,Der Durchschnitt der Spannung in Epoche 3 beträgt 2.505831666666667 Volt.,False,0.380952380952381,1.0,,outputs/logs/20251217T130207/0018_19.json
+20,trend,Wie verändert sich die Luftfeuchtigkeit in Epoche 4 im Durchschnitt?,In Epoche 4 beträgt die durchschnittliche Luftfeuchtigkeit 25.883 Prozent.,Der Durchschnitt der Luftfeuchtigkeit in Epoche 4 beträgt 25.88.,False,0.6,1.0,,outputs/logs/20251217T130207/0019_20.json
+21,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 11 über den gesamten Zeitraum?,Die Messwerte von Sensor 11 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": [
+    {
+      ""light"": 2.3,
+      ""temperature"": 16.1566,
+      ""humidity"": 45.0773,
+      ""time"": ""2004-02-28T04:58:47.082082"",
+      ""voltage"": 2.54901
+    },
+    {
+      ""light"": 802.24,
+      ""temperature"": 21.1154,
+      ""humidity"": 37.745,
+      ""time"": ""2004-02-28T15:59:18.286922"",
+      ""voltage"": 2.68742
+    },
+    {
+      ""light"": 2.3,
+      ""temperature"": 16.039,
+      ""humidity"": 45.1103,
+      ""time"": ""2004-02-28T05:29:",False,0.0,1.0,,outputs/logs/20251217T130207/0020_21.json
+22,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 12 über den gesamten Zeitraum?,Die Messwerte von Sensor 12 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": [
+    {
+      ""m"": {
+        ""light"": 0.46,
+        ""temperature"": 15.7744,
+        ""humidity"": 46.2297,
+        ""time"": ""2004-02-28T02:49:16.556001"",
+        ""voltage"": 2.65143
+      }
+    },
+    {
+      ""m"": {
+        ""light"": 0.46,
+        ""temperature"": 15.1178,
+        ""humidity"": 47.5057,
+        ""time"": ""2004-02-28T03:46:16.712664"",
+        ""voltage"": 2.63964
+      }
+    },
+    {
+      ""m"": {
+        ""light"": 1847.36,
+        ""temperature"": 19.2338,
+        ""humidity"": 40",False,0.0,1.0,,outputs/logs/20251217T130207/0021_22.json
+23,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 13 über den gesamten Zeitraum?,Die Messwerte von Sensor 13 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": [
+    {
+      ""light"": 1.84,
+      ""temperature"": 17.6266,
+      ""humidity"": 43.5522,
+      ""time"": ""2004-02-28T01:43:16.844054"",
+      ""voltage"": 2.65143
+    },
+    {
+      ""light"": 1.84,
+      ""temperature"": 17.754,
+      ""humidity"": 43.519,
+      ""time"": ""2004-02-28T01:34:16.045717"",
+      ""voltage"": 2.65143
+    },
+    {
+      ""light"": 1.84,
+      ""temperature"": 17.6266,
+      ""humidity"": 43.5522,
+      ""time"": ""2004-02-28T01:43:",False,0.0,1.0,,outputs/logs/20251217T130207/0022_23.json
+24,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 14 über den gesamten Zeitraum?,Die Messwerte von Sensor 14 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": [
+    {
+      ""light"": 0.46,
+      ""temperature"": 15.4314,
+      ""humidity"": 44.5151,
+      ""time"": ""2004-02-28T06:17:46.598545"",
+      ""voltage"": 2.67532
+    },
+    {
+      ""light"": 368.0,
+      ""temperature"": 21.7916,
+      ""humidity"": 36.6118,
+      ""time"": ""2004-02-28T12:31:19.582538"",
+      ""voltage"": 2.7244
+    },
+    {
+      ""light"": 323.84,
+      ""temperature"": 21.0272,
+      ""humidity"": 36.6118,
+      ""time"": ""2004-02-28T10",False,0.0,1.0,,outputs/logs/20251217T130207/0023_24.json
+25,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 15 über den gesamten Zeitraum?,Die Messwerte von Sensor 15 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": [
+    {
+      ""light"": 1847.36,
+      ""temperature"": 22.8696,
+      ""humidity"": 35.3687,
+      ""time"": ""2004-02-28T15:51:48.752991"",
+      ""voltage"": 2.48502
+    },
+    {
+      ""light"": 1847.36,
+      ""temperature"": 22.36,
+      ""humidity"": 36.3362,
+      ""time"": ""2004-02-28T16:16:17.540113"",
+      ""voltage"": 2.48502
+    },
+    {
+      ""light"": 1847.36,
+      ""temperature"": 22.2816,
+      ""humidity"": 36.3362,
+      ""time"": ""2004-02-",False,0.0,1.0,,outputs/logs/20251217T130207/0024_25.json
+26,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 16 über den gesamten Zeitraum?,Die Messwerte von Sensor 16 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": [
+    {
+      ""light"": 114.08,
+      ""temperature"": 14.5298,
+      ""humidity"": 47.4731,
+      ""time"": ""2004-02-28T06:57:47.393063"",
+      ""voltage"": 2.59354
+    }
+  ]
+}
+```",False,0.0,1.0,,outputs/logs/20251217T130207/0025_26.json
+27,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 17 über den gesamten Zeitraum?,Die Messwerte von Sensor 17 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": [
+    {
+      ""light"": 165.6,
+      ""temperature"": 122.153,
+      ""humidity"": -4.0,
+      ""time"": ""2004-03-16T18:09:47.255328"",
+      ""voltage"": 2.24121
+    },
+    {
+      ""light"": 655.04,
+      ""temperature"": 23.1244,
+      ""humidity"": 32.7907,
+      ""time"": ""2004-02-28T11:43:17.247565"",
+      ""voltage"": 2.61639
+    }
+  ]
+}
+```",False,0.03225806451612903,1.0,,outputs/logs/20251217T130207/0026_27.json
+28,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 18 über den gesamten Zeitraum?,Die Messwerte von Sensor 18 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": {
+    ""measurements"": [
+      {
+        ""timestamp"": ""2024-01-26T10:00:00Z"",
+        ""temperature"": 25.5,
+        ""humidity"": 60.2,
+        ""light"": 500
+      },
+      {
+        ""timestamp"": ""2024-01-26T10:00:00Z"",
+        ""temperature"": 26.0,
+        ""humidity"": 61.5,
+        ""light"": 510
+      },
+      {
+        ""timestamp"": ""2024-01-26T10:00:00Z"",
+        ""temperature"": 26.5,
+        ""humidity"": 62.8,
+        ""light"": 520
+      },
+      {
+        ""timestamp"": ""2024-01-26T10:00:00Z"",
+        ""temperature"": 27.0,
+        ""humidity"":",False,0.0,0.75,,outputs/logs/20251217T130207/0027_28.json
+29,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 19 über den gesamten Zeitraum?,Die Messwerte von Sensor 19 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": [
+    {
+      ""light"": 41.4,
+      ""temperature"": 18.2244,
+      ""humidity"": 39.4162,
+      ""time"": ""2004-02-28T02:25:46.376319"",
+      ""voltage"": 2.67532
+    }
+  ]
+}
+```",False,0.0,1.0,,outputs/logs/20251217T130207/0028_29.json
+30,interpretation,Gibt es Auffälligkeiten in den Messwerten von Sensor 20 über den gesamten Zeitraum?,Die Messwerte von Sensor 20 bewegen sich im typischen Bereich seiner Zeitreihen; kleinere Schwankungen sind normal und deuten nicht auf Anomalien hin.,"```json
+{
+  ""data"": {
+    ""measurements"": [
+      {
+        ""timestamp"": ""2024-01-26T10:00:00Z"",
+        ""temperature"": 25.5,
+        ""humidity"": 60.2,
+        ""pressure"": 1012.5,
+        ""location"": ""Living Room""
+      },
+      {
+        ""timestamp"": ""2024-01-26T10:00:00Z"",
+        ""temperature"": 26.1,
+        ""humidity"": 58.7,
+        ""pressure"": 1011.8,
+        ""location"": ""Kitchen""
+      },
+      {
+        ""timestamp"": ""2024-01-26T10:00:00Z"",
+        ""temperature"": 24.8,
+        ""humidity"": 62.1,
+        ""pressure"": 1013.2,
+        ""location"": ""Bedroom""
+      },
+      {
+        ""timestamp"": """,False,0.0,1.0,,outputs/logs/20251217T130207/0029_30.json
