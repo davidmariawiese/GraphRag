@@ -1,0 +1,253 @@
+{
+  "id": 92,
+  "category": "interpretation",
+  "question": "Gibt es Hinweise auf Messrauschen bei Sensor 6.0?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es scheint, als ob du eine JSON-Datei hast und nach einer bestimmten Antwort suchst. Die JSON-Datei enthält eine Liste von Objekten, die jeweils ein Schlüssel-Wert-Paar \"s\" und \"e\" enthalten.\n\nUm deine Frage zu beantworten, benötige ich jedoch mehr Informationen über das, was du suchst. Welche spezifische Antwort möchtest du finden? Ein bestimmtes Wertpaar oder eine bestimmte Zeichenfolge?\n\nWenn du mir mehr über deine Frage erzählst, kann ich dir besser helfen.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.025,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Es scheint, als ob du eine JSON-Datei hast und nach einer bestimmten Antwort suchst.",
+      "Die JSON-Datei enthält eine Liste von Objekten, die jeweils ein Schlüssel-Wert-Paar 's' und 'e' enthalten.",
+      "Um deine Frage zu beantworten, benötige ich jedoch mehr Informationen über das, was du suchst.",
+      "Ein bestimmtes Wertpaar oder eine bestimmte Zeichenfolge?",
+      "Ich kann dir besser helfen, wenn du mir mehr über deine Frage erzählst."
+    ],
+    "statement_scores": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "score": 0.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nWHERE m.light > 10 OR m.voltage < 4\nRETURN DISTINCT s, e",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0091_92.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nWHERE m.light > 10 OR m.voltage < 4\nRETURN DISTINCT s, e"
+    },
+    "retriever": {
+      "documents_total": 804,
+      "documents": [
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 622}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 933}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 878}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1982}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1058}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1121}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1700}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 913}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1325}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 818}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1589}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 665}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1578}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1765}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1596}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 301}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1646}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1528}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1573}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1837}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1599}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 497}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 772}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 910}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 646}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1345}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 792}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 620}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 336}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 949}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1627}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 84}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 711}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1132}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1539}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 922}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1783}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 790}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1327}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 35}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1615}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 641}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 206}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 902}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 660}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 730}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1897}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 1189}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 103}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 6}, \"e\": {\"epoch_id\": 55}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es scheint, als ob du eine JSON-Datei hast und nach einer bestimmten Antwort suchst. Die JSON-Datei enthält eine Liste von Objekten, die jeweils ein Schlüssel-Wert-Paar \"s\" und \"e\" enthalten.\n\nUm deine Frage zu beantworten, benötige ich jedoch mehr Informationen über das, was du suchst. Welche spezifische Antwort möchtest du finden? Ein bestimmtes Wertpaar oder eine bestimmte Zeichenfolge?\n\nWenn du mir mehr über deine Frage erzählst, kann ich dir besser helfen.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

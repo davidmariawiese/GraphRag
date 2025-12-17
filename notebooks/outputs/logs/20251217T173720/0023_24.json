@@ -1,0 +1,50 @@
+{
+  "id": 24,
+  "category": "factual",
+  "question": "Welche Spannung hat Sensor 6.0 am 2004-03-01 um 03:15:16 gemessen?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält jedoch eine Fehlermeldung: \"No data found\". Dies bedeutet, dass keine Daten für die angefragte Zeit und Sensor verfügbar sind.\n\nDa es keine Daten gibt, kann ich keine Antwort basierend auf den bereitgestellten Regeln geben. Die Frage nach der Spannung des Sensors 6.0 am 2004-03-01 um 03:15:16 kann nicht beantwortet werden, da die erforderlichen Daten fehlen.\n\nDie endgültige Antwort lautet daher:\n\nKeine Daten verfügbar.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.06666666666666667,
+  "faithfulness": 0.5,
+  "faithfulness_details": {
+    "statements": [
+      "Welche Spannung hat Sensor 6.0 am 2004-03-01 um 03:15:16 gemessen?",
+      "Es tut mir leid, aber ich kann diese Frage nicht beantworten.",
+      "Der bereitgestellte JSON-Context enthält jedoch eine Fehlermeldung: \"No data found\".",
+      "Keine Daten verfügbar."
+    ],
+    "statement_scores": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "score": 0.5
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-01\"})-[:HAS_HOUR]->(h:Hour {hour: 3})-[:HAS_MINUTE]->(mi:Minute {minute: 15})\nRETURN m.voltage AS voltage",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0023_24.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-01\"})-[:HAS_HOUR]->(h:Hour {hour: 3})-[:HAS_MINUTE]->(mi:Minute {minute: 15})\nRETURN m.voltage AS voltage"
+    },
+    "retriever": {
+      "documents_total": 0,
+      "documents": []
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält jedoch eine Fehlermeldung: \"No data found\". Dies bedeutet, dass keine Daten für die angefragte Zeit und Sensor verfügbar sind.\n\nDa es keine Daten gibt, kann ich keine Antwort basierend auf den bereitgestellten Regeln geben. Die Frage nach der Spannung des Sensors 6.0 am 2004-03-01 um 03:15:16 kann nicht beantwortet werden, da die erforderlichen Daten fehlen.\n\nDie endgültige Antwort lautet daher:\n\nKeine Daten verfügbar.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

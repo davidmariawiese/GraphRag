@@ -1,0 +1,251 @@
+{
+  "id": 7,
+  "category": "factual",
+  "question": "Welche Helligkeit hat Sensor 2.0 am 2004-02-28 um 01:25:16 gemessen?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Um die Frage zu beantworten, müssen wir das JSON-Objekt analysieren und den richtigen Modus auswählen.\n\nDer Benutzer fragt nach der Helligkeit des Sensors 2.0 am 28.02.2004 um 01:25:16. Wir können sehen, dass es in der \"analysis\"-Sektion eine Statistik für den Sensor gibt, aber wir müssen prüfen, ob die Frage direkt aus dieser Statistik abgeleitet werden kann.\n\nDie Frage bezieht sich auf einen bestimmten Zeitpunkt und einen bestimmten Sensor. In der \"raw\"-Sektion finden wir jedoch keine direkte Antwort auf diese Frage. Wir können jedoch sehen, dass es in der \"analysis\"-Sektion eine Statistik für den Sensor gibt, aber die Zeitpunkte sind nicht direkt vergleichbar.\n\nDa die Frage nach einer spezifischen Messung am 28.02.2004 um 01:25:16 fragt und wir keine direkte Antwort in der \"raw\"-Sektion finden, müssen wir uns auf die \"analysis\"-Sektion verlassen. In dieser Sektion finden wir jedoch keine direkte Antwort auf diese Frage.\n\nDa wir nicht wissen, ob die",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.011834319526627219,
+  "faithfulness": 0.75,
+  "faithfulness_details": {
+    "statements": [
+      "Welche Helligkeit hat Sensor 2.0 am 2004-02-28 um 01:25:16 gemessen?",
+      "Die Frage bezieht sich auf einen bestimmten Zeitpunkt und einen bestimmten Sensor.",
+      "In der \"raw\"-Sektion finden wir jedoch keine direkte Antwort auf diese Frage.",
+      "Da die Frage nach einer spezifischen Messung am 28.02.2004 um 01:25:16 fragt und wir keine direkte Antwort in der \"raw\"-Sektion finden, müssen wir uns auf die \"analysis\"-Sektion verlassen."
+    ],
+    "statement_scores": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "score": 0.75
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 2.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 25})\nRETURN m.light AS light",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0006_7.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 2.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 25})\nRETURN m.light AS light"
+    },
+    "retriever": {
+      "documents_total": 696,
+      "documents": [
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 456.32}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 264.96}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 507.84}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 128.8}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 426.88}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 217.12}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 338.56}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 397.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 478.4}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 294.4}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 338.56}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 294.4}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 158.24}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 478.4}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 165.6}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 507.84}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 426.88}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 279.68}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 323.84}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 353.28}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 353.28}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 537.28}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 507.84}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 368.0}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 478.4}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 224.48}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 478.4}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 172.96}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 507.84}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 121.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 478.4}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 507.84}",
+          "meta": {}
+        },
+        {
+          "content": "{\"light\": 441.6}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Um die Frage zu beantworten, müssen wir das JSON-Objekt analysieren und den richtigen Modus auswählen.\n\nDer Benutzer fragt nach der Helligkeit des Sensors 2.0 am 28.02.2004 um 01:25:16. Wir können sehen, dass es in der \"analysis\"-Sektion eine Statistik für den Sensor gibt, aber wir müssen prüfen, ob die Frage direkt aus dieser Statistik abgeleitet werden kann.\n\nDie Frage bezieht sich auf einen bestimmten Zeitpunkt und einen bestimmten Sensor. In der \"raw\"-Sektion finden wir jedoch keine direkte Antwort auf diese Frage. Wir können jedoch sehen, dass es in der \"analysis\"-Sektion eine Statistik für den Sensor gibt, aber die Zeitpunkte sind nicht direkt vergleichbar.\n\nDa die Frage nach einer spezifischen Messung am 28.02.2004 um 01:25:16 fragt und wir keine direkte Antwort in der \"raw\"-Sektion finden, müssen wir uns auf die \"analysis\"-Sektion verlassen. In dieser Sektion finden wir jedoch keine direkte Antwort auf diese Frage.\n\nDa wir nicht wissen, ob die",
+      "model": "llama3.1:8b"
+    }
+  }
+}

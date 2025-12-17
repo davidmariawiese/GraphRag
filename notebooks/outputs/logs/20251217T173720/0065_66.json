@@ -1,0 +1,49 @@
+{
+  "id": 66,
+  "category": "aggregation",
+  "question": "Was ist die durchschnittliche Temperatur von Sensor 6.0?",
+  "gold_answer": "Durchschnitt Temperatur (Sensor 6.0): 20.40566086956518°C",
+  "prediction": "Die durchschnittliche Temperatur von Sensor 6.0 beträgt 20,41 Grad Celsius.\n\nIch habe mich auf die Analyse konzentriert, da sie direkt eine Antwort auf die Frage liefert. Die Analyse enthält den Schlüssel \"average_temperature\" mit dem Wert 20,40566086956518, was der durchschnittlichen Temperatur entspricht.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.23076923076923075,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die durchschnittliche Temperatur von Sensor 6.0 beträgt 20,41 Grad Celsius."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nRETURN avg(m.temperature) AS average_temperature",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0065_66.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nRETURN avg(m.temperature) AS average_temperature"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"average_temperature\": 20.40566086956518}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die durchschnittliche Temperatur von Sensor 6.0 beträgt 20,41 Grad Celsius.\n\nIch habe mich auf die Analyse konzentriert, da sie direkt eine Antwort auf die Frage liefert. Die Analyse enthält den Schlüssel \"average_temperature\" mit dem Wert 20,40566086956518, was der durchschnittlichen Temperatur entspricht.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

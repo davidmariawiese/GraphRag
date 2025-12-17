@@ -1,0 +1,46 @@
+{
+  "id": 90,
+  "category": "interpretation",
+  "question": "Ist der Temperaturausreißer Ende März 2004 erklärbar?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält keine Messdaten und daher ist es nicht möglich, eine Antwort auf die Frage zu geben. Der JSON-Context enthält nur einen Fehlercode \"No data found\" und keine tatsächlichen Daten.\n\nWenn Sie jedoch den MODE ANSWER auswählen würden, würde ich Ihnen folgende Antwort geben:\n\nKeine Daten verfügbar.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.08823529411764706,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die Temperaturausreißer Ende März 2004 ist erklärbar.",
+      "Es tut mir leid, aber ich kann diese Frage nicht beantworten."
+    ],
+    "statement_scores": [
+      0,
+      0
+    ],
+    "score": 0.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement {temperature: 'Ausreißer'})-[:AT_DATE]->(d:Date {date: \"2004-03-31\"}) \nRETURN DISTINCT d",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0089_90.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement {temperature: 'Ausreißer'})-[:AT_DATE]->(d:Date {date: \"2004-03-31\"}) \nRETURN DISTINCT d"
+    },
+    "retriever": {
+      "documents_total": 0,
+      "documents": []
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält keine Messdaten und daher ist es nicht möglich, eine Antwort auf die Frage zu geben. Der JSON-Context enthält nur einen Fehlercode \"No data found\" und keine tatsächlichen Daten.\n\nWenn Sie jedoch den MODE ANSWER auswählen würden, würde ich Ihnen folgende Antwort geben:\n\nKeine Daten verfügbar.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

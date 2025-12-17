@@ -1,0 +1,50 @@
+{
+  "id": 96,
+  "category": "negative",
+  "question": "Welche Temperatur hat Sensor 99.0 am 2004-02-28 gemessen?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält keine Messdaten und besagt sogar, dass \"keine Daten gefunden wurden\". Daher ist es nicht möglich, eine Antwort auf die Frage zu geben.\n\nWenn Sie jedoch den MODE ANSWER aktivieren würden, würde ich Ihnen folgende Antwort geben:\n\nKeine Daten verfügbar.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.09836065573770492,
+  "faithfulness": 0.5,
+  "faithfulness_details": {
+    "statements": [
+      "Welche Temperatur hat Sensor 99.0 am 2004-02-28 gemessen?",
+      "Es tut mir leid, aber ich kann diese Frage nicht beantworten.",
+      "Der bereitgestellte JSON-Context enthält keine Messdaten und besagt sogar, dass 'keine Daten gefunden wurden'.",
+      "Keine Daten verfügbar."
+    ],
+    "statement_scores": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "score": 0.5
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 99.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})\nRETURN m.temperature AS temperature, s.mote_id AS mote_id",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0095_96.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 99.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})\nRETURN m.temperature AS temperature, s.mote_id AS mote_id"
+    },
+    "retriever": {
+      "documents_total": 0,
+      "documents": []
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält keine Messdaten und besagt sogar, dass \"keine Daten gefunden wurden\". Daher ist es nicht möglich, eine Antwort auf die Frage zu geben.\n\nWenn Sie jedoch den MODE ANSWER aktivieren würden, würde ich Ihnen folgende Antwort geben:\n\nKeine Daten verfügbar.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": 52,
+  "category": "aggregation",
+  "question": "Was ist die maximale Helligkeit in Epoche 11?",
+  "gold_answer": "Maximum Helligkeit (Epoche 11): 1847.36Lux",
+  "prediction": "Die maximale Helligkeit in Epoche 11 beträgt 1847,36.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.5333333333333333,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die maximale Helligkeit in Epoche 11 beträgt 1847,36."
+    ],
+    "statement_scores": [
+      0
+    ],
+    "score": 0.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 11})\nRETURN MAX(m.light) AS max_light",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0051_52.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 11})\nRETURN MAX(m.light) AS max_light"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"max_light\": 1847.36}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die maximale Helligkeit in Epoche 11 beträgt 1847,36.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": 95,
+  "category": "interpretation",
+  "question": "Gibt es Anzeichen für fehlerhafte Messungen bei Sensor 9.0?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es gibt keine Anzeichen für fehlerhafte Messungen bei Sensor 9.0.\n\nDie Antwort basiert auf der folgenden Analyse:\n\n* Der GRAPH CONTEXT enthält eine Fehlermeldung, dass keine Daten gefunden wurden.\n* Es gibt keine Informationen über die Messwerte des Sensors 9.0 in der JSON-Struktur.\n* Da keine Daten vorhanden sind, kann keine Auswertung von Trends, Mindest-, Maximal-, Mittel- oder Quantilwerten erfolgen.\n\nDie Antwort ist daher eine direkte Folge aus dem fehlenden Datenbestand und nicht auf einer Analyse der Messwerte basiert.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.04705882352941176,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "Es gibt keine Anzeichen für fehlerhafte Messungen bei Sensor 9.0."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nWHERE m.temperature > 100 OR m.humidity < 20\nRETURN DISTINCT s, e",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0094_95.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nWHERE m.temperature > 100 OR m.humidity < 20\nRETURN DISTINCT s, e"
+    },
+    "retriever": {
+      "documents_total": 0,
+      "documents": []
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es gibt keine Anzeichen für fehlerhafte Messungen bei Sensor 9.0.\n\nDie Antwort basiert auf der folgenden Analyse:\n\n* Der GRAPH CONTEXT enthält eine Fehlermeldung, dass keine Daten gefunden wurden.\n* Es gibt keine Informationen über die Messwerte des Sensors 9.0 in der JSON-Struktur.\n* Da keine Daten vorhanden sind, kann keine Auswertung von Trends, Mindest-, Maximal-, Mittel- oder Quantilwerten erfolgen.\n\nDie Antwort ist daher eine direkte Folge aus dem fehlenden Datenbestand und nicht auf einer Analyse der Messwerte basiert.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

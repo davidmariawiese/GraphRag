@@ -1,0 +1,31 @@
+{
+  "id": 89,
+  "category": "interpretation",
+  "question": "Gibt es Hinweise auf Datenlücken bei Sensor 4.0?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "[ERROR] The following component failed to run:\nComponent name: 'retriever'\nComponent type: 'CypherRetriever'\nError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '': expected an expression, ')' or ',' (line 7, column 30 (offset: 377))\n\"RETURN DISTINCT s, COUNT(DIST\"\n                              ^}",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.0,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Gibt es Hinweise auf Datenlücken bei Sensor 4.0?"
+    ],
+    "statement_scores": [
+      0
+    ],
+    "score": 0.0
+  },
+  "faithfulness_error": null,
+  "cypher": null,
+  "cypher_policy_ok": false,
+  "cypher_explain_ok": false,
+  "cypher_error": "empty cypher",
+  "log_path": "outputs/logs/20251217T173720/0088_89.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "error": "The following component failed to run:\nComponent name: 'retriever'\nComponent type: 'CypherRetriever'\nError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '': expected an expression, ')' or ',' (line 7, column 30 (offset: 377))\n\"RETURN DISTINCT s, COUNT(DIST\"\n                              ^}"
+  }
+}

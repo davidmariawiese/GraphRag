@@ -1,0 +1,46 @@
+{
+  "id": 98,
+  "category": "negative",
+  "question": "Wie hoch war die Luftfeuchtigkeit am 2005-01-01 um 00:00 Uhr?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Die bereitgestellte JSON-Struktur enthält keine Daten über Luftfeuchtigkeit für den angegebenen Zeitpunkt. Der Antworttext lautet daher:\n\nKeine Daten verfügbar.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.16216216216216214,
+  "faithfulness": 0.5,
+  "faithfulness_details": {
+    "statements": [
+      "Die Luftfeuchtigkeit am 2005-01-01 um 00:00 Uhr ist nicht bekannt.",
+      "Es gibt keine Daten über die Luftfeuchtigkeit für den angegebenen Zeitpunkt."
+    ],
+    "statement_scores": [
+      0,
+      1
+    ],
+    "score": 0.5
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2005-01-01\"})-[:HAS_HOUR]->(h:Hour {hour: 0})-[:HAS_MINUTE]->(mi:Minute {minute: 0})\nRETURN DISTINCT m.humidity",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0097_98.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2005-01-01\"})-[:HAS_HOUR]->(h:Hour {hour: 0})-[:HAS_MINUTE]->(mi:Minute {minute: 0})\nRETURN DISTINCT m.humidity"
+    },
+    "retriever": {
+      "documents_total": 0,
+      "documents": []
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Die bereitgestellte JSON-Struktur enthält keine Daten über Luftfeuchtigkeit für den angegebenen Zeitpunkt. Der Antworttext lautet daher:\n\nKeine Daten verfügbar.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

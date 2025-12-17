@@ -1,0 +1,44 @@
+{
+  "id": 47,
+  "category": "list",
+  "question": "Liste alle Messwerte von Sensor 1.0 in Epoche 95 auf.",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es tut mir leid, aber ich kann diese Anfrage nicht erfüllen. Der Benutzer fragt nach Messwerten eines Sensors in einer bestimmten Epoche, aber das GRAPH CONTEXT enthält keine Messdaten. Es gibt nur eine Fehlermeldung \"No data found\". \n\nWenn Sie also die Frage beantworten möchten, müssen Sie entweder die Daten finden oder den Benutzer informieren, dass keine Daten verfügbar sind.\n\nDie Antwort lautet daher:\n\nKeine Daten verfügbar.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.08333333333333334,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Messwerte von Sensor 1.0 in Epoche 95"
+    ],
+    "statement_scores": [
+      0
+    ],
+    "score": 0.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 95})\nRETURN DISTINCT m,s",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0046_47.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 95})\nRETURN DISTINCT m,s"
+    },
+    "retriever": {
+      "documents_total": 0,
+      "documents": []
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es tut mir leid, aber ich kann diese Anfrage nicht erfüllen. Der Benutzer fragt nach Messwerten eines Sensors in einer bestimmten Epoche, aber das GRAPH CONTEXT enthält keine Messdaten. Es gibt nur eine Fehlermeldung \"No data found\". \n\nWenn Sie also die Frage beantworten möchten, müssen Sie entweder die Daten finden oder den Benutzer informieren, dass keine Daten verfügbar sind.\n\nDie Antwort lautet daher:\n\nKeine Daten verfügbar.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

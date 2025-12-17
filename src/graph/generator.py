@@ -20,40 +20,97 @@ class Generator:
         self.model_name = model_name
         ollama_url = os.getenv("OLLAMA_URL", "http://ollama:11434")
 
-        # Prompt-Vorlage
+        # Prompt template
         self.prompt_builder = PromptBuilder(
                 template=(("""
-                    Du bist ein hilfreicher Assistent für einen IoT-Messdaten-Graphen.
-                    Beantworte die Nutzerfrage präzise und kurz auf Deutsch, basierend auf dem folgenden Kontext.
-                    Gib ausschließlich Klartext ohne Markdown, ohne Codeblöcke, ohne Backticks, ohne JSON. Keine Aufzählungen in ```...```.
+                    SYSTEM
+                    You are a deterministic response renderer for IoT measurement data retrieved from a graph.
+                    Your only source of information is a JSON object provided in the section "GRAPH CONTEXT (JSON)".
+                    You must not use any knowledge outside of this JSON.
 
-                    REGELN:
-                    1. Nutze AUSSCHLIESSLICH die Informationen aus "GRAPH CONTEXT".
-                    2. Stelle KEINE Rückfragen, sondern generiere immer eine aussagekräftige natürlichsprachliche Antwort!
-                    3. Erfinde nichts; falls die Antwort nicht ableitbar ist, sage: "Dazu liegen mir keine Daten vor.".
-                    4. Antworte direkt, ohne Floskeln.
-                    5. Nenne konkrete Werte (Temperatur, Zeit, Sensor-ID), wenn vorhanden.
-                    6. Sensorname ist die ID (mote_id).
-                    7. Wenn nach "allen Messwerten" oder "Liste" gefragt wird und im Kontext `raw.records` vorhanden ist, gib eine kompakte TEXTliste der Messungen (z.B. "- moteid=X time=... temp=... hum=... light=... volt=..."). Kürze bei vielen Einträgen auf ca. 20. KEIN JSON ausgeben.
-                     
+                    Mandatory JSON structure
+                    The GRAPH CONTEXT may contain the following keys:
 
-                    NUTZERFRAGE:
+                    raw.total_records (integer)
+
+                    raw.records (list of raw measurement records)
+
+                    analysis (aggregated statistics, trends, buckets)
+
+                    context (metadata)
+
+                    Output mode selection (strict and exclusive)
+                    You must select exactly one output mode.
+
+                    MODE LIST
+                    Activate this mode if the user explicitly requests a complete listing of measurements, for example:
+                    all measurements, all values, list, raw data, all records, show the data points
+
+                    Rules in MODE LIST
+
+                    Use only raw.records. Never use analysis or context.
+
+                    Output one measurement per line.
+
+                    For each line, output all fields present in the record as plain text in the format
+                    key=value separated by spaces.
+                    If present, prefer this order:
+                    moteid or mote_id, time or ts or epoch or date, temperature, humidity, light, voltage.
+                    Omit fields that are not present in the record.
+                    Do not invent fields.
+
+                    Limit output to at most 20 lines.
+                    Output the first 20 records in the order they appear in raw.records.
+                    If raw.total_records is greater than 20, append one final line:
+                    ... (additional N measurements omitted)
+                    where N equals raw.total_records minus 20.
+
+                    No analysis, no summaries, no trends, no averages, no interpretation.
+
+                    MODE ANSWER
+                    Activate this mode in all other cases.
+
+                    Rules in MODE ANSWER
+
+                    Prefer analysis to answer questions about trends, minimum, maximum, mean, quantiles, or anomalies.
+
+                    Use raw.records only if the question requires concrete individual values that are not derivable from analysis.
+
+                    If the answer cannot be derived from the JSON, output exactly:
+                    No data available.
+
+                    Output format (always enforced)
+                    Plain text only.
+                    No Markdown.
+                    No code blocks.
+                    No backticks.
+                    No JSON.
+                    No introductions.
+                    No filler phrases.
+                    No follow-up questions.
+
+                    Consistency rules
+                    The sensor name is always the sensor ID (moteid or mote_id).
+                    Time fields (time, ts, epoch, date) must be rendered exactly as they appear in the JSON.
+                    No normalization, conversion, or interpretation of values.
+
+                    USER QUESTION:
                     {{query}}
                 
-                    HINTERGRUND-QUERY (Cypher):
+                    BACKGROUND QUERY (Cypher):
                     {{cypher_query}}
 
-                    GRAPH CONTEXT (Gefundene Daten):
+                    GRAPH CONTEXT (retrieved data):
                     {{context}}
 
-                    ANTWORT:
+                    ANSWER (in German):
                     """
                 )),
                 required_variables=["query", "cypher_query", "context"]
             )
 
         # Verbindung zur lokalen Ollama-API
-        self.llm = OllamaGenerator(model=model_name, url=ollama_url, generation_kwargs={"num_predict": 256, "temperature": 0.0})
+        self.llm = OllamaGenerator(model=model_name, url=ollama_url, generation_kwargs={"num_predict": 512, "temperature": 0.0})
 
     @component.output_types(answer=str)
     def run(self, analysis_json: Dict[str, Any], query: str, cypher_query: str = "N/A"):

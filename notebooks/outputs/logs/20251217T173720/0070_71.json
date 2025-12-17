@@ -1,0 +1,93 @@
+{
+  "id": 71,
+  "category": "trend",
+  "question": "Wie entwickelt sich die Temperatur von Sensor 1.0 über alle Messungen?",
+  "gold_answer": "Der Trend der Temperatur von Sensor 1.0 ist: steigend.",
+  "prediction": "Um die Frage zu beantworten, müssen wir den MODE ANSWER verwenden.\n\nDie Frage lautet: \"Wie entwickelt sich die Temperatur von Sensor 1.0 über alle Messungen?\"\n\nWir können sehen, dass in der GRAPH CONTEXT unter dem Schlüssel \"analysis\" eine Analyse der Temperaturen für den Sensor 1.0 bereitgestellt wird. Hier sind einige wichtige Punkte:\n\n* Die Mindesttemperatur beträgt 17,509 Grad Celsius und wurde am 28.02.2004 um 07:00:17 Uhr gemessen.\n* Die Maximaltemperatur beträgt 17,558 Grad Celsius und wurde am 28.02.2004 um 06:40:46 Uhr gemessen.\n* Der Mittelwert der Temperaturen liegt bei 17,5335 Grad Celsius.\n\nDa die Frage nach der Entwicklung der Temperatur über alle Messungen fragt, können wir daraus schließen, dass die Temperatur im Allgemeinen abnimmt. Dies wird durch die Analyse unter dem Schlüssel \"analysis\" bestätigt, wo es heißt: \"Trend: down\".\n\nDie endgültige Antwort lautet daher:\n\nDie Temperatur von Sensor",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.10126582278481013,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die Mindesttemperatur beträgt 17,509 Grad Celsius und wurde am 28.02.2004 um 07:00:17 Uhr gemessen.",
+      "Die Maximaltemperatur beträgt 17,558 Grad Celsius und wurde am 28.02.2004 um 06:40:46 Uhr gemessen.",
+      "Der Mittelwert der Temperaturen liegt bei 17,5335 Grad Celsius.",
+      "Die Temperatur im Allgemeinen abnimmt.",
+      "Trend: down"
+    ],
+    "statement_scores": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "score": 1.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nRETURN DISTINCT m ORDER BY m.temperature ASC LIMIT 10",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0070_71.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch)\nRETURN DISTINCT m ORDER BY m.temperature ASC LIMIT 10"
+    },
+    "retriever": {
+      "documents_total": 10,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 17.509, \"humidity\": 39.2803, \"time\": \"2004-02-28T07:03:17.465725\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 17.509, \"humidity\": 39.2803, \"time\": \"2004-02-28T07:04:17.597071\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 17.509, \"humidity\": 39.2803, \"time\": \"2004-02-28T07:00:17.369668\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 57.04, \"temperature\": 17.509, \"humidity\": 39.2803, \"time\": \"2004-02-28T07:05:17.330544\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 50.6, \"temperature\": 17.5384, \"humidity\": 39.3483, \"time\": \"2004-02-28T06:49:47.029614\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 53.36, \"temperature\": 17.5482, \"humidity\": 39.4502, \"time\": \"2004-02-28T06:53:17.426904\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 48.76, \"temperature\": 17.5482, \"humidity\": 39.2123, \"time\": \"2004-02-28T06:43:47.046639\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 136.16, \"temperature\": 17.5482, \"humidity\": 39.3143, \"time\": \"2004-02-28T07:10:47.838123\", \"voltage\": 2.67532}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 46.92, \"temperature\": 17.558, \"humidity\": 39.2123, \"time\": \"2004-02-28T06:42:16.783051\", \"voltage\": 2.68742}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m\": {\"light\": 46.92, \"temperature\": 17.558, \"humidity\": 39.2463, \"time\": \"2004-02-28T06:40:46.901212\", \"voltage\": 2.67532}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Um die Frage zu beantworten, müssen wir den MODE ANSWER verwenden.\n\nDie Frage lautet: \"Wie entwickelt sich die Temperatur von Sensor 1.0 über alle Messungen?\"\n\nWir können sehen, dass in der GRAPH CONTEXT unter dem Schlüssel \"analysis\" eine Analyse der Temperaturen für den Sensor 1.0 bereitgestellt wird. Hier sind einige wichtige Punkte:\n\n* Die Mindesttemperatur beträgt 17,509 Grad Celsius und wurde am 28.02.2004 um 07:00:17 Uhr gemessen.\n* Die Maximaltemperatur beträgt 17,558 Grad Celsius und wurde am 28.02.2004 um 06:40:46 Uhr gemessen.\n* Der Mittelwert der Temperaturen liegt bei 17,5335 Grad Celsius.\n\nDa die Frage nach der Entwicklung der Temperatur über alle Messungen fragt, können wir daraus schließen, dass die Temperatur im Allgemeinen abnimmt. Dies wird durch die Analyse unter dem Schlüssel \"analysis\" bestätigt, wo es heißt: \"Trend: down\".\n\nDie endgültige Antwort lautet daher:\n\nDie Temperatur von Sensor",
+      "model": "llama3.1:8b"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 85,
+  "category": "trend",
+  "question": "Gibt es langfristige Schwankungen in der Temperatur von Sensor 6.0?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "[ERROR] The following component failed to run:\nComponent name: 'retriever'\nComponent type: 'CypherRetriever'\nError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input 'RETURN': expected an expression, ')' or ',' (line 2, column 78 (offset: 162))\n\"WHERE m.temperature > ALL((s)-[:GENERATED]->(n:Measurement)-[:EPOCH_IN]->(e) RETURN n.temperature)\"\n                                                                              ^}",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.0,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Gibt es langfristige Schwankungen in der Temperatur von Sensor 6.0?"
+    ],
+    "statement_scores": [
+      0
+    ],
+    "score": 0.0
+  },
+  "faithfulness_error": null,
+  "cypher": null,
+  "cypher_policy_ok": false,
+  "cypher_explain_ok": false,
+  "cypher_error": "empty cypher",
+  "log_path": "outputs/logs/20251217T173720/0084_85.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "error": "The following component failed to run:\nComponent name: 'retriever'\nComponent type: 'CypherRetriever'\nError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input 'RETURN': expected an expression, ')' or ',' (line 2, column 78 (offset: 162))\n\"WHERE m.temperature > ALL((s)-[:GENERATED]->(n:Measurement)-[:EPOCH_IN]->(e) RETURN n.temperature)\"\n                                                                              ^}"
+  }
+}

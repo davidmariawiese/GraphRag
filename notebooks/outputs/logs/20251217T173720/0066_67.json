@@ -1,0 +1,49 @@
+{
+  "id": 67,
+  "category": "aggregation",
+  "question": "Was ist die maximale Helligkeit von Sensor 7.0?",
+  "gold_answer": "Maximum Helligkeit (Sensor 7.0): 412.16Lux",
+  "prediction": "Die maximale Helligkeit von Sensor 7.0 beträgt 412,16.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.588235294117647,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die maximale Helligkeit von Sensor 7.0 beträgt 412,16."
+    ],
+    "statement_scores": [
+      0
+    ],
+    "score": 0.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)-[:AT_HOUR]->(h:Hour)-[:HAS_MINUTE]->(mi:Minute)\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)-[:HAS_HOUR]->(h2:Hour)-[:HAS_MINUTE]->(mi2:Minute)\nWHERE h IS NOT NULL OR h2 IS NOT NULL\nRETURN MAX(CASE WHEN m.light IS NOT NULL THEN m.light ELSE mi2.light END) AS max_light",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0066_67.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)-[:AT_HOUR]->(h:Hour)-[:HAS_MINUTE]->(mi:Minute)\nOPTIONAL MATCH (m)-[:AT_DATE]->(d:Date)-[:HAS_HOUR]->(h2:Hour)-[:HAS_MINUTE]->(mi2:Minute)\nWHERE h IS NOT NULL OR h2 IS NOT NULL\nRETURN MAX(CASE WHEN m.light IS NOT NULL THEN m.light ELSE mi2.light END) AS max_light"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"max_light\": 412.16}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die maximale Helligkeit von Sensor 7.0 beträgt 412,16.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

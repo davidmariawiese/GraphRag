@@ -1,0 +1,31 @@
+{
+  "id": 79,
+  "category": "trend",
+  "question": "Ist der Temperaturverlauf von Sensor 8.0 konstant?",
+  "gold_answer": "Der Trend der Temperatur von Sensor 8.0 ist: steigend.",
+  "prediction": "[ERROR] The following component failed to run:\nComponent name: 'retriever'\nComponent type: 'CypherRetriever'\nError: {code: Neo.ClientError.Statement.SyntaxError} {message: PatternExpressions are not allowed to introduce new variables: 'n'. (line 2, column 47 (offset: 131))\n\"WHERE m.temperature = ALL ((s)-[:GENERATED]->(n:Measurement)-[:EPOCH_IN]->(e))\"\n                                               ^}",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.0,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Ist der Temperaturverlauf von Sensor 8.0 konstant?"
+    ],
+    "statement_scores": [
+      0
+    ],
+    "score": 0.0
+  },
+  "faithfulness_error": null,
+  "cypher": null,
+  "cypher_policy_ok": false,
+  "cypher_explain_ok": false,
+  "cypher_error": "empty cypher",
+  "log_path": "outputs/logs/20251217T173720/0078_79.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "error": "The following component failed to run:\nComponent name: 'retriever'\nComponent type: 'CypherRetriever'\nError: {code: Neo.ClientError.Statement.SyntaxError} {message: PatternExpressions are not allowed to introduce new variables: 'n'. (line 2, column 47 (offset: 131))\n\"WHERE m.temperature = ALL ((s)-[:GENERATED]->(n:Measurement)-[:EPOCH_IN]->(e))\"\n                                               ^}"
+  }
+}

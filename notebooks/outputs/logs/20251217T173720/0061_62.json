@@ -1,0 +1,49 @@
+{
+  "id": 62,
+  "category": "aggregation",
+  "question": "Was ist die maximale Spannung in Epoche 50?",
+  "gold_answer": "Maximum Spannung (Epoche 50): 3.14243V",
+  "prediction": "Die maximale Spannung in Epoche 50 beträgt 3,14243.\n\nIch habe mich auf die Analyse konzentriert, da sie direkt eine Antwort auf die Frage liefert. Die Analyse enthält den Schlüssel \"max_voltage\" mit dem Wert 3,14243, der auch im Raw-Data-Record vorhanden ist.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.16,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die maximale Spannung in Epoche 50 beträgt 3,14243."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 50})\nRETURN MAX(m.voltage) AS max_voltage",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0061_62.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 50})\nRETURN MAX(m.voltage) AS max_voltage"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"max_voltage\": 3.14243}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die maximale Spannung in Epoche 50 beträgt 3,14243.\n\nIch habe mich auf die Analyse konzentriert, da sie direkt eine Antwort auf die Frage liefert. Die Analyse enthält den Schlüssel \"max_voltage\" mit dem Wert 3,14243, der auch im Raw-Data-Record vorhanden ist.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

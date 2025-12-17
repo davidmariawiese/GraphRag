@@ -1,0 +1,251 @@
+{
+  "id": 15,
+  "category": "factual",
+  "question": "Welche Helligkeit hat Sensor 4.0 am 2004-02-28 um 02:05:16 gemessen?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Um die Frage zu beantworten, müssen wir das JSON-Objekt analysieren und nach den Regeln für die Ausgabeformatierung suchen.\n\nDa die Frage \"Welche Helligkeit hat Sensor 4.0 am 2004-02-28 um 02:05:16 gemessen?\" ist, können wir davon ausgehen, dass der Benutzer in MODE ANSWER aktiviert ist.\n\nWir müssen nun nach den relevanten Informationen im JSON-Objekt suchen. Im Abschnitt \"raw.records\" finden wir die Messwerte für den Sensor 4.0. Wir müssen jedoch sicherstellen, dass wir die richtige Zeitangabe haben. Im Frageabschnitt wird die Zeit als \"2004-02-28 um 02:05:16\" angegeben.\n\nIm JSON-Objekt finden wir jedoch keine direkte Übereinstimmung mit dieser Zeitangabe. Es gibt jedoch eine Liste von Messwerten für den Sensor 4.0, aber ohne explizite Zeitangaben. Wir müssen daher davon ausgehen, dass die Messwerte chronologisch aufgelistet sind und die erste Messung am Anfang der Liste steht.\n\nUm nun die richtige Helligkeit zu finden, müssen wir durch die",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.012269938650306749,
+  "faithfulness": 0.75,
+  "faithfulness_details": {
+    "statements": [
+      "Die Frage ist in MODE ANSWER aktiviert.",
+      "Im JSON-Objekt finden wir keine direkte Übereinstimmung mit dieser Zeitangabe.",
+      "Wir müssen davon ausgehen, dass die Messwerte chronologisch aufgelistet sind und die erste Messung am Anfang der Liste steht.",
+      "Um nun die richtige Helligkeit zu finden, müssen wir durch die Liste gehen."
+    ],
+    "statement_scores": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "score": 0.75
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 4.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 5})\nRETURN m.light",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0014_15.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 4.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 5})\nRETURN m.light"
+    },
+    "retriever": {
+      "documents_total": 1392,
+      "documents": [
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 128.8}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 382.72}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 235.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 224.48}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 195.04}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 353.28}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 224.48}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 279.68}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 165.6}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 323.84}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 250.24}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 382.72}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 309.12}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 279.68}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 309.12}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 114.08}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 279.68}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 279.68}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 368.0}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 382.72}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 368.0}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 397.44}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 382.72}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 309.12}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 309.12}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 202.4}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 309.12}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 180.32}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 353.28}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 114.08}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 412.16}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 97.52}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 279.68}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 368.0}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.light\": 382.72}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Um die Frage zu beantworten, müssen wir das JSON-Objekt analysieren und nach den Regeln für die Ausgabeformatierung suchen.\n\nDa die Frage \"Welche Helligkeit hat Sensor 4.0 am 2004-02-28 um 02:05:16 gemessen?\" ist, können wir davon ausgehen, dass der Benutzer in MODE ANSWER aktiviert ist.\n\nWir müssen nun nach den relevanten Informationen im JSON-Objekt suchen. Im Abschnitt \"raw.records\" finden wir die Messwerte für den Sensor 4.0. Wir müssen jedoch sicherstellen, dass wir die richtige Zeitangabe haben. Im Frageabschnitt wird die Zeit als \"2004-02-28 um 02:05:16\" angegeben.\n\nIm JSON-Objekt finden wir jedoch keine direkte Übereinstimmung mit dieser Zeitangabe. Es gibt jedoch eine Liste von Messwerten für den Sensor 4.0, aber ohne explizite Zeitangaben. Wir müssen daher davon ausgehen, dass die Messwerte chronologisch aufgelistet sind und die erste Messung am Anfang der Liste steht.\n\nUm nun die richtige Helligkeit zu finden, müssen wir durch die",
+      "model": "llama3.1:8b"
+    }
+  }
+}

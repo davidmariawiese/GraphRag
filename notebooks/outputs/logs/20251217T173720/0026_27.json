@@ -1,0 +1,48 @@
+{
+  "id": 27,
+  "category": "factual",
+  "question": "Welche Helligkeit hat Sensor 7.0 am 2004-03-01 um 03:30:16 gemessen?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält keine Messdaten und besagt sogar, dass kein Datenmaterial gefunden wurde. Daher ist es nicht möglich, eine Antwort auf die Frage zu geben.\n\nWenn Sie jedoch den MODE LIST aktivieren würden, würde der Renderer folgende Ausgabe erzeugen:\n\n```\n... (keine Daten verfügbar)\n```",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.09836065573770492,
+  "faithfulness": 0.3333333333333333,
+  "faithfulness_details": {
+    "statements": [
+      "Welche Helligkeit hat Sensor 7.0 am 2004-03-01 um 03:30:16 gemessen?",
+      "Es tut mir leid, aber ich kann diese Frage nicht beantworten.",
+      "Der bereitgestellte JSON-Context enthält keine Messdaten und besagt sogar, dass kein Datenmaterial gefunden wurde."
+    ],
+    "statement_scores": [
+      0,
+      0,
+      1
+    ],
+    "score": 0.3333333333333333
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-01\"})-[:HAS_HOUR]->(h:Hour {hour: 3})-[:HAS_MINUTE]->(mi:Minute {minute: 30})\nRETURN m.light",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0026_27.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-01\"})-[:HAS_HOUR]->(h:Hour {hour: 3})-[:HAS_MINUTE]->(mi:Minute {minute: 30})\nRETURN m.light"
+    },
+    "retriever": {
+      "documents_total": 0,
+      "documents": []
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält keine Messdaten und besagt sogar, dass kein Datenmaterial gefunden wurde. Daher ist es nicht möglich, eine Antwort auf die Frage zu geben.\n\nWenn Sie jedoch den MODE LIST aktivieren würden, würde der Renderer folgende Ausgabe erzeugen:\n\n```\n... (keine Daten verfügbar)\n```",
+      "model": "llama3.1:8b"
+    }
+  }
+}

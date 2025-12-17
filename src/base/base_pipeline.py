@@ -30,23 +30,23 @@ def create_rag_pipeline(documents: Optional[List[Document]] = None, ollama_model
   generator = OllamaGenerator(model=ollama_model, url=ollama_url, generation_kwargs=generation_kwargs)
   retriever = InMemoryBM25Retriever(document_store=docstore)
   template = """
-    Du bist ein hilfreicher Assistent für IoT-Messdaten. Antworte kurz und präzise auf Deutsch.
+    You are a helpful assistant for IoT measurement data. Answer briefly and precisely IN GERMAN.
 
-    REGELN:
-    1. Nutze AUSSCHLIESSLICH die Informationen aus dem Abschnitt "KONTEXT".
-    2. Erfinde keine Daten. Wenn der Kontext keine Antwort erlaubt, antworte: "Dazu liegen mir keine Daten vor.".
-    3. Antworte direkt ohne Floskeln.
-    4. Nenne konkrete Werte (Temperatur, Zeit, Sensor-ID), wenn vorhanden.
-    5. Sensorname ist die ID (mote_id).
+    RULES:
+    1. Use ONLY the information from the "KONTEXT" section.
+    2. Do not invent any data. If the context does not allow an answer, reply: "Dazu liegen mir keine Daten vor.".
+    3. Answer directly, without filler phrases.
+    4. Include concrete values (temperature, time, sensor id) when available.
+    5. The sensor name is the id (mote_id).
 
     KONTEXT:
     {% for document in documents %}
       - {{ document.content }}
     {% endfor %}
 
-    FRAGE: {{query}}
+    QUESTION: {{query}}
 
-    ANTWORT:
+    ANSWER (in German):
     """
 
   prompt_builder = PromptBuilder(template=template, required_variables=["documents", "query"])

@@ -1,0 +1,55 @@
+{
+  "id": 40,
+  "category": "list",
+  "question": "Liste alle Messungen von Sensor 7.0 in Epoche 60 auf.",
+  "gold_answer": "mote_id=7 time=2004-02-28T01:27:46.803128 temperature=19.2828 humidity=39.2123 light=97.52 voltage=2.68742",
+  "prediction": "Hier ist die Antwort auf die Frage:\n\n19.2828 = Temperatur\n39.2123 = Feuchtigkeit\n97,52 = Licht\n2,68742 = Spannung\n\n... (1 weitere Messung übersprungen)\n\nHinweis: Da es nur eine Messung gibt, wird keine Obergrenze von 20 Messungen erreicht und daher kein Hinweis auf weitere Messungen angezeigt.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.24242424242424243,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "19.2828 = Temperatur",
+      "39.2123 = Feuchtigkeit",
+      "97,52 = Licht",
+      "2,68742 = Spannung"
+    ],
+    "statement_scores": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "score": 1.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 60})\nRETURN DISTINCT m,s",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0039_40.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 60})\nRETURN DISTINCT m,s"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.2828, \"humidity\": 39.2123, \"time\": \"2004-02-28T01:27:46.803128\", \"voltage\": 2.68742}, \"s\": {\"mote_id\": 7}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Hier ist die Antwort auf die Frage:\n\n19.2828 = Temperatur\n39.2123 = Feuchtigkeit\n97,52 = Licht\n2,68742 = Spannung\n\n... (1 weitere Messung übersprungen)\n\nHinweis: Da es nur eine Messung gibt, wird keine Obergrenze von 20 Messungen erreicht und daher kein Hinweis auf weitere Messungen angezeigt.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

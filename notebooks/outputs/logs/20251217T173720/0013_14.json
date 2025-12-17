@@ -1,0 +1,249 @@
+{
+  "id": 14,
+  "category": "factual",
+  "question": "Welche Luftfeuchtigkeit hat Sensor 4.0 am 2004-02-28 um 02:00:16 gemessen?",
+  "gold_answer": "Luftfeuchtigkeit von Sensor 4.0 um 2004-02-28 02:00:16: 39.2123%",
+  "prediction": "Um die Frage zu beantworten, müssen wir zunächst bestimmen, welcher Modus aktiviert ist. Da der Benutzer nach einer spezifischen Messung fragt, ist MODE ANSWER der richtige Modus.\n\nDa in der Analysis bereits eine Statistik über die Luftfeuchtigkeit für den Sensor 4.0 am 28.02.2004 um 02:00:16 bereitgestellt wird, können wir diese direkt verwenden.\n\nDie Antwort lautet daher:\n\nDie Luftfeuchtigkeit betrug 39,7557 %.\n\nWenn der Benutzer jedoch nach einer Liste aller Messungen fragen würde, wäre MODE LIST der richtige Modus. In diesem Fall würden wir die ersten 20 Messungen in der Liste ausgeben und eine Nachricht über die Anzahl der übersprungenen Messungen hinzufügen.\n\nDie Antwort lautet daher:\n\nMoteid=4.0 time=2004-02-28T02:00:16 m.humidity=39.7557\nMoteid=4.0 time=2004-02-28T02:00:16 m.humidity=36.6118\n...\nMoteid=4.0 time=2004",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.15483870967741936,
+  "faithfulness": 0.3333333333333333,
+  "faithfulness_details": {
+    "statements": [
+      "Die Luftfeuchtigkeit betrug 39,7557 %.",
+      "Moteid=4.0 time=2004-02-28T02:00:16 m.humidity=39.7557",
+      "Moteid=4.0 time=2004-02-28T02:00:16 m.humidity=36.6118"
+    ],
+    "statement_scores": [
+      1,
+      0,
+      0
+    ],
+    "score": 0.3333333333333333
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 4.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 0})\nRETURN DISTINCT m.humidity",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0013_14.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 4.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 0})\nRETURN DISTINCT m.humidity"
+    },
+    "retriever": {
+      "documents_total": 173,
+      "documents": [
+        {
+          "content": "{\"m.humidity\": 39.2463}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 36.6118}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.4842}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.1059}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 34.536}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 35.0915}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.4162}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.0763}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.1783}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 35.0222}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.5521}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 38.3263}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.1443}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 36.0603}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.0359}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 38.7357}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.5604}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 34.2577}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 36.3362}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.62}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.3823}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.979}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.3483}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.3507}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 34.1184}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.9093}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.7}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.1409}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.2123}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 36.4741}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.5181}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 35.6802}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.3143}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 36.6807}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 37.8477}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 34.3273}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.6302}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 36.7839}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.7698}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.2808}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 34.188}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.9442}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.8744}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 35.2995}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 38.5993}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 36.5774}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 36.2673}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 39.1103}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 33.4905}",
+          "meta": {}
+        },
+        {
+          "content": "{\"m.humidity\": 34.4664}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Um die Frage zu beantworten, müssen wir zunächst bestimmen, welcher Modus aktiviert ist. Da der Benutzer nach einer spezifischen Messung fragt, ist MODE ANSWER der richtige Modus.\n\nDa in der Analysis bereits eine Statistik über die Luftfeuchtigkeit für den Sensor 4.0 am 28.02.2004 um 02:00:16 bereitgestellt wird, können wir diese direkt verwenden.\n\nDie Antwort lautet daher:\n\nDie Luftfeuchtigkeit betrug 39,7557 %.\n\nWenn der Benutzer jedoch nach einer Liste aller Messungen fragen würde, wäre MODE LIST der richtige Modus. In diesem Fall würden wir die ersten 20 Messungen in der Liste ausgeben und eine Nachricht über die Anzahl der übersprungenen Messungen hinzufügen.\n\nDie Antwort lautet daher:\n\nMoteid=4.0 time=2004-02-28T02:00:16 m.humidity=39.7557\nMoteid=4.0 time=2004-02-28T02:00:16 m.humidity=36.6118\n...\nMoteid=4.0 time=2004",
+      "model": "llama3.1:8b"
+    }
+  }
+}

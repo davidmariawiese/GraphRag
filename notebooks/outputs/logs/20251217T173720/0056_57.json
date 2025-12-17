@@ -1,0 +1,49 @@
+{
+  "id": 57,
+  "category": "aggregation",
+  "question": "Was ist die maximale Luftfeuchtigkeit von Sensor 2.0?",
+  "gold_answer": "Maximum Luftfeuchtigkeit (Sensor 2.0): 40.5004%",
+  "prediction": "Die maximale Luftfeuchtigkeit von Sensor 2.0 beträgt 40,5 %.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.588235294117647,
+  "faithfulness": 0.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die maximale Luftfeuchtigkeit von Sensor 2.0 beträgt 40,5 %."
+    ],
+    "statement_scores": [
+      0
+    ],
+    "score": 0.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 2.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)-[:HAS_DATE]->(d)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)-[:HAS_MINUTE]->(mi:Minute)\nWHERE d.date = \"2025-01-03\"\nRETURN MAX(m.humidity) AS max_humidity",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0056_57.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 2.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_WEEK]->(w:Week)-[:HAS_DATE]->(d)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour)-[:HAS_MINUTE]->(mi:Minute)\nWHERE d.date = \"2025-01-03\"\nRETURN MAX(m.humidity) AS max_humidity"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"max_humidity\": 40.5004}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die maximale Luftfeuchtigkeit von Sensor 2.0 beträgt 40,5 %.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "id": 100,
+  "category": "negative",
+  "question": "Gibt es Helligkeitsdaten für Sensor 50.0?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es scheint, als ob du eine JSON-Datenstruktur hast und nach einer bestimmten Frage oder einem bestimmten Ergebnis suchst. Ich werde versuchen, deine Frage zu verstehen.\n\nWenn ich mich nicht irre, möchtest du wissen, wie man die Daten in der JSON-Struktur analysiert oder wie man ein bestimmtes Ergebnis findet.\n\nHier sind einige Fragen, um deine Absicht besser zu verstehen:\n\n1. Möchtest du wissen, wie man die Anzahl der Einträge in der Liste \"data\" findet?\n2. Möchtest du wissen, wie man den ersten oder letzten Eintrag in der Liste \"data\" findet?\n3. Möchtest du wissen, wie man bestimmte Daten aus der Liste \"data\" filtert (z.B. alle Einträge mit einer bestimmten Uhrzeit)?\n4. Möchtest du wissen, wie man ein bestimmtes Ergebnis in der Liste \"data\" findet (z.B. den Eintrag mit der größten oder kleinsten Uhrzeit)?\n\nBitte gib mir eine Antwort auf diese Fragen, damit ich besser verstehen kann, was du suchst.\n\nWenn du keine dieser Fragen beantwortest, kannst du auch einfach deine Frage stellen und ich werde mein Bestes",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.03409090909090909,
+  "faithfulness": 0.5,
+  "faithfulness_details": {
+    "statements": [
+      "Gibt es Helligkeitsdaten für Sensor 50.0?",
+      "Es scheint, als ob du eine JSON-Datenstruktur hast und nach einer bestimmten Frage oder einem bestimmten Ergebnis suchst."
+    ],
+    "statement_scores": [
+      0,
+      1
+    ],
+    "score": 0.5
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 50.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour), (m)-[:AT_MINUTE]->(mi:Minute)\nWHERE m.light IS NOT NULL\nRETURN DISTINCT s, d, h, mi",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0099_100.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 50.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour), (m)-[:AT_MINUTE]->(mi:Minute)\nWHERE m.light IS NOT NULL\nRETURN DISTINCT s, d, h, mi"
+    },
+    "retriever": {
+      "documents_total": 725,
+      "documents": [
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 17}, \"mi\": {\"minute\": 37}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 32}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 10}, \"mi\": {\"minute\": 42}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 8}, \"mi\": {\"minute\": 6}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 14}, \"mi\": {\"minute\": 58}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 7}, \"mi\": {\"minute\": 59}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 16}, \"mi\": {\"minute\": 32}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 4}, \"mi\": {\"minute\": 36}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 5}, \"mi\": {\"minute\": 7}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 12}, \"mi\": {\"minute\": 19}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 14}, \"mi\": {\"minute\": 57}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 51}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 17}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 42}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 6}, \"mi\": {\"minute\": 4}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 11}, \"mi\": {\"minute\": 14}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 3}, \"mi\": {\"minute\": 22}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 11}, \"mi\": {\"minute\": 48}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 13}, \"mi\": {\"minute\": 26}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 11}, \"mi\": {\"minute\": 57}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 10}, \"mi\": {\"minute\": 47}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 10}, \"mi\": {\"minute\": 32}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 24}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 6}, \"mi\": {\"minute\": 59}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 13}, \"mi\": {\"minute\": 53}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 13}, \"mi\": {\"minute\": 56}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 10}, \"mi\": {\"minute\": 15}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 2}, \"mi\": {\"minute\": 0}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 17}, \"mi\": {\"minute\": 23}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 9}, \"mi\": {\"minute\": 37}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 17}, \"mi\": {\"minute\": 33}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 13}, \"mi\": {\"minute\": 48}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 16}, \"mi\": {\"minute\": 27}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 7}, \"mi\": {\"minute\": 31}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 23}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 28}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 8}, \"mi\": {\"minute\": 3}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 50}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 12}, \"mi\": {\"minute\": 45}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 31}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 2}, \"mi\": {\"minute\": 7}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 52}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 20}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 11}, \"mi\": {\"minute\": 46}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 8}, \"mi\": {\"minute\": 59}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 2}, \"mi\": {\"minute\": 28}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 4}, \"mi\": {\"minute\": 10}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 12}, \"mi\": {\"minute\": 9}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 16}, \"mi\": {\"minute\": 12}}",
+          "meta": {}
+        },
+        {
+          "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 44}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es scheint, als ob du eine JSON-Datenstruktur hast und nach einer bestimmten Frage oder einem bestimmten Ergebnis suchst. Ich werde versuchen, deine Frage zu verstehen.\n\nWenn ich mich nicht irre, möchtest du wissen, wie man die Daten in der JSON-Struktur analysiert oder wie man ein bestimmtes Ergebnis findet.\n\nHier sind einige Fragen, um deine Absicht besser zu verstehen:\n\n1. Möchtest du wissen, wie man die Anzahl der Einträge in der Liste \"data\" findet?\n2. Möchtest du wissen, wie man den ersten oder letzten Eintrag in der Liste \"data\" findet?\n3. Möchtest du wissen, wie man bestimmte Daten aus der Liste \"data\" filtert (z.B. alle Einträge mit einer bestimmten Uhrzeit)?\n4. Möchtest du wissen, wie man ein bestimmtes Ergebnis in der Liste \"data\" findet (z.B. den Eintrag mit der größten oder kleinsten Uhrzeit)?\n\nBitte gib mir eine Antwort auf diese Fragen, damit ich besser verstehen kann, was du suchst.\n\nWenn du keine dieser Fragen beantwortest, kannst du auch einfach deine Frage stellen und ich werde mein Bestes",
+      "model": "llama3.1:8b"
+    }
+  }
+}

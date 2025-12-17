@@ -1,50 +1,107 @@
-{"id": 1, "category": "factual", "question": "Welche Temperatur hat Sensor 1.0 am 2004-03-31 um 03:38:15.757551 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-03-31 um 03:38:15.757551 eine Temperatur von 122.153 Grad gemessen."}
-{"id": 2, "category": "factual", "question": "Welche Luftfeuchtigkeit hat Sensor 1.0 am 2004-02-28 um 00:59:16.02785 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 00:59:16.02785 eine Luftfeuchtigkeit von 37.0933 Prozent gemessen."}
-{"id": 3, "category": "factual", "question": "Welche Helligkeit (Lux) hat Sensor 1.0 am 2004-02-28 um 01:03:16.33393 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:03:16.33393 eine Helligkeit von 45.08 Lux gemessen."}
-{"id": 4, "category": "factual", "question": "Welche Spannung hat Sensor 1.0 am 2004-02-28 um 01:06:16.013453 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:06:16.013453 eine Spannung von 2.68742 Volt gemessen."}
-{"id": 5, "category": "factual", "question": "Welche Temperatur hat Sensor 1.0 am 2004-02-28 um 01:10:16.6789 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:10:16.6789 eine Temperatur von 19.1456 Grad gemessen."}
-{"id": 6, "category": "factual", "question": "Welche Luftfeuchtigkeit hat Sensor 1.0 am 2004-02-28 um 01:15:16.649556 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:15:16.649556 eine Luftfeuchtigkeit von 39.0082 Prozent gemessen."}
-{"id": 7, "category": "factual", "question": "Welche Helligkeit hat Sensor 1.0 am 2004-02-28 um 01:16:16.343708 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:16:16.343708 eine Helligkeit von 43.24 Lux gemessen."}
-{"id": 8, "category": "factual", "question": "Welche Spannung hat Sensor 1.0 am 2004-02-28 um 01:20:16.10774 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:20:16.10774 eine Spannung von 2.68742 Volt gemessen."}
-{"id": 9, "category": "factual", "question": "Welche Temperatur hat Sensor 1.0 am 2004-02-28 um 01:23:16.899912 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:23:16.899912 eine Temperatur von 19.0182 Grad gemessen."}
-{"id": 10, "category": "factual", "question": "Welche Luftfeuchtigkeit hat Sensor 1.0 am 2004-02-28 um 01:30:46.454955 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:30:46.454955 eine Luftfeuchtigkeit von 39.0422 Prozent gemessen."}
-{"id": 11, "category": "factual", "question": "Welche Helligkeit hat Sensor 1.0 am 2004-02-28 um 01:36:16.806149 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:36:16.806149 eine Helligkeit von 43.24 Lux gemessen."}
-{"id": 12, "category": "factual", "question": "Welche Spannung hat Sensor 1.0 am 2004-02-28 um 01:44:16.118274 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:44:16.118274 eine Spannung von 2.68742 Volt gemessen."}
-{"id": 13, "category": "factual", "question": "Welche Temperatur hat Sensor 1.0 am 2004-02-28 um 01:52:16.658227 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 01:52:16.658227 eine Temperatur von 18.8908 Grad gemessen."}
-{"id": 14, "category": "factual", "question": "Welche Luftfeuchtigkeit hat Sensor 1.0 am 2004-02-28 um 02:01:46.132962 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 02:01:46.132962 eine Luftfeuchtigkeit von 38.9742 Prozent gemessen."}
-{"id": 15, "category": "factual", "question": "Welche Helligkeit hat Sensor 1.0 am 2004-02-28 um 02:10:16.28078 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 02:10:16.28078 eine Helligkeit von 43.24 Lux gemessen."}
-{"id": 16, "category": "factual", "question": "Welche Spannung hat Sensor 1.0 am 2004-02-28 um 02:19:46.991259 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 02:19:46.991259 eine Spannung von 2.69964 Volt gemessen."}
-{"id": 17, "category": "factual", "question": "Welche Temperatur hat Sensor 1.0 am 2004-02-28 um 02:30:16.107116 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 02:30:16.107116 eine Temperatur von 18.734 Grad gemessen."}
-{"id": 18, "category": "factual", "question": "Welche Luftfeuchtigkeit hat Sensor 1.0 am 2004-02-28 um 02:40:16.927811 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 02:40:16.927811 eine Luftfeuchtigkeit von 38.872 Prozent gemessen."}
-{"id": 19, "category": "factual", "question": "Welche Helligkeit hat Sensor 1.0 am 2004-02-28 um 03:02:17.064743 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 03:02:17.064743 eine Helligkeit von 43.24 Lux gemessen."}
-{"id": 20, "category": "factual", "question": "Welche Spannung hat Sensor 1.0 am 2004-02-28 um 03:10:17.006142 gemessen?", "gold_answer": "Sensor 1.0 hat am 2004-02-28 um 03:10:17.006142 eine Spannung von 2.68742 Volt gemessen."}
-{"id": 21, "category": "trend", "question": "Wie entwickelt sich die Temperatur von Sensor 1.0 über alle seine Messungen?", "gold_answer": "Die Temperatur von Sensor 1.0 zeigt über den Verlauf der Messungen leichte Schwankungen, tendiert aber im Durchschnitt zu einem stabilen Wert um 19 Grad, mit einem Ausreißer von 122 Grad."}
-{"id": 22, "category": "trend", "question": "Wie entwickelt sich die Luftfeuchtigkeit von Sensor 1.0?", "gold_answer": "Die Luftfeuchtigkeit von Sensor 1.0 schwankt im Bereich von ca. 37% bis 39%."}
-{"id": 23, "category": "trend", "question": "Wie entwickelt sich die Helligkeit von Sensor 1.0?", "gold_answer": "Die Helligkeit bei Sensor 1.0 ist meist konstant bei ca. 43-45 Lux, mit gelegentlichen Abweichungen."}
-{"id": 24, "category": "trend", "question": "Wie entwickelt sich die Spannung von Sensor 1.0?", "gold_answer": "Die Spannung von Sensor 1.0 liegt stabil zwischen ca. 2.67V und 2.70V."}
-{"id": 25, "category": "trend", "question": "Gibt es einen Trend bei der Temperatur von Sensor 2?", "gold_answer": "Dazu liegen mir keine spezifischen Daten im Auszug vor, aber allgemein zeigen Sensoren tageszeitliche Schwankungen."}
-{"id": 26, "category": "trend", "question": "Wie verhält sich die Luftfeuchtigkeit von Sensor 3 im Vergleich zu Sensor 1?", "gold_answer": "Vergleichsdaten für Sensor 3 müssen aus dem Graphen abgerufen werden."}
-{"id": 27, "category": "trend", "question": "Zeigt Sensor 4 Auffälligkeiten in der Spannungskurve?", "gold_answer": "Die Spannungskurve sollte auf Einbrüche oder Spitzen untersucht werden."}
-{"id": 28, "category": "trend", "question": "Ist die Helligkeit bei Sensor 5 konstant?", "gold_answer": "Helligkeitswerte hängen stark von der Tageszeit und Position ab."}
-{"id": 29, "category": "trend", "question": "Wie ist der Temperaturverlauf von Sensor 6?", "gold_answer": "Der Temperaturverlauf sollte analysiert werden."}
-{"id": 30, "category": "trend", "question": "Steigt oder fällt die Luftfeuchtigkeit bei Sensor 7?", "gold_answer": "Die Tendenz der Luftfeuchtigkeit ist aus den aggregierten Daten abzulesen."}
-{"id": 31, "category": "aggregation", "question": "Wie hoch ist die durchschnittliche Temperatur in Epoche 3?", "gold_answer": "In Epoche 3 beträgt die durchschnittliche Temperatur ca. 19.99 Grad (basierend auf Einzelmessung)."}
-{"id": 32, "category": "aggregation", "question": "Was ist der Maximalwert der Helligkeit in Epoche 11?", "gold_answer": "In Epoche 11 wurde eine Helligkeit von 45.08 Lux gemessen."}
-{"id": 33, "category": "aggregation", "question": "Wie hoch ist die minimale Spannung in Epoche 17?", "gold_answer": "In Epoche 17 betrug die Spannung 2.68742 Volt."}
-{"id": 34, "category": "aggregation", "question": "Nenne den Durchschnitt der Luftfeuchtigkeit in Epoche 22.", "gold_answer": "In Epoche 22 lag die Luftfeuchtigkeit bei 38.9401 Prozent."}
-{"id": 35, "category": "aggregation", "question": "Wie viele Messungen gibt es in Epoche 25?", "gold_answer": "In Epoche 25 liegt mindestens eine Messung von Sensor 1.0 vor."}
-{"id": 36, "category": "aggregation", "question": "Was ist die Durchschnittstemperatur von Sensor 1.0 in Epoche 30?", "gold_answer": "In Epoche 30 betrug die Temperatur 19.1358 Grad."}
-{"id": 37, "category": "aggregation", "question": "Gib mir das Minimum der Temperatur in Epoche 40.", "gold_answer": "In Epoche 40 war die Temperatur 19.0966 Grad."}
-{"id": 38, "category": "aggregation", "question": "Wie hoch war die maximale Luftfeuchtigkeit in Epoche 50?", "gold_answer": "Dazu liegen im Auszug keine Daten vor (Epoche 49 und 51 vorhanden)."}
-{"id": 39, "category": "aggregation", "question": "Berechne den Mittelwert der Spannung in Epoche 60.", "gold_answer": "Dazu liegen im Auszug keine Daten vor."}
-{"id": 40, "category": "aggregation", "question": "Wie hoch ist die durchschnittliche Helligkeit in Epoche 70?", "gold_answer": "In Epoche 70 betrug die Helligkeit 43.24 Lux."}
-{"id": 41, "category": "list", "question": "Nenne mir alle Messwerte der Epoche 3.", "gold_answer": "In Epoche 3: Sensor 1.0, Temp=19.9884, Hum=37.0933, Light=45.08, Volt=2.69964."}
-{"id": 42, "category": "list", "question": "Liste alle Messungen von Sensor 1.0 in Epoche 11 auf.", "gold_answer": "Epoche 11: Sensor 1.0, Temp=19.3024, Hum=38.4629, Light=45.08, Volt=2.68742."}
-{"id": 43, "category": "list", "question": "Welche Werte wurden in Epoche 17 gemessen?", "gold_answer": "Epoche 17: Sensor 1.0, Temp=19.1652, Hum=38.8039, Light=45.08, Volt=2.68742."}
-{"id": 44, "category": "list", "question": "Zeige die Messdaten aus Epoche 25.", "gold_answer": "Epoche 25: Sensor 1.0, Temp=19.1456, Hum=38.8379, Light=45.08, Volt=2.69964."}
-{"id": 45, "category": "list", "question": "Gib mir eine Liste der Messwerte von Sensor 1.0 in Epoche 35.", "gold_answer": "Epoche 35: Sensor 1.0, Temp=19.1064, Hum=39.0082, Light=45.08, Volt=2.69964."}
-{"id": 46, "category": "interpretation", "question": "Gibt es Auffälligkeiten bei Sensor 1.0 am 31.03.2004?", "gold_answer": "Ja, am 31.03.2004 wurde eine extrem hohe Temperatur von 122.153 Grad gemessen, was auf einen Fehler oder Brand hindeuten könnte."}
-{"id": 47, "category": "interpretation", "question": "Sind die Spannungswerte von Sensor 1.0 stabil?", "gold_answer": "Die Spannungswerte schwanken nur minimal zwischen 2.67V und 2.70V, was als stabil angesehen werden kann."}
-{"id": 48, "category": "interpretation", "question": "Deuten die Helligkeitswerte auf Tag oder Nacht hin?", "gold_answer": "Werte um 43-45 Lux sind relativ niedrig, was auf Dämmerung oder künstliches Licht hindeuten könnte, aber nicht auf helles Tageslicht."}
-{"id": 49, "category": "interpretation", "question": "Korreliert die Temperatur mit der Luftfeuchtigkeit bei Sensor 1.0?", "gold_answer": "Eine genaue Korrelationsanalyse müsste durchgeführt werden, oft verhalten sie sich gegenläufig."}
-{"id": 50, "category": "interpretation", "question": "Gibt es Datenlücken bei Sensor 1.0?", "gold_answer": "Die Epochen sind nicht lückenlos (z.B. Sprung von 3 auf 11), was auf Datenlücken oder Filterung hindeutet."}
+[
+  {"id":1,"category":"factual","question":"Welche Temperatur hat Sensor 1.0 am 2004-02-28 um 00:59:16 gemessen?"},
+  {"id":2,"category":"factual","question":"Welche Luftfeuchtigkeit hat Sensor 1.0 am 2004-02-28 um 01:03:16 gemessen?"},
+  {"id":3,"category":"factual","question":"Welche Helligkeit hat Sensor 1.0 am 2004-02-28 um 01:06:16 gemessen?"},
+  {"id":4,"category":"factual","question":"Welche Spannung hat Sensor 1.0 am 2004-02-28 um 01:10:16 gemessen?"},
+  {"id":5,"category":"factual","question":"Welche Temperatur hat Sensor 2.0 am 2004-02-28 um 01:15:16 gemessen?"},
+  {"id":6,"category":"factual","question":"Welche Luftfeuchtigkeit hat Sensor 2.0 am 2004-02-28 um 01:20:16 gemessen?"},
+  {"id":7,"category":"factual","question":"Welche Helligkeit hat Sensor 2.0 am 2004-02-28 um 01:25:16 gemessen?"},
+  {"id":8,"category":"factual","question":"Welche Spannung hat Sensor 2.0 am 2004-02-28 um 01:30:16 gemessen?"},
+  {"id":9,"category":"factual","question":"Welche Temperatur hat Sensor 3.0 am 2004-02-28 um 01:35:16 gemessen?"},
+  {"id":10,"category":"factual","question":"Welche Luftfeuchtigkeit hat Sensor 3.0 am 2004-02-28 um 01:40:16 gemessen?"},
+  {"id":11,"category":"factual","question":"Welche Helligkeit hat Sensor 3.0 am 2004-02-28 um 01:45:16 gemessen?"},
+  {"id":12,"category":"factual","question":"Welche Spannung hat Sensor 3.0 am 2004-02-28 um 01:50:16 gemessen?"},
+  {"id":13,"category":"factual","question":"Welche Temperatur hat Sensor 4.0 am 2004-02-28 um 01:55:16 gemessen?"},
+  {"id":14,"category":"factual","question":"Welche Luftfeuchtigkeit hat Sensor 4.0 am 2004-02-28 um 02:00:16 gemessen?"},
+  {"id":15,"category":"factual","question":"Welche Helligkeit hat Sensor 4.0 am 2004-02-28 um 02:05:16 gemessen?"},
+  {"id":16,"category":"factual","question":"Welche Spannung hat Sensor 4.0 am 2004-02-28 um 02:10:16 gemessen?"},
+  {"id":17,"category":"factual","question":"Welche Temperatur hat Sensor 5.0 am 2004-02-28 um 02:15:16 gemessen?"},
+  {"id":18,"category":"factual","question":"Welche Luftfeuchtigkeit hat Sensor 5.0 am 2004-02-28 um 02:20:16 gemessen?"},
+  {"id":19,"category":"factual","question":"Welche Helligkeit hat Sensor 5.0 am 2004-02-28 um 02:25:16 gemessen?"},
+  {"id":20,"category":"factual","question":"Welche Spannung hat Sensor 5.0 am 2004-02-28 um 02:30:16 gemessen?"},
+  {"id":21,"category":"factual","question":"Welche Temperatur hat Sensor 6.0 am 2004-03-01 um 03:00:16 gemessen?"},
+  {"id":22,"category":"factual","question":"Welche Luftfeuchtigkeit hat Sensor 6.0 am 2004-03-01 um 03:05:16 gemessen?"},
+  {"id":23,"category":"factual","question":"Welche Helligkeit hat Sensor 6.0 am 2004-03-01 um 03:10:16 gemessen?"},
+  {"id":24,"category":"factual","question":"Welche Spannung hat Sensor 6.0 am 2004-03-01 um 03:15:16 gemessen?"},
+  {"id":25,"category":"factual","question":"Welche Temperatur hat Sensor 7.0 am 2004-03-01 um 03:20:16 gemessen?"},
+  {"id":26,"category":"factual","question":"Welche Luftfeuchtigkeit hat Sensor 7.0 am 2004-03-01 um 03:25:16 gemessen?"},
+  {"id":27,"category":"factual","question":"Welche Helligkeit hat Sensor 7.0 am 2004-03-01 um 03:30:16 gemessen?"},
+  {"id":28,"category":"factual","question":"Welche Spannung hat Sensor 7.0 am 2004-03-01 um 03:35:16 gemessen?"},
+  {"id":29,"category":"factual","question":"Welche Temperatur hat Sensor 8.0 am 2004-03-01 um 03:40:16 gemessen?"},
+  {"id":30,"category":"factual","question":"Welche Luftfeuchtigkeit hat Sensor 8.0 am 2004-03-01 um 03:45:16 gemessen?"},
+
+  {"id":31,"category":"list","question":"Liste alle Messwerte von Sensor 1.0 in Epoche 3 auf."},
+  {"id":32,"category":"list","question":"Liste alle Messungen der Epoche 11 auf."},
+  {"id":33,"category":"list","question":"Gib alle Messwerte von Sensor 2.0 in Epoche 17 aus."},
+  {"id":34,"category":"list","question":"Zeige alle Messungen von Sensor 3.0 in Epoche 25."},
+  {"id":35,"category":"list","question":"Liste alle Messwerte von Sensor 4.0 in Epoche 35 auf."},
+  {"id":36,"category":"list","question":"Nenne alle Messungen der Epoche 40."},
+  {"id":37,"category":"list","question":"Gib alle Messwerte von Sensor 5.0 in Epoche 45 aus."},
+  {"id":38,"category":"list","question":"Liste alle Messungen von Sensor 6.0 in Epoche 50 auf."},
+  {"id":39,"category":"list","question":"Zeige alle Messwerte der Epoche 55."},
+  {"id":40,"category":"list","question":"Liste alle Messungen von Sensor 7.0 in Epoche 60 auf."},
+  {"id":41,"category":"list","question":"Gib alle Messwerte von Sensor 8.0 in Epoche 65 aus."},
+  {"id":42,"category":"list","question":"Liste alle Messungen der Epoche 70 auf."},
+  {"id":43,"category":"list","question":"Zeige alle Messwerte von Sensor 9.0 in Epoche 75."},
+  {"id":44,"category":"list","question":"Gib alle Messungen der Epoche 80 aus."},
+  {"id":45,"category":"list","question":"Liste alle Messwerte von Sensor 10.0 in Epoche 85 auf."},
+  {"id":46,"category":"list","question":"Zeige alle Messungen der Epoche 90."},
+  {"id":47,"category":"list","question":"Liste alle Messwerte von Sensor 1.0 in Epoche 95 auf."},
+  {"id":48,"category":"list","question":"Gib alle Messungen von Sensor 2.0 in Epoche 100 aus."},
+  {"id":49,"category":"list","question":"Liste alle Messwerte der Epoche 105 auf."},
+  {"id":50,"category":"list","question":"Zeige alle Messungen von Sensor 3.0 in Epoche 110."},
+
+  {"id":51,"category":"aggregation","question":"Wie hoch ist die durchschnittliche Temperatur in Epoche 3?"},
+  {"id":52,"category":"aggregation","question":"Was ist die maximale Helligkeit in Epoche 11?"},
+  {"id":53,"category":"aggregation","question":"Wie hoch ist die minimale Spannung in Epoche 17?"},
+  {"id":54,"category":"aggregation","question":"Wie hoch ist der Durchschnitt der Luftfeuchtigkeit in Epoche 25?"},
+  {"id":55,"category":"aggregation","question":"Wie viele Messungen gibt es in Epoche 35?"},
+  {"id":56,"category":"aggregation","question":"Was ist die durchschnittliche Temperatur von Sensor 1.0?"},
+  {"id":57,"category":"aggregation","question":"Was ist die maximale Luftfeuchtigkeit von Sensor 2.0?"},
+  {"id":58,"category":"aggregation","question":"Was ist die minimale Spannung von Sensor 3.0?"},
+  {"id":59,"category":"aggregation","question":"Wie hoch ist der Mittelwert der Helligkeit von Sensor 4.0?"},
+  {"id":60,"category":"aggregation","question":"Wie viele Messungen liegen für Sensor 5.0 vor?"},
+  {"id":61,"category":"aggregation","question":"Was ist die durchschnittliche Temperatur in Epoche 40?"},
+  {"id":62,"category":"aggregation","question":"Was ist die maximale Spannung in Epoche 50?"},
+  {"id":63,"category":"aggregation","question":"Wie hoch ist die minimale Helligkeit in Epoche 60?"},
+  {"id":64,"category":"aggregation","question":"Wie hoch ist der Durchschnitt der Luftfeuchtigkeit in Epoche 70?"},
+  {"id":65,"category":"aggregation","question":"Wie viele Messungen gibt es in Epoche 80?"},
+  {"id":66,"category":"aggregation","question":"Was ist die durchschnittliche Temperatur von Sensor 6.0?"},
+  {"id":67,"category":"aggregation","question":"Was ist die maximale Helligkeit von Sensor 7.0?"},
+  {"id":68,"category":"aggregation","question":"Wie hoch ist die minimale Spannung von Sensor 8.0?"},
+  {"id":69,"category":"aggregation","question":"Wie hoch ist der Mittelwert der Luftfeuchtigkeit von Sensor 9.0?"},
+  {"id":70,"category":"aggregation","question":"Wie viele Messungen liegen für Sensor 10.0 vor?"},
+
+  {"id":71,"category":"trend","question":"Wie entwickelt sich die Temperatur von Sensor 1.0 über alle Messungen?"},
+  {"id":72,"category":"trend","question":"Zeigt die Luftfeuchtigkeit von Sensor 2.0 einen steigenden oder fallenden Trend?"},
+  {"id":73,"category":"trend","question":"Wie verändert sich die Helligkeit von Sensor 3.0 im Zeitverlauf?"},
+  {"id":74,"category":"trend","question":"Ist die Spannung von Sensor 4.0 über die Zeit stabil?"},
+  {"id":75,"category":"trend","question":"Vergleiche den Temperaturverlauf von Sensor 1.0 und Sensor 2.0."},
+  {"id":76,"category":"trend","question":"Wie entwickelt sich die Luftfeuchtigkeit von Sensor 5.0 über alle Messungen?"},
+  {"id":77,"category":"trend","question":"Zeigt die Helligkeit von Sensor 6.0 tageszeitliche Schwankungen?"},
+  {"id":78,"category":"trend","question":"Wie verändert sich die Spannung von Sensor 7.0 im Zeitverlauf?"},
+  {"id":79,"category":"trend","question":"Ist der Temperaturverlauf von Sensor 8.0 konstant?"},
+  {"id":80,"category":"trend","question":"Gibt es einen Trend in der Luftfeuchtigkeit von Sensor 9.0?"},
+  {"id":81,"category":"trend","question":"Wie entwickelt sich die Helligkeit von Sensor 10.0 über alle Messungen?"},
+  {"id":82,"category":"trend","question":"Zeigt die Temperatur von Sensor 3.0 auffällige Veränderungen?"},
+  {"id":83,"category":"trend","question":"Wie verändert sich die Luftfeuchtigkeit von Sensor 4.0 im Zeitverlauf?"},
+  {"id":84,"category":"trend","question":"Ist die Spannung von Sensor 5.0 über die Zeit konstant?"},
+  {"id":85,"category":"trend","question":"Gibt es langfristige Schwankungen in der Temperatur von Sensor 6.0?"},
+
+  {"id":86,"category":"interpretation","question":"Gibt es auffällige Ausreißer in den Temperaturmessungen von Sensor 1.0?"},
+  {"id":87,"category":"interpretation","question":"Deuten ungewöhnliche Spannungswerte von Sensor 2.0 auf einen Defekt hin?"},
+  {"id":88,"category":"interpretation","question":"Sind die Helligkeitswerte von Sensor 3.0 plausibel?"},
+  {"id":89,"category":"interpretation","question":"Gibt es Hinweise auf Datenlücken bei Sensor 4.0?"},
+  {"id":90,"category":"interpretation","question":"Ist der Temperaturausreißer Ende März 2004 erklärbar?"},
+  {"id":91,"category":"interpretation","question":"Sind die Luftfeuchtigkeitsmessungen von Sensor 5.0 stabil genug für Trendanalysen?"},
+  {"id":92,"category":"interpretation","question":"Gibt es Hinweise auf Messrauschen bei Sensor 6.0?"},
+  {"id":93,"category":"interpretation","question":"Sind die Spannungswerte von Sensor 7.0 ungewöhnlich niedrig?"},
+  {"id":94,"category":"interpretation","question":"Deuten konstante Helligkeitswerte von Sensor 8.0 auf künstliches Licht hin?"},
+  {"id":95,"category":"interpretation","question":"Gibt es Anzeichen für fehlerhafte Messungen bei Sensor 9.0?"},
+
+  {"id":96,"category":"negative","question":"Welche Temperatur hat Sensor 99.0 am 2004-02-28 gemessen?"},
+  {"id":97,"category":"negative","question":"Welche Messungen existieren für Epoche 999?"},
+  {"id":98,"category":"negative","question":"Wie hoch war die Luftfeuchtigkeit am 2005-01-01 um 00:00 Uhr?"},
+  {"id":99,"category":"negative","question":"Welche Spannung hat Sensor 1.0 vor Beginn der Messkampagne gemessen?"},
+  {"id":100,"category":"negative","question":"Gibt es Helligkeitsdaten für Sensor 50.0?"}
+]

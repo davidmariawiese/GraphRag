@@ -1,0 +1,46 @@
+{
+  "id": 91,
+  "category": "interpretation",
+  "question": "Sind die Luftfeuchtigkeitsmessungen von Sensor 5.0 stabil genug für Trendanalysen?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "prediction": "Es gibt keine Daten verfügbar.\n\nDie Antwort basiert auf der JSON-Struktur, die in der Frage angegeben ist. Da im GRAPH CONTEXT kein Eintrag für \"raw.records\" oder \"analysis\" vorhanden ist, kann keine Auswertung durchgeführt werden. Der Eintrag \"error\": \"No data found\" weist darauf hin, dass keine Daten gefunden wurden. Daher lautet die Antwort: Es gibt keine Daten verfügbar.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.061538461538461535,
+  "faithfulness": 0.5,
+  "faithfulness_details": {
+    "statements": [
+      "Die Luftfeuchtigkeitsmessungen von Sensor 5.0 sind stabil genug für Trendanalysen.",
+      "Es gibt keine Daten verfügbar."
+    ],
+    "statement_scores": [
+      0,
+      1
+    ],
+    "score": 0.5
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nWHERE m.humidity > 0 AND m.humidity < 100\nRETURN DISTINCT d, m",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0090_91.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nWHERE m.humidity > 0 AND m.humidity < 100\nRETURN DISTINCT d, m"
+    },
+    "retriever": {
+      "documents_total": 0,
+      "documents": []
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Es gibt keine Daten verfügbar.\n\nDie Antwort basiert auf der JSON-Struktur, die in der Frage angegeben ist. Da im GRAPH CONTEXT kein Eintrag für \"raw.records\" oder \"analysis\" vorhanden ist, kann keine Auswertung durchgeführt werden. Der Eintrag \"error\": \"No data found\" weist darauf hin, dass keine Daten gefunden wurden. Daher lautet die Antwort: Es gibt keine Daten verfügbar.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

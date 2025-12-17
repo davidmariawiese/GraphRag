@@ -1,0 +1,49 @@
+{
+  "id": 51,
+  "category": "aggregation",
+  "question": "Wie hoch ist die durchschnittliche Temperatur in Epoche 3?",
+  "gold_answer": "Durchschnitt Temperatur (Epoche 3): 44.64804666666666°C",
+  "prediction": "Die durchschnittliche Temperatur in Epoche 3 beträgt 44,65 Grad Celsius.\n\nIch habe die Antwort wie folgt ermittelt:\n\n1. Ich habe mich für den MODE ANSWER entschieden, da der Benutzer eine Frage stellt und keine Liste aller Messungen anfordert.\n2. Da die Frage nach der durchschnittlichen Temperatur in Epoche 3 fragt, habe ich mich auf die Analyse gewendet, um diese Information zu finden.\n3. In der Analyse ist unter \"Unknown\" ein Eintrag mit dem Schlüssel \"average_temperature\" vorhanden, der eine Durchschnittstemperatur von 44,64804666666666 Grad Celsius enthält.\n4. Da dies die einzige relevante Information in der Analyse ist, habe ich diese als Antwort verwendet.\n\nDie Antwort entspricht den Anforderungen an Plain Text und enthält keine Markdown- oder Code-Elemente.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.08,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "Die durchschnittliche Temperatur in Epoche 3 beträgt 44,65 Grad Celsius."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3})\nRETURN avg(m.temperature) AS average_temperature",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0050_51.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3})\nRETURN avg(m.temperature) AS average_temperature"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"average_temperature\": 44.64804666666666}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Die durchschnittliche Temperatur in Epoche 3 beträgt 44,65 Grad Celsius.\n\nIch habe die Antwort wie folgt ermittelt:\n\n1. Ich habe mich für den MODE ANSWER entschieden, da der Benutzer eine Frage stellt und keine Liste aller Messungen anfordert.\n2. Da die Frage nach der durchschnittlichen Temperatur in Epoche 3 fragt, habe ich mich auf die Analyse gewendet, um diese Information zu finden.\n3. In der Analyse ist unter \"Unknown\" ein Eintrag mit dem Schlüssel \"average_temperature\" vorhanden, der eine Durchschnittstemperatur von 44,64804666666666 Grad Celsius enthält.\n4. Da dies die einzige relevante Information in der Analyse ist, habe ich diese als Antwort verwendet.\n\nDie Antwort entspricht den Anforderungen an Plain Text und enthält keine Markdown- oder Code-Elemente.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

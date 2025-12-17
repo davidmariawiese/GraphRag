@@ -1,0 +1,49 @@
+{
+  "id": 69,
+  "category": "aggregation",
+  "question": "Wie hoch ist der Mittelwert der Luftfeuchtigkeit von Sensor 9.0?",
+  "gold_answer": "Durchschnitt Luftfeuchtigkeit (Sensor 9.0): 38.338587606506564%",
+  "prediction": "Der Mittelwert der Luftfeuchtigkeit von Sensor 9.0 beträgt 38,34 %.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.5555555555555556,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "Der Mittelwert der Luftfeuchtigkeit von Sensor 9.0 beträgt 38,34 %."
+    ],
+    "statement_scores": [
+      1
+    ],
+    "score": 1.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nRETURN avg(m.humidity) AS average_humidity",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0068_69.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nRETURN avg(m.humidity) AS average_humidity"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"average_humidity\": 38.338587606506564}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Der Mittelwert der Luftfeuchtigkeit von Sensor 9.0 beträgt 38,34 %.",
+      "model": "llama3.1:8b"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": 31,
+  "category": "list",
+  "question": "Liste alle Messwerte von Sensor 1.0 in Epoche 3 auf.",
+  "gold_answer": "mote_id=1 time=2004-02-28T00:59:16.02785 temperature=19.9884 humidity=37.0933 light=45.08 voltage=2.69964",
+  "prediction": "Hier ist die Antwort auf die Frage:\n\n19.9884 = Temperatur\n37.0933 = Feuchtigkeit\n45,08 = Licht\n2,69964 = Spannung\n\n... (weitere Messungen wurden ausgelassen)\n\nHinweis: Da es nur eine Messung gibt, wird diese direkt ausgegeben und keine weitere Auswertung durchgeführt.",
+  "context": "",
+  "exact_match": false,
+  "f1": 0.26666666666666666,
+  "faithfulness": 1.0,
+  "faithfulness_details": {
+    "statements": [
+      "19.9884 ist die Temperatur.",
+      "37.0933 ist die Feuchtigkeit.",
+      "45,08 ist der Lichtwert.",
+      "2,69964 ist die Spannung."
+    ],
+    "statement_scores": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "score": 1.0
+  },
+  "faithfulness_error": null,
+  "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3})\nRETURN DISTINCT m,s",
+  "cypher_policy_ok": true,
+  "cypher_explain_ok": true,
+  "cypher_error": null,
+  "log_path": "outputs/logs/20251217T173720/0030_31.json",
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "component_outputs": {
+    "query_processor": {
+      "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3})\nRETURN DISTINCT m,s"
+    },
+    "retriever": {
+      "documents_total": 1,
+      "documents": [
+        {
+          "content": "{\"m\": {\"light\": 45.08, \"temperature\": 19.9884, \"humidity\": 37.0933, \"time\": \"2004-02-28T00:59:16.02785\", \"voltage\": 2.69964}, \"s\": {\"mote_id\": 1}}",
+          "meta": {}
+        }
+      ]
+    },
+    "organizer": {
+      "context": ""
+    },
+    "generator": {
+      "answer": "Hier ist die Antwort auf die Frage:\n\n19.9884 = Temperatur\n37.0933 = Feuchtigkeit\n45,08 = Licht\n2,69964 = Spannung\n\n... (weitere Messungen wurden ausgelassen)\n\nHinweis: Da es nur eine Messung gibt, wird diese direkt ausgegeben und keine weitere Auswertung durchgeführt.",
+      "model": "llama3.1:8b"
+    }
+  }
+}
