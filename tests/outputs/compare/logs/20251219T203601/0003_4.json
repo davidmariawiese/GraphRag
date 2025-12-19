@@ -1,0 +1,393 @@
+{
+  "id": 4,
+  "category": "factual",
+  "question": "What voltage did sensor 1.0 measure on 2004-02-28 at 01:10:16?",
+  "gold_answer": "Voltage of sensor 1.0 at 2004-02-28 01:10:16: 2.69964V",
+  "graph_prediction": "Based on the provided output, it seems that you want me to extract and format a list of voltage measurements from the given data in German.\n\nHowever, I don't see any specific question or request for translation. Assuming you'd like me to provide the answer in German as per your request:\n\n**Die Antwort:**\n\nHier sind die ersten 20 Messungen der Spannung (m.voltage) für das Gerät mit der ID \"m.voltage\":\n\n1. m.voltage = 2,68742\n2. m.voltage = 2,69964\n3. m.voltage = 2,67532\n4. m.voltage = 2,7244\n5. m.voltage = 2,74963\n6. m.voltage = 2,73696\n7. m.voltage = 2,68742\n8. m.voltage = 2,69964\n9. m.voltage = 2,67532\n10. m.voltage = 2,7244\n11. m.voltage = 2,74963\n12. m.voltage = 2,73696\n13. m.voltage = 2,68742\n14. m.voltage = 2,69964\n15. m.voltage = 2,71196\n16. m.voltage = 2,7244\n17. m.voltage = 2,67532\n18. m.voltage = 2,73696\n19. m.voltage = 2,74963\n20. m.voltage = 2,69964\n\n**Die restlichen Messungen:**\n\nDa die Anzahl der Messungen größer als 20 ist, werden hier nur die nächsten 5 Messungen angezeigt:\n\n21. m.voltage = 2,68742\n22. m.voltage = 2,7244\n23. m.voltage = 2,74963\n24. m.voltage = 2,73696\n25. m.voltage = 2,69964\n\n**Die restlichen Messungen:**\n\nDa die Anzahl der Messungen größer als 25 ist, werden hier nur die nächsten 5 Messungen angezeigt:\n\n26. m.voltage = 2,67532\n27. m.voltage = 2,7244\n28. m.voltage = 2,68742\n29. m.voltage = 2,73696\n30. m.voltage",
+  "graph_exact_match": false,
+  "graph_f1": 0.05090909090909091,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 10})\nRETURN m.voltage",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Die Spannung, die Sensor 1.0 am 2004-02-28 um 01:10:16 gemessen hat, beträgt 2,69964V.",
+  "base_exact_match": false,
+  "base_f1": 0.6666666666666667,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T203601/0003_4.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 10})\nRETURN m.voltage"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Based on the provided output, it seems that you want me to extract and format a list of voltage measurements from the given data in German.\n\nHowever, I don't see any specific question or request for translation. Assuming you'd like me to provide the answer in German as per your request:\n\n**Die Antwort:**\n\nHier sind die ersten 20 Messungen der Spannung (m.voltage) für das Gerät mit der ID \"m.voltage\":\n\n1. m.voltage = 2,68742\n2. m.voltage = 2,69964\n3. m.voltage = 2,67532\n4. m.voltage = 2,7244\n5. m.voltage = 2,74963\n6. m.voltage = 2,73696\n7. m.voltage = 2,68742\n8. m.voltage = 2,69964\n9. m.voltage = 2,67532\n10. m.voltage = 2,7244\n11. m.voltage = 2,74963\n12. m.voltage = 2,73696\n13. m.voltage = 2,68742\n14. m.voltage = 2,69964\n15. m.voltage = 2,71196\n16. m.voltage = 2,7244\n17. m.voltage = 2,67532\n18. m.voltage = 2,73696\n19. m.voltage = 2,74963\n20. m.voltage = 2,69964\n\n**Die restlichen Messungen:**\n\nDa die Anzahl der Messungen größer als 20 ist, werden hier nur die nächsten 5 Messungen angezeigt:\n\n21. m.voltage = 2,68742\n22. m.voltage = 2,7244\n23. m.voltage = 2,74963\n24. m.voltage = 2,73696\n25. m.voltage = 2,69964\n\n**Die restlichen Messungen:**\n\nDa die Anzahl der Messungen größer als 25 ist, werden hier nur die nächsten 5 Messungen angezeigt:\n\n26. m.voltage = 2,67532\n27. m.voltage = 2,7244\n28. m.voltage = 2,68742\n29. m.voltage = 2,73696\n30. m.voltage",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 855,
+        "documents": [
+          {
+            "content": "{\"m.voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.66332}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.voltage\": 2.74963}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 01:01:16.435251 hat Sensor 10.0 19.273°C Temperatur, 39.9252% Luftfeuchtigkeit, 75.44 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:01:16.435251",
+              "epoch": "7",
+              "moteid": "10.0",
+              "temperature": "19.273",
+              "humidity": "39.9252",
+              "light": "75.44",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:10:16.715445 hat Sensor 10.0 18.93°C Temperatur, 40.9055% Luftfeuchtigkeit, 75.44 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:10:16.715445",
+              "epoch": "25",
+              "moteid": "10.0",
+              "temperature": "18.93",
+              "humidity": "40.9055",
+              "light": "75.44",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:01:17.272334 hat Sensor 10.0 20.0374°C Temperatur, 38.1555% Luftfeuchtigkeit, 596.16 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:01:17.272334",
+              "epoch": "1087",
+              "moteid": "10.0",
+              "temperature": "20.0374",
+              "humidity": "38.1555",
+              "light": "596.16",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:01:47.588361 hat Sensor 10.0 20.0668°C Temperatur, 38.1555% Luftfeuchtigkeit, 596.16 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:01:47.588361",
+              "epoch": "1088",
+              "moteid": "10.0",
+              "temperature": "20.0668",
+              "humidity": "38.1555",
+              "light": "596.16",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:16:16.547693 hat Sensor 10.0 18.93°C Temperatur, 40.973% Luftfeuchtigkeit, 71.76 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:16:16.547693",
+              "epoch": "37",
+              "moteid": "10.0",
+              "temperature": "18.93",
+              "humidity": "40.973",
+              "light": "71.76",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:01:19.27056 hat Sensor 10.0 22.0072°C Temperatur, 35.7148% Luftfeuchtigkeit, 412.16 Lux Licht und 2.71196V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:01:19.27056",
+              "epoch": "1807",
+              "moteid": "10.0",
+              "temperature": "22.0072",
+              "humidity": "35.7148",
+              "light": "412.16",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:01:16.792235 hat Sensor 29.0 24.5454°C Temperatur, 29.0444% Luftfeuchtigkeit, 964.16 Lux Licht und 2.7244V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:01:16.792235",
+              "epoch": "1087",
+              "moteid": "29.0",
+              "temperature": "24.5454",
+              "humidity": "29.0444",
+              "light": "964.16",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:10:16.308118 hat Sensor 50.0 16.676°C Temperatur, 42.6182% Luftfeuchtigkeit, 79.12 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:10:16.308118",
+              "epoch": "25",
+              "moteid": "50.0",
+              "temperature": "16.676",
+              "humidity": "42.6182",
+              "light": "79.12",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:10:16.165188 hat Sensor 51.0 17.7344°C Temperatur, 39.7896% Luftfeuchtigkeit, 136.16 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:10:16.165188",
+              "epoch": "25",
+              "moteid": "51.0",
+              "temperature": "17.7344",
+              "humidity": "39.7896",
+              "light": "136.16",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:10:16.6789 hat Sensor 1.0 19.1456°C Temperatur, 38.8379% Luftfeuchtigkeit, 45.08 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:10:16.6789",
+              "epoch": "25",
+              "moteid": "1.0",
+              "temperature": "19.1456",
+              "humidity": "38.8379",
+              "light": "45.08",
+              "voltage": "2.69964"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Die Spannung, die Sensor 1.0 am 2004-02-28 um 01:10:16 gemessen hat, beträgt 2,69964V.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 4,
+      "category": "factual",
+      "question": "What voltage did sensor 1.0 measure on 2004-02-28 at 01:10:16?",
+      "gold_answer": "Voltage of sensor 1.0 at 2004-02-28 01:10:16: 2.69964V",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 1})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:10:16\"\nRETURN m.time AS time, m.voltage AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

@@ -1,0 +1,393 @@
+{
+  "id": 80,
+  "category": "trend",
+  "question": "Is there a trend in the humidity of sensor 9.0?",
+  "gold_answer": "The trend of Humidity for sensor 9.0 is: decreasing.",
+  "graph_prediction": "The JSON object provided contains temperature readings from a sensor with ID `9` over a period of time on February 28th, 2023. The data includes the timestamp for each reading and the corresponding temperature value in degrees Celsius.\n\nHere is a summary of the key points:\n\n- **Sensor ID:** 9\n- **Date:** February 28, 2023\n- **Temperature Readings:**\n  - The first recorded temperature at `15:47:46` was `41.2761°C`.\n  - The last recorded temperature at `03:40:46` was `40.8381°C`.\n\nThe temperatures fluctuated between approximately `40.70°C` and `41.31°C`. Here are some notable observations:\n\n- **Highest Temperature:** `41.3098°C` at `03:30:46`.\n- **Lowest Temperature:** `40.7031°C` at `03:23:16`.\n\nThe temperature readings show a general trend of fluctuation within the range mentioned above, with no significant spikes or drops.\n\nWould you like to analyze this data further or perform any specific operations on it?",
+  "graph_exact_match": false,
+  "graph_f1": 0.0880503144654088,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement)\nRETURN s.mote_id AS mote_id, m.time AS time, m.humidity AS value\nORDER BY m.time ASC",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T212843/0079_80.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement)\nRETURN s.mote_id AS mote_id, m.time AS time, m.humidity AS value\nORDER BY m.time ASC"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "The JSON object provided contains temperature readings from a sensor with ID `9` over a period of time on February 28th, 2023. The data includes the timestamp for each reading and the corresponding temperature value in degrees Celsius.\n\nHere is a summary of the key points:\n\n- **Sensor ID:** 9\n- **Date:** February 28, 2023\n- **Temperature Readings:**\n  - The first recorded temperature at `15:47:46` was `41.2761°C`.\n  - The last recorded temperature at `03:40:46` was `40.8381°C`.\n\nThe temperatures fluctuated between approximately `40.70°C` and `41.31°C`. Here are some notable observations:\n\n- **Highest Temperature:** `41.3098°C` at `03:30:46`.\n- **Lowest Temperature:** `40.7031°C` at `03:23:16`.\n\nThe temperature readings show a general trend of fluctuation within the range mentioned above, with no significant spikes or drops.\n\nWould you like to analyze this data further or perform any specific operations on it?",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1291,
+        "documents": [
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:05:16.177908\", \"value\": 40.6355}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:05:46.740147\", \"value\": 40.8043}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:07:15.995333\", \"value\": 40.9392}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:07:46.555114\", \"value\": 41.2088}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:08:16.270611\", \"value\": 41.1751}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:09:16.802535\", \"value\": 41.2425}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:09:46.530893\", \"value\": 41.1751}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:11:16.785348\", \"value\": 41.1078}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:12:16.768674\", \"value\": 41.0741}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:13:46.266985\", \"value\": 41.0067}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:14:16.047475\", \"value\": 40.973}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:15:16.330399\", \"value\": 40.9055}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:17:16.021113\", \"value\": 40.7706}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:17:47.005564\", \"value\": 40.7706}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:18:16.640973\", \"value\": 40.7031}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:19:16.518292\", \"value\": 40.7031}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:19:46.300439\", \"value\": 40.7368}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:20:16.074462\", \"value\": 40.6693}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:22:16.779649\", \"value\": 40.6355}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:22:46.033408\", \"value\": 40.6693}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:23:46.070998\", \"value\": 40.7031}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:24:16.555032\", \"value\": 40.7031}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:25:46.047534\", \"value\": 40.973}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:27:16.045005\", \"value\": 41.0404}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:29:16.569476\", \"value\": 41.2425}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:29:46.590765\", \"value\": 41.2425}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:30:16.607172\", \"value\": 41.2425}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:30:46.303249\", \"value\": 41.2425}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:31:16.607651\", \"value\": 41.1751}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:32:46.348369\", \"value\": 41.0741}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:33:46.81905\", \"value\": 41.0741}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:34:16.818746\", \"value\": 41.0404}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:34:46.076215\", \"value\": 40.973}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:36:16.978454\", \"value\": 40.9055}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:36:46.482741\", \"value\": 40.8718}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:37:46.847193\", \"value\": 40.8043}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:38:16.638977\", \"value\": 40.7706}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:38:46.463462\", \"value\": 40.7031}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:40:16.51812\", \"value\": 40.7031}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:40:46.215277\", \"value\": 40.7031}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:41:16.460878\", \"value\": 40.7031}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:42:46.622677\", \"value\": 40.6355}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:43:16.882933\", \"value\": 40.6355}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:43:46.359486\", \"value\": 40.6355}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:44:16.232142\", \"value\": 40.6355}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:46:46.861544\", \"value\": 40.9392}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:47:16.7268\", \"value\": 40.973}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:47:46.729448\", \"value\": 41.0067}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:48:16.858085\", \"value\": 41.1078}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:50:47.046771\", \"value\": 41.2425}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "On 2004-03-25 at 08:58:09.995388, sensor 19.0 measured temperature 122.153°C, humidity -4.0%, light 294.4 Lux, and voltage 2.03397V.",
+            "meta": {
+              "date": "2004-03-25",
+              "time": "08:58:09.995388",
+              "epoch": "93",
+              "moteid": "19.0",
+              "temperature": "122.153",
+              "humidity": "-4.0",
+              "light": "294.4",
+              "voltage": "2.03397"
+            }
+          },
+          {
+            "content": "On 2004-04-02 at 02:18:28.993798, sensor 24.0 measured temperature 122.153°C, humidity -4.0%, light 1.38 Lux, and voltage 2.00649V.",
+            "meta": {
+              "date": "2004-04-02",
+              "time": "02:18:28.993798",
+              "epoch": "4",
+              "moteid": "24.0",
+              "temperature": "122.153",
+              "humidity": "-4.0",
+              "light": "1.38",
+              "voltage": "2.00649"
+            }
+          },
+          {
+            "content": "On 2004-03-31 at 03:38:15.757551, sensor 1.0 measured temperature 122.153°C, humidity -3.91901%, light 11.04 Lux, and voltage 2.03397V.",
+            "meta": {
+              "date": "2004-03-31",
+              "time": "03:38:15.757551",
+              "epoch": "2",
+              "moteid": "1.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "11.04",
+              "voltage": "2.03397"
+            }
+          },
+          {
+            "content": "On 2004-03-31 at 02:58:45.763421, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 19.32 Lux, and voltage 2.08393V.",
+            "meta": {
+              "date": "2004-03-31",
+              "time": "02:58:45.763421",
+              "epoch": "2",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "19.32",
+              "voltage": "2.08393"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 00:58:46.497331, sensor 3.0 measured temperature 20.204°C, humidity 36.8871%, light 50.6 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:46.497331",
+              "epoch": "2",
+              "moteid": "3.0",
+              "temperature": "20.204",
+              "humidity": "36.8871",
+              "light": "50.6",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 16:04:46.552435, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 235.52 Lux, and voltage 2.12875V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "16:04:46.552435",
+              "epoch": "3",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "235.52",
+              "voltage": "2.12875"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 14:43:05.262873, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 397.44 Lux, and voltage 2.1364V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "14:43:05.262873",
+              "epoch": "4",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "397.44",
+              "voltage": "2.1364"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 16:06:06.095868, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 235.52 Lux, and voltage 2.1364V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "16:06:06.095868",
+              "epoch": "5",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "235.52",
+              "voltage": "2.1364"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 14:44:01.962853, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 397.44 Lux, and voltage 2.1364V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "14:44:01.962853",
+              "epoch": "6",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "397.44",
+              "voltage": "2.1364"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 14:44:15.993535, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 397.44 Lux, and voltage 2.1364V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "14:44:15.993535",
+              "epoch": "7",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "397.44",
+              "voltage": "2.1364"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 80,
+      "category": "trend",
+      "question": "Is there a trend in the humidity of sensor 9.0?",
+      "gold_answer": "The trend of Humidity for sensor 9.0 is: decreasing.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 9})-[:GENERATED]->(m:Measurement)\nWHERE m.humidity IS NOT NULL\nRETURN m.time AS time, m.humidity AS value\nORDER BY m.time ASC"
+    }
+  }
+}

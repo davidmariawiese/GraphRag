@@ -1,0 +1,393 @@
+{
+  "id": 10,
+  "category": "factual",
+  "question": "Welche Luftfeuchtigkeit hat Sensor 3.0 am 2004-02-28 um 01:40:16 gemessen?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "graph_prediction": "Es scheint, als ob du eine JSON-Datei hast und nach einer Übersetzung in Deutsch suchst. Hier ist die Übersetzung:\n\n**Übersicht**\n\nDie JSON-Datei enthält Informationen über Luftfeuchtigkeit. Es gibt 2 Teile: `overview` und `answer`.\n\n**Teil 1: overview**\n\n* `total`: Die Gesamtzahl der Datenpunkte.\n* `data`: Eine Liste von Datenpunkten, die jeweils eine Luftfeuchtigkeitsmessung enthalten.\n\n**Teil 2: answer**\n\n* `Luftfeuchtigkeit`: Die aktuelle Luftfeuchtigkeit in Prozent.\n* `Zeitstempel`: Der Zeitpunkt, zu dem die Messung durchgeführt wurde.\n\nHier ist ein Beispiel für eine Übersetzung eines Datenpunkts:\n\n`{\"Luftfeuchtigkeit\": 60.2, \"Zeitstempel\": \"2023-02-16T14:30:00Z\"}`\n\nÜbersetzt bedeutet dies:\n\n* Die Luftfeuchtigkeit beträgt 60,2 %.\n* Die Messung wurde am 16. Februar 2023 um 14:30 Uhr durchgeführt.\n\nBitte beachten Sie, dass die Übersetzung nur ein Beispiel ist und nicht alle Datenpunkte übersetzt wurden. Wenn Sie weitere Informationen benötigen, können Sie mich gerne fragen!",
+  "graph_exact_match": false,
+  "graph_f1": 0.0,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 3.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 40})\nRETURN m.voltage AS Luftfeuchtigkeit",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": true,
+  "base_f1": 1.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T193241/0009_10.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 3.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 40})\nRETURN m.voltage AS Luftfeuchtigkeit"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Es scheint, als ob du eine JSON-Datei hast und nach einer Übersetzung in Deutsch suchst. Hier ist die Übersetzung:\n\n**Übersicht**\n\nDie JSON-Datei enthält Informationen über Luftfeuchtigkeit. Es gibt 2 Teile: `overview` und `answer`.\n\n**Teil 1: overview**\n\n* `total`: Die Gesamtzahl der Datenpunkte.\n* `data`: Eine Liste von Datenpunkten, die jeweils eine Luftfeuchtigkeitsmessung enthalten.\n\n**Teil 2: answer**\n\n* `Luftfeuchtigkeit`: Die aktuelle Luftfeuchtigkeit in Prozent.\n* `Zeitstempel`: Der Zeitpunkt, zu dem die Messung durchgeführt wurde.\n\nHier ist ein Beispiel für eine Übersetzung eines Datenpunkts:\n\n`{\"Luftfeuchtigkeit\": 60.2, \"Zeitstempel\": \"2023-02-16T14:30:00Z\"}`\n\nÜbersetzt bedeutet dies:\n\n* Die Luftfeuchtigkeit beträgt 60,2 %.\n* Die Messung wurde am 16. Februar 2023 um 14:30 Uhr durchgeführt.\n\nBitte beachten Sie, dass die Übersetzung nur ein Beispiel ist und nicht alle Datenpunkte übersetzt wurden. Wenn Sie weitere Informationen benötigen, können Sie mich gerne fragen!",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 1082,
+        "documents": [
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.66332}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.66332}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"Luftfeuchtigkeit\": 2.7244}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 01:01:16.599838 hat Sensor 26.0 18.8614°C Temperatur, 40.9055% Luftfeuchtigkeit, 121.44 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:01:16.599838",
+              "epoch": "7",
+              "moteid": "26.0",
+              "temperature": "18.8614",
+              "humidity": "40.9055",
+              "light": "121.44",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:01:16.831785 hat Sensor 31.0 18.9496°C Temperatur, 40.3652% Luftfeuchtigkeit, 150.88 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:01:16.831785",
+              "epoch": "7",
+              "moteid": "31.0",
+              "temperature": "18.9496",
+              "humidity": "40.3652",
+              "light": "150.88",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:40:16.554361 hat Sensor 8.0 18.6556°C Temperatur, 40.0268% Luftfeuchtigkeit, 108.56 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:40:16.554361",
+              "epoch": "85",
+              "moteid": "8.0",
+              "temperature": "18.6556",
+              "humidity": "40.0268",
+              "light": "108.56",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:40:16.51812 hat Sensor 9.0 18.8124°C Temperatur, 40.7031% Luftfeuchtigkeit, 104.88 Lux Licht und 2.76242V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:40:16.51812",
+              "epoch": "85",
+              "moteid": "9.0",
+              "temperature": "18.8124",
+              "humidity": "40.7031",
+              "light": "104.88",
+              "voltage": "2.76242"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:40:16.382664 hat Sensor 25.0 18.2342°C Temperatur, 40.0268% Luftfeuchtigkeit, 101.2 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:40:16.382664",
+              "epoch": "85",
+              "moteid": "25.0",
+              "temperature": "18.2342",
+              "humidity": "40.0268",
+              "light": "101.2",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 04:01:16.315406 hat Sensor 40.0 17.803°C Temperatur, 40.3314% Luftfeuchtigkeit, 165.6 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "04:01:16.315406",
+              "epoch": "367",
+              "moteid": "40.0",
+              "temperature": "17.803",
+              "humidity": "40.3314",
+              "light": "165.6",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:40:16.034651 hat Sensor 42.0 17.6364°C Temperatur, 40.7368% Luftfeuchtigkeit, 478.4 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:40:16.034651",
+              "epoch": "85",
+              "moteid": "42.0",
+              "temperature": "17.6364",
+              "humidity": "40.7368",
+              "light": "478.4",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:40:16.985756 hat Sensor 10.0 18.8124°C Temperatur, 40.6693% Luftfeuchtigkeit, 53.36 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:40:16.985756",
+              "epoch": "85",
+              "moteid": "10.0",
+              "temperature": "18.8124",
+              "humidity": "40.6693",
+              "light": "53.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:34:16.693562 hat Sensor 40.0 18.538°C Temperatur, 40.0945% Luftfeuchtigkeit, 172.96 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:34:16.693562",
+              "epoch": "73",
+              "moteid": "40.0",
+              "temperature": "18.538",
+              "humidity": "40.0945",
+              "light": "172.96",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:38:16.131487 hat Sensor 40.0 18.489°C Temperatur, 40.0268% Luftfeuchtigkeit, 172.96 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:38:16.131487",
+              "epoch": "81",
+              "moteid": "40.0",
+              "temperature": "18.489",
+              "humidity": "40.0268",
+              "light": "172.96",
+              "voltage": "2.69964"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 10,
+      "category": "factual",
+      "question": "Welche Luftfeuchtigkeit hat Sensor 3.0 am 2004-02-28 um 01:40:16 gemessen?",
+      "gold_answer": "Dazu liegen mir keine Daten vor.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 3})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:40:16\"\nRETURN m.time AS time, m.humidity AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

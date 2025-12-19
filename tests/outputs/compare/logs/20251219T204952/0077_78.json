@@ -1,0 +1,393 @@
+{
+  "id": 78,
+  "category": "trend",
+  "question": "How does the voltage of sensor 7.0 change over time?",
+  "gold_answer": "The trend of Voltage for sensor 7.0 is: increasing.",
+  "graph_prediction": "The JSON object provided contains temperature readings from a sensor with `mote_id` 7 over a period of time on February 28th, 2023. The temperatures are recorded in Celsius and the timestamps include both date and time down to milliseconds.\n\nHere is a summary of the data:\n\n- **Start Time:** 2023-02-28T01:59:46.722Z\n- **End Time:** 2023-02-28T03:03:46.350Z\n\nThe temperature readings fluctuate between approximately 2.67°C and 2.69°C, indicating a relatively stable environment with minor variations.\n\nHere are some key points from the data:\n\n1. **Initial Readings:** The first few readings show temperatures around 2.68°C.\n2. **Stable Range:** Most of the readings fall within the range of 2.67532°C to 2.68742°C, indicating a stable temperature environment.\n3. **Minor Variations:** There are slight variations in temperature, but they remain very close to each other.\n\nHere is an excerpt from the data:\n\n- At `2023-02-28T01:59:46.722Z`, the temperature was 2.68742°C.\n- At `2023-02-28T02:00:16.552Z`, the temperature was 2.67532°C.\n- At `2023-02-28T02:00:46.952Z`, the temperature was 2.68742°C.\n\nThe data continues in this manner, with minor fluctuations but generally stable temperatures over time.\n\nIf you need any specific analysis or further details from this dataset, please let me know!",
+  "graph_exact_match": false,
+  "graph_f1": 0.043103448275862065,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement) RETURN s.mote_id AS mote_id, m.time AS time, m.voltage AS value ORDER BY m.time ASC",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T204952/0077_78.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement) RETURN s.mote_id AS mote_id, m.time AS time, m.voltage AS value ORDER BY m.time ASC"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "The JSON object provided contains temperature readings from a sensor with `mote_id` 7 over a period of time on February 28th, 2023. The temperatures are recorded in Celsius and the timestamps include both date and time down to milliseconds.\n\nHere is a summary of the data:\n\n- **Start Time:** 2023-02-28T01:59:46.722Z\n- **End Time:** 2023-02-28T03:03:46.350Z\n\nThe temperature readings fluctuate between approximately 2.67°C and 2.69°C, indicating a relatively stable environment with minor variations.\n\nHere are some key points from the data:\n\n1. **Initial Readings:** The first few readings show temperatures around 2.68°C.\n2. **Stable Range:** Most of the readings fall within the range of 2.67532°C to 2.68742°C, indicating a stable temperature environment.\n3. **Minor Variations:** There are slight variations in temperature, but they remain very close to each other.\n\nHere is an excerpt from the data:\n\n- At `2023-02-28T01:59:46.722Z`, the temperature was 2.68742°C.\n- At `2023-02-28T02:00:16.552Z`, the temperature was 2.67532°C.\n- At `2023-02-28T02:00:46.952Z`, the temperature was 2.68742°C.\n\nThe data continues in this manner, with minor fluctuations but generally stable temperatures over time.\n\nIf you need any specific analysis or further details from this dataset, please let me know!",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1660,
+        "documents": [
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:05:16.649448\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:05:46.546353\", \"value\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:06:16.766558\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:06:46.58428\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:07:16.511303\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:07:46.51801\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:08:16.046134\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:08:46.607604\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:09:16.530298\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:10:16.572357\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:10:46.401481\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:11:16.085541\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:11:46.766482\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:12:16.223943\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:12:46.062762\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:13:46.222371\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:14:16.762864\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:15:16.213717\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:15:45.9673\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:16:16.74668\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:16:46.46883\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:17:16.469835\", \"value\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:17:46.768333\", \"value\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:18:16.320195\", \"value\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:18:46.136122\", \"value\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:19:16.596797\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:19:46.495618\", \"value\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:20:16.414927\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:21:16.224888\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:21:46.020043\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:22:16.492039\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:22:46.229529\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:23:16.806684\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:23:46.626006\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:24:46.509822\", \"value\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:25:46.314684\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:27:46.803128\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:28:16.010476\", \"value\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:28:46.778554\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:29:46.499307\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:30:16.809187\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:31:16.770969\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:31:46.772702\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:32:16.789464\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:32:46.768433\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:33:16.765807\", \"value\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:33:46.518746\", \"value\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:34:16.290839\", \"value\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:34:46.770177\", \"value\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 7, \"time\": \"2004-02-28T01:35:16.31019\", \"value\": 2.68742}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am date um time hat Sensor moteid temperature°C Temperatur, humidity% Luftfeuchtigkeit, light Lux Licht und voltageV Spannung gemessen.",
+            "meta": {
+              "date": "date",
+              "time": "time",
+              "epoch": "epoch",
+              "moteid": "moteid",
+              "temperature": "temperature",
+              "humidity": "humidity",
+              "light": "light",
+              "voltage": "voltage"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 15:46:17.307584 hat Sensor 20.0 -38.4°C Temperatur, -4.0% Luftfeuchtigkeit, 625.6 Lux Licht und 2.4341V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:46:17.307584",
+              "epoch": "1777",
+              "moteid": "20.0",
+              "temperature": "-38.4",
+              "humidity": "-4.0",
+              "light": "625.6",
+              "voltage": "2.4341"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 11:42:47.011106 hat Sensor 2.0 23.5164°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.71196V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:42:47.011106",
+              "epoch": "1290",
+              "moteid": "2.0",
+              "temperature": "23.5164",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 12:00:18.006341 hat Sensor 2.0 23.6536°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "12:00:18.006341",
+              "epoch": "1325",
+              "moteid": "2.0",
+              "temperature": "23.6536",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:28:18.712415 hat Sensor 2.0 24.0064°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.71196V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:28:18.712415",
+              "epoch": "1501",
+              "moteid": "2.0",
+              "temperature": "24.0064",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:52:17.423474 hat Sensor 2.0 24.0456°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.7244V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:52:17.423474",
+              "epoch": "1549",
+              "moteid": "2.0",
+              "temperature": "24.0456",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:11:18.323178 hat Sensor 3.0 20.4°C Temperatur, 35.5072% Luftfeuchtigkeit, 368.0 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:11:18.323178",
+              "epoch": "987",
+              "moteid": "3.0",
+              "temperature": "20.4",
+              "humidity": "35.5072",
+              "light": "368.0",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:47:17.758496 hat Sensor 6.0 23.3792°C Temperatur, 33.7% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:47:17.758496",
+              "epoch": "1539",
+              "moteid": "6.0",
+              "temperature": "23.3792",
+              "humidity": "33.7",
+              "light": "1140.8",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:48:47.378971 hat Sensor 6.0 23.3792°C Temperatur, 33.7% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:48:47.378971",
+              "epoch": "1542",
+              "moteid": "6.0",
+              "temperature": "23.3792",
+              "humidity": "33.7",
+              "light": "1140.8",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:55:17.446625 hat Sensor 6.0 23.4086°C Temperatur, 33.7% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:55:17.446625",
+              "epoch": "1555",
+              "moteid": "6.0",
+              "temperature": "23.4086",
+              "humidity": "33.7",
+              "light": "1140.8",
+              "voltage": "2.67532"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 78,
+      "category": "trend",
+      "question": "How does the voltage of sensor 7.0 change over time?",
+      "gold_answer": "The trend of Voltage for sensor 7.0 is: increasing.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 7})-[:GENERATED]->(m:Measurement)\nWHERE m.voltage IS NOT NULL\nRETURN m.time AS time, m.voltage AS value\nORDER BY m.time ASC"
+    }
+  }
+}

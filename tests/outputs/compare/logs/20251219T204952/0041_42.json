@@ -1,0 +1,145 @@
+{
+  "id": 42,
+  "category": "list",
+  "question": "List all measurements in epoch 70.",
+  "gold_answer": "mote_id=4 time=2004-02-28T01:32:45.984681 temperature=19.6356 humidity=39.3483 light=97.52 voltage=2.65143\nmote_id=32 time=2004-02-28T01:32:46.028314 temperature=18.3126 humidity=40.9392 light=114.08 voltage=2.67532\nmote_id=8 time=2004-02-28T01:32:46.044603 temperature=18.7046 humidity=40.3652 light=108.56 voltage=2.68742\nmote_id=30 time=2004-02-28T01:32:46.061712 temperature=17.8912 humidity=42.685 light=108.56 voltage=2.68742\nmote_id=47 time=2004-02-28T01:32:46.062169 temperature=17.95 humidity=40.2976 light=655.04 voltage=2.67532\nmote_id=52 time=2004-02-28T01:32:46.098332 temperature=17.4502 humidity=40.7706 light=53.36 voltage=2.65143\nmote_id=18 time=2004-02-28T01:32:46.138832 temperature=18.7634 humidity=39.0082 light=57.04 voltage=2.50599\nmote_id=35 time=2004-02-28T01:32:46.150658 temperature=19.077 humidity=41.5116 light=165.6 voltage=2.61639\nmote_id=27 time=2004-02-28T01:32:46.280829 temperature=19.126 humidity=39.3143 light=79.12 voltage=2.69964\nmote_id=1 time=2004-02-28T01:32:46.312039 temperature=18.979 humidity=39.0763 light=43.24 voltage=2.69964\nmote_id=38 time=2004-02-28T01:32:46.333783 temperature=18.4204 humidity=39.5521 light=187.68 voltage=2.57108\nmote_id=9 time=2004-02-28T01:32:46.348369 temperature=18.8516 humidity=41.0741 light=104.88 voltage=2.76242\nmote_id=50 time=2004-02-28T01:32:46.369458 temperature=16.5584 humidity=42.8521 light=79.12 voltage=2.66332\nmote_id=44 time=2004-02-28T01:32:46.471167 temperature=17.5384 humidity=40.8043 light=97.52 voltage=2.67532\nmote_id=36 time=2004-02-28T01:32:46.505283 temperature=18.4792 humidity=42.9856 light=79.12 voltage=2.67532\nmote_id=42 time=2004-02-28T01:32:46.532605 temperature=17.7246 humidity=40.8043 light=478.4 voltage=2.68742\nmote_id=23 time=2004-02-28T01:32:46.576814 temperature=19.2338 humidity=38.2239 light=224.48 voltage=2.68742\nmote_id=37 time=2004-02-28T01:32:46.582455 temperature=19.2926 humidity=41.7133 light=235.52 voltage=2.68742\nmote_id=20 time=2004-02-28T01:32:46.604717 temperature=19.1848 humidity=38.1213 light=158.24 voltage=3.12589\nmote_id=25 time=2004-02-28T01:32:46.609249 temperature=18.3028 humidity=39.9252 light=97.52 voltage=2.67532\n... (additional 16 measurements omitted)",
+  "graph_prediction": "Based on the provided JSON data, here is a summary of the sensor readings for each parameter:\n\n### Summary Statistics\n\n#### Temperature:\n- **Minimum**: 16.5584°C\n- **Maximum**: 19.6356°C\n- **Average**: 18.7046°C\n- **Standard Deviation**: 0.6277°C\n- **Median**: 18.7046°C\n\n#### Humidity:\n- **Minimum**: 38.1213%\n- **Maximum**: 42.9856%\n- **Average**: 40.3652%\n- **Standard Deviation**: 1.3121%\n- **Median**: 40.3652%\n\n#### Light:\n- **Minimum**: 43.24 lux\n- **Maximum**: 791.2 lux (Note: The maximum value is actually 655.04 lux, but the data shows a record with 791.2 lux which seems to be an error)\n- **Average**: 187.68 lux\n- **Standard Deviation**: 187.68 lux\n- **Median**: 108.56 lux\n\n#### Voltage:\n- **Minimum**: 2.50599 V\n- **Maximum**: 3.12589 V\n- **Average**: 2.67532 V\n- **Standard Deviation**: 0.2047 V\n- **Median**: 2.67532 V\n\n### Trends and Observations:\n\n#### Temperature:\n- The temperature readings are relatively stable, with a small range of variation (about ±1°C around the average).\n- There is no significant trend observed in the temperature data.\n\n#### Humidity:\n- The humidity values show moderate variability but remain within a narrow band.\n- No clear trend can be identified from the provided data.\n\n#### Light:\n- The light readings exhibit high variability, with some records showing very low lux levels (e.g., 43.24) and others showing much higher levels (up to 655.04).\n- There is no discernible pattern or trend in the light data.\n\n#### Voltage:\n- The voltage values are relatively consistent but show a slight range of variation.\n- No significant trend can be observed from the provided data.\n\n###",
+  "graph_exact_match": false,
+  "graph_f1": 0.1462686567164179,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 70})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,\n       m.time AS time,\n       m.temperature AS temperature,\n       m.humidity AS humidity,\n       m.light AS light,\n       m.voltage AS voltage\nORDER BY m.time ASC, mote_id ASC\nLIMIT 20",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T204952/0041_42.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 70})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,\n       m.time AS time,\n       m.temperature AS temperature,\n       m.humidity AS humidity,\n       m.light AS light,\n       m.voltage AS voltage\nORDER BY m.time ASC, mote_id ASC\nLIMIT 20"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Based on the provided JSON data, here is a summary of the sensor readings for each parameter:\n\n### Summary Statistics\n\n#### Temperature:\n- **Minimum**: 16.5584°C\n- **Maximum**: 19.6356°C\n- **Average**: 18.7046°C\n- **Standard Deviation**: 0.6277°C\n- **Median**: 18.7046°C\n\n#### Humidity:\n- **Minimum**: 38.1213%\n- **Maximum**: 42.9856%\n- **Average**: 40.3652%\n- **Standard Deviation**: 1.3121%\n- **Median**: 40.3652%\n\n#### Light:\n- **Minimum**: 43.24 lux\n- **Maximum**: 791.2 lux (Note: The maximum value is actually 655.04 lux, but the data shows a record with 791.2 lux which seems to be an error)\n- **Average**: 187.68 lux\n- **Standard Deviation**: 187.68 lux\n- **Median**: 108.56 lux\n\n#### Voltage:\n- **Minimum**: 2.50599 V\n- **Maximum**: 3.12589 V\n- **Average**: 2.67532 V\n- **Standard Deviation**: 0.2047 V\n- **Median**: 2.67532 V\n\n### Trends and Observations:\n\n#### Temperature:\n- The temperature readings are relatively stable, with a small range of variation (about ±1°C around the average).\n- There is no significant trend observed in the temperature data.\n\n#### Humidity:\n- The humidity values show moderate variability but remain within a narrow band.\n- No clear trend can be identified from the provided data.\n\n#### Light:\n- The light readings exhibit high variability, with some records showing very low lux levels (e.g., 43.24) and others showing much higher levels (up to 655.04).\n- There is no discernible pattern or trend in the light data.\n\n#### Voltage:\n- The voltage values are relatively consistent but show a slight range of variation.\n- No significant trend can be observed from the provided data.\n\n###",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 20,
+        "documents": [
+          {
+            "content": "{\"mote_id\": 4, \"time\": \"2004-02-28T01:32:45.984681\", \"temperature\": 19.6356, \"humidity\": 39.3483, \"light\": 97.52, \"voltage\": 2.65143}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 32, \"time\": \"2004-02-28T01:32:46.028314\", \"temperature\": 18.3126, \"humidity\": 40.9392, \"light\": 114.08, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 8, \"time\": \"2004-02-28T01:32:46.044603\", \"temperature\": 18.7046, \"humidity\": 40.3652, \"light\": 108.56, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 30, \"time\": \"2004-02-28T01:32:46.061712\", \"temperature\": 17.8912, \"humidity\": 42.685, \"light\": 108.56, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 47, \"time\": \"2004-02-28T01:32:46.062169\", \"temperature\": 17.95, \"humidity\": 40.2976, \"light\": 655.04, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 52, \"time\": \"2004-02-28T01:32:46.098332\", \"temperature\": 17.4502, \"humidity\": 40.7706, \"light\": 53.36, \"voltage\": 2.65143}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 18, \"time\": \"2004-02-28T01:32:46.138832\", \"temperature\": 18.7634, \"humidity\": 39.0082, \"light\": 57.04, \"voltage\": 2.50599}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 35, \"time\": \"2004-02-28T01:32:46.150658\", \"temperature\": 19.077, \"humidity\": 41.5116, \"light\": 165.6, \"voltage\": 2.61639}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 27, \"time\": \"2004-02-28T01:32:46.280829\", \"temperature\": 19.126, \"humidity\": 39.3143, \"light\": 79.12, \"voltage\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 1, \"time\": \"2004-02-28T01:32:46.312039\", \"temperature\": 18.979, \"humidity\": 39.0763, \"light\": 43.24, \"voltage\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 38, \"time\": \"2004-02-28T01:32:46.333783\", \"temperature\": 18.4204, \"humidity\": 39.5521, \"light\": 187.68, \"voltage\": 2.57108}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T01:32:46.348369\", \"temperature\": 18.8516, \"humidity\": 41.0741, \"light\": 104.88, \"voltage\": 2.76242}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 50, \"time\": \"2004-02-28T01:32:46.369458\", \"temperature\": 16.5584, \"humidity\": 42.8521, \"light\": 79.12, \"voltage\": 2.66332}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 44, \"time\": \"2004-02-28T01:32:46.471167\", \"temperature\": 17.5384, \"humidity\": 40.8043, \"light\": 97.52, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 36, \"time\": \"2004-02-28T01:32:46.505283\", \"temperature\": 18.4792, \"humidity\": 42.9856, \"light\": 79.12, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 42, \"time\": \"2004-02-28T01:32:46.532605\", \"temperature\": 17.7246, \"humidity\": 40.8043, \"light\": 478.4, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 23, \"time\": \"2004-02-28T01:32:46.576814\", \"temperature\": 19.2338, \"humidity\": 38.2239, \"light\": 224.48, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 37, \"time\": \"2004-02-28T01:32:46.582455\", \"temperature\": 19.2926, \"humidity\": 41.7133, \"light\": 235.52, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 20, \"time\": \"2004-02-28T01:32:46.604717\", \"temperature\": 19.1848, \"humidity\": 38.1213, \"light\": 158.24, \"voltage\": 3.12589}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 25, \"time\": \"2004-02-28T01:32:46.609249\", \"temperature\": 18.3028, \"humidity\": 39.9252, \"light\": 97.52, \"voltage\": 2.67532}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 42,
+      "category": "list",
+      "question": "List all measurements in epoch 70.",
+      "gold_answer": "mote_id=4 time=2004-02-28T01:32:45.984681 temperature=19.6356 humidity=39.3483 light=97.52 voltage=2.65143\nmote_id=32 time=2004-02-28T01:32:46.028314 temperature=18.3126 humidity=40.9392 light=114.08 voltage=2.67532\nmote_id=8 time=2004-02-28T01:32:46.044603 temperature=18.7046 humidity=40.3652 light=108.56 voltage=2.68742\nmote_id=30 time=2004-02-28T01:32:46.061712 temperature=17.8912 humidity=42.685 light=108.56 voltage=2.68742\nmote_id=47 time=2004-02-28T01:32:46.062169 temperature=17.95 humidity=40.2976 light=655.04 voltage=2.67532\nmote_id=52 time=2004-02-28T01:32:46.098332 temperature=17.4502 humidity=40.7706 light=53.36 voltage=2.65143\nmote_id=18 time=2004-02-28T01:32:46.138832 temperature=18.7634 humidity=39.0082 light=57.04 voltage=2.50599\nmote_id=35 time=2004-02-28T01:32:46.150658 temperature=19.077 humidity=41.5116 light=165.6 voltage=2.61639\nmote_id=27 time=2004-02-28T01:32:46.280829 temperature=19.126 humidity=39.3143 light=79.12 voltage=2.69964\nmote_id=1 time=2004-02-28T01:32:46.312039 temperature=18.979 humidity=39.0763 light=43.24 voltage=2.69964\nmote_id=38 time=2004-02-28T01:32:46.333783 temperature=18.4204 humidity=39.5521 light=187.68 voltage=2.57108\nmote_id=9 time=2004-02-28T01:32:46.348369 temperature=18.8516 humidity=41.0741 light=104.88 voltage=2.76242\nmote_id=50 time=2004-02-28T01:32:46.369458 temperature=16.5584 humidity=42.8521 light=79.12 voltage=2.66332\nmote_id=44 time=2004-02-28T01:32:46.471167 temperature=17.5384 humidity=40.8043 light=97.52 voltage=2.67532\nmote_id=36 time=2004-02-28T01:32:46.505283 temperature=18.4792 humidity=42.9856 light=79.12 voltage=2.67532\nmote_id=42 time=2004-02-28T01:32:46.532605 temperature=17.7246 humidity=40.8043 light=478.4 voltage=2.68742\nmote_id=23 time=2004-02-28T01:32:46.576814 temperature=19.2338 humidity=38.2239 light=224.48 voltage=2.68742\nmote_id=37 time=2004-02-28T01:32:46.582455 temperature=19.2926 humidity=41.7133 light=235.52 voltage=2.68742\nmote_id=20 time=2004-02-28T01:32:46.604717 temperature=19.1848 humidity=38.1213 light=158.24 voltage=3.12589\nmote_id=25 time=2004-02-28T01:32:46.609249 temperature=18.3028 humidity=39.9252 light=97.52 voltage=2.67532\n... (additional 16 measurements omitted)",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 70})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage ORDER BY time, mote_id LIMIT 20",
+      "gold_meta": {
+        "total": 36
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "id": 29,
+  "category": "factual",
+  "question": "Welche Temperatur hat Sensor 8.0 am 2004-03-01 um 03:40:16 gemessen?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "graph_prediction": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält jedoch eine Fehlermeldung: \"No data found\". Dies bedeutet, dass keine Messdaten verfügbar sind, um die Frage zu beantworten.\n\nWenn Sie also nach der Temperatur des Sensors 8.0 am 1. März 2004 um 03:40:16 fragen, lautet die Antwort:\n\nKeine Daten verfügbar.",
+  "graph_exact_match": false,
+  "graph_f1": 0.09230769230769231,
+  "graph_faithfulness": 0.3333333333333333,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-01\"})-[:HAS_HOUR]->(h:Hour {hour: 3})-[:HAS_MINUTE]->(mi:Minute {minute: 40})\nRETURN DISTINCT m",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": true,
+  "base_f1": 1.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T193241/0028_29.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-03-01\"})-[:HAS_HOUR]->(h:Hour {hour: 3})-[:HAS_MINUTE]->(mi:Minute {minute: 40})\nRETURN DISTINCT m"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält jedoch eine Fehlermeldung: \"No data found\". Dies bedeutet, dass keine Messdaten verfügbar sind, um die Frage zu beantworten.\n\nWenn Sie also nach der Temperatur des Sensors 8.0 am 1. März 2004 um 03:40:16 fragen, lautet die Antwort:\n\nKeine Daten verfügbar.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 03:01:16.571886 hat Sensor 40.0 18.0186°C Temperatur, 40.2299% Luftfeuchtigkeit, 172.96 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:01:16.571886",
+              "epoch": "247",
+              "moteid": "40.0",
+              "temperature": "18.0186",
+              "humidity": "40.2299",
+              "light": "172.96",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:01:16.926274 hat Sensor 51.0 17.1268°C Temperatur, 40.7706% Luftfeuchtigkeit, 136.16 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:01:16.926274",
+              "epoch": "247",
+              "moteid": "51.0",
+              "temperature": "17.1268",
+              "humidity": "40.7706",
+              "light": "136.16",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:01:16.710156 hat Sensor 25.0 17.5384°C Temperatur, 40.3652% Luftfeuchtigkeit, 101.2 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:01:16.710156",
+              "epoch": "247",
+              "moteid": "25.0",
+              "temperature": "17.5384",
+              "humidity": "40.3652",
+              "light": "101.2",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-03-12 um 09:32:01.458972 hat Sensor 40.0 22.3404°C Temperatur, 40.5342% Luftfeuchtigkeit, 1199.68 Lux Licht und 2.53812V Spannung gemessen.",
+            "meta": {
+              "date": "2004-03-12",
+              "time": "09:32:01.458972",
+              "epoch": "1993",
+              "moteid": "40.0",
+              "temperature": "22.3404",
+              "humidity": "40.5342",
+              "light": "1199.68",
+              "voltage": "2.53812"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:03:16.981838 hat Sensor 40.0 18.881°C Temperatur, 39.1443% Luftfeuchtigkeit, 172.96 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:03:16.981838",
+              "epoch": "11",
+              "moteid": "40.0",
+              "temperature": "18.881",
+              "humidity": "39.1443",
+              "light": "172.96",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:01:16.711286 hat Sensor 48.0 17.313°C Temperatur, 40.568% Luftfeuchtigkeit, 114.08 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:01:16.711286",
+              "epoch": "247",
+              "moteid": "48.0",
+              "temperature": "17.313",
+              "humidity": "40.568",
+              "light": "114.08",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:01:46.75689 hat Sensor 51.0 17.1268°C Temperatur, 40.7706% Luftfeuchtigkeit, 136.16 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:01:46.75689",
+              "epoch": "248",
+              "moteid": "51.0",
+              "temperature": "17.1268",
+              "humidity": "40.7706",
+              "light": "136.16",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:01:17.090319 hat Sensor 9.0 18.391°C Temperatur, 40.7706% Luftfeuchtigkeit, 104.88 Lux Licht und 2.74963V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:01:17.090319",
+              "epoch": "247",
+              "moteid": "9.0",
+              "temperature": "18.391",
+              "humidity": "40.7706",
+              "light": "104.88",
+              "voltage": "2.74963"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:01:46.572064 hat Sensor 25.0 17.5384°C Temperatur, 40.3652% Luftfeuchtigkeit, 101.2 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:01:46.572064",
+              "epoch": "248",
+              "moteid": "25.0",
+              "temperature": "17.5384",
+              "humidity": "40.3652",
+              "light": "101.2",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:01:17.073187 hat Sensor 41.0 17.8716°C Temperatur, 40.2299% Luftfeuchtigkeit, 368.0 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:01:17.073187",
+              "epoch": "247",
+              "moteid": "41.0",
+              "temperature": "17.8716",
+              "humidity": "40.2299",
+              "light": "368.0",
+              "voltage": "2.66332"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 29,
+      "category": "factual",
+      "question": "Welche Temperatur hat Sensor 8.0 am 2004-03-01 um 03:40:16 gemessen?",
+      "gold_answer": "Dazu liegen mir keine Daten vor.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 8})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-03-01T03:40:16\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

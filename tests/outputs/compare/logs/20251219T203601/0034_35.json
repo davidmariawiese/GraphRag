@@ -1,0 +1,200 @@
+{
+  "id": 35,
+  "category": "list",
+  "question": "List all measurements from sensor 4.0 in epoch 35.",
+  "gold_answer": "mote_id=4 time=2004-02-28T01:15:16.778245 temperature=19.714 humidity=39.3483 light=97.52 voltage=2.65143",
+  "graph_prediction": "Basierend auf der bereitgestellten JSON-Struktur und den gegebenen Regeln, muss ich mich für die Ausgabe entscheiden. Da die Frage \"List all measurements from sensor 4.0 in epoch 35\" ist, kann ich daraus schließen, dass der Benutzer nach einer Liste aller Messungen aus dem Sensor mit ID 4 in der Zeitstufe 35 fragt.\n\nDa die Frage nicht explizit den Modus \"MODE LIST\" anfordert, aber eher danach fragt, welche Messungen von einem bestimmten Sensor und in einer bestimmten Zeitstufe vorhanden sind, kann ich daraus schließen, dass der Benutzer nach einer Antwort (MODE ANSWER) fragt.\n\nDa die Frage jedoch explizit nach einer Liste aller Messungen aus dem Sensor 4.0 in der Zeitstufe 35 fragt, muss ich mich auf den Modus \"MODE LIST\" einstellen.\n\nDie Ausgabe lautet daher:\n\n```\nmote_id=4 time=\"2004-02-28T01:15:16.778245\" temperature=19.714 humidity=39.3483 light=97.52 voltage=2.65143\n```\n\nDa es nur eine Messung gibt, ist die Ausgabe einfach die erste Messung aus der Liste.\n\nWenn jedoch mehr als 20 Messungen vorhanden wären, würde ich die ersten 20 Messungen auflisten und am Ende angeben, wie viele Messungen noch nicht aufgeführt sind. In diesem Fall wäre die Ausgabe jedoch einfach die erste Messung, da es nur eine ist.\n\nDie endgültige Antwort lautet daher:\n\n```\nmote_id=4 time=\"2004-02-28T01:15:16.778245\" temperature=19.714 humidity=39.3483 light=97.52 voltage=2.65143\n```",
+  "graph_exact_match": false,
+  "graph_f1": 0.16600790513833993,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 4})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 35})\nRETURN DISTINCT m,s",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Die Messungen von Sensor 4.0 in der Epoch 35 sind:\n- Am 2004-02-28 um 09:35:17.168976: 21,3212°C Temperatur, 35,2302% Luftfeuchtigkeit, 478,4 Lux Licht und 2,67532V Spannung.\n- Am 2004-02-28 um 09:35:46.847186: 21,1252°C Temperatur",
+  "base_exact_match": false,
+  "base_f1": 0.11594202898550725,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T203601/0034_35.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 4})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 35})\nRETURN DISTINCT m,s"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Basierend auf der bereitgestellten JSON-Struktur und den gegebenen Regeln, muss ich mich für die Ausgabe entscheiden. Da die Frage \"List all measurements from sensor 4.0 in epoch 35\" ist, kann ich daraus schließen, dass der Benutzer nach einer Liste aller Messungen aus dem Sensor mit ID 4 in der Zeitstufe 35 fragt.\n\nDa die Frage nicht explizit den Modus \"MODE LIST\" anfordert, aber eher danach fragt, welche Messungen von einem bestimmten Sensor und in einer bestimmten Zeitstufe vorhanden sind, kann ich daraus schließen, dass der Benutzer nach einer Antwort (MODE ANSWER) fragt.\n\nDa die Frage jedoch explizit nach einer Liste aller Messungen aus dem Sensor 4.0 in der Zeitstufe 35 fragt, muss ich mich auf den Modus \"MODE LIST\" einstellen.\n\nDie Ausgabe lautet daher:\n\n```\nmote_id=4 time=\"2004-02-28T01:15:16.778245\" temperature=19.714 humidity=39.3483 light=97.52 voltage=2.65143\n```\n\nDa es nur eine Messung gibt, ist die Ausgabe einfach die erste Messung aus der Liste.\n\nWenn jedoch mehr als 20 Messungen vorhanden wären, würde ich die ersten 20 Messungen auflisten und am Ende angeben, wie viele Messungen noch nicht aufgeführt sind. In diesem Fall wäre die Ausgabe jedoch einfach die erste Messung, da es nur eine ist.\n\nDie endgültige Antwort lautet daher:\n\n```\nmote_id=4 time=\"2004-02-28T01:15:16.778245\" temperature=19.714 humidity=39.3483 light=97.52 voltage=2.65143\n```",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.714, \"humidity\": 39.3483, \"time\": \"2004-02-28T01:15:16.778245\", \"voltage\": 2.65143}, \"s\": {\"mote_id\": 4}}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 16:35:18.100677 hat Sensor 35.0 23.0754°C Temperatur, 35.6802% Luftfeuchtigkeit, 397.44 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:18.100677",
+              "epoch": "1875",
+              "moteid": "35.0",
+              "temperature": "23.0754",
+              "humidity": "35.6802",
+              "light": "397.44",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:35:48.551418 hat Sensor 35.0 23.0656°C Temperatur, 35.6456% Luftfeuchtigkeit, 397.44 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:48.551418",
+              "epoch": "1876",
+              "moteid": "35.0",
+              "temperature": "23.0656",
+              "humidity": "35.6456",
+              "light": "397.44",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:35:17.168976 hat Sensor 2.0 21.3212°C Temperatur, 35.2302% Luftfeuchtigkeit, 478.4 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:35:17.168976",
+              "epoch": "1035",
+              "moteid": "2.0",
+              "temperature": "21.3212",
+              "humidity": "35.2302",
+              "light": "478.4",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 08:35:17.929571 hat Sensor 1.0 19.763°C Temperatur, 35.7839% Luftfeuchtigkeit, 397.44 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "08:35:17.929571",
+              "epoch": "915",
+              "moteid": "1.0",
+              "temperature": "19.763",
+              "humidity": "35.7839",
+              "light": "397.44",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 08:35:47.736949 hat Sensor 1.0 19.7728°C Temperatur, 35.6802% Luftfeuchtigkeit, 397.44 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "08:35:47.736949",
+              "epoch": "916",
+              "moteid": "1.0",
+              "temperature": "19.7728",
+              "humidity": "35.6802",
+              "light": "397.44",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:35:17.67229 hat Sensor 4.0 21.1056°C Temperatur, 35.4034% Luftfeuchtigkeit, 338.56 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:35:17.67229",
+              "epoch": "1035",
+              "moteid": "4.0",
+              "temperature": "21.1056",
+              "humidity": "35.4034",
+              "light": "338.56",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:35:46.847186 hat Sensor 4.0 21.1252°C Temperatur, 35.2995% Luftfeuchtigkeit, 338.56 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:35:46.847186",
+              "epoch": "1036",
+              "moteid": "4.0",
+              "temperature": "21.1252",
+              "humidity": "35.2995",
+              "light": "338.56",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:35:19.682961 hat Sensor 4.0 22.3306°C Temperatur, 35.7148% Luftfeuchtigkeit, 180.32 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:19.682961",
+              "epoch": "1875",
+              "moteid": "4.0",
+              "temperature": "22.3306",
+              "humidity": "35.7148",
+              "light": "180.32",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:35:18.605669 hat Sensor 6.0 22.0464°C Temperatur, 35.2995% Luftfeuchtigkeit, 426.88 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:18.605669",
+              "epoch": "1875",
+              "moteid": "6.0",
+              "temperature": "22.0464",
+              "humidity": "35.2995",
+              "light": "426.88",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:35:48.394884 hat Sensor 6.0 22.0464°C Temperatur, 35.2995% Luftfeuchtigkeit, 426.88 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:48.394884",
+              "epoch": "1876",
+              "moteid": "6.0",
+              "temperature": "22.0464",
+              "humidity": "35.2995",
+              "light": "426.88",
+              "voltage": "2.66332"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Die Messungen von Sensor 4.0 in der Epoch 35 sind:\n- Am 2004-02-28 um 09:35:17.168976: 21,3212°C Temperatur, 35,2302% Luftfeuchtigkeit, 478,4 Lux Licht und 2,67532V Spannung.\n- Am 2004-02-28 um 09:35:46.847186: 21,1252°C Temperatur",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 35,
+      "category": "list",
+      "question": "List all measurements from sensor 4.0 in epoch 35.",
+      "gold_answer": "mote_id=4 time=2004-02-28T01:15:16.778245 temperature=19.714 humidity=39.3483 light=97.52 voltage=2.65143",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 4})-[:GENERATED]->(m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 35})\nWITH m, s\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage ORDER BY time, mote_id LIMIT 20",
+      "gold_meta": {
+        "total": 1
+      }
+    }
+  }
+}

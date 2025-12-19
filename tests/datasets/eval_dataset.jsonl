@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "category": "factual",
+    "question": "What temperature did sensor 19.0 measure on 2004-02-28 at 00:58:46?"
+  },
+  {
+    "id": 2,
+    "category": "factual",
+    "question": "What temperature did sensor 25.0 measure on 2004-02-28 at 00:58:46?"
+  },
+  {
+    "id": 3,
+    "category": "factual",
+    "question": "What temperature did sensor 24.0 measure on 2004-02-28 at 00:58:46?"
+  },
+  {
+    "id": 4,
+    "category": "factual",
+    "question": "What light did sensor 3.0 measure on 2004-02-28 at 00:58:46?"
+  },
+  {
+    "id": 5,
+    "category": "factual",
+    "question": "What temperature did sensor 6.0 measure on 2004-02-28 at 00:58:46?"
+  },
+  {
+    "id": 6,
+    "category": "factual",
+    "question": "What humidity did sensor 26.0 measure on 2004-02-28 at 00:58:46?"
+  },
+  {
+    "id": 7,
+    "category": "factual",
+    "question": "What temperature did sensor 27.0 measure on 2004-02-28 at 00:58:46?"
+  },
+  {
+    "id": 8,
+    "category": "factual",
+    "question": "What temperature did sensor 31.0 measure on 2004-02-28 at 00:58:46?"
+  },
+  {
+    "id": 9,
+    "category": "factual",
+    "question": "What voltage did sensor 34.0 measure on 2004-02-28 at 00:58:47?"
+  },
+  {
+    "id": 10,
+    "category": "factual",
+    "question": "What voltage did sensor 43.0 measure on 2004-02-28 at 00:58:47?"
+  },
+  {
+    "id": 11,
+    "category": "factual",
+    "question": "What temperature did sensor 20.0 measure on 2004-02-28 at 00:58:47?"
+  },
+  {
+    "id": 12,
+    "category": "factual",
+    "question": "What humidity did sensor 40.0 measure on 2004-02-28 at 00:58:47?"
+  },
+  {
+    "id": 13,
+    "category": "factual",
+    "question": "What temperature did sensor 1.0 measure on 2004-02-28 at 00:59:16?"
+  },
+  {
+    "id": 14,
+    "category": "factual",
+    "question": "What voltage did sensor 25.0 measure on 2004-02-28 at 00:59:16?"
+  },
+  {
+    "id": 15,
+    "category": "factual",
+    "question": "What temperature did sensor 23.0 measure on 2004-02-28 at 00:59:16?"
+  },
+  {
+    "id": 16,
+    "category": "factual",
+    "question": "What temperature did sensor 18.0 measure on 2004-02-28 at 00:59:16?"
+  },
+  {
+    "id": 17,
+    "category": "factual",
+    "question": "What humidity did sensor 27.0 measure on 2004-02-28 at 00:59:16?"
+  },
+  {
+    "id": 18,
+    "category": "factual",
+    "question": "What temperature did sensor 32.0 measure on 2004-02-28 at 00:59:16?"
+  },
+  {
+    "id": 19,
+    "category": "factual",
+    "question": "What voltage did sensor 22.0 measure on 2004-02-28 at 00:59:16?"
+  },
+  {
+    "id": 20,
+    "category": "factual",
+    "question": "What temperature did sensor 24.0 measure on 2004-02-28 at 00:59:16?"
+  },
+  {
+    "id": 21,
+    "category": "factual",
+    "question": "What humidity did sensor 26.0 measure on 2004-02-28 at 00:59:16?"
+  },
+  {
+    "id": 22,
+    "category": "factual",
+    "question": "What temperature did sensor 51.0 measure on 2004-02-28 at 00:59:17?"
+  },
+  {
+    "id": 23,
+    "category": "factual",
+    "question": "What humidity did sensor 52.0 measure on 2004-02-28 at 00:59:17?"
+  },
+  {
+    "id": 24,
+    "category": "factual",
+    "question": "What light did sensor 29.0 measure on 2004-02-28 at 00:59:46?"
+  },
+  {
+    "id": 25,
+    "category": "factual",
+    "question": "What voltage did sensor 12.0 measure on 2004-02-28 at 00:59:46?"
+  },
+  {
+    "id": 26,
+    "category": "factual",
+    "question": "What humidity did sensor 26.0 measure on 2004-02-28 at 00:59:46?"
+  },
+  {
+    "id": 27,
+    "category": "factual",
+    "question": "What temperature did sensor 31.0 measure on 2004-02-28 at 00:59:46?"
+  },
+  {
+    "id": 28,
+    "category": "factual",
+    "question": "What light did sensor 33.0 measure on 2004-02-28 at 00:59:46?"
+  },
+  {
+    "id": 29,
+    "category": "factual",
+    "question": "What humidity did sensor 23.0 measure on 2004-02-28 at 01:00:16?"
+  },
+  {
+    "id": 30,
+    "category": "factual",
+    "question": "What temperature did sensor 30.0 measure on 2004-02-28 at 01:00:16?"
+  },
+  {
+    "id": 31,
+    "category": "factual",
+    "question": "What humidity did sensor 25.0 measure on 2004-02-28 at 01:00:16?"
+  },
+  {
+    "id": 32,
+    "category": "factual",
+    "question": "What light did sensor 18.0 measure on 2004-02-28 at 01:00:17?"
+  },
+  {
+    "id": 33,
+    "category": "factual",
+    "question": "What temperature did sensor 34.0 measure on 2004-02-28 at 01:00:46?"
+  },
+  {
+    "id": 34,
+    "category": "factual",
+    "question": "What temperature did sensor 27.0 measure on 2004-02-28 at 01:00:46?"
+  },
+  {
+    "id": 35,
+    "category": "factual",
+    "question": "What temperature did sensor 31.0 measure on 2004-02-28 at 01:00:46?"
+  },
+  {
+    "id": 36,
+    "category": "factual",
+    "question": "What humidity did sensor 6.0 measure on 2004-02-28 at 01:00:46?"
+  },
+  {
+    "id": 37,
+    "category": "factual",
+    "question": "What voltage did sensor 29.0 measure on 2004-02-28 at 01:00:46?"
+  },
+  {
+    "id": 38,
+    "category": "factual",
+    "question": "What voltage did sensor 10.0 measure on 2004-02-28 at 01:00:46?"
+  },
+  {
+    "id": 39,
+    "category": "factual",
+    "question": "What light did sensor 25.0 measure on 2004-02-28 at 01:01:16?"
+  },
+  {
+    "id": 40,
+    "category": "factual",
+    "question": "What voltage did sensor 30.0 measure on 2004-02-28 at 01:01:16?"
+  },
+  {
+    "id": 41,
+    "category": "list",
+    "question": "List all measurements in epoch 2."
+  },
+  {
+    "id": 42,
+    "category": "list",
+    "question": "List all measurements in epoch 1997."
+  },
+  {
+    "id": 43,
+    "category": "list",
+    "question": "List all measurements in epoch 1482."
+  },
+  {
+    "id": 44,
+    "category": "list",
+    "question": "List all measurements in epoch 1832."
+  },
+  {
+    "id": 45,
+    "category": "list",
+    "question": "List all measurements in epoch 1957."
+  },
+  {
+    "id": 46,
+    "category": "list",
+    "question": "List all measurements in epoch 1996."
+  },
+  {
+    "id": 47,
+    "category": "list",
+    "question": "List all measurements in epoch 58."
+  },
+  {
+    "id": 48,
+    "category": "list",
+    "question": "List all measurements in epoch 412."
+  },
+  {
+    "id": 49,
+    "category": "list",
+    "question": "List all measurements in epoch 471."
+  },
+  {
+    "id": 50,
+    "category": "list",
+    "question": "List all measurements in epoch 957."
+  },
+  {
+    "id": 51,
+    "category": "list",
+    "question": "List all measurements in epoch 1274."
+  },
+  {
+    "id": 52,
+    "category": "list",
+    "question": "List all measurements in epoch 1320."
+  },
+  {
+    "id": 53,
+    "category": "list",
+    "question": "List all measurements in epoch 1652."
+  },
+  {
+    "id": 54,
+    "category": "list",
+    "question": "List all measurements in epoch 1703."
+  },
+  {
+    "id": 55,
+    "category": "list",
+    "question": "List all measurements in epoch 1723."
+  },
+  {
+    "id": 56,
+    "category": "list",
+    "question": "List all measurements from sensor 17.0 in epoch 7."
+  },
+  {
+    "id": 57,
+    "category": "list",
+    "question": "List all measurements from sensor 17.0 in epoch 12."
+  },
+  {
+    "id": 58,
+    "category": "list",
+    "question": "List all measurements from sensor 17.0 in epoch 2."
+  },
+  {
+    "id": 59,
+    "category": "list",
+    "question": "List all measurements from sensor 17.0 in epoch 4."
+  },
+  {
+    "id": 60,
+    "category": "list",
+    "question": "List all measurements from sensor 17.0 in epoch 5."
+  },
+  {
+    "id": 61,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 2?"
+  },
+  {
+    "id": 62,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 2?"
+  },
+  {
+    "id": 63,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 1997?"
+  },
+  {
+    "id": 64,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 1997?"
+  },
+  {
+    "id": 65,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 1482?"
+  },
+  {
+    "id": 66,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 1482?"
+  },
+  {
+    "id": 67,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 1832?"
+  },
+  {
+    "id": 68,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 1832?"
+  },
+  {
+    "id": 69,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 1957?"
+  },
+  {
+    "id": 70,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 1957?"
+  },
+  {
+    "id": 71,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 1996?"
+  },
+  {
+    "id": 72,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 1996?"
+  },
+  {
+    "id": 73,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 58?"
+  },
+  {
+    "id": 74,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 58?"
+  },
+  {
+    "id": 75,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 412?"
+  },
+  {
+    "id": 76,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 412?"
+  },
+  {
+    "id": 77,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 471?"
+  },
+  {
+    "id": 78,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 471?"
+  },
+  {
+    "id": 79,
+    "category": "aggregation",
+    "question": "What is the average temperature in epoch 957?"
+  },
+  {
+    "id": 80,
+    "category": "aggregation",
+    "question": "What is the maximum light value in epoch 957?"
+  },
+  {
+    "id": 81,
+    "category": "aggregation",
+    "question": "How many measurements are available for sensor 31.0?"
+  },
+  {
+    "id": 82,
+    "category": "aggregation",
+    "question": "What is the minimum voltage of sensor 31.0?"
+  },
+  {
+    "id": 83,
+    "category": "aggregation",
+    "question": "How many measurements are available for sensor 48.0?"
+  },
+  {
+    "id": 84,
+    "category": "aggregation",
+    "question": "What is the minimum voltage of sensor 48.0?"
+  },
+  {
+    "id": 85,
+    "category": "aggregation",
+    "question": "How many measurements are available for sensor 22.0?"
+  },
+  {
+    "id": 86,
+    "category": "aggregation",
+    "question": "What is the minimum voltage of sensor 22.0?"
+  },
+  {
+    "id": 87,
+    "category": "aggregation",
+    "question": "How many measurements are available for sensor 45.0?"
+  },
+  {
+    "id": 88,
+    "category": "aggregation",
+    "question": "What is the minimum voltage of sensor 45.0?"
+  },
+  {
+    "id": 89,
+    "category": "aggregation",
+    "question": "How many measurements are available for sensor 21.0?"
+  },
+  {
+    "id": 90,
+    "category": "aggregation",
+    "question": "What is the minimum voltage of sensor 21.0?"
+  },
+  {
+    "id": 91,
+    "category": "trend",
+    "question": "How does the temperature of sensor 31.0 change over time?"
+  },
+  {
+    "id": 92,
+    "category": "trend",
+    "question": "How does the temperature of sensor 48.0 change over time?"
+  },
+  {
+    "id": 93,
+    "category": "trend",
+    "question": "How does the temperature of sensor 22.0 change over time?"
+  },
+  {
+    "id": 94,
+    "category": "trend",
+    "question": "How does the temperature of sensor 45.0 change over time?"
+  },
+  {
+    "id": 95,
+    "category": "trend",
+    "question": "How does the temperature of sensor 21.0 change over time?"
+  },
+  {
+    "id": 96,
+    "category": "negative",
+    "question": "What temperature did sensor 999.0 measure on 2004-02-28 at 00:00:00?"
+  },
+  {
+    "id": 97,
+    "category": "negative",
+    "question": "List all measurements in epoch 999999."
+  },
+  {
+    "id": 98,
+    "category": "negative",
+    "question": "What humidity did sensor 1.0 measure on 2005-01-01 at 00:00:00?"
+  },
+  {
+    "id": 99,
+    "category": "negative",
+    "question": "How many measurements are there in epoch 999999?"
+  },
+  {
+    "id": 100,
+    "category": "negative",
+    "question": "Is there any light data for sensor 999.0?"
+  }
+]

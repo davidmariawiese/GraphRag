@@ -1,0 +1,197 @@
+{
+  "id": 56,
+  "category": "aggregation",
+  "question": "What is the average temperature of sensor 1.0?",
+  "gold_answer": "Average Temperature (Sensor 1.0): 21.589039485981353°C",
+  "graph_prediction": "21.589039485981353",
+  "graph_exact_match": false,
+  "graph_f1": 0.4,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)\nRETURN avg(m.temperature) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "The average temperature of sensor 1.0 is 122.153°C.",
+  "base_exact_match": false,
+  "base_f1": 0.631578947368421,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T212843/0055_56.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)\nRETURN avg(m.temperature) AS value"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "21.589039485981353",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 21.589039485981353}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "On 2004-03-25 at 08:58:09.995388, sensor 19.0 measured temperature 122.153°C, humidity -4.0%, light 294.4 Lux, and voltage 2.03397V.",
+            "meta": {
+              "date": "2004-03-25",
+              "time": "08:58:09.995388",
+              "epoch": "93",
+              "moteid": "19.0",
+              "temperature": "122.153",
+              "humidity": "-4.0",
+              "light": "294.4",
+              "voltage": "2.03397"
+            }
+          },
+          {
+            "content": "On 2004-04-02 at 02:18:28.993798, sensor 24.0 measured temperature 122.153°C, humidity -4.0%, light 1.38 Lux, and voltage 2.00649V.",
+            "meta": {
+              "date": "2004-04-02",
+              "time": "02:18:28.993798",
+              "epoch": "4",
+              "moteid": "24.0",
+              "temperature": "122.153",
+              "humidity": "-4.0",
+              "light": "1.38",
+              "voltage": "2.00649"
+            }
+          },
+          {
+            "content": "On 2004-03-31 at 03:38:15.757551, sensor 1.0 measured temperature 122.153°C, humidity -3.91901%, light 11.04 Lux, and voltage 2.03397V.",
+            "meta": {
+              "date": "2004-03-31",
+              "time": "03:38:15.757551",
+              "epoch": "2",
+              "moteid": "1.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "11.04",
+              "voltage": "2.03397"
+            }
+          },
+          {
+            "content": "On 2004-03-31 at 02:58:45.763421, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 19.32 Lux, and voltage 2.08393V.",
+            "meta": {
+              "date": "2004-03-31",
+              "time": "02:58:45.763421",
+              "epoch": "2",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "19.32",
+              "voltage": "2.08393"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 00:58:46.497331, sensor 3.0 measured temperature 20.204°C, humidity 36.8871%, light 50.6 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:46.497331",
+              "epoch": "2",
+              "moteid": "3.0",
+              "temperature": "20.204",
+              "humidity": "36.8871",
+              "light": "50.6",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 16:04:46.552435, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 235.52 Lux, and voltage 2.12875V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "16:04:46.552435",
+              "epoch": "3",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "235.52",
+              "voltage": "2.12875"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 14:43:05.262873, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 397.44 Lux, and voltage 2.1364V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "14:43:05.262873",
+              "epoch": "4",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "397.44",
+              "voltage": "2.1364"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 16:06:06.095868, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 235.52 Lux, and voltage 2.1364V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "16:06:06.095868",
+              "epoch": "5",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "235.52",
+              "voltage": "2.1364"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 14:44:01.962853, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 397.44 Lux, and voltage 2.1364V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "14:44:01.962853",
+              "epoch": "6",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "397.44",
+              "voltage": "2.1364"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 14:44:15.993535, sensor 3.0 measured temperature 122.153°C, humidity -3.91901%, light 397.44 Lux, and voltage 2.1364V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "14:44:15.993535",
+              "epoch": "7",
+              "moteid": "3.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "397.44",
+              "voltage": "2.1364"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "The average temperature of sensor 1.0 is 122.153°C.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 56,
+      "category": "aggregation",
+      "question": "What is the average temperature of sensor 1.0?",
+      "gold_answer": "Average Temperature (Sensor 1.0): 21.589039485981353°C",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 1})-[:GENERATED]->(m:Measurement)\nRETURN avg(m.temperature) AS value"
+    }
+  }
+}

@@ -1,3 +1,10 @@
+"""GraphRAG answer generator.
+
+This component renders an English answer using an LLM, constrained to the JSON
+context produced by `Organizer`.
+
+"""
+
 # pipeline/generator.py
 from haystack import component
 from haystack_integrations.components.generators.ollama import OllamaGenerator
@@ -6,19 +13,34 @@ import os
 import json
 from typing import Dict, Any
 
+from ..config import (
+    DEFAULT_OLLAMA_MODEL,
+    DEFAULT_OLLAMA_URL,
+    GRAPH_RAG_DEBUG_ENV,
+    OLLAMA_GENERATOR_MODEL_ENV,
+    OLLAMA_MODEL_ENV,
+    OLLAMA_URL_ENV,
+)
+
 
 def _debug_enabled() -> bool:
-    return os.getenv("GRAPH_RAG_DEBUG") == "true"
+    return os.getenv(GRAPH_RAG_DEBUG_ENV) == "true"
+
+
+_DEFAULT_GENERATOR_NUM_PREDICT = 512
+_DEFAULT_GENERATOR_TEMPERATURE = 0.0
 
 @component
 class Generator:
 
+    """Render an answer based on the JSON analysis context."""
+
     def __init__(self, model: str | None = None):
         
         # Prefer specific generator model, fallback to general model, then default
-        model_name = model or os.getenv("OLLAMA_GENERATOR_MODEL") or os.getenv("OLLAMA_MODEL", "llama3.1:8b")
+        model_name = model or os.getenv(OLLAMA_GENERATOR_MODEL_ENV) or os.getenv(OLLAMA_MODEL_ENV, DEFAULT_OLLAMA_MODEL)
         self.model_name = model_name
-        ollama_url = os.getenv("OLLAMA_URL", "http://ollama:11434")
+        ollama_url = os.getenv(OLLAMA_URL_ENV, DEFAULT_OLLAMA_URL)
 
         # Prompt template
         self.prompt_builder = PromptBuilder(
@@ -28,6 +50,8 @@ class Generator:
                     Your only source of information is a JSON object provided in the section "GRAPH CONTEXT (JSON)".
                     You must not use any knowledge outside of this JSON.
 
+                    Language rule
+                    Output must be English only.
                     Mandatory JSON structure
                     The GRAPH CONTEXT may contain the following keys:
 
@@ -89,6 +113,39 @@ class Generator:
                     No filler phrases.
                     No follow-up questions.
 
+                    Answer style requirement
+                    Never output a bare number by itself.
+                    Always produce at least one short English sentence that contains:
+                    - the metric name (e.g., Temperature/Humidity/Light/Voltage),
+                    - the relevant sensor id when available,
+                    - a time or scope when available (e.g., a timestamp, or "Epoch 3"),
+                    - and the unit when applicable.
+
+                    Units (fixed mapping)
+                    - temperature -> °C
+                    - humidity -> %
+                    - light -> Lux
+                    - voltage -> V
+
+                    Canonical phrasing (match this as closely as possible)
+                    For a single measurement value (factual questions):
+                    "<MetricLabel> of sensor <sensor_id> at <time>: <value><unit>"
+                    (Use the time string exactly as it appears in the JSON. If the question includes a date/time but the JSON only contains a full ISO timestamp, render that full timestamp as-is.)
+
+                    For aggregates (average/min/max/count):
+                    "<Aggregate> <MetricLabel> (<Scope>): <value><unit>"
+                    Where <Aggregate> is one of: Average / Minimum / Maximum / Number of measurements.
+                    <Scope> should be built from the user question (e.g., "Epoch 12", "Sensor 7.0") but the numeric value must come from the JSON.
+                    If count is 0, output exactly: No data available.
+
+                    For existence questions (e.g., "Is there any light data for sensor 7.0?"):
+                    If any matching data exists in the JSON: "<MetricLabel> data is available for sensor <sensor_id>."
+                    Otherwise: No data available.
+
+                    Do not mention the background query.
+                    Do not mention Cypher.
+                    Do not mention pipelines, models, prompts, or retrieval.
+
                     Consistency rules
                     The sensor name is always the sensor ID (moteid or mote_id).
                     Time fields (time, ts, epoch, date) must be rendered exactly as they appear in the JSON.
@@ -103,17 +160,35 @@ class Generator:
                     GRAPH CONTEXT (retrieved data):
                     {{context}}
 
-                    ANSWER (in German):
+                    ANSWER (in English):
                     """
                 )),
                 required_variables=["query", "cypher_query", "context"]
             )
 
         # Verbindung zur lokalen Ollama-API
-        self.llm = OllamaGenerator(model=model_name, url=ollama_url, generation_kwargs={"num_predict": 512, "temperature": 0.0})
+        self.llm = OllamaGenerator(
+            model=model_name,
+            url=ollama_url,
+            generation_kwargs={
+                "num_predict": _DEFAULT_GENERATOR_NUM_PREDICT,
+                "temperature": _DEFAULT_GENERATOR_TEMPERATURE,
+            },
+        )
 
     @component.output_types(answer=str)
     def run(self, analysis_json: Dict[str, Any], query: str, cypher_query: str = "N/A"):
+
+        """Run the component.
+
+        Args:
+            analysis_json: Structured JSON produced by `Organizer`.
+            query: Natural-language user question.
+            cypher_query: The Cypher query that produced the context (for transparency).
+
+        Returns:
+            A dict with key `answer`.
+        """
 
         if _debug_enabled():
             print("\n[generator] input.query:")

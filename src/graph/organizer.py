@@ -1,12 +1,38 @@
-from haystack import component
-from haystack.dataclasses import Document
+"""Deterministic aggregation/structuring of Neo4j retrieval results.
+
+`Organizer` consumes a list of Haystack `Document`s. Each document is expected to
+contain JSON (as produced by `CypherRetriever`). The output is a structured JSON
+object with:
+
+- `raw`: capped list of raw records for list-style questions
+- `analysis`: per-sensor/per-metric statistics, trends and bucketed aggregates
+- `context`: provenance metadata
+
+Important:
+- `_parse_documents` contains an `eval()` fallback for non-JSON strings. This is
+    *not safe* for untrusted inputs and is intentionally left unchanged to avoid
+    behavior changes.
+"""
+
 import json
 import os
-import math
 import statistics
 from datetime import datetime, timedelta
+from typing import Any, Dict, List, Optional, Tuple
+
 import numpy as np
-from typing import List, Dict, Any, Optional, Tuple
+from haystack import component
+from haystack.dataclasses import Document
+
+from ..config import GRAPH_RAG_DEBUG_ENV
+
+
+_DEBUG_JSON_PREVIEW_CHARS = 1000
+_NUMERIC_FIELDS = ("temperature", "humidity", "light", "voltage")
+_BUCKET_CANDIDATES_SECONDS = (15 * 60, 60 * 60, 6 * 60 * 60, 24 * 60 * 60)
+_TREND_FLAT_STD_FRACTION = 0.1
+_MAX_ANOMALIES = 5
+_BUCKET_SAFETY_OVERFLOW = 10
 
 @component
 class Organizer:
@@ -32,7 +58,7 @@ class Organizer:
 
     @component.output_types(analysis_json=Dict[str, Any])
     def run(self, documents: List[Document]):
-        debug = os.getenv("GRAPH_RAG_DEBUG") == "true"
+        debug = os.getenv(GRAPH_RAG_DEBUG_ENV) == "true"
 
         if debug:
             print("\n[organizer] input.documents:")
@@ -81,9 +107,10 @@ class Organizer:
 
         if debug:
             try:
-                preview = json.dumps(final_output, ensure_ascii=False)[:1000]
-                suffix = "..." if len(json.dumps(final_output, ensure_ascii=False)) > 1000 else ""
-                print("[organizer] output.analysis_json preview (len={}):".format(len(json.dumps(final_output, ensure_ascii=False))))
+                serialized = json.dumps(final_output, ensure_ascii=False)
+                preview = serialized[:_DEBUG_JSON_PREVIEW_CHARS]
+                suffix = "..." if len(serialized) > _DEBUG_JSON_PREVIEW_CHARS else ""
+                print("[organizer] output.analysis_json preview (len={}):".format(len(serialized)))
                 print(preview + suffix)
             except Exception:
                 print("[organizer] output.analysis_json: <unserializable>")
@@ -91,6 +118,11 @@ class Organizer:
         return {"analysis_json": final_output}
 
     def _parse_documents(self, documents) -> List[Dict[str, Any]]:
+        """Parse `Document.content` into Python objects.
+
+        The expected format is JSON. For backwards compatibility, a non-JSON
+        `eval()` fallback is retained; this must only be used with trusted input.
+        """
         results = []
         for doc in documents:
             content = getattr(doc, "content", "")
@@ -131,13 +163,18 @@ class Organizer:
             # Merge flat measurements into meas dict
             meas.update(flat_meas)
 
-            sensor_id = (
-                sensor.get("mote_id")
+            # Sensor ID
+            # Common Cypher query shape returns `mote_id` at the top-level via an alias;
+            # handle that first, then fall back to nested Sensor/Measurement props.
+            sensor_id_val = (
+                mapped.get("mote_id")
+                or mapped.get("moteid")
+                or sensor.get("mote_id")
                 or sensor.get("moteid")
                 or meas.get("mote_id")
                 or meas.get("moteid")
-                or "Unknown"
             )
+            sensor_id = str(sensor_id_val) if sensor_id_val is not None else "Unknown"
             
             # Extract Timestamp
             ts = self._extract_timestamp(mapped, meas)
@@ -149,8 +186,7 @@ class Organizer:
 
             # Extract Metrics
             added_metric = False
-            numeric_fields = ["temperature", "humidity", "light", "voltage"]
-            for field in numeric_fields:
+            for field in _NUMERIC_FIELDS:
                 val = meas.get(field)
                 if val is not None:
                     try:
@@ -213,6 +249,11 @@ class Organizer:
         raw_time = meas.get("time")
         if raw_time:
             return self._parse_time(raw_time)
+
+        # 1b. Common flat return shape: time/ts at the top-level
+        raw_time = record.get("time") or record.get("ts")
+        if raw_time:
+            return self._parse_time(raw_time)
             
         # 2. Try Date/Hour/Minute nodes
         date_node = record.get("Date", {})
@@ -261,9 +302,7 @@ class Organizer:
         return None
 
     def _analyze_series(self, series: List[Tuple[datetime, float]]) -> Dict[str, Any]:
-        """
-        Performs statistical analysis on a time series.
-        """
+        """Perform statistical analysis on a time series."""
         values = [v for _, v in series]
         timestamps = [t for t, _ in series]
         
@@ -307,7 +346,7 @@ class Organizer:
             # Simple heuristic for direction
             # If change over total duration is significant compared to std dev
             total_change = slope * duration_seconds
-            if abs(total_change) < (0.1 * std_val): # Threshold: change < 10% of std
+            if abs(total_change) < (_TREND_FLAT_STD_FRACTION * std_val): # Threshold: change < 10% of std
                 direction = "flat"
             else:
                 direction = "up" if slope > 0 else "down"
@@ -323,7 +362,7 @@ class Organizer:
         if duration_seconds > 0:
             # Determine bucket size
             # Try 15min, 1h, 6h, 1d
-            candidates = [15*60, 60*60, 6*60*60, 24*60*60]
+            candidates = _BUCKET_CANDIDATES_SECONDS
             bucket_size = candidates[0]
             
             for size in candidates:
@@ -363,7 +402,7 @@ class Organizer:
                 
                 current_t = next_t
                 bucket_idx += 1
-                if bucket_idx > self.max_buckets + 10: # Safety break
+                if bucket_idx > self.max_buckets + _BUCKET_SAFETY_OVERFLOW: # Safety break
                     break
 
         # Anomalies (Highlight Top-N buckets by z-score of their mean)
@@ -380,7 +419,7 @@ class Organizer:
                     })
             # Sort by absolute score descending and take top 5
             anomalies.sort(key=lambda x: abs(x["score"]), reverse=True)
-            anomalies = anomalies[:5]
+            anomalies = anomalies[:_MAX_ANOMALIES]
 
         return {
             "stats_global": {

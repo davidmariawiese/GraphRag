@@ -1,0 +1,273 @@
+{
+  "id": 36,
+  "category": "list",
+  "question": "Name all measurements in epoch 40.",
+  "gold_answer": "No data available.",
+  "graph_prediction": "Based on the provided data, here is a summary of the sensor readings and their statistics:\n\n### Summary Statistics:\n- **Total Records:** 20\n\n#### Temperature:\n- **Minimum:** 16.6368°C\n- **Maximum:** 19.714°C\n- **Average:** 18.5674°C\n- **Standard Deviation:** ~0.57°C\n- **Median:** Not directly provided, but can be inferred to be around the average.\n\n#### Humidity:\n- **Minimum:** 38.1213%\n- **Maximum:** 42.9189%\n- **Average:** 40.2299%\n- **Standard Deviation:** ~1.57%\n- **Median:** Not directly provided, but can be inferred to be around the average.\n\n#### Light:\n- **Minimum:** 43.24 lux\n- **Maximum:** 655.04 lux\n- **Average:** 180.32 lux\n- **Standard Deviation:** ~179.56 lux\n- **Median:** Not directly provided, but can be inferred to be around the average.\n\n#### Voltage:\n- **Minimum:** 2.49546 V\n- **Maximum:** 2.69964 V\n- **Average:** 2.67532 V\n- **Standard Deviation:** ~0.081 V\n- **Median:** Not directly provided, but can be inferred to be around the average.\n\n### Detailed Breakdown:\n#### Temperature:\n- The temperature readings range from a minimum of 16.6368°C (recorded by mote_id 50) to a maximum of 19.714°C (recorded by mote_id 4).\n- The average temperature is 18.5674°C, indicating that the environment is relatively stable with minor fluctuations.\n\n#### Humidity:\n- The humidity readings range from a minimum of 38.1213% (recorded by mote_id 23) to a maximum of 42.9189% (recorded by mote_id 36).\n- The average humidity is 40.2299%, indicating moderate levels with minor variations.\n\n#### Light:\n- The light readings range from a minimum of 43.24 lux (recorded by",
+  "graph_exact_match": false,
+  "graph_f1": 0.008298755186721992,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 40})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage\nORDER BY time, mote_id\nLIMIT 20",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Am 2004-02-28 um 04:40:17.145979 hat Sensor 40.0 17.46°C Temperatur, 40.6355% Luftfeuchtigkeit, 165.6 Lux Licht und 2.67532V Spannung gemessen.\nAm 2004-02-28 um 04:",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T204952/0035_36.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 40})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage\nORDER BY time, mote_id\nLIMIT 20"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Based on the provided data, here is a summary of the sensor readings and their statistics:\n\n### Summary Statistics:\n- **Total Records:** 20\n\n#### Temperature:\n- **Minimum:** 16.6368°C\n- **Maximum:** 19.714°C\n- **Average:** 18.5674°C\n- **Standard Deviation:** ~0.57°C\n- **Median:** Not directly provided, but can be inferred to be around the average.\n\n#### Humidity:\n- **Minimum:** 38.1213%\n- **Maximum:** 42.9189%\n- **Average:** 40.2299%\n- **Standard Deviation:** ~1.57%\n- **Median:** Not directly provided, but can be inferred to be around the average.\n\n#### Light:\n- **Minimum:** 43.24 lux\n- **Maximum:** 655.04 lux\n- **Average:** 180.32 lux\n- **Standard Deviation:** ~179.56 lux\n- **Median:** Not directly provided, but can be inferred to be around the average.\n\n#### Voltage:\n- **Minimum:** 2.49546 V\n- **Maximum:** 2.69964 V\n- **Average:** 2.67532 V\n- **Standard Deviation:** ~0.081 V\n- **Median:** Not directly provided, but can be inferred to be around the average.\n\n### Detailed Breakdown:\n#### Temperature:\n- The temperature readings range from a minimum of 16.6368°C (recorded by mote_id 50) to a maximum of 19.714°C (recorded by mote_id 4).\n- The average temperature is 18.5674°C, indicating that the environment is relatively stable with minor fluctuations.\n\n#### Humidity:\n- The humidity readings range from a minimum of 38.1213% (recorded by mote_id 23) to a maximum of 42.9189% (recorded by mote_id 36).\n- The average humidity is 40.2299%, indicating moderate levels with minor variations.\n\n#### Light:\n- The light readings range from a minimum of 43.24 lux (recorded by",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 20,
+        "documents": [
+          {
+            "content": "{\"mote_id\": 47, \"time\": \"2004-02-28T01:17:45.944425\", \"temperature\": 18.0186, \"humidity\": 40.2299, \"light\": 655.04, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 21, \"time\": \"2004-02-28T01:17:45.950832\", \"temperature\": 19.028, \"humidity\": 38.3946, \"light\": 108.56, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 29, \"time\": \"2004-02-28T01:17:46.033321\", \"temperature\": 18.8222, \"humidity\": 39.9929, \"light\": 180.32, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 41, \"time\": \"2004-02-28T01:17:46.097645\", \"temperature\": 18.3812, \"humidity\": 39.3483, \"light\": 382.72, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 40, \"time\": \"2004-02-28T01:17:46.135837\", \"temperature\": 18.5674, \"humidity\": 39.6539, \"light\": 172.96, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 4, \"time\": \"2004-02-28T01:17:46.162262\", \"temperature\": 19.714, \"humidity\": 38.9401, \"light\": 97.52, \"voltage\": 2.65143}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 36, \"time\": \"2004-02-28T01:17:46.17121\", \"temperature\": 18.5478, \"humidity\": 42.9189, \"light\": 79.12, \"voltage\": 2.66332}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 3, \"time\": \"2004-02-28T01:17:46.209003\", \"temperature\": 19.322, \"humidity\": 38.7357, \"light\": 48.76, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 23, \"time\": \"2004-02-28T01:17:46.214301\", \"temperature\": 19.3416, \"humidity\": 38.1213, \"light\": 224.48, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 32, \"time\": \"2004-02-28T01:17:46.224005\", \"temperature\": 18.3812, \"humidity\": 40.8381, \"light\": 114.08, \"voltage\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 46, \"time\": \"2004-02-28T01:17:46.24192\", \"temperature\": 18.2636, \"humidity\": 38.8039, \"light\": 114.08, \"voltage\": 2.49546}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 33, \"time\": \"2004-02-28T01:17:46.361824\", \"temperature\": 18.9398, \"humidity\": 39.4162, \"light\": 101.2, \"voltage\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 34, \"time\": \"2004-02-28T01:17:46.397972\", \"temperature\": 18.3028, \"humidity\": 41.6461, \"light\": 60.72, \"voltage\": 2.66332}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 1, \"time\": \"2004-02-28T01:17:46.427446\", \"temperature\": 19.0966, \"humidity\": 38.7357, \"light\": 43.24, \"voltage\": 2.69964}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 45, \"time\": \"2004-02-28T01:17:46.509171\", \"temperature\": 18.2048, \"humidity\": 38.4629, \"light\": 172.96, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 30, \"time\": \"2004-02-28T01:17:46.520341\", \"temperature\": 17.9402, \"humidity\": 42.8855, \"light\": 108.56, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 31, \"time\": \"2004-02-28T01:17:46.538674\", \"temperature\": 18.4792, \"humidity\": 41.5116, \"light\": 143.52, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 50, \"time\": \"2004-02-28T01:17:46.548578\", \"temperature\": 16.6368, \"humidity\": 42.6182, \"light\": 79.12, \"voltage\": 2.66332}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 35, \"time\": \"2004-02-28T01:17:46.5672\", \"temperature\": 19.126, \"humidity\": 41.2761, \"light\": 165.6, \"voltage\": 2.62796}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 26, \"time\": \"2004-02-28T01:17:46.603091\", \"temperature\": 18.2832, \"humidity\": 41.9818, \"light\": 121.44, \"voltage\": 2.68742}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 04:40:17.145979 hat Sensor 40.0 17.46°C Temperatur, 40.6355% Luftfeuchtigkeit, 165.6 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "04:40:17.145979",
+              "epoch": "445",
+              "moteid": "40.0",
+              "temperature": "17.46",
+              "humidity": "40.6355",
+              "light": "165.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 04:40:46.395061 hat Sensor 40.0 17.46°C Temperatur, 40.568% Luftfeuchtigkeit, 165.6 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "04:40:46.395061",
+              "epoch": "446",
+              "moteid": "40.0",
+              "temperature": "17.46",
+              "humidity": "40.568",
+              "light": "165.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 05:40:46.452734 hat Sensor 40.0 17.1562°C Temperatur, 40.7706% Luftfeuchtigkeit, 165.6 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "05:40:46.452734",
+              "epoch": "566",
+              "moteid": "40.0",
+              "temperature": "17.1562",
+              "humidity": "40.7706",
+              "light": "165.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 02:40:16.905157 hat Sensor 40.0 18.1656°C Temperatur, 40.0945% Luftfeuchtigkeit, 172.96 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:40:16.905157",
+              "epoch": "205",
+              "moteid": "40.0",
+              "temperature": "18.1656",
+              "humidity": "40.0945",
+              "light": "172.96",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 02:40:46.939379 hat Sensor 40.0 18.1656°C Temperatur, 40.1622% Luftfeuchtigkeit, 172.96 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:40:46.939379",
+              "epoch": "206",
+              "moteid": "40.0",
+              "temperature": "18.1656",
+              "humidity": "40.1622",
+              "light": "172.96",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:40:16.707391 hat Sensor 40.0 17.8716°C Temperatur, 40.2976% Luftfeuchtigkeit, 172.96 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:40:16.707391",
+              "epoch": "325",
+              "moteid": "40.0",
+              "temperature": "17.8716",
+              "humidity": "40.2976",
+              "light": "172.96",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:40:16.814097 hat Sensor 40.0 17.0092°C Temperatur, 40.8718% Luftfeuchtigkeit, 172.96 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:40:16.814097",
+              "epoch": "685",
+              "moteid": "40.0",
+              "temperature": "17.0092",
+              "humidity": "40.8718",
+              "light": "172.96",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:40:17.157195 hat Sensor 8.0 17.2542°C Temperatur, 40.2976% Luftfeuchtigkeit, 128.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:40:17.157195",
+              "epoch": "685",
+              "moteid": "8.0",
+              "temperature": "17.2542",
+              "humidity": "40.2976",
+              "light": "128.8",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:40:46.999886 hat Sensor 8.0 17.2444°C Temperatur, 40.2976% Luftfeuchtigkeit, 128.8 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:40:46.999886",
+              "epoch": "686",
+              "moteid": "8.0",
+              "temperature": "17.2444",
+              "humidity": "40.2976",
+              "light": "128.8",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 04:40:16.264404 hat Sensor 9.0 17.8716°C Temperatur, 40.9055% Luftfeuchtigkeit, 101.2 Lux Licht und 2.74963V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "04:40:16.264404",
+              "epoch": "445",
+              "moteid": "9.0",
+              "temperature": "17.8716",
+              "humidity": "40.9055",
+              "light": "101.2",
+              "voltage": "2.74963"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Am 2004-02-28 um 04:40:17.145979 hat Sensor 40.0 17.46°C Temperatur, 40.6355% Luftfeuchtigkeit, 165.6 Lux Licht und 2.67532V Spannung gemessen.\nAm 2004-02-28 um 04:",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 36,
+      "category": "list",
+      "question": "Name all measurements in epoch 40.",
+      "gold_answer": "No data available.",
+      "gold_cypher": null
+    }
+  }
+}

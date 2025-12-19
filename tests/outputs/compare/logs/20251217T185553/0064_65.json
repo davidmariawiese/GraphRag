@@ -1,0 +1,66 @@
+{
+  "id": 65,
+  "category": "aggregation",
+  "question": "Wie viele Messungen gibt es in Epoche 80?",
+  "gold_answer": "Anzahl Messungen (Epoche 80): 33",
+  "graph_prediction": "Ich kann nur eine Antwort geben, da die Frage nach der Anzahl der Messungen in Epoche 80 ist. Da jedoch keine spezifischen Messungen in Epoche 80 im GRAPH CONTEXT enthalten sind, muss ich mich auf die ANALYSIS oder RAW RECORDS verlassen.\n\nDa die ANALYSIS den Trend und die statistischen Werte für die gesamte Zeitreihe enthält, kann ich daraus schließen, dass es nur eine Messung gibt. Die Frage bezieht sich jedoch speziell auf Epoche 80, aber da keine spezifischen Daten in dieser Epoche enthalten sind, muss ich mich auf die RAW RECORDS verlassen.\n\nDie RAW RECORDS enthält jedoch nur eine einzige Messung mit dem Wert 33, ohne Angabe einer Epoche. Daher kann ich daraus schließen, dass es tatsächlich nur eine Messung gibt, aber ich habe keine spezifische Information über die Epoche.\n\nDa ich mich auf die RAW RECORDS verlassen muss und diese nur eine einzige Messung enthält, kann ich folgende Antwort geben:\n\nEs gibt 1 Messung.",
+  "graph_exact_match": false,
+  "graph_f1": 0.0625,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 80})\nRETURN COUNT(DISTINCT m) AS count",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251217T185553/0064_65.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 80})\nRETURN COUNT(DISTINCT m) AS count"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Ich kann nur eine Antwort geben, da die Frage nach der Anzahl der Messungen in Epoche 80 ist. Da jedoch keine spezifischen Messungen in Epoche 80 im GRAPH CONTEXT enthalten sind, muss ich mich auf die ANALYSIS oder RAW RECORDS verlassen.\n\nDa die ANALYSIS den Trend und die statistischen Werte für die gesamte Zeitreihe enthält, kann ich daraus schließen, dass es nur eine Messung gibt. Die Frage bezieht sich jedoch speziell auf Epoche 80, aber da keine spezifischen Daten in dieser Epoche enthalten sind, muss ich mich auf die RAW RECORDS verlassen.\n\nDie RAW RECORDS enthält jedoch nur eine einzige Messung mit dem Wert 33, ohne Angabe einer Epoche. Daher kann ich daraus schließen, dass es tatsächlich nur eine Messung gibt, aber ich habe keine spezifische Information über die Epoche.\n\nDa ich mich auf die RAW RECORDS verlassen muss und diese nur eine einzige Messung enthält, kann ich folgende Antwort geben:\n\nEs gibt 1 Messung.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"count\": 33}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 65,
+      "category": "aggregation",
+      "question": "Wie viele Messungen gibt es in Epoche 80?",
+      "gold_answer": "Anzahl Messungen (Epoche 80): 33",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: $epoch_id})\nRETURN count(m) AS value"
+    }
+  }
+}

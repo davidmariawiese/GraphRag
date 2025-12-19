@@ -1,0 +1,393 @@
+{
+  "id": 72,
+  "category": "trend",
+  "question": "Zeigt die Luftfeuchtigkeit von Sensor 2.0 einen steigenden oder fallenden Trend?",
+  "gold_answer": "Der Trend der Luftfeuchtigkeit von Sensor 2.0 ist: fallend.",
+  "graph_prediction": "Um die Frage zu beantworten, müssen wir den Trend der Luftfeuchtigkeit für Sensor 2.0 aus dem bereitgestellten JSON-Objekt ermitteln.\n\nZunächst prüfen wir, ob sich der Trend in der Analyse \"Unknown\" im Abschnitt \"analysis\" des JSON-Objekts befindet. Dort finden wir unter \"trend\" den Eintrag:\n\n```\n{\n  ...\n  \"trend\": {\n    \"direction\": \"flat\",\n    \"slope_per_hour\": 71.8992974691346,\n    \"delta_start_end\": 3.0557201424382208\n  },\n  ...\n}\n```\n\nDer Trend ist jedoch \"flat\", was bedeutet, dass es keinen steigenden oder fallenden Trend gibt.\n\nAls nächstes prüfen wir die optionalen Ergebnisse des Cypher-Queries im Abschnitt \"BACKGROUND QUERY (Cypher)\". Dort finden wir unter \"WHERE\" den Eintrag:\n\n```\nWHERE d.time > p.time AND m.temperature - m1.temperature > 0 OR d.time < p.time AND m.temperature - m1.temperature < 0\n```\n\nDieser Teil des Queries scheint jedoch nicht direkt relevant für die Frage zu sein, da er sich auf die Temperatur und nicht auf die Luftfeuchtigkeit bezieht.\n\nDa wir also keine Informationen über den Trend der Luftfeuchtigkeit für Sensor 2.0 im bereitgestellten JSON-Objekt finden, müssen wir das Ergebnis \"No data available\" ausgeben.\n\nDie endgültige Antwort lautet daher:\n\nKeine Daten verfügbar.",
+  "graph_exact_match": false,
+  "graph_f1": 0.08648648648648649,
+  "graph_faithfulness": 0.5,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 2.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (p:Measurement)-[:GENERATED]->(s1:Sensor {mote_id: 2.0})-[:GENERATED]->(m1:Measurement)-[:AT_DATE]->(d1:Date)\nWHERE d.time > p.time AND m.temperature - m1.temperature > 0 OR d.time < p.time AND m.temperature - m1.temperature < 0\nRETURN DISTINCT m.humidity",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor, um den Trend der Luftfeuchtigkeit bei Sensor 2.0 zu bestimmen. Alle verfügbaren Werte für Sensor 2.0 sind konstant bei 33,7 %.",
+  "base_exact_match": false,
+  "base_f1": 0.3076923076923077,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251217T185553/0071_72.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 2.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (p:Measurement)-[:GENERATED]->(s1:Sensor {mote_id: 2.0})-[:GENERATED]->(m1:Measurement)-[:AT_DATE]->(d1:Date)\nWHERE d.time > p.time AND m.temperature - m1.temperature > 0 OR d.time < p.time AND m.temperature - m1.temperature < 0\nRETURN DISTINCT m.humidity"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Um die Frage zu beantworten, müssen wir den Trend der Luftfeuchtigkeit für Sensor 2.0 aus dem bereitgestellten JSON-Objekt ermitteln.\n\nZunächst prüfen wir, ob sich der Trend in der Analyse \"Unknown\" im Abschnitt \"analysis\" des JSON-Objekts befindet. Dort finden wir unter \"trend\" den Eintrag:\n\n```\n{\n  ...\n  \"trend\": {\n    \"direction\": \"flat\",\n    \"slope_per_hour\": 71.8992974691346,\n    \"delta_start_end\": 3.0557201424382208\n  },\n  ...\n}\n```\n\nDer Trend ist jedoch \"flat\", was bedeutet, dass es keinen steigenden oder fallenden Trend gibt.\n\nAls nächstes prüfen wir die optionalen Ergebnisse des Cypher-Queries im Abschnitt \"BACKGROUND QUERY (Cypher)\". Dort finden wir unter \"WHERE\" den Eintrag:\n\n```\nWHERE d.time > p.time AND m.temperature - m1.temperature > 0 OR d.time < p.time AND m.temperature - m1.temperature < 0\n```\n\nDieser Teil des Queries scheint jedoch nicht direkt relevant für die Frage zu sein, da er sich auf die Temperatur und nicht auf die Luftfeuchtigkeit bezieht.\n\nDa wir also keine Informationen über den Trend der Luftfeuchtigkeit für Sensor 2.0 im bereitgestellten JSON-Objekt finden, müssen wir das Ergebnis \"No data available\" ausgeben.\n\nDie endgültige Antwort lautet daher:\n\nKeine Daten verfügbar.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 154,
+        "documents": [
+          {
+            "content": "{\"m.humidity\": 39.5521}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.8235}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 38.9401}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 36.1983}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 40.2299}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 36.9559}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.3483}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 34.536}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 34.7445}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.6878}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 36.4052}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 35.5072}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 36.7495}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 33.7}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.9929}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.586}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 40.0268}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 36.2673}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 33.7349}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 40.2976}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 38.872}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 35.9221}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 40.1622}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 37.6422}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.62}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.8913}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 33.979}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 35.438}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 35.853}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 33.6302}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.8574}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 35.7494}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.7557}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 40.1961}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 33.7698}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 36.8183}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 34.4317}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.9591}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 40.5004}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 40.0607}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 34.1184}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 34.8139}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 36.7151}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 35.1609}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.4162}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 39.4842}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 36.6807}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 35.0915}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 34.7097}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.humidity\": 33.8744}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am date um time hat Sensor moteid temperature°C Temperatur, humidity% Luftfeuchtigkeit, light Lux Licht und voltageV Spannung gemessen.",
+            "meta": {
+              "date": "date",
+              "time": "time",
+              "epoch": "epoch",
+              "moteid": "moteid",
+              "temperature": "temperature",
+              "humidity": "humidity",
+              "light": "light",
+              "voltage": "voltage"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 15:46:17.307584 hat Sensor 20.0 -38.4°C Temperatur, -4.0% Luftfeuchtigkeit, 625.6 Lux Licht und 2.4341V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:46:17.307584",
+              "epoch": "1777",
+              "moteid": "20.0",
+              "temperature": "-38.4",
+              "humidity": "-4.0",
+              "light": "625.6",
+              "voltage": "2.4341"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 11:42:47.011106 hat Sensor 2.0 23.5164°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.71196V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:42:47.011106",
+              "epoch": "1290",
+              "moteid": "2.0",
+              "temperature": "23.5164",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 12:00:18.006341 hat Sensor 2.0 23.6536°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "12:00:18.006341",
+              "epoch": "1325",
+              "moteid": "2.0",
+              "temperature": "23.6536",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:28:18.712415 hat Sensor 2.0 24.0064°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.71196V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:28:18.712415",
+              "epoch": "1501",
+              "moteid": "2.0",
+              "temperature": "24.0064",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:52:17.423474 hat Sensor 2.0 24.0456°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.7244V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:52:17.423474",
+              "epoch": "1549",
+              "moteid": "2.0",
+              "temperature": "24.0456",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:11:18.323178 hat Sensor 3.0 20.4°C Temperatur, 35.5072% Luftfeuchtigkeit, 368.0 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:11:18.323178",
+              "epoch": "987",
+              "moteid": "3.0",
+              "temperature": "20.4",
+              "humidity": "35.5072",
+              "light": "368.0",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:47:17.758496 hat Sensor 6.0 23.3792°C Temperatur, 33.7% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:47:17.758496",
+              "epoch": "1539",
+              "moteid": "6.0",
+              "temperature": "23.3792",
+              "humidity": "33.7",
+              "light": "1140.8",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:48:47.378971 hat Sensor 6.0 23.3792°C Temperatur, 33.7% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:48:47.378971",
+              "epoch": "1542",
+              "moteid": "6.0",
+              "temperature": "23.3792",
+              "humidity": "33.7",
+              "light": "1140.8",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:55:17.446625 hat Sensor 6.0 23.4086°C Temperatur, 33.7% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:55:17.446625",
+              "epoch": "1555",
+              "moteid": "6.0",
+              "temperature": "23.4086",
+              "humidity": "33.7",
+              "light": "1140.8",
+              "voltage": "2.67532"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor, um den Trend der Luftfeuchtigkeit bei Sensor 2.0 zu bestimmen. Alle verfügbaren Werte für Sensor 2.0 sind konstant bei 33,7 %.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 72,
+      "category": "trend",
+      "question": "Zeigt die Luftfeuchtigkeit von Sensor 2.0 einen steigenden oder fallenden Trend?",
+      "gold_answer": "Der Trend der Luftfeuchtigkeit von Sensor 2.0 ist: fallend.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: $mote_id})-[:GENERATED]->(m:Measurement)\nWHERE m.humidity IS NOT NULL\nRETURN m.time AS time, m.humidity AS value\nORDER BY m.time ASC"
+    }
+  }
+}

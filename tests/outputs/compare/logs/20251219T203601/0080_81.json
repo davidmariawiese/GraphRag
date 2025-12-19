@@ -1,0 +1,393 @@
+{
+  "id": 81,
+  "category": "trend",
+  "question": "How does the light value of sensor 10.0 evolve over all measurements?",
+  "gold_answer": "The trend of Light for sensor 10.0 is: increasing.",
+  "graph_prediction": "Basierend auf der bereitgestellten JSON-Datenstruktur und den gegebenen Regeln, muss ich entscheiden, ob ich in MODE LIST oder MODE ANSWER antworten soll.\n\nDa die Frage \"Wie entwickelt sich das Lichtwert des Sensors 10.0 über alle Messungen?\" ist, möchte ich wissen, ob es sich um eine Liste aller Messwerte handelt oder ob es spezifische Informationen zu den Trends oder der Entwicklung des Lichtwerts gibt.\n\nIn diesem Fall lautet meine Antwort:\n\nMODE ANSWER\n\nDa die Frage nach der Entwicklung des Lichtwerts über alle Messungen fragt, möchte ich die Analyse verwenden, um eine Antwort zu geben. Die Analyse enthält Informationen über die globale Statistik des Lichtwerts, einschließlich des Mindest- und Maximalwertes, des Mittelwerts und der Quantilen.\n\nMeine Antwort lautet daher:\n\nDer Lichtwert des Sensors 10.0 entwickelt sich wie folgt:\nMindestwert: 53,36\nMaximalwert: 75,44\nMittelwert: 63,26\nQuantile (5%, 50% und 95%): 53,36, 68,08 und 75,44\n\nDie Entwicklung des Lichtwerts zeigt eine Abnahme der Werte über die Zeit. Der Mittelwert liegt bei 63,26, was ein Wert ist, der sich im Bereich zwischen dem Mindest- und Maximalwert befindet.\n\nIch hoffe, diese Antwort entspricht Ihren Erwartungen!",
+  "graph_exact_match": false,
+  "graph_f1": 0.020100502512562814,
+  "graph_faithfulness": 0.16666666666666666,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 10.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nRETURN m.light AS light, d.date AS date ORDER BY m.time LIMIT 100",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Bei Sensor 10.0 wurden zwei Messungen durchgeführt:\n- Am 2004-02-28 um 10:18:16.934388 wurde eine Lichtstärke von 625,6 Lux gemessen.\n- Am 2004-02-28 um 10:19:17.594973 wurde ebenfalls eine Lichtstärke von 625,6 Lux gemessen.\n\nDaher bleibt die Lichtstärke bei Sensor 10.0 konstant",
+  "base_exact_match": false,
+  "base_f1": 0.0967741935483871,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T203601/0080_81.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 10.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nRETURN m.light AS light, d.date AS date ORDER BY m.time LIMIT 100"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Basierend auf der bereitgestellten JSON-Datenstruktur und den gegebenen Regeln, muss ich entscheiden, ob ich in MODE LIST oder MODE ANSWER antworten soll.\n\nDa die Frage \"Wie entwickelt sich das Lichtwert des Sensors 10.0 über alle Messungen?\" ist, möchte ich wissen, ob es sich um eine Liste aller Messwerte handelt oder ob es spezifische Informationen zu den Trends oder der Entwicklung des Lichtwerts gibt.\n\nIn diesem Fall lautet meine Antwort:\n\nMODE ANSWER\n\nDa die Frage nach der Entwicklung des Lichtwerts über alle Messungen fragt, möchte ich die Analyse verwenden, um eine Antwort zu geben. Die Analyse enthält Informationen über die globale Statistik des Lichtwerts, einschließlich des Mindest- und Maximalwertes, des Mittelwerts und der Quantilen.\n\nMeine Antwort lautet daher:\n\nDer Lichtwert des Sensors 10.0 entwickelt sich wie folgt:\nMindestwert: 53,36\nMaximalwert: 75,44\nMittelwert: 63,26\nQuantile (5%, 50% und 95%): 53,36, 68,08 und 75,44\n\nDie Entwicklung des Lichtwerts zeigt eine Abnahme der Werte über die Zeit. Der Mittelwert liegt bei 63,26, was ein Wert ist, der sich im Bereich zwischen dem Mindest- und Maximalwert befindet.\n\nIch hoffe, diese Antwort entspricht Ihren Erwartungen!",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 100,
+        "documents": [
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 75.44, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 71.76, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          },
+          {
+            "content": "{\"light\": 53.36, \"date\": \"2004-02-28\"}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am date um time hat Sensor moteid temperature°C Temperatur, humidity% Luftfeuchtigkeit, light Lux Licht und voltageV Spannung gemessen.",
+            "meta": {
+              "date": "date",
+              "time": "time",
+              "epoch": "epoch",
+              "moteid": "moteid",
+              "temperature": "temperature",
+              "humidity": "humidity",
+              "light": "light",
+              "voltage": "voltage"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:10:17.464166 hat Sensor 4.0 22.0464°C Temperatur, 34.4664% Luftfeuchtigkeit, 368.0 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:10:17.464166",
+              "epoch": "1105",
+              "moteid": "4.0",
+              "temperature": "22.0464",
+              "humidity": "34.4664",
+              "light": "368.0",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:10:46.696611 hat Sensor 9.0 20.4°C Temperatur, 37.7792% Luftfeuchtigkeit, 1847.36 Lux Licht und 2.77533V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:10:46.696611",
+              "epoch": "1106",
+              "moteid": "9.0",
+              "temperature": "20.4",
+              "humidity": "37.7792",
+              "light": "1847.36",
+              "voltage": "2.77533"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:18:16.934388 hat Sensor 10.0 20.4°C Temperatur, 38.0529% Luftfeuchtigkeit, 625.6 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:18:16.934388",
+              "epoch": "1121",
+              "moteid": "10.0",
+              "temperature": "20.4",
+              "humidity": "38.0529",
+              "light": "625.6",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:19:17.594973 hat Sensor 10.0 20.4°C Temperatur, 37.8819% Luftfeuchtigkeit, 625.6 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:19:17.594973",
+              "epoch": "1123",
+              "moteid": "10.0",
+              "temperature": "20.4",
+              "humidity": "37.8819",
+              "light": "625.6",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:10:17.929431 hat Sensor 1.0 23.0852°C Temperatur, 31.3844% Luftfeuchtigkeit, 507.84 Lux Licht und 2.7244V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:10:17.929431",
+              "epoch": "1105",
+              "moteid": "1.0",
+              "temperature": "23.0852",
+              "humidity": "31.3844",
+              "light": "507.84",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:10:49.022495 hat Sensor 1.0 23.1146°C Temperatur, 31.3139% Luftfeuchtigkeit, 507.84 Lux Licht und 2.7244V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:10:49.022495",
+              "epoch": "1106",
+              "moteid": "1.0",
+              "temperature": "23.1146",
+              "humidity": "31.3139",
+              "light": "507.84",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:10:16.890699 hat Sensor 2.0 22.1836°C Temperatur, 34.536% Luftfeuchtigkeit, 507.84 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:10:16.890699",
+              "epoch": "1105",
+              "moteid": "2.0",
+              "temperature": "22.1836",
+              "humidity": "34.536",
+              "light": "507.84",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:10:46.879546 hat Sensor 2.0 22.1934°C Temperatur, 34.536% Luftfeuchtigkeit, 507.84 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:10:46.879546",
+              "epoch": "1106",
+              "moteid": "2.0",
+              "temperature": "22.1934",
+              "humidity": "34.536",
+              "light": "507.84",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 10:10:48.564831 hat Sensor 3.0 22.0464°C Temperatur, 33.7698% Luftfeuchtigkeit, 426.88 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:10:48.564831",
+              "epoch": "1106",
+              "moteid": "3.0",
+              "temperature": "22.0464",
+              "humidity": "33.7698",
+              "light": "426.88",
+              "voltage": "2.69964"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Bei Sensor 10.0 wurden zwei Messungen durchgeführt:\n- Am 2004-02-28 um 10:18:16.934388 wurde eine Lichtstärke von 625,6 Lux gemessen.\n- Am 2004-02-28 um 10:19:17.594973 wurde ebenfalls eine Lichtstärke von 625,6 Lux gemessen.\n\nDaher bleibt die Lichtstärke bei Sensor 10.0 konstant",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 81,
+      "category": "trend",
+      "question": "How does the light value of sensor 10.0 evolve over all measurements?",
+      "gold_answer": "The trend of Light for sensor 10.0 is: increasing.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 10})-[:GENERATED]->(m:Measurement)\nWHERE m.light IS NOT NULL\nRETURN m.time AS time, m.light AS value\nORDER BY m.time ASC"
+    }
+  }
+}

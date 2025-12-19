@@ -1,3 +1,10 @@
+"""Neo4j Cypher retriever for GraphRAG.
+
+This component executes a Cypher query against Neo4j and returns result rows as
+Haystack `Document`s. Each document's `content` is a JSON string representing one
+Neo4j record.
+"""
+
 from haystack import component
 from haystack.dataclasses import Document
 from neo4j import GraphDatabase
@@ -5,12 +12,19 @@ import os
 import json
 from typing import List
 
+from ..config import GRAPH_RAG_DEBUG_ENV
+
+
+_DOC_PREVIEW_CHARS = 800
+
 
 def _debug_enabled() -> bool:
-    return os.getenv("GRAPH_RAG_DEBUG") == "true"
+    return os.getenv(GRAPH_RAG_DEBUG_ENV) == "true"
 
 @component
 class CypherRetriever:
+
+    """Execute Cypher queries and return documents."""
 
     def __init__(self, uri: str, user: str, password: str):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
@@ -39,9 +53,9 @@ class CypherRetriever:
             if docs:
                 try:
                     preview = docs[0].content
-                    suffix = "" if len(preview) <= 800 else "..."
+                    suffix = "" if len(preview) <= _DOC_PREVIEW_CHARS else "..."
                     print("[retriever] output.first_document:")
-                    print(preview[:800] + suffix)
+                    print(preview[:_DOC_PREVIEW_CHARS] + suffix)
                 except Exception:
                     print("[retriever] output.first_document: <unprintable>")
         return {"documents": docs}

@@ -1,0 +1,197 @@
+{
+  "id": 62,
+  "category": "aggregation",
+  "question": "What is the maximum voltage in epoch 50?",
+  "gold_answer": "Maximum Voltage (Epoch 50): 3.14243V",
+  "graph_prediction": "No data available.",
+  "graph_exact_match": false,
+  "graph_f1": 0.0,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 50}) RETURN max(m.voltage) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T212843/0061_62.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 50}) RETURN max(m.voltage) AS value"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "No data available.",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 3.14243}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 00:58:46.497331, sensor 3.0 measured temperature 20.204°C, humidity 36.8871%, light 50.6 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:46.497331",
+              "epoch": "2",
+              "moteid": "3.0",
+              "temperature": "20.204",
+              "humidity": "36.8871",
+              "light": "50.6",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:03:46.702054, sensor 3.0 measured temperature 19.4396°C, humidity 38.6334%, light 50.6 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:03:46.702054",
+              "epoch": "12",
+              "moteid": "3.0",
+              "temperature": "19.4396",
+              "humidity": "38.6334",
+              "light": "50.6",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:05:46.344834, sensor 3.0 measured temperature 19.4004°C, humidity 38.8039%, light 50.6 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:05:46.344834",
+              "epoch": "16",
+              "moteid": "3.0",
+              "temperature": "19.4004",
+              "humidity": "38.8039",
+              "light": "50.6",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-03-31 at 04:50:22.947801, sensor 14.0 measured temperature 122.153°C, humidity -3.91901%, light 0.46 Lux, and voltage 2.06222V.",
+            "meta": {
+              "date": "2004-03-31",
+              "time": "04:50:22.947801",
+              "epoch": "62",
+              "moteid": "14.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "0.46",
+              "voltage": "2.06222"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 03:19:50.334465, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "03:19:50.334465",
+              "epoch": "2",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.07664"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 02:52:50.24032, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "02:52:50.24032",
+              "epoch": "2",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.07664"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 05:15:50.615137, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.06222V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "05:15:50.615137",
+              "epoch": "4",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.06222"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 03:15:50.326535, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "03:15:50.326535",
+              "epoch": "6",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.07664"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 03:21:50.33605, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "03:21:50.33605",
+              "epoch": "6",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.07664"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 02:55:50.246327, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.08393V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "02:55:50.246327",
+              "epoch": "8",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.08393"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 62,
+      "category": "aggregation",
+      "question": "What is the maximum voltage in epoch 50?",
+      "gold_answer": "Maximum Voltage (Epoch 50): 3.14243V",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 50})\nRETURN max(m.voltage) AS value"
+    }
+  }
+}

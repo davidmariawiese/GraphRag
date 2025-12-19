@@ -1,0 +1,193 @@
+{
+  "id": 49,
+  "category": "list",
+  "question": "List all measurements in epoch 105.",
+  "gold_answer": "mote_id=26 time=2004-02-28T01:50:15.92354 temperature=18.0578 humidity=42.25 light=121.44 voltage=2.67532\nmote_id=52 time=2004-02-28T01:50:15.986577 temperature=17.4894 humidity=40.8381 light=57.04 voltage=2.65143\nmote_id=48 time=2004-02-28T01:50:16.01458 temperature=17.803 humidity=39.8235 light=114.08 voltage=2.69964\nmote_id=40 time=2004-02-28T01:50:16.04472 temperature=18.4792 humidity=39.7896 light=172.96 voltage=2.68742\nmote_id=34 time=2004-02-28T01:50:16.090073 temperature=18.1558 humidity=41.7133 light=60.72 voltage=2.67532\nmote_id=23 time=2004-02-28T01:50:16.118305 temperature=19.077 humidity=38.3263 light=224.48 voltage=2.68742\nmote_id=46 time=2004-02-28T01:50:16.1244 temperature=18.1362 humidity=39.0763 light=114.08 voltage=2.51661\nmote_id=31 time=2004-02-28T01:50:16.199936 temperature=18.3028 humidity=41.5116 light=143.52 voltage=2.68742\nmote_id=1 time=2004-02-28T01:50:16.243615 temperature=18.9006 humidity=39.0082 light=43.24 voltage=2.69964\nmote_id=18 time=2004-02-28T01:50:16.251738 temperature=18.6066 humidity=39.0763 light=57.04 voltage=2.50599\nmote_id=38 time=2004-02-28T01:50:16.292926 temperature=18.342 humidity=39.5521 light=187.68 voltage=2.58226\nmote_id=7 time=2004-02-28T01:50:16.32771 temperature=19.1358 humidity=39.4162 light=97.52 voltage=2.68742\nmote_id=45 time=2004-02-28T01:50:16.333799 temperature=18.0284 humidity=38.7016 light=172.96 voltage=2.68742\nmote_id=47 time=2004-02-28T01:50:16.378704 temperature=17.8814 humidity=40.4666 light=655.04 voltage=2.66332\nmote_id=14 time=2004-02-28T01:50:16.434995 temperature=17.5972 humidity=41.9147 light=23.0 voltage=2.69964\nmote_id=33 time=2004-02-28T01:50:16.488357 temperature=18.8516 humidity=39.4842 light=101.2 voltage=2.69964\nmote_id=41 time=2004-02-28T01:50:16.517195 temperature=18.3322 humidity=39.4162 light=382.72 voltage=2.67532\nmote_id=30 time=2004-02-28T01:50:16.51814 temperature=17.7932 humidity=42.5847 light=108.56 voltage=2.67532\nmote_id=54 time=2004-02-28T01:50:16.557437 temperature=15.6176 humidity=46.7215 light=0.46 voltage=2.65143\nmote_id=2 time=2004-02-28T01:50:16.592877 temperature=19.371 humidity=39.5521 light=121.44 voltage=2.66332\n... (additional 12 measurements omitted)",
+  "graph_prediction": "Es scheint, als ob du nach einer Analyse der Daten fragst. Hier ist eine mögliche Antwort:\n\n**Analyse der Daten**\n\nDie bereitgestellten Daten beziehen sich auf eine Messung von Temperatur, Luftfeuchtigkeit und Spannung an verschiedenen Zeitpunkten am 28. Februar.\n\n**Temperatur:**\n\n* Die höchste Temperatur wurde mit 19,1358°C gemessen.\n* Die niedrigste Temperatur betrug 15,6176°C.\n* Der Durchschnittswert der Temperatur liegt bei etwa 18,5°C.\n\n**Luftfeuchtigkeit:**\n\n* Die höchste Luftfeuchtigkeit wurde mit 46,7215% gemessen.\n* Die niedrigste Luftfeuchtigkeit betrug 37,9161%.\n* Der Durchschnittswert der Luftfeuchtigkeit liegt bei etwa 40%.\n\n**Spannung:**\n\n* Die Spannung schwankte zwischen 2,3 und 2,7 Volt.\n* Der Durchschnittswert der Spannung liegt bei etwa 2,6 Volt.\n\n**Trend:**\n\n* Die Temperatur scheint sich im Laufe des Tages zu erhöhen.\n* Die Luftfeuchtigkeit zeigt eine ähnliche Entwicklung wie die Temperatur.\n* Die Spannung bleibt relativ konstant.\n\nEs ist jedoch wichtig zu beachten, dass diese Analyse nur auf der Grundlage der bereitgestellten Daten erfolgt und möglicherweise nicht repräsentativ für den gesamten Zeitraum ist.",
+  "graph_exact_match": false,
+  "graph_f1": 0.0410958904109589,
+  "graph_faithfulness": 0.5454545454545454,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 105})\nRETURN m,e",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Es wurden folgende Messungen in der Epoke 105 aufgezeichnet:\n\n- Temperatur des Sensors mit der ID \"s1\": -2,3°C\n- Luftfeuchtigkeit des Sensors mit der ID \"s2\": 45,7% \n- Temperatur des Sensors mit der ID \"s3\": 15,6°C\n\nDazu liegen mir keine Daten vor für andere Sensoren.",
+  "base_exact_match": false,
+  "base_f1": 0.016985138004246284,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T203601/0048_49.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 105})\nRETURN m,e"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Es scheint, als ob du nach einer Analyse der Daten fragst. Hier ist eine mögliche Antwort:\n\n**Analyse der Daten**\n\nDie bereitgestellten Daten beziehen sich auf eine Messung von Temperatur, Luftfeuchtigkeit und Spannung an verschiedenen Zeitpunkten am 28. Februar.\n\n**Temperatur:**\n\n* Die höchste Temperatur wurde mit 19,1358°C gemessen.\n* Die niedrigste Temperatur betrug 15,6176°C.\n* Der Durchschnittswert der Temperatur liegt bei etwa 18,5°C.\n\n**Luftfeuchtigkeit:**\n\n* Die höchste Luftfeuchtigkeit wurde mit 46,7215% gemessen.\n* Die niedrigste Luftfeuchtigkeit betrug 37,9161%.\n* Der Durchschnittswert der Luftfeuchtigkeit liegt bei etwa 40%.\n\n**Spannung:**\n\n* Die Spannung schwankte zwischen 2,3 und 2,7 Volt.\n* Der Durchschnittswert der Spannung liegt bei etwa 2,6 Volt.\n\n**Trend:**\n\n* Die Temperatur scheint sich im Laufe des Tages zu erhöhen.\n* Die Luftfeuchtigkeit zeigt eine ähnliche Entwicklung wie die Temperatur.\n* Die Spannung bleibt relativ konstant.\n\nEs ist jedoch wichtig zu beachten, dass diese Analyse nur auf der Grundlage der bereitgestellten Daten erfolgt und möglicherweise nicht repräsentativ für den gesamten Zeitraum ist.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 32,
+        "documents": [
+          {
+            "content": "{\"m\": {\"light\": 224.48, \"temperature\": 19.1652, \"humidity\": 41.6461, \"time\": \"2004-02-28T01:50:16.661795\", \"voltage\": 2.68742}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 57.04, \"temperature\": 17.4894, \"humidity\": 40.8381, \"time\": \"2004-02-28T01:50:15.986577\", \"voltage\": 2.65143}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 23.0, \"temperature\": 17.5972, \"humidity\": 41.9147, \"time\": \"2004-02-28T01:50:16.434995\", \"voltage\": 2.69964}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 57.04, \"temperature\": 18.6066, \"humidity\": 39.0763, \"time\": \"2004-02-28T01:50:16.251738\", \"voltage\": 2.50599}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 180.32, \"temperature\": 18.6164, \"humidity\": 39.8913, \"time\": \"2004-02-28T01:50:16.912148\", \"voltage\": 2.68742}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 60.72, \"temperature\": 18.1558, \"humidity\": 41.7133, \"time\": \"2004-02-28T01:50:16.090073\", \"voltage\": 2.67532}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 121.44, \"temperature\": 19.371, \"humidity\": 39.5521, \"time\": \"2004-02-28T01:50:16.592877\", \"voltage\": 2.66332}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 43.24, \"temperature\": 18.9006, \"humidity\": 39.0082, \"time\": \"2004-02-28T01:50:16.243615\", \"voltage\": 2.69964}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 114.08, \"temperature\": 18.1362, \"humidity\": 39.0763, \"time\": \"2004-02-28T01:50:16.1244\", \"voltage\": 2.51661}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 224.48, \"temperature\": 19.077, \"humidity\": 38.3263, \"time\": \"2004-02-28T01:50:16.118305\", \"voltage\": 2.68742}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 441.6, \"temperature\": 18.6752, \"humidity\": 37.9161, \"time\": \"2004-02-28T01:50:16.911636\", \"voltage\": 2.65143}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 2.3, \"temperature\": 17.656, \"humidity\": 43.6188, \"time\": \"2004-02-28T01:50:17.020385\", \"voltage\": 2.56}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 478.4, \"temperature\": 17.6168, \"humidity\": 40.8043, \"time\": \"2004-02-28T01:50:16.599111\", \"voltage\": 2.67532}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 121.44, \"temperature\": 18.0578, \"humidity\": 42.25, \"time\": \"2004-02-28T01:50:15.92354\", \"voltage\": 2.67532}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 172.96, \"temperature\": 18.0284, \"humidity\": 38.7016, \"time\": \"2004-02-28T01:50:16.333799\", \"voltage\": 2.68742}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 382.72, \"temperature\": 18.3322, \"humidity\": 39.4162, \"time\": \"2004-02-28T01:50:16.517195\", \"voltage\": 2.67532}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 158.24, \"temperature\": 18.8908, \"humidity\": 39.6878, \"time\": \"2004-02-28T01:50:16.882763\", \"voltage\": 2.67532}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 143.52, \"temperature\": 18.3028, \"humidity\": 41.5116, \"time\": \"2004-02-28T01:50:16.199936\", \"voltage\": 2.68742}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 97.52, \"temperature\": 19.1358, \"humidity\": 39.4162, \"time\": \"2004-02-28T01:50:16.32771\", \"voltage\": 2.68742}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 108.56, \"temperature\": 18.832, \"humidity\": 38.3605, \"time\": \"2004-02-28T01:50:16.633856\", \"voltage\": 2.68742}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 18.4, \"temperature\": 16.774, \"humidity\": 44.5482, \"time\": \"2004-02-28T01:50:16.717065\", \"voltage\": 2.61639}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 114.08, \"temperature\": 17.803, \"humidity\": 39.8235, \"time\": \"2004-02-28T01:50:16.01458\", \"voltage\": 2.69964}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 165.6, \"temperature\": 18.9692, \"humidity\": 41.5116, \"time\": \"2004-02-28T01:50:16.773918\", \"voltage\": 2.61639}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 101.2, \"temperature\": 18.8516, \"humidity\": 39.4842, \"time\": \"2004-02-28T01:50:16.488357\", \"voltage\": 2.69964}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 0.46, \"temperature\": 16.1566, \"humidity\": 46.0655, \"time\": \"2004-02-28T01:50:16.836425\", \"voltage\": 2.65143}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 655.04, \"temperature\": 17.8814, \"humidity\": 40.4666, \"time\": \"2004-02-28T01:50:16.378704\", \"voltage\": 2.66332}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 79.12, \"temperature\": 18.4302, \"humidity\": 39.1443, \"time\": \"2004-02-28T01:50:16.679994\", \"voltage\": 2.65143}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 108.56, \"temperature\": 17.7932, \"humidity\": 42.5847, \"time\": \"2004-02-28T01:50:16.51814\", \"voltage\": 2.67532}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 172.96, \"temperature\": 18.4792, \"humidity\": 39.7896, \"time\": \"2004-02-28T01:50:16.04472\", \"voltage\": 2.68742}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 143.52, \"temperature\": 17.656, \"humidity\": 39.9591, \"time\": \"2004-02-28T01:50:16.957234\", \"voltage\": 2.67532}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 0.46, \"temperature\": 15.6176, \"humidity\": 46.7215, \"time\": \"2004-02-28T01:50:16.557437\", \"voltage\": 2.65143}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m\": {\"light\": 187.68, \"temperature\": 18.342, \"humidity\": 39.5521, \"time\": \"2004-02-28T01:50:16.292926\", \"voltage\": 2.58226}, \"e\": {\"epoch_id\": 105}}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Es wurden folgende Messungen in der Epoke 105 aufgezeichnet:\n\n- Temperatur des Sensors mit der ID \"s1\": -2,3°C\n- Luftfeuchtigkeit des Sensors mit der ID \"s2\": 45,7% \n- Temperatur des Sensors mit der ID \"s3\": 15,6°C\n\nDazu liegen mir keine Daten vor für andere Sensoren.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 49,
+      "category": "list",
+      "question": "List all measurements in epoch 105.",
+      "gold_answer": "mote_id=26 time=2004-02-28T01:50:15.92354 temperature=18.0578 humidity=42.25 light=121.44 voltage=2.67532\nmote_id=52 time=2004-02-28T01:50:15.986577 temperature=17.4894 humidity=40.8381 light=57.04 voltage=2.65143\nmote_id=48 time=2004-02-28T01:50:16.01458 temperature=17.803 humidity=39.8235 light=114.08 voltage=2.69964\nmote_id=40 time=2004-02-28T01:50:16.04472 temperature=18.4792 humidity=39.7896 light=172.96 voltage=2.68742\nmote_id=34 time=2004-02-28T01:50:16.090073 temperature=18.1558 humidity=41.7133 light=60.72 voltage=2.67532\nmote_id=23 time=2004-02-28T01:50:16.118305 temperature=19.077 humidity=38.3263 light=224.48 voltage=2.68742\nmote_id=46 time=2004-02-28T01:50:16.1244 temperature=18.1362 humidity=39.0763 light=114.08 voltage=2.51661\nmote_id=31 time=2004-02-28T01:50:16.199936 temperature=18.3028 humidity=41.5116 light=143.52 voltage=2.68742\nmote_id=1 time=2004-02-28T01:50:16.243615 temperature=18.9006 humidity=39.0082 light=43.24 voltage=2.69964\nmote_id=18 time=2004-02-28T01:50:16.251738 temperature=18.6066 humidity=39.0763 light=57.04 voltage=2.50599\nmote_id=38 time=2004-02-28T01:50:16.292926 temperature=18.342 humidity=39.5521 light=187.68 voltage=2.58226\nmote_id=7 time=2004-02-28T01:50:16.32771 temperature=19.1358 humidity=39.4162 light=97.52 voltage=2.68742\nmote_id=45 time=2004-02-28T01:50:16.333799 temperature=18.0284 humidity=38.7016 light=172.96 voltage=2.68742\nmote_id=47 time=2004-02-28T01:50:16.378704 temperature=17.8814 humidity=40.4666 light=655.04 voltage=2.66332\nmote_id=14 time=2004-02-28T01:50:16.434995 temperature=17.5972 humidity=41.9147 light=23.0 voltage=2.69964\nmote_id=33 time=2004-02-28T01:50:16.488357 temperature=18.8516 humidity=39.4842 light=101.2 voltage=2.69964\nmote_id=41 time=2004-02-28T01:50:16.517195 temperature=18.3322 humidity=39.4162 light=382.72 voltage=2.67532\nmote_id=30 time=2004-02-28T01:50:16.51814 temperature=17.7932 humidity=42.5847 light=108.56 voltage=2.67532\nmote_id=54 time=2004-02-28T01:50:16.557437 temperature=15.6176 humidity=46.7215 light=0.46 voltage=2.65143\nmote_id=2 time=2004-02-28T01:50:16.592877 temperature=19.371 humidity=39.5521 light=121.44 voltage=2.66332\n... (additional 12 measurements omitted)",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 105})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage ORDER BY time, mote_id LIMIT 20",
+      "gold_meta": {
+        "total": 32
+      }
+    }
+  }
+}
