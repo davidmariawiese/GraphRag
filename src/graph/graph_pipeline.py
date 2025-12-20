@@ -35,15 +35,17 @@ load_dotenv()
 
 def build_pipeline() -> Pipeline:
     """Build and connect the GraphRAG Haystack pipeline."""
-
     pipeline = Pipeline()
 
     pipeline.add_component("query_processor", QueryProcessor())
-    pipeline.add_component("retriever", CypherRetriever(
-        uri=os.getenv(NEO4J_URI_ENV, DEFAULT_NEO4J_URI),
-        user=os.getenv(NEO4J_USER_ENV, DEFAULT_NEO4J_USER),
-        password=os.getenv(NEO4J_PASSWORD_ENV, DEFAULT_NEO4J_PASSWORD)
-    ))
+    pipeline.add_component(
+        "retriever",
+        CypherRetriever(
+            uri=os.getenv(NEO4J_URI_ENV, DEFAULT_NEO4J_URI),
+            user=os.getenv(NEO4J_USER_ENV, DEFAULT_NEO4J_USER),
+            password=os.getenv(NEO4J_PASSWORD_ENV, DEFAULT_NEO4J_PASSWORD),
+        ),
+    )
     pipeline.add_component("organizer", Organizer())
     pipeline.add_component("generator", Generator())
 
@@ -51,8 +53,9 @@ def build_pipeline() -> Pipeline:
     pipeline.connect("query_processor.cypher", "retriever.cypher")
     pipeline.connect("retriever.documents", "organizer.documents")
     pipeline.connect("organizer.analysis_json", "generator.analysis_json")
-    pipeline.connect("query_processor.cypher", "generator.cypher_query") 
+    pipeline.connect("query_processor.cypher", "generator.cypher_query")
     return pipeline
+
 
 def run_pipeline(pipe: Pipeline, query: str, debug: Optional[bool] = None) -> str:
     """Führt die Haystack-2.x-Pipeline aus und gibt die Antwort zurück.
@@ -60,7 +63,7 @@ def run_pipeline(pipe: Pipeline, query: str, debug: Optional[bool] = None) -> st
     Wenn `debug=True` (oder via env GRAPH_RAG_DEBUG), geben alle Komponenten live ihre Inputs auf stdout aus.
     """
     env_key = GRAPH_RAG_DEBUG_ENV
-    
+
     # Determine effective debug state: arg overrides env, env defaults to False
     if debug is None:
         should_debug = os.getenv(env_key) == "true"

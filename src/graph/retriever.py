@@ -5,12 +5,13 @@ Haystack `Document`s. Each document's `content` is a JSON string representing on
 Neo4j record.
 """
 
+import json
+import os
+from typing import List
+
 from haystack import component
 from haystack.dataclasses import Document
 from neo4j import GraphDatabase
-import os
-import json
-from typing import List
 
 from ..config import GRAPH_RAG_DEBUG_ENV
 
@@ -21,6 +22,7 @@ _DOC_PREVIEW_CHARS = 800
 def _debug_enabled() -> bool:
     return os.getenv(GRAPH_RAG_DEBUG_ENV) == "true"
 
+
 @component
 class CypherRetriever:
 
@@ -30,7 +32,7 @@ class CypherRetriever:
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
     @component.output_types(documents=List[Document])
-    def run(self, cypher: str):
+    def run(self, cypher: str) -> dict[str, List[Document]]:
 
         if _debug_enabled():
             print("\n[retriever] input.cypher:")

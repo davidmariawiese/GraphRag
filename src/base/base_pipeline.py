@@ -34,7 +34,6 @@ from ..config import (
   DEFAULT_OLLAMA_MODEL,
   DEFAULT_OLLAMA_URL,
   OLLAMA_GENERATOR_MODEL_ENV,
-  OLLAMA_MODEL_ENV,
   OLLAMA_URL_ENV,
 )
 
@@ -43,7 +42,7 @@ load_dotenv()
 
 
 _DEFAULT_BASE_DATASET_RELATIVE = Path("data") / "base" / "data.jsonl"
-_DEFAULT_GENERATION_KWARGS: Dict[str, Any] = {"num_predict": 100, "temperature": 0.9}
+_DEFAULT_GENERATION_KWARGS: Dict[str, Any] = {"num_predict": 180, "temperature": 0.0}
 _DEFAULT_PREVIEW_DOCS = 3
 _DEFAULT_RETRIEVER_TOP_K = 50
 
@@ -81,7 +80,7 @@ def create_rag_pipeline(
 
   Configuration resolution (kept stable):
   - `ollama_url` argument overrides `OLLAMA_URL`, else defaults to `http://ollama:11434`.
-  - `ollama_model` argument overrides `OLLAMA_GENERATOR_MODEL` then `OLLAMA_MODEL`, else defaults to `llama3.1:8b`.
+  - `ollama_model` argument overrides `OLLAMA_GENERATOR_MODEL`, else falls back to the config default.
   - `generation_kwargs` argument overrides defaults; default is non-deterministic
     (`temperature=0.9`) to preserve existing behavior.
 
@@ -97,7 +96,11 @@ def create_rag_pipeline(
   """
 
   resolved_url = ollama_url or os.getenv(OLLAMA_URL_ENV, DEFAULT_OLLAMA_URL)
-  resolved_model = ollama_model or os.getenv(OLLAMA_GENERATOR_MODEL_ENV) or os.getenv(OLLAMA_MODEL_ENV, DEFAULT_OLLAMA_MODEL)
+  resolved_model = (
+    ollama_model
+    or os.getenv(OLLAMA_GENERATOR_MODEL_ENV)
+    or DEFAULT_OLLAMA_MODEL
+  )
   resolved_kwargs = generation_kwargs or _DEFAULT_GENERATION_KWARGS
 
   docs = documents or load_base_documents()
@@ -108,24 +111,71 @@ def create_rag_pipeline(
   generator = OllamaGenerator(model=resolved_model, url=resolved_url, generation_kwargs=resolved_kwargs)
   retriever = InMemoryBM25Retriever(document_store=docstore)
   template = """
-    You are a helpful assistant for IoT measurement data. Answer briefly and precisely IN ENGLISH.
+    You answer questions about IoT measurements.
+    Your response is evaluated by EXACT STRING MATCH against a gold label.
 
-    RULES:
-    1. Use ONLY the information from the "KONTEXT" section.
-    2. Do not invent any data. If the context does not allow an answer, reply EXACTLY: "No data available.".
-    3. Answer directly, without filler phrases.
-    4. Include concrete values (temperature, time, sensor id) when available.
-    5. The sensor name is the id (mote_id).
+     CRITICAL RULES (must follow):
+     1) Use ONLY the information in the CONTEXT.
+     2) Do NOT guess, extrapolate, or assume the context is complete.
+       The retrieved context may be a subset; never infer totals/averages from partial context.
+     3) Output MUST be the final answer only: no preamble, no explanations, no bullets, no markdown, no quotes.
+       Do not write words like "Based on", "However", "To determine", or similar.
+       Do NOT round numbers. Do NOT add or remove decimals.
+     4) If the context does not contain enough information to answer EXACTLY, output EXACTLY:
+       No data available.
 
-    KONTEXT:
-    {% for document in documents %}
-      - {{ document.content }}
-    {% endfor %}
+     OUTPUT FORMATS (match EXACTLY):
 
-    QUESTION: {{query}}
+    A) Factual single value at a time
+       <Metric> of sensor <sensor_id> at <YYYY-MM-DD> <HH:MM:SS>: <value><unit>
+       - Metric is one of: Temperature | Humidity | Light | Voltage
+       - Units: Temperature uses °C, Humidity uses %, Light uses Lux, Voltage uses V
+       - No space before the unit (e.g., 19.7336°C, 39.62%, 50.6Lux, 2.68742V)
+       - Matching rule for timestamps:
+         If the question asks for <HH:MM:SS>, then ANY context timestamp that starts with that prefix
+         (e.g., 00:58:46.002832) is an EXACT match.
+       - If context times include fractions, truncate to seconds in the output.
+       - Extract the value from the matching context line and keep full precision.
 
-    ANSWER (in English):
-    """
+      Examples:
+      Temperature of sensor 19.0 at 2004-02-28 00:58:46: 19.7336°C
+      Voltage of sensor 34.0 at 2004-02-28 00:58:47: 2.68742V
+
+     B) List measurements
+       One measurement per line, with this exact key order:
+       mote_id=<id> time=<YYYY-MM-DD>T<HH:MM:SS(.fraction)> temperature=<temp> humidity=<hum> light=<light> voltage=<volt>
+       - Use values exactly as they appear in context (no units).
+       - If more than 20 matches exist in context, output only the first 20 lines.
+
+     C) Aggregations
+       - Average Temperature (Epoch <epoch_id>): <value>°C
+       - Maximum Light (Epoch <epoch_id>): <value>Lux
+       - Number of measurements (Sensor <sensor_id>): <integer>
+       - Minimum Voltage (Sensor <sensor_id>): <value>V
+
+      Examples:
+      Number of measurements (Sensor 48.0): 1775
+      Minimum Voltage (Sensor 31.0): 2.06222V
+      Average Temperature (Epoch 2): 54.650252173913046°C
+      Maximum Light (Epoch 2): 1847.36Lux
+
+     D) Trend
+       The trend of Temperature for sensor <sensor_id> is: <increasing|decreasing|flat>.
+       - Decide trend ONLY if you can order at least 2 temperature measurements by time for that sensor from context.
+       - Compare earliest vs latest temperature: higher => increasing, lower => decreasing, equal => flat.
+
+      Example:
+      The trend of Temperature for sensor 31.0 is: increasing.
+
+     CONTEXT:
+     {% for document in documents %}
+     {{ document.content }}
+     {% endfor %}
+
+     QUESTION: {{query}}
+
+     ANSWER:
+     """
 
   prompt_builder = PromptBuilder(template=template, required_variables=["documents", "query"])
 

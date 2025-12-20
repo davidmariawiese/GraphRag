@@ -1,0 +1,240 @@
+{
+  "id": 6,
+  "category": "factual",
+  "question": "What humidity did sensor 26.0 measure on 2004-02-28 at 00:58:46?",
+  "gold_answer": "Humidity of sensor 26.0 at 2004-02-28 00:58:46: 39.62%",
+  "graph_prediction": "Humidity of sensor 26.0 at 2004-02-28T00:58:46.780824: 39.62%",
+  "graph_exact_match": false,
+  "graph_f1": 0.8571428571428571,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 26.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:46\"\nRETURN m.time AS time, m.humidity AS value\nORDER BY m.time ASC\nLIMIT 1",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Based on the data provided, sensor 26.0 measured a humidity of **37.0246%** at 2004-02-28 at 00:58:46.\n\nHowever, it's important to note that there is no exact timestamp of 00:58:46 for sensor 26.0 in the provided data. The closest timestamps are:\n\n- **2004-02-28 at 00:58:47**: Humidity = 39.0763%\n- **2004-02-28 at 01:58:46**: Humidity = 46.1968%\n\nGiven the exact timestamp requested, there is no direct measurement available for sensor 26.0 at that",
+  "base_exact_match": false,
+  "base_f1": 0.2574257425742575,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T113934/0005_6.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 26.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:46\"\nRETURN m.time AS time, m.humidity AS value\nORDER BY m.time ASC\nLIMIT 1"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 39.62,
+              "rows": 1
+            }
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 39.62,
+                  "std": 0.0,
+                  "min": {
+                    "value": 39.62,
+                    "timestamp": "2004-02-28T00:58:46.780824"
+                  },
+                  "max": {
+                    "value": 39.62,
+                    "timestamp": "2004-02-28T00:58:46.780824"
+                  },
+                  "quantiles": {
+                    "p05": 39.62,
+                    "p50": 39.62,
+                    "p95": 39.62
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T00:58:46.780824",
+                "value": 39.62
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 39.62,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T00:58:46.780824",
+                "value": 39.62
+              }
+            ]
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 39.62,
+                  "std": 0.0,
+                  "min": {
+                    "value": 39.62,
+                    "timestamp": "2004-02-28T00:58:46.780824"
+                  },
+                  "max": {
+                    "value": 39.62,
+                    "timestamp": "2004-02-28T00:58:46.780824"
+                  },
+                  "quantiles": {
+                    "p05": 39.62,
+                    "p50": 39.62,
+                    "p95": 39.62
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "generator": {
+        "answer": "Humidity of sensor 26.0 at 2004-02-28T00:58:46.780824: 39.62%",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"time\": \"2004-02-28T00:58:46.780824\", \"value\": 39.62}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 00:58:46.780824, sensor 26.0 measured temperature 19.4494°C, humidity 39.62%, light 121.44 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:46.780824",
+              "epoch": "2",
+              "moteid": "26.0",
+              "temperature": "19.4494",
+              "humidity": "39.62",
+              "light": "121.44",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-04-03 at 16:00:08.907329, sensor 58.0 measured temperature 25.055°C, humidity 32.0183%, light 26.68 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-04-03",
+              "time": "16:00:08.907329",
+              "epoch": "1220",
+              "moteid": "58.0",
+              "temperature": "25.055",
+              "humidity": "32.0183",
+              "light": "26.68",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-04-03 at 16:00:38.876107, sensor 58.0 measured temperature 25.0746°C, humidity 32.0183%, light 26.68 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-04-03",
+              "time": "16:00:38.876107",
+              "epoch": "1221",
+              "moteid": "58.0",
+              "temperature": "25.0746",
+              "humidity": "32.0183",
+              "light": "26.68",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 00:58:46.497331, sensor 3.0 measured temperature 20.204°C, humidity 36.8871%, light 50.6 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:46.497331",
+              "epoch": "2",
+              "moteid": "3.0",
+              "temperature": "20.204",
+              "humidity": "36.8871",
+              "light": "50.6",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 00:58:46.657464, sensor 6.0 measured temperature 20.4196°C, humidity 36.6118%, light 121.44 Lux, and voltage 2.65143V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:46.657464",
+              "epoch": "2",
+              "moteid": "6.0",
+              "temperature": "20.4196",
+              "humidity": "36.6118",
+              "light": "121.44",
+              "voltage": "2.65143"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Based on the data provided, sensor 26.0 measured a humidity of **37.0246%** at 2004-02-28 at 00:58:46.\n\nHowever, it's important to note that there is no exact timestamp of 00:58:46 for sensor 26.0 in the provided data. The closest timestamps are:\n\n- **2004-02-28 at 00:58:47**: Humidity = 39.0763%\n- **2004-02-28 at 01:58:46**: Humidity = 46.1968%\n\nGiven the exact timestamp requested, there is no direct measurement available for sensor 26.0 at that",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 6,
+      "category": "factual",
+      "question": "What humidity did sensor 26.0 measure on 2004-02-28 at 00:58:46?",
+      "gold_answer": "Humidity of sensor 26.0 at 2004-02-28 00:58:46: 39.62%",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 26})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:46\"\nRETURN m.time AS time, m.humidity AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

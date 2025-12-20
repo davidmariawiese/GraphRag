@@ -1,0 +1,138 @@
+{
+  "id": 96,
+  "category": "negative",
+  "question": "What temperature did sensor 999.0 measure on 2004-02-28 at 00:00:00?",
+  "gold_answer": "No data available.",
+  "graph_prediction": "No data available.",
+  "graph_exact_match": true,
+  "graph_f1": 1.0,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 999.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:00:00\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Based on the provided data, there are no measurements recorded for sensor 999.0 at any time, including 2004-02-28 at 00:00:00. The data only includes measurements from sensors with IDs ranging from 10 to 46.\n\nTherefore, the answer is that there is no temperature measurement available for sensor 999.0 on 2004-02-28 at 00:00:00, as this specific sensor and timestamp combination does not exist in the given dataset.",
+  "base_exact_match": false,
+  "base_f1": 0.07594936708860758,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T083341/0095_96.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 999.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:00:00\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1"
+      },
+      "organizer": {
+        "analysis_json": {
+          "error": "No data found",
+          "context": {}
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {},
+          "raw": {
+            "total_records": null,
+            "records": []
+          },
+          "analysis": {}
+        }
+      },
+      "generator": {
+        "answer": "No data available.",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 01:34:46.485275, sensor 11.0 measured temperature 17.999°C, humidity 42.7853%, light 2.3 Lux, and voltage 2.57108V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:34:46.485275",
+              "epoch": "74",
+              "moteid": "11.0",
+              "temperature": "17.999",
+              "humidity": "42.7853",
+              "light": "2.3",
+              "voltage": "2.57108"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 02:17:46.356815, sensor 17.0 measured temperature 17.999°C, humidity 40.0945%, light 7.36 Lux, and voltage 2.56V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:17:46.356815",
+              "epoch": "160",
+              "moteid": "17.0",
+              "temperature": "17.999",
+              "humidity": "40.0945",
+              "light": "7.36",
+              "voltage": "2.56"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 02:56:46.544927, sensor 18.0 measured temperature 17.999°C, humidity 39.5521%, light 2.76 Lux, and voltage 2.49546V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:56:46.544927",
+              "epoch": "238",
+              "moteid": "18.0",
+              "temperature": "17.999",
+              "humidity": "39.5521",
+              "light": "2.76",
+              "voltage": "2.49546"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 02:58:16.692494, sensor 18.0 measured temperature 17.999°C, humidity 39.5521%, light 2.76 Lux, and voltage 2.49546V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:58:16.692494",
+              "epoch": "241",
+              "moteid": "18.0",
+              "temperature": "17.999",
+              "humidity": "39.5521",
+              "light": "2.76",
+              "voltage": "2.49546"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 02:08:46.582151, sensor 25.0 measured temperature 17.999°C, humidity 40.1284%, light 101.2 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:08:46.582151",
+              "epoch": "142",
+              "moteid": "25.0",
+              "temperature": "17.999",
+              "humidity": "40.1284",
+              "light": "101.2",
+              "voltage": "2.67532"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Based on the provided data, there are no measurements recorded for sensor 999.0 at any time, including 2004-02-28 at 00:00:00. The data only includes measurements from sensors with IDs ranging from 10 to 46.\n\nTherefore, the answer is that there is no temperature measurement available for sensor 999.0 on 2004-02-28 at 00:00:00, as this specific sensor and timestamp combination does not exist in the given dataset.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 96,
+      "category": "negative",
+      "question": "What temperature did sensor 999.0 measure on 2004-02-28 at 00:00:00?",
+      "gold_answer": "No data available.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 999})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:00:00\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

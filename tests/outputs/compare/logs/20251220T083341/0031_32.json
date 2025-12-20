@@ -1,0 +1,240 @@
+{
+  "id": 32,
+  "category": "factual",
+  "question": "What light did sensor 18.0 measure on 2004-02-28 at 01:00:17?",
+  "gold_answer": "Light of sensor 18.0 at 2004-02-28 01:00:17: 57.04Lux",
+  "graph_prediction": "Light of sensor 18.0 at 2004-02-28T01:00:17.00383: 57.04 Lux",
+  "graph_exact_match": false,
+  "graph_f1": 0.7586206896551724,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 18.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:00:17\"\nRETURN m.time AS time, m.light AS value\nORDER BY m.time ASC\nLIMIT 1",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Based on the data provided, sensor 18.0 measured a light value of **64.4 Lux** on 2004-02-28 at 01:00:17.\n\nHowever, it's important to note that there is no exact timestamp of `01:00:17` for sensor 18.0 in the provided data. The closest entry is at `01:00:16.591177`, which shows a light value of **2.76 Lux**.\n\nIf you are looking for the exact timestamp, here's the relevant entry:\n\n- Timestamp: `01:00:16.591177`\n- Light: 2.76 Lux\n\nSo, the closest measurement to your query is **2.76 Lux**",
+  "base_exact_match": false,
+  "base_f1": 0.21238938053097345,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T083341/0031_32.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 18.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:00:17\"\nRETURN m.time AS time, m.light AS value\nORDER BY m.time ASC\nLIMIT 1"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 57.04,
+              "rows": 1
+            }
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 57.04,
+                  "std": 0.0,
+                  "min": {
+                    "value": 57.04,
+                    "timestamp": "2004-02-28T01:00:17.003830"
+                  },
+                  "max": {
+                    "value": 57.04,
+                    "timestamp": "2004-02-28T01:00:17.003830"
+                  },
+                  "quantiles": {
+                    "p05": 57.04,
+                    "p50": 57.04,
+                    "p95": 57.04
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T01:00:17.00383",
+                "value": 57.04
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 57.04,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T01:00:17.00383",
+                "value": 57.04
+              }
+            ]
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 57.04,
+                  "std": 0.0,
+                  "min": {
+                    "value": 57.04,
+                    "timestamp": "2004-02-28T01:00:17.003830"
+                  },
+                  "max": {
+                    "value": 57.04,
+                    "timestamp": "2004-02-28T01:00:17.003830"
+                  },
+                  "quantiles": {
+                    "p05": 57.04,
+                    "p50": 57.04,
+                    "p95": 57.04
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "generator": {
+        "answer": "Light of sensor 18.0 at 2004-02-28T01:00:17.00383: 57.04 Lux",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"time\": \"2004-02-28T01:00:17.00383\", \"value\": 57.04}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-03-18 at 00:08:01.224492, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 114.08 Lux, and voltage 2.15971V.",
+            "meta": {
+              "date": "2004-03-18",
+              "time": "00:08:01.224492",
+              "epoch": "10",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "114.08",
+              "voltage": "2.15971"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:00:17.00383, sensor 18.0 measured temperature 19.1456°C, humidity 38.3946%, light 57.04 Lux, and voltage 2.50599V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:00:17.00383",
+              "epoch": "5",
+              "moteid": "18.0",
+              "temperature": "19.1456",
+              "humidity": "38.3946",
+              "light": "57.04",
+              "voltage": "2.50599"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 01:00:18.633768, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "01:00:18.633768",
+              "epoch": "1447",
+              "moteid": "31.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "202.4",
+              "voltage": "2.07664"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:00:16.613426, sensor 30.0 measured temperature 18.6556°C, humidity 40.973%, light 114.08 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:00:16.613426",
+              "epoch": "5",
+              "moteid": "30.0",
+              "temperature": "18.6556",
+              "humidity": "40.973",
+              "light": "114.08",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:00:46.152417, sensor 34.0 measured temperature 18.8712°C, humidity 40.2976%, light 60.72 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:00:46.152417",
+              "epoch": "6",
+              "moteid": "34.0",
+              "temperature": "18.8712",
+              "humidity": "40.2976",
+              "light": "60.72",
+              "voltage": "2.67532"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Based on the data provided, sensor 18.0 measured a light value of **64.4 Lux** on 2004-02-28 at 01:00:17.\n\nHowever, it's important to note that there is no exact timestamp of `01:00:17` for sensor 18.0 in the provided data. The closest entry is at `01:00:16.591177`, which shows a light value of **2.76 Lux**.\n\nIf you are looking for the exact timestamp, here's the relevant entry:\n\n- Timestamp: `01:00:16.591177`\n- Light: 2.76 Lux\n\nSo, the closest measurement to your query is **2.76 Lux**",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 32,
+      "category": "factual",
+      "question": "What light did sensor 18.0 measure on 2004-02-28 at 01:00:17?",
+      "gold_answer": "Light of sensor 18.0 at 2004-02-28 01:00:17: 57.04Lux",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 18})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:00:17\"\nRETURN m.time AS time, m.light AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

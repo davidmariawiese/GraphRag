@@ -1,0 +1,238 @@
+{
+  "id": 80,
+  "category": "aggregation",
+  "question": "What is the maximum light value in epoch 957?",
+  "gold_answer": "Maximum Light (Epoch 957): 1847.36Lux",
+  "graph_prediction": "Maximum Light (Epoch 957): 1847.36Lux",
+  "graph_exact_match": true,
+  "graph_f1": 1.0,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 957}) RETURN max(m.light) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "To determine the maximum light value in epoch 957, we need to identify all measurements from epoch 957 and find the highest light value among them. However, based on the provided data, there are no entries for epoch 957.\n\nTherefore, the answer is:\n\n**There are no light values recorded in epoch 957.**",
+  "base_exact_match": false,
+  "base_f1": 0.13793103448275862,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T113934/0079_80.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 957}) RETURN max(m.light) AS value"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 1847.36,
+              "rows": 1
+            }
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 1847.36,
+                  "std": 0.0,
+                  "min": {
+                    "value": 1847.36,
+                    "timestamp": "2025-12-20T12:23:27.748033"
+                  },
+                  "max": {
+                    "value": 1847.36,
+                    "timestamp": "2025-12-20T12:23:27.748033"
+                  },
+                  "quantiles": {
+                    "p05": 1847.36,
+                    "p50": 1847.36,
+                    "p95": 1847.36
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 1847.36
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 1847.36,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 1847.36
+              }
+            ]
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 1847.36,
+                  "std": 0.0,
+                  "min": {
+                    "value": 1847.36,
+                    "timestamp": "2025-12-20T12:23:27.748033"
+                  },
+                  "max": {
+                    "value": 1847.36,
+                    "timestamp": "2025-12-20T12:23:27.748033"
+                  },
+                  "quantiles": {
+                    "p05": 1847.36,
+                    "p50": 1847.36,
+                    "p95": 1847.36
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "generator": {
+        "answer": "Maximum Light (Epoch 957): 1847.36Lux",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 1847.36}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-03-31 at 04:51:15.753312, sensor 11.0 measured temperature 121.957°C, humidity 30.5363%, light 2.3 Lux, and voltage 1.96013V.",
+            "meta": {
+              "date": "2004-03-31",
+              "time": "04:51:15.753312",
+              "epoch": "2",
+              "moteid": "11.0",
+              "temperature": "121.957",
+              "humidity": "30.5363",
+              "light": "2.3",
+              "voltage": "1.96013"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:11:17.188151, sensor 22.0 measured temperature 24.957°C, humidity 30.3947%, light 625.6 Lux, and voltage 2.74963V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:11:17.188151",
+              "epoch": "1467",
+              "moteid": "22.0",
+              "temperature": "24.957",
+              "humidity": "30.3947",
+              "light": "625.6",
+              "voltage": "2.74963"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:38:48.207357, sensor 22.0 measured temperature 24.957°C, humidity 30.7133%, light 625.6 Lux, and voltage 2.74963V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:38:48.207357",
+              "epoch": "1522",
+              "moteid": "22.0",
+              "temperature": "24.957",
+              "humidity": "30.7133",
+              "light": "625.6",
+              "voltage": "2.74963"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:09:47.128911, sensor 39.0 measured temperature 24.957°C, humidity 30.9254%, light 441.6 Lux, and voltage 2.73696V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:09:47.128911",
+              "epoch": "1224",
+              "moteid": "39.0",
+              "temperature": "24.957",
+              "humidity": "30.9254",
+              "light": "441.6",
+              "voltage": "2.73696"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:22:47.904136, sensor 39.0 measured temperature 24.957°C, humidity 32.4049%, light 368.0 Lux, and voltage 2.74963V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:22:47.904136",
+              "epoch": "1610",
+              "moteid": "39.0",
+              "temperature": "24.957",
+              "humidity": "32.4049",
+              "light": "368.0",
+              "voltage": "2.74963"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "To determine the maximum light value in epoch 957, we need to identify all measurements from epoch 957 and find the highest light value among them. However, based on the provided data, there are no entries for epoch 957.\n\nTherefore, the answer is:\n\n**There are no light values recorded in epoch 957.**",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 80,
+      "category": "aggregation",
+      "question": "What is the maximum light value in epoch 957?",
+      "gold_answer": "Maximum Light (Epoch 957): 1847.36Lux",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 957})\nRETURN max(m.light) AS value"
+    }
+  }
+}

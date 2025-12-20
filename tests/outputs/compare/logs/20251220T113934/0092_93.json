@@ -1,0 +1,1465 @@
+{
+  "id": 93,
+  "category": "trend",
+  "question": "How does the temperature of sensor 22.0 change over time?",
+  "gold_answer": "The trend of Temperature for sensor 22.0 is: increasing.",
+  "graph_prediction": "The JSON object provided contains temperature readings from a sensor with ID `22` over a period of time on February 28, 2004. The data is structured as follows:\n\n- **Timestamp**: Each reading includes the exact timestamp when it was recorded.\n- **MoteID**: Identifier for the sensor that collected the data (`22` in this case).\n- **Value**: Temperature readings in degrees Celsius.\n\nHere are some key points about the temperature data:\n1. The first entry is at `02:00:46.875932`, with a temperature of `18.03`.\n2. The last entry is at `03:01:16.597460`, with a temperature of `17.8618`.\n\nThe temperatures generally show a slight decrease over time, from around `18` degrees Celsius to approximately `17.86` degrees Celsius.\n\nHere are some specific observations:\n- The temperature starts at `18.03` and gradually decreases.\n- There is no significant fluctuation; the readings remain relatively stable but trend downward slightly.\n- By the end of the recorded period, the temperature has dropped to about `17.86`.\n\nThis data suggests a gradual cooling process over the observed time frame.\n\nWould you like any further analysis or specific details from this dataset?",
+  "graph_exact_match": false,
+  "graph_f1": 0.08163265306122451,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 22.0})-[:GENERATED]->(m:Measurement)\nRETURN s.mote_id AS mote_id, m.time AS time, m.temperature AS value\nORDER BY m.time ASC",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "To determine how the temperature of sensor 22.0 changes over time, we need to look at all the entries for this specific sensor and analyze the temperatures recorded at different times.\n\nHere are the relevant entries from the data:\n\n1. **17:22:20.901052**: Temperature = 22.1836°C\n2. **17:34:22.281366**: Temperature = 22.0268°C\n\nFrom the data provided, we can see that:\n\n- At 17:22:20.901052, the temperature was 22.1836°C.\n- At 17:34:22.281366, the temperature dropped to 22.026",
+  "base_exact_match": false,
+  "base_f1": 0.14285714285714285,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T113934/0092_93.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 22.0})-[:GENERATED]->(m:Measurement)\nRETURN s.mote_id AS mote_id, m.time AS time, m.temperature AS value\nORDER BY m.time ASC"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "22"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": null
+          },
+          "analysis": {
+            "22": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1768,
+                  "mean": 22.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.0,
+                    "timestamp": "2004-02-28T00:59:16.853347"
+                  },
+                  "max": {
+                    "value": 22.0,
+                    "timestamp": "2004-02-28T00:59:16.853347"
+                  },
+                  "quantiles": {
+                    "p05": 22.0,
+                    "p50": 22.0,
+                    "p95": 22.0
+                  }
+                },
+                "trend": {
+                  "direction": "up",
+                  "slope_per_hour": 4.237711664634835e-17,
+                  "delta_start_end": 1.793321082440926e-14
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 21600,
+                  "buckets": [
+                    {
+                      "t_start": "2004-02-28T00:59:16.853347",
+                      "count": 613,
+                      "mean": 22.0,
+                      "min": 22.0,
+                      "max": 22.0,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-02-28T06:59:16.853347",
+                      "count": 624,
+                      "mean": 22.0,
+                      "min": 22.0,
+                      "max": 22.0,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-02-28T12:59:16.853347",
+                      "count": 505,
+                      "mean": 22.0,
+                      "min": 22.0,
+                      "max": 22.0,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-16T12:59:16.853347",
+                      "count": 27,
+                      "mean": 22.0,
+                      "min": 22.0,
+                      "max": 22.0,
+                      "std": 0.0
+                    }
+                  ]
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "value": {
+                "stats_global": {
+                  "count": 1768,
+                  "mean": 21.33138246606335,
+                  "std": 3.2762877036985056,
+                  "min": {
+                    "value": 16.4604,
+                    "timestamp": "2004-02-28T06:49:46.999845"
+                  },
+                  "max": {
+                    "value": 25.153,
+                    "timestamp": "2004-02-28T13:58:17.682039"
+                  },
+                  "quantiles": {
+                    "p05": 16.578,
+                    "p50": 22.5903,
+                    "p95": 24.9472
+                  }
+                },
+                "trend": {
+                  "direction": "up",
+                  "slope_per_hour": 0.006398294287946288,
+                  "delta_start_end": 2.707639628715553
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 21600,
+                  "buckets": [
+                    {
+                      "t_start": "2004-02-28T00:59:16.853347",
+                      "count": 613,
+                      "mean": 17.46813735725938,
+                      "min": 16.4604,
+                      "max": 19.6356,
+                      "std": 0.7105222363565104
+                    },
+                    {
+                      "t_start": "2004-02-28T06:59:16.853347",
+                      "count": 624,
+                      "mean": 23.04331442307692,
+                      "min": 16.4604,
+                      "max": 24.9276,
+                      "std": 2.5085544515366904
+                    },
+                    {
+                      "t_start": "2004-02-28T12:59:16.853347",
+                      "count": 505,
+                      "mean": 23.874536633663368,
+                      "min": 21.9582,
+                      "max": 25.153,
+                      "std": 0.9796815695534812
+                    },
+                    {
+                      "t_start": "2004-03-16T12:59:16.853347",
+                      "count": 27,
+                      "mean": 21.94331851851852,
+                      "min": 21.6152,
+                      "max": 22.2816,
+                      "std": 0.18608828557566437
+                    }
+                  ]
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1768,
+            "records": [
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T00:59:16.853347",
+                "value": 19.6356
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:06:46.52527",
+                "value": 18.7732
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:07:16.906579",
+                "value": 18.7536
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:07:49.735092",
+                "value": 18.7536
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:09:16.541705",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:09:46.115104",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:10:16.118916",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:10:46.688961",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:11:16.037251",
+                "value": 18.685
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:11:46.044607",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:12:16.835545",
+                "value": 18.6948
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:12:46.126228",
+                "value": 18.7144
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:13:16.330485",
+                "value": 18.7144
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:13:46.554159",
+                "value": 18.6948
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:14:16.539369",
+                "value": 18.6948
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:14:46.067345",
+                "value": 18.6948
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:15:16.812096",
+                "value": 18.685
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:15:46.426554",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:16:16.579167",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:17:46.801022",
+                "value": 18.636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:18:16.575291",
+                "value": 18.6556
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:18:46.299717",
+                "value": 18.636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:19:16.370171",
+                "value": 18.6458
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:19:46.83579",
+                "value": 18.6556
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:20:16.601026",
+                "value": 18.6458
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:20:46.303427",
+                "value": 18.636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:21:16.830311",
+                "value": 18.636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:21:46.595058",
+                "value": 18.636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:22:16.129219",
+                "value": 18.636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:22:46.107405",
+                "value": 18.636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:23:16.424787",
+                "value": 18.6262
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:23:46.814553",
+                "value": 18.6262
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:24:16.862255",
+                "value": 18.6164
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:24:46.851154",
+                "value": 18.6164
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:25:16.342356",
+                "value": 18.6066
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:26:16.837803",
+                "value": 18.5968
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:26:46.894496",
+                "value": 18.5968
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:27:16.097897",
+                "value": 18.5968
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:27:46.897111",
+                "value": 18.5968
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:28:16.93648",
+                "value": 18.5968
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:28:46.162878",
+                "value": 18.587
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:29:16.59028",
+                "value": 18.5772
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:29:46.327822",
+                "value": 18.587
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:30:16.89491",
+                "value": 18.5772
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:30:46.122081",
+                "value": 18.5772
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:31:16.590425",
+                "value": 18.5674
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:31:46.163614",
+                "value": 18.5674
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:32:46.84397",
+                "value": 18.5674
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:33:16.875794",
+                "value": 18.5576
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:34:16.337989",
+                "value": 18.5576
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:34:46.895994",
+                "value": 18.538
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:35:16.848957",
+                "value": 18.538
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:36:16.497992",
+                "value": 18.538
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:36:46.100646",
+                "value": 18.5282
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:37:15.994768",
+                "value": 18.538
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:37:46.407868",
+                "value": 18.5282
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:38:16.850636",
+                "value": 18.5282
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:38:46.774273",
+                "value": 18.5184
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:39:46.10668",
+                "value": 18.5184
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:40:46.025946",
+                "value": 18.4988
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:41:16.741334",
+                "value": 18.489
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:41:46.436104",
+                "value": 18.4792
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:42:16.638353",
+                "value": 18.4792
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:42:46.118199",
+                "value": 18.4694
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:43:16.129462",
+                "value": 18.4596
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:43:45.992052",
+                "value": 18.4498
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:44:16.390938",
+                "value": 18.44
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:45:46.51106",
+                "value": 18.44
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:46:16.004988",
+                "value": 18.44
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:46:46.496631",
+                "value": 18.44
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:47:16.623438",
+                "value": 18.44
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:47:46.264717",
+                "value": 18.44
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:48:16.769584",
+                "value": 18.44
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:48:46.007861",
+                "value": 18.4204
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:49:16.63121",
+                "value": 18.4204
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:49:46.527343",
+                "value": 18.4302
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:50:16.679994",
+                "value": 18.4302
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:50:46.760595",
+                "value": 18.4204
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:51:16.506808",
+                "value": 18.4008
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:51:46.011153",
+                "value": 18.4008
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:52:16.179433",
+                "value": 18.4008
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:53:46.787655",
+                "value": 18.4008
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:54:16.576061",
+                "value": 18.391
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:54:46.515012",
+                "value": 18.391
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:55:16.517516",
+                "value": 18.391
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:55:46.279859",
+                "value": 18.3812
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:56:16.53168",
+                "value": 18.3714
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:56:46.520414",
+                "value": 18.3616
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:57:16.646188",
+                "value": 18.3714
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:57:46.780222",
+                "value": 18.3714
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:58:16.035754",
+                "value": 18.3518
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:58:46.859175",
+                "value": 18.3518
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:59:16.789226",
+                "value": 18.3616
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:59:46.790478",
+                "value": 18.342
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:00:16.786415",
+                "value": 18.342
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:00:46.826225",
+                "value": 18.3322
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:01:46.559107",
+                "value": 18.3224
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:02:16.295431",
+                "value": 18.3224
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:02:46.875751",
+                "value": 18.3322
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:03:16.796715",
+                "value": 18.3322
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:03:46.541319",
+                "value": 18.3126
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:04:16.967189",
+                "value": 18.3126
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:04:46.532253",
+                "value": 18.3028
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:05:16.804972",
+                "value": 18.3028
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:05:46.297731",
+                "value": 18.3028
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:06:16.581289",
+                "value": 18.2832
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:07:16.753287",
+                "value": 18.2734
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:07:46.303548",
+                "value": 18.2734
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:08:46.729894",
+                "value": 18.2636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:09:16.05695",
+                "value": 18.2734
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:09:46.064382",
+                "value": 18.2734
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:10:16.056694",
+                "value": 18.2636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:10:46.069861",
+                "value": 18.2538
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:11:16.400915",
+                "value": 18.2636
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:11:46.684259",
+                "value": 18.2538
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:12:46.442692",
+                "value": 18.244
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:13:16.447719",
+                "value": 18.2244
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:13:46.235245",
+                "value": 18.244
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:14:16.742947",
+                "value": 18.2146
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:14:46.45305",
+                "value": 18.2146
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:15:16.495441",
+                "value": 18.2048
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:15:46.906426",
+                "value": 18.2048
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:16:16.50995",
+                "value": 18.2048
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:16:46.388193",
+                "value": 18.2244
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:17:16.772385",
+                "value": 18.2048
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:18:16.451632",
+                "value": 18.2048
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:18:46.221484",
+                "value": 18.2048
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:19:17.022091",
+                "value": 18.195
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:19:46.293678",
+                "value": 18.2048
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:20:16.3386",
+                "value": 18.195
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:20:46.37074",
+                "value": 18.1852
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:22:16.091138",
+                "value": 18.1656
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:22:46.853167",
+                "value": 18.1656
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:23:16.849263",
+                "value": 18.1656
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:23:46.971963",
+                "value": 18.146
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:24:16.735121",
+                "value": 18.1656
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:24:46.745787",
+                "value": 18.146
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:25:46.099466",
+                "value": 18.1362
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:26:16.226583",
+                "value": 18.1558
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:27:16.852502",
+                "value": 18.1362
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:27:46.113286",
+                "value": 18.146
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:28:16.745264",
+                "value": 18.1362
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:29:16.793865",
+                "value": 18.1068
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:29:46.736943",
+                "value": 18.1166
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:30:16.606453",
+                "value": 18.1068
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:31:16.973018",
+                "value": 18.1068
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:31:46.401155",
+                "value": 18.1068
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:32:16.423643",
+                "value": 18.1068
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:32:46.75545",
+                "value": 18.1068
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:33:46.43147",
+                "value": 18.0872
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:34:16.123333",
+                "value": 18.097
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:34:46.146177",
+                "value": 18.097
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:35:16.188517",
+                "value": 18.0872
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:35:46.161135",
+                "value": 18.0872
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:36:16.625503",
+                "value": 18.0774
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:36:46.135977",
+                "value": 18.0774
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:37:16.910156",
+                "value": 18.0676
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:37:46.38353",
+                "value": 18.0774
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:38:16.626858",
+                "value": 18.0578
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:38:46.647181",
+                "value": 18.0578
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:39:46.769663",
+                "value": 18.048
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:40:16.137572",
+                "value": 18.048
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:40:46.438328",
+                "value": 18.0382
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:41:16.313333",
+                "value": 18.0382
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:41:46.15903",
+                "value": 18.0284
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:42:16.637655",
+                "value": 18.0284
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:42:46.645385",
+                "value": 18.0284
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:43:16.180932",
+                "value": 18.0186
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:43:46.681402",
+                "value": 18.0088
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:44:46.936864",
+                "value": 18.0088
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:45:16.325669",
+                "value": 17.999
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:45:46.153191",
+                "value": 17.999
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:46:16.417609",
+                "value": 17.9892
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:46:46.650319",
+                "value": 17.9892
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:47:16.450642",
+                "value": 17.9892
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:47:46.544681",
+                "value": 17.9892
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:48:16.405738",
+                "value": 17.9696
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:48:46.15621",
+                "value": 17.9696
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:49:16.92228",
+                "value": 17.9696
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:49:46.409212",
+                "value": 17.9696
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:50:16.202434",
+                "value": 17.9696
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:50:46.704387",
+                "value": 17.9598
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:51:16.490533",
+                "value": 17.95
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:51:46.968425",
+                "value": 17.95
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:52:16.446085",
+                "value": 17.95
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:52:46.797756",
+                "value": 17.9402
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:53:16.811641",
+                "value": 17.9402
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:53:46.805715",
+                "value": 17.9206
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:54:16.701543",
+                "value": 17.9206
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:54:46.868217",
+                "value": 17.9108
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:55:46.236296",
+                "value": 17.9108
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:56:16.705662",
+                "value": 17.901
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:57:16.440085",
+                "value": 17.901
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:57:46.328183",
+                "value": 17.8912
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:58:16.88486",
+                "value": 17.901
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:58:46.255771",
+                "value": 17.8912
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:59:16.477486",
+                "value": 17.8912
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T02:59:46.808231",
+                "value": 17.8814
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T03:00:16.815824",
+                "value": 17.8814
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T03:01:16.59746",
+                "value": 17.8618
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "22"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": null
+          },
+          "raw": {
+            "total_records": 1768,
+            "records": [
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T00:59:16.853347",
+                "value": 19.6356
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:06:46.52527",
+                "value": 18.7732
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:07:16.906579",
+                "value": 18.7536
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:07:49.735092",
+                "value": 18.7536
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:09:16.541705",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:09:46.115104",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:10:16.118916",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:10:46.688961",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:11:16.037251",
+                "value": 18.685
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:11:46.044607",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:12:16.835545",
+                "value": 18.6948
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:12:46.126228",
+                "value": 18.7144
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:13:16.330485",
+                "value": 18.7144
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:13:46.554159",
+                "value": 18.6948
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:14:16.539369",
+                "value": 18.6948
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:14:46.067345",
+                "value": 18.6948
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:15:16.812096",
+                "value": 18.685
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:15:46.426554",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:16:16.579167",
+                "value": 18.6752
+              },
+              {
+                "mote_id": 22,
+                "time": "2004-02-28T01:17:46.801022",
+                "value": 18.636
+              }
+            ]
+          },
+          "analysis": {
+            "22": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1768,
+                  "mean": 22.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.0,
+                    "timestamp": "2004-02-28T00:59:16.853347"
+                  },
+                  "max": {
+                    "value": 22.0,
+                    "timestamp": "2004-02-28T00:59:16.853347"
+                  },
+                  "quantiles": {
+                    "p05": 22.0,
+                    "p50": 22.0,
+                    "p95": 22.0
+                  }
+                },
+                "trend": {
+                  "direction": "up",
+                  "slope_per_hour": 4.237711664634835e-17,
+                  "delta_start_end": 1.793321082440926e-14
+                }
+              },
+              "value": {
+                "stats_global": {
+                  "count": 1768,
+                  "mean": 21.33138246606335,
+                  "std": 3.2762877036985056,
+                  "min": {
+                    "value": 16.4604,
+                    "timestamp": "2004-02-28T06:49:46.999845"
+                  },
+                  "max": {
+                    "value": 25.153,
+                    "timestamp": "2004-02-28T13:58:17.682039"
+                  },
+                  "quantiles": {
+                    "p05": 16.578,
+                    "p50": 22.5903,
+                    "p95": 24.9472
+                  }
+                },
+                "trend": {
+                  "direction": "up",
+                  "slope_per_hour": 0.006398294287946288,
+                  "delta_start_end": 2.707639628715553
+                }
+              }
+            }
+          }
+        }
+      },
+      "generator": {
+        "answer": "The JSON object provided contains temperature readings from a sensor with ID `22` over a period of time on February 28, 2004. The data is structured as follows:\n\n- **Timestamp**: Each reading includes the exact timestamp when it was recorded.\n- **MoteID**: Identifier for the sensor that collected the data (`22` in this case).\n- **Value**: Temperature readings in degrees Celsius.\n\nHere are some key points about the temperature data:\n1. The first entry is at `02:00:46.875932`, with a temperature of `18.03`.\n2. The last entry is at `03:01:16.597460`, with a temperature of `17.8618`.\n\nThe temperatures generally show a slight decrease over time, from around `18` degrees Celsius to approximately `17.86` degrees Celsius.\n\nHere are some specific observations:\n- The temperature starts at `18.03` and gradually decreases.\n- There is no significant fluctuation; the readings remain relatively stable but trend downward slightly.\n- By the end of the recorded period, the temperature has dropped to about `17.86`.\n\nThis data suggests a gradual cooling process over the observed time frame.\n\nWould you like any further analysis or specific details from this dataset?",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1768,
+        "documents": [
+          {
+            "content": "{\"mote_id\": 22, \"time\": \"2004-02-28T00:59:16.853347\", \"value\": 19.6356}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 22, \"time\": \"2004-02-28T01:06:46.52527\", \"value\": 18.7732}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 22, \"time\": \"2004-02-28T01:07:16.906579\", \"value\": 18.7536}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 22, \"time\": \"2004-02-28T01:07:49.735092\", \"value\": 18.7536}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 22, \"time\": \"2004-02-28T01:09:16.541705\", \"value\": 18.6752}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 16:22:22.346384, sensor 16.0 measured temperature 22.5168°C, humidity 35.7839%, light 1435.2 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:22:22.346384",
+              "epoch": "1849",
+              "moteid": "16.0",
+              "temperature": "22.5168",
+              "humidity": "35.7839",
+              "light": "1435.2",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 17:22:18.222914, sensor 22.0 measured temperature 22.2914°C, humidity 35.3341%, light 165.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "17:22:18.222914",
+              "epoch": "1969",
+              "moteid": "22.0",
+              "temperature": "22.2914",
+              "humidity": "35.3341",
+              "light": "165.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 17:22:47.73191, sensor 22.0 measured temperature 22.2816°C, humidity 35.2995%, light 172.96 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "17:22:47.73191",
+              "epoch": "1970",
+              "moteid": "22.0",
+              "temperature": "22.2816",
+              "humidity": "35.2995",
+              "light": "172.96",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:22:47.721031, sensor 3.0 measured temperature 22.4776°C, humidity 34.536%, light 165.6 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:22:47.721031",
+              "epoch": "1850",
+              "moteid": "3.0",
+              "temperature": "22.4776",
+              "humidity": "34.536",
+              "light": "165.6",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:22:17.776162, sensor 4.0 measured temperature 22.1934°C, humidity 34.536%, light 368.0 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:22:17.776162",
+              "epoch": "1129",
+              "moteid": "4.0",
+              "temperature": "22.1934",
+              "humidity": "34.536",
+              "light": "368.0",
+              "voltage": "2.68742"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "To determine how the temperature of sensor 22.0 changes over time, we need to look at all the entries for this specific sensor and analyze the temperatures recorded at different times.\n\nHere are the relevant entries from the data:\n\n1. **17:22:20.901052**: Temperature = 22.1836°C\n2. **17:34:22.281366**: Temperature = 22.0268°C\n\nFrom the data provided, we can see that:\n\n- At 17:22:20.901052, the temperature was 22.1836°C.\n- At 17:34:22.281366, the temperature dropped to 22.026",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 93,
+      "category": "trend",
+      "question": "How does the temperature of sensor 22.0 change over time?",
+      "gold_answer": "The trend of Temperature for sensor 22.0 is: increasing.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 22})-[:GENERATED]->(m:Measurement)\nWHERE m.temperature IS NOT NULL\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC"
+    }
+  }
+}

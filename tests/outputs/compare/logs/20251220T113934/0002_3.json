@@ -1,0 +1,240 @@
+{
+  "id": 3,
+  "category": "factual",
+  "question": "What temperature did sensor 24.0 measure on 2004-02-28 at 00:58:46?",
+  "gold_answer": "Temperature of sensor 24.0 at 2004-02-28 00:58:46: 19.7728°C",
+  "graph_prediction": "Temperature of sensor 24.0 at 2004-02-28T00:58:46.206631: 19.7728°C",
+  "graph_exact_match": false,
+  "graph_f1": 0.8666666666666667,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 24.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:46\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Based on the data provided, sensor 24.0 measured a temperature of **17.9108°C** at 2004-02-28 00:58:46.\n\nHowever, it's important to note that there is no exact timestamp of \"00:58:46\" for sensor 24.0 in the provided data. The closest timestamps are:\n\n- **17.9108°C** at 2004-02-28 03:00:46.291567\n- **18.4008°C** at 2004-02-28 01:58:46.708646\n\nIf you need the exact temperature at 00:",
+  "base_exact_match": false,
+  "base_f1": 0.27368421052631575,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T113934/0002_3.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 24.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:46\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 19.7728,
+              "rows": 1
+            }
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 19.7728,
+                  "std": 0.0,
+                  "min": {
+                    "value": 19.7728,
+                    "timestamp": "2004-02-28T00:58:46.206631"
+                  },
+                  "max": {
+                    "value": 19.7728,
+                    "timestamp": "2004-02-28T00:58:46.206631"
+                  },
+                  "quantiles": {
+                    "p05": 19.7728,
+                    "p50": 19.7728,
+                    "p95": 19.7728
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T00:58:46.206631",
+                "value": 19.7728
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 19.7728,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T00:58:46.206631",
+                "value": 19.7728
+              }
+            ]
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 19.7728,
+                  "std": 0.0,
+                  "min": {
+                    "value": 19.7728,
+                    "timestamp": "2004-02-28T00:58:46.206631"
+                  },
+                  "max": {
+                    "value": 19.7728,
+                    "timestamp": "2004-02-28T00:58:46.206631"
+                  },
+                  "quantiles": {
+                    "p05": 19.7728,
+                    "p50": 19.7728,
+                    "p95": 19.7728
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "generator": {
+        "answer": "Temperature of sensor 24.0 at 2004-02-28T00:58:46.206631: 19.7728°C",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"time\": \"2004-02-28T00:58:46.206631\", \"value\": 19.7728}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 00:58:46.206631, sensor 24.0 measured temperature 19.7728°C, humidity 37.162%, light 143.52 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:46.206631",
+              "epoch": "2",
+              "moteid": "24.0",
+              "temperature": "19.7728",
+              "humidity": "37.162",
+              "light": "143.52",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-04-01 at 17:54:00.769778, sensor 58.0 measured temperature 24.9276°C, humidity 24.0729%, light 890.56 Lux, and voltage 2.85538V.",
+            "meta": {
+              "date": "2004-04-01",
+              "time": "17:54:00.769778",
+              "epoch": "38",
+              "moteid": "58.0",
+              "temperature": "24.9276",
+              "humidity": "24.0729",
+              "light": "890.56",
+              "voltage": "2.85538"
+            }
+          },
+          {
+            "content": "On 2004-04-01 at 17:53:00.268666, sensor 58.0 measured temperature 24.957°C, humidity 23.9636%, light 920.0 Lux, and voltage 2.85538V.",
+            "meta": {
+              "date": "2004-04-01",
+              "time": "17:53:00.268666",
+              "epoch": "36",
+              "moteid": "58.0",
+              "temperature": "24.957",
+              "humidity": "23.9636",
+              "light": "920.0",
+              "voltage": "2.85538"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 00:58:46.497331, sensor 3.0 measured temperature 20.204°C, humidity 36.8871%, light 50.6 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:46.497331",
+              "epoch": "2",
+              "moteid": "3.0",
+              "temperature": "20.204",
+              "humidity": "36.8871",
+              "light": "50.6",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 00:58:46.657464, sensor 6.0 measured temperature 20.4196°C, humidity 36.6118%, light 121.44 Lux, and voltage 2.65143V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:46.657464",
+              "epoch": "2",
+              "moteid": "6.0",
+              "temperature": "20.4196",
+              "humidity": "36.6118",
+              "light": "121.44",
+              "voltage": "2.65143"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Based on the data provided, sensor 24.0 measured a temperature of **17.9108°C** at 2004-02-28 00:58:46.\n\nHowever, it's important to note that there is no exact timestamp of \"00:58:46\" for sensor 24.0 in the provided data. The closest timestamps are:\n\n- **17.9108°C** at 2004-02-28 03:00:46.291567\n- **18.4008°C** at 2004-02-28 01:58:46.708646\n\nIf you need the exact temperature at 00:",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 3,
+      "category": "factual",
+      "question": "What temperature did sensor 24.0 measure on 2004-02-28 at 00:58:46?",
+      "gold_answer": "Temperature of sensor 24.0 at 2004-02-28 00:58:46: 19.7728°C",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 24})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:46\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}
