@@ -1,0 +1,173 @@
+{
+  "id": 77,
+  "category": "aggregation",
+  "question": "What is the average temperature in epoch 471?",
+  "gold_answer": "Average Temperature (Epoch 471): 19.877650000000003°C",
+  "graph_prediction": "Average Temperature (Epoch 471): 19.88°C",
+  "graph_exact_match": false,
+  "graph_f1": 0.8571428571428571,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 471}) RETURN avg(m.temperature) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "To determine the average temperature for epoch 471, we need to identify all the measurements taken during that specific epoch and calculate their average.\n\nHowever, from the provided data, there are no explicit epochs mentioned. Instead, each measurement is timestamped with a date and time. We would typically use these timestamps to group measurements into epochs if they were defined by certain intervals (e.g., every 10 minutes).\n\nSince \"epoch 471\" isn't clearly defined in the provided data, we can assume that it refers to a specific interval of time. Without additional context or definition for epoch 471, it's not possible to accurately determine which measurements belong to this epoch.\n\nIf you have more information about how epochs are defined (e.g., every 10 minutes starting from a certain timestamp), please provide that so we can calculate the average temperature accordingly.\n\nGiven the current",
+  "base_exact_match": false,
+  "base_f1": 0.05228758169934641,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T174138/0076_77.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 471}) RETURN avg(m.temperature) AS value"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 19.877650000000003,
+              "rows": 1
+            }
+          },
+          "analysis": {},
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 19.877650000000003
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 19.877650000000003,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 19.877650000000003
+              }
+            ]
+          },
+          "analysis": {}
+        }
+      },
+      "generator": {
+        "answer": "Average Temperature (Epoch 471): 19.88°C",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 19.877650000000003}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 05:42:46.830955, sensor 12.0 measured temperature 14.471°C, humidity 48.5139%, light 0.46 Lux, and voltage 2.63964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "05:42:46.830955",
+              "epoch": "570",
+              "moteid": "12.0",
+              "temperature": "14.471",
+              "humidity": "48.5139",
+              "light": "0.46",
+              "voltage": "2.63964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 06:12:17.088543, sensor 12.0 measured temperature 14.471°C, humidity 48.4166%, light 0.46 Lux, and voltage 2.63964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:12:17.088543",
+              "epoch": "629",
+              "moteid": "12.0",
+              "temperature": "14.471",
+              "humidity": "48.4166",
+              "light": "0.46",
+              "voltage": "2.63964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 07:00:16.933231, sensor 16.0 measured temperature 14.471°C, humidity 47.7013%, light 128.8 Lux, and voltage 2.59354V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "07:00:16.933231",
+              "epoch": "725",
+              "moteid": "16.0",
+              "temperature": "14.471",
+              "humidity": "47.7013",
+              "light": "128.8",
+              "voltage": "2.59354"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 05:00:46.389299, sensor 53.0 measured temperature 14.471°C, humidity 48.0593%, light 7.36 Lux, and voltage 2.65143V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "05:00:46.389299",
+              "epoch": "486",
+              "moteid": "53.0",
+              "temperature": "14.471",
+              "humidity": "48.0593",
+              "light": "7.36",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 05:28:17.128739, sensor 53.0 measured temperature 14.471°C, humidity 48.0267%, light 7.36 Lux, and voltage 2.65143V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "05:28:17.128739",
+              "epoch": "541",
+              "moteid": "53.0",
+              "temperature": "14.471",
+              "humidity": "48.0267",
+              "light": "7.36",
+              "voltage": "2.65143"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "To determine the average temperature for epoch 471, we need to identify all the measurements taken during that specific epoch and calculate their average.\n\nHowever, from the provided data, there are no explicit epochs mentioned. Instead, each measurement is timestamped with a date and time. We would typically use these timestamps to group measurements into epochs if they were defined by certain intervals (e.g., every 10 minutes).\n\nSince \"epoch 471\" isn't clearly defined in the provided data, we can assume that it refers to a specific interval of time. Without additional context or definition for epoch 471, it's not possible to accurately determine which measurements belong to this epoch.\n\nIf you have more information about how epochs are defined (e.g., every 10 minutes starting from a certain timestamp), please provide that so we can calculate the average temperature accordingly.\n\nGiven the current",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 77,
+      "category": "aggregation",
+      "question": "What is the average temperature in epoch 471?",
+      "gold_answer": "Average Temperature (Epoch 471): 19.877650000000003°C",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 471})\nRETURN avg(m.temperature) AS value"
+    }
+  }
+}

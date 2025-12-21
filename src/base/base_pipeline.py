@@ -35,6 +35,10 @@ from ..config import (
   DEFAULT_OLLAMA_URL,
   OLLAMA_GENERATOR_MODEL_ENV,
   OLLAMA_URL_ENV,
+  OLLAMA_GENERATOR_NUM_PREDICT_ENV,
+  OLLAMA_GENERATOR_TEMPERATURE_ENV,
+  DEFAULT_OLLAMA_GENERATOR_NUM_PREDICT,
+  DEFAULT_OLLAMA_GENERATOR_TEMPERATURE,
 )
 
 
@@ -42,15 +46,10 @@ load_dotenv()
 
 
 _DEFAULT_BASE_DATASET_RELATIVE = Path("data") / "base" / "data.jsonl"
-_DEFAULT_GENERATION_KWARGS: Dict[str, Any] = {"num_predict": 180, "temperature": 0.0}
 _DEFAULT_PREVIEW_DOCS = 3
 _DEFAULT_RETRIEVER_TOP_K = 50
 
 
-_RE_SENSOR = re.compile(r"\bsensor\s*(\d+(?:\.0)?)\b", re.IGNORECASE)
-_RE_EPOCH = re.compile(r"\bepoch\s*(\d+)\b", re.IGNORECASE)
-_RE_DATE = re.compile(r"\b(\d{4}-\d{2}-\d{2})\b")
-_RE_TIME = re.compile(r"\b(\d{2}:\d{2}:\d{2})\b")
 
 
 def load_base_documents(data_path: Optional[Path] = None) -> List[Document]:
@@ -101,7 +100,19 @@ def create_rag_pipeline(
     or os.getenv(OLLAMA_GENERATOR_MODEL_ENV)
     or DEFAULT_OLLAMA_MODEL
   )
-  resolved_kwargs = generation_kwargs or _DEFAULT_GENERATION_KWARGS
+  if generation_kwargs:
+    resolved_kwargs = generation_kwargs
+  else:
+    # Read generation kwargs from env if present, else use defaults from config
+    try:
+      num_predict = int(os.getenv(OLLAMA_GENERATOR_NUM_PREDICT_ENV, DEFAULT_OLLAMA_GENERATOR_NUM_PREDICT))
+    except Exception:
+      num_predict = DEFAULT_OLLAMA_GENERATOR_NUM_PREDICT
+    try:
+      temperature = float(os.getenv(OLLAMA_GENERATOR_TEMPERATURE_ENV, DEFAULT_OLLAMA_GENERATOR_TEMPERATURE))
+    except Exception:
+      temperature = DEFAULT_OLLAMA_GENERATOR_TEMPERATURE
+    resolved_kwargs = {"num_predict": num_predict, "temperature": temperature}
 
   docs = documents or load_base_documents()
 

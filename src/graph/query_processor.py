@@ -67,12 +67,14 @@ def postprocess_cypher(llm_text: str | None) -> str:
        strings for known numeric keys and IN-lists on mote_id.
     """
 
+    # Defensive: tolerate None and always return a string.
     if llm_text is None:
         return ""
 
+    # Normalize to a clean string (LLMs sometimes return surrounding whitespace).
     cypher = str(llm_text).strip()
 
-    # 1) Extract the first fenced code block, if present.
+    # 1) If the model wrapped the query in Markdown fences, extract the first block.
     if "```" in cypher:
         parts = cypher.split("```")
         if len(parts) >= 3:
@@ -82,10 +84,28 @@ def postprocess_cypher(llm_text: str | None) -> str:
                 lines = lines[1:]
             cypher = "\n".join(lines).strip()
 
-    # 2) Unquote numeric literals for known numeric keys.
+    # Early return if the result is empty after cleanup.
     if not cypher:
         return ""
 
+    # 2) Normalize metric aliasing for non-aggregate series.
+    # The prompt historically allowed returning `m.<metric> AS value` for point lookups
+    # and trend series. That loses the metric name, which makes downstream deterministic
+    # analysis ambiguous (Organizer can't know whether `value` is temperature/humidity/etc.).
+    #
+    # We rewrite ONLY the simple non-aggregate form `m.<metric> AS value` into
+    # `m.<metric> AS <metric>`.
+    #
+    # This intentionally does NOT touch aggregate expressions like `avg(m.temperature) AS value`.
+    cypher = re.sub(
+        r"\bm\.(temperature|humidity|light|voltage)\b\s+AS\s+value\b",
+        r"m.\1 AS \1",
+        cypher,
+        flags=re.IGNORECASE,
+    )
+
+    # 3) Unquote numeric literals for known numeric keys.
+    # Example: {mote_id: "1.0"} -> {mote_id: 1.0}
     # Map patterns: {mote_id: "1.0"}
     cypher = re.sub(
         r'(\b(?:mote_id|moteid|epoch_id|week|hour|minute)\b\s*:\s*)"(-?\d+(?:\.\d+)?)"',
@@ -94,7 +114,8 @@ def postprocess_cypher(llm_text: str | None) -> str:
         flags=re.IGNORECASE,
     )
 
-    # IN lists: WHERE s.mote_id IN ["1.0", "2.0"]
+    # 4) Also fix numeric strings inside IN-lists.
+    # Example: WHERE s.mote_id IN ["1.0", "2.0"] -> WHERE s.mote_id IN [1.0, 2.0]
     in_list_re = re.compile(
         r'(\b(?:s|m)\.(?:mote_id|moteid)\s+IN\s*\[)([^\]]*)(\])',
         flags=re.IGNORECASE,
@@ -177,7 +198,7 @@ class QueryProcessor:
 
             QUERY SHAPES (IMPORTANT)
             A) Factual point lookup (sensor + timestamp + metric)
-            Return exactly: m.time AS time, m.<metric> AS value; ORDER BY m.time ASC; LIMIT 1.
+                Return exactly: m.time AS time, m.<metric> AS <metric>; ORDER BY m.time ASC; LIMIT 1.
 
             B) List measurements (epoch, optional sensor)
             Return exactly these fields:
@@ -195,11 +216,11 @@ class QueryProcessor:
             Return exactly one field: <agg>(...) AS value or count(m) AS value.
 
             D) Trend series (sensor + metric)
-            Return: s.mote_id AS mote_id, m.time AS time, m.<metric> AS value; ORDER BY m.time ASC.
+                Return: s.mote_id AS mote_id, m.time AS time, m.<metric> AS <metric>; ORDER BY m.time ASC.
 
             E) Compare trends (two sensors + one metric)
             Still output ONE query: use WHERE s.mote_id IN [<S1>, <S2>].
-            Return mote_id, time, value; ORDER BY time ASC, mote_id ASC.
+                Return mote_id, time, <metric>; ORDER BY time ASC, mote_id ASC.
 
             USER QUESTION:
             {{query}}

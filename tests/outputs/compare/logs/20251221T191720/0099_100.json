@@ -1,0 +1,43 @@
+{
+  "id": 100,
+  "category": "negative",
+  "question": "Is there any light data for sensor 999.0?",
+  "gold_answer": "No data available.",
+  "graph_prediction": "[ERROR] name 'run_graph_with_debug' is not defined",
+  "graph_exact_match": false,
+  "graph_f1": 0.0,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": "name 'run_graph_with_debug' is not defined",
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T191720/0099_100.json",
+  "component_outputs": {
+    "graph": {
+      "error": "name 'run_graph_with_debug' is not defined"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 100,
+      "category": "negative",
+      "question": "Is there any light data for sensor 999.0?",
+      "gold_answer": "No data available.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 999})-[:GENERATED]->(m:Measurement)\nWHERE m.light IS NOT NULL\nRETURN count(m) AS value",
+      "gold_meta": {
+        "count": 0
+      }
+    }
+  }
+}

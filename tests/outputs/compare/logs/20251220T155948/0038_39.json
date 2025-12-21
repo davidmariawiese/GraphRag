@@ -1,0 +1,240 @@
+{
+  "id": 39,
+  "category": "factual",
+  "question": "What light did sensor 25.0 measure on 2004-02-28 at 01:01:16?",
+  "gold_answer": "Light of sensor 25.0 at 2004-02-28 01:01:16: 97.52Lux",
+  "graph_prediction": "Light of sensor 25.0 at 2004-02-28T01:01:16.095582: 97.52 Lux",
+  "graph_exact_match": false,
+  "graph_f1": 0.7586206896551724,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 25.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:01:16\"\nRETURN m.time AS time, m.light AS value\nORDER BY m.time ASC\nLIMIT 1",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Based on the data provided, sensor 25.0 measured a light value of **97.52 Lux** at 2004-02-28 at 01:01:16.\n\nHere is the relevant entry from the dataset:\n\n```\nOn 2004-02-28 at 01:01:16, sensor 25.0 measured temperature 17.93°C, humidity 40.0%, light 97.52 Lux, and voltage 2.68742V.\n```",
+  "base_exact_match": false,
+  "base_f1": 0.3561643835616438,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T155948/0038_39.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 25.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:01:16\"\nRETURN m.time AS time, m.light AS value\nORDER BY m.time ASC\nLIMIT 1"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 97.52,
+              "rows": 1
+            }
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 97.52,
+                  "std": 0.0,
+                  "min": {
+                    "value": 97.52,
+                    "timestamp": "2004-02-28T01:01:16.095582"
+                  },
+                  "max": {
+                    "value": 97.52,
+                    "timestamp": "2004-02-28T01:01:16.095582"
+                  },
+                  "quantiles": {
+                    "p05": 97.52,
+                    "p50": 97.52,
+                    "p95": 97.52
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T01:01:16.095582",
+                "value": 97.52
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 97.52,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T01:01:16.095582",
+                "value": 97.52
+              }
+            ]
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 97.52,
+                  "std": 0.0,
+                  "min": {
+                    "value": 97.52,
+                    "timestamp": "2004-02-28T01:01:16.095582"
+                  },
+                  "max": {
+                    "value": 97.52,
+                    "timestamp": "2004-02-28T01:01:16.095582"
+                  },
+                  "quantiles": {
+                    "p05": 97.52,
+                    "p50": 97.52,
+                    "p95": 97.52
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "generator": {
+        "answer": "Light of sensor 25.0 at 2004-02-28T01:01:16.095582: 97.52 Lux",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"time\": \"2004-02-28T01:01:16.095582\", \"value\": 97.52}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 01:01:16.095582, sensor 25.0 measured temperature 18.93°C, humidity 38.8039%, light 97.52 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:01:16.095582",
+              "epoch": "7",
+              "moteid": "25.0",
+              "temperature": "18.93",
+              "humidity": "38.8039",
+              "light": "97.52",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:25:16.858516, sensor 25.0 measured temperature 18.3028°C, humidity 40.0945%, light 97.52 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:25:16.858516",
+              "epoch": "55",
+              "moteid": "25.0",
+              "temperature": "18.3028",
+              "humidity": "40.0945",
+              "light": "97.52",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:25:46.466583, sensor 16.0 measured temperature 16.9112°C, humidity 44.6475%, light 18.4 Lux, and voltage 2.62796V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:25:46.466583",
+              "epoch": "56",
+              "moteid": "16.0",
+              "temperature": "16.9112",
+              "humidity": "44.6475",
+              "light": "18.4",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:16:16.379347, sensor 25.0 measured temperature 18.391°C, humidity 39.8235%, light 101.2 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:16:16.379347",
+              "epoch": "37",
+              "moteid": "25.0",
+              "temperature": "18.391",
+              "humidity": "39.8235",
+              "light": "101.2",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 06:01:17.500193, sensor 51.0 measured temperature 16.0586°C, humidity 42.25%, light 136.16 Lux, and voltage 2.65143V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:17.500193",
+              "epoch": "607",
+              "moteid": "51.0",
+              "temperature": "16.0586",
+              "humidity": "42.25",
+              "light": "136.16",
+              "voltage": "2.65143"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Based on the data provided, sensor 25.0 measured a light value of **97.52 Lux** at 2004-02-28 at 01:01:16.\n\nHere is the relevant entry from the dataset:\n\n```\nOn 2004-02-28 at 01:01:16, sensor 25.0 measured temperature 17.93°C, humidity 40.0%, light 97.52 Lux, and voltage 2.68742V.\n```",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 39,
+      "category": "factual",
+      "question": "What light did sensor 25.0 measure on 2004-02-28 at 01:01:16?",
+      "gold_answer": "Light of sensor 25.0 at 2004-02-28 01:01:16: 97.52Lux",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 25})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:01:16\"\nRETURN m.time AS time, m.light AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}
