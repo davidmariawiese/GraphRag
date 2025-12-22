@@ -1,0 +1,40 @@
+{
+  "id": 70,
+  "category": "aggregation",
+  "question": "What is the maximum light value in epoch 1957?",
+  "gold_answer": "Maximum Light (Epoch 1957): 1081.92Lux",
+  "graph_prediction": "Maximum Light (Epoch 1957): 1081.92 Lux",
+  "graph_exact_match": false,
+  "graph_f1": 0.7692307692307692,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T215142/0069_70.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "Maximum Light (Epoch 1957): 1081.92 Lux"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 70,
+      "category": "aggregation",
+      "question": "What is the maximum light value in epoch 1957?",
+      "gold_answer": "Maximum Light (Epoch 1957): 1081.92Lux",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1957})\nRETURN max(m.light) AS value"
+    }
+  }
+}

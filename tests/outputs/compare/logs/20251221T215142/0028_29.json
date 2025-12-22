@@ -1,0 +1,40 @@
+{
+  "id": 29,
+  "category": "factual",
+  "question": "What humidity did sensor 23.0 measure on 2004-02-28 at 01:00:16?",
+  "gold_answer": "Humidity of sensor 23.0 at 2004-02-28 01:00:16: 36.7495%",
+  "graph_prediction": "Humidity of sensor 23.0 at 2004-02-28T01:00:16.420708: 36.7495%",
+  "graph_exact_match": false,
+  "graph_f1": 0.8571428571428571,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T215142/0028_29.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "Humidity of sensor 23.0 at 2004-02-28T01:00:16.420708: 36.7495%"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 29,
+      "category": "factual",
+      "question": "What humidity did sensor 23.0 measure on 2004-02-28 at 01:00:16?",
+      "gold_answer": "Humidity of sensor 23.0 at 2004-02-28 01:00:16: 36.7495%",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 23})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:00:16\"\nRETURN m.time AS time, m.humidity AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

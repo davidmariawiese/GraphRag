@@ -1,0 +1,40 @@
+{
+  "id": 12,
+  "category": "factual",
+  "question": "What humidity did sensor 40.0 measure on 2004-02-28 at 00:58:47?",
+  "gold_answer": "Humidity of sensor 40.0 at 2004-02-28 00:58:47: 37.5737%",
+  "graph_prediction": "Humidity of sensor 40.0 at 2004-02-28T00:58:47.222833: 37.5737%",
+  "graph_exact_match": false,
+  "graph_f1": 0.8571428571428571,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Error while generating response for prompt: {'prompt': 'Instructions:\\nYour task is to judge the faithfulness or groundedness of statements based on context information. First, please extract statements from a provided predicted answer to a question. Second, calculate a faithfulness score for each statement made in the predicted answer. The score is 1 if the statement can be inferred from the provided context or 0 if it cannot be inferred.\\n\\nGenerate the response in JSON format with the following keys:\\n[\"statements\", \"statement_scores\"]\\nConsider the instructions and the examples below to determine those values.\\n\\nExamples:\\nInputs:\\n{\"questions\": \"What is the capital of Germany and when was it founded?\", \"contexts\": [\"Berlin is the capital of Germany and was founded in 1244.\"], \"predicted_answers\": \"The capital of Germany, Berlin, was founded in the 13th century.\"}\\nOutputs:\\n{\"statements\": [\"Berlin is the capital of Germany.\", \"Berlin was founded in 1244.\"], \"statement_scores\": [1, 1]}\\nInputs:\\n{\"questions\": \"What is the capital of France?\", \"contexts\": [\"Berlin is the capital of Germany.\"], \"predicted_answers\": \"Paris\"}\\nOutputs:\\n{\"statements\": [\"Paris is the capital of France.\"], \"statement_scores\": [0]}\\nInputs:\\n{\"questions\": \"What is the capital of Italy?\", \"contexts\": [\"Rome is the capital of Italy.\"], \"predicted_answers\": \"Rome is the capital of Italy with more than 4 million inhabitants.\"}\\nOutputs:\\n{\"statements\": [\"Rome is the capital of Italy.\", \"Rome has more than 4 million inhabitants.\"], \"statement_scores\": [1, 0]}\\n\\nInputs:\\n{\"questions\": What humidity did sensor 40.0 measure on 2004-02-28 at 00:58:47?, \"contexts\": [\\'\\'], \"predicted_answers\": Humidity of sensor 40.0 at 2004-02-28T00:58:47.222833: 37.5737%}\\nOutputs:'}. Error: unsupported operand type(s) for +: 'NoneType' and 'NoneType'",
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T204449/0011_12.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "Humidity of sensor 40.0 at 2004-02-28T00:58:47.222833: 37.5737%"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 12,
+      "category": "factual",
+      "question": "What humidity did sensor 40.0 measure on 2004-02-28 at 00:58:47?",
+      "gold_answer": "Humidity of sensor 40.0 at 2004-02-28 00:58:47: 37.5737%",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 40})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:47\"\nRETURN m.time AS time, m.humidity AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

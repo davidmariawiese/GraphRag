@@ -1,0 +1,158 @@
+{
+  "id": 74,
+  "category": "aggregation",
+  "question": "What is the maximum light value in epoch 58?",
+  "gold_answer": "Maximum Light (Epoch 58): 655.04Lux",
+  "graph": {
+    "answer": "Maximum Light (Epoch 58): 655.04 Lux",
+    "exact_match": false,
+    "f1": 0.7692307692307692,
+    "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 58}) RETURN max(m.light) AS value",
+    "cypher_policy_ok": true,
+    "cypher_explain_ok": true,
+    "cypher_error": null,
+    "error": null
+  },
+  "base": {
+    "answer": "To find the maximum light value for epoch 58, we need to look at all entries related to epoch 58 and identify the highest light value.\n\nFrom the provided data:\n\n- Epoch 58 has the following entries:\n    - `2004-03-29 at 16:43:58.963298, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 920.0 Lux, and voltage 2.09866V`\n    - `2004-03-29 at 20:58:43.408848, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.09127V`\n    - `2004-03-29 at 21:58:42.953809, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.09127V`\n    - `2004-03-29 at 22:58:43.505395, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.09127V`\n    - `2004-03-29 at 23:58:43.784773, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.08393V`\n    - `2004-03-30 at 00:58:13.687015, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.",
+    "exact_match": false,
+    "f1": 0.0404040404040404,
+    "error": null
+  },
+  "meta": {
+    "generator_model": "qwen2.5:32b-instruct",
+    "judge_model": "qwen2.5:32b-instruct"
+  },
+  "log_path": "/app/tests/outputs/20251222T100009/logs/0073_74.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 58}) RETURN max(m.light) AS value"
+      },
+      "retriever": {
+        "documents_total": 1
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 655.04,
+              "rows": 1
+            }
+          },
+          "analysis": {},
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 655.04
+              }
+            ]
+          }
+        }
+      },
+      "generator": {
+        "answer": "Maximum Light (Epoch 58): 655.04 Lux",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-04-01 at 17:51:58.163843, sensor 58.0 measured temperature 24.9668°C, humidity 23.7449%, light 920.0 Lux, and voltage 2.85538V.",
+            "meta": {
+              "date": "2004-04-01",
+              "time": "17:51:58.163843",
+              "epoch": "34",
+              "moteid": "58.0",
+              "temperature": "24.9668",
+              "humidity": "23.7449",
+              "light": "920.0",
+              "voltage": "2.85538"
+            }
+          },
+          {
+            "content": "On 2004-04-01 at 17:37:58.427006, sensor 58.0 measured temperature 25.3784°C, humidity 21.5839%, light 1023.04 Lux, and voltage 2.85538V.",
+            "meta": {
+              "date": "2004-04-01",
+              "time": "17:37:58.427006",
+              "epoch": "6",
+              "moteid": "58.0",
+              "temperature": "25.3784",
+              "humidity": "21.5839",
+              "light": "1023.04",
+              "voltage": "2.85538"
+            }
+          },
+          {
+            "content": "On 2004-04-01 at 17:41:58.333338, sensor 58.0 measured temperature 25.0452°C, humidity 22.3187%, light 1023.04 Lux, and voltage 2.85538V.",
+            "meta": {
+              "date": "2004-04-01",
+              "time": "17:41:58.333338",
+              "epoch": "14",
+              "moteid": "58.0",
+              "temperature": "25.0452",
+              "humidity": "22.3187",
+              "light": "1023.04",
+              "voltage": "2.85538"
+            }
+          },
+          {
+            "content": "On 2004-04-03 at 15:58:09.236422, sensor 58.0 measured temperature 25.0942°C, humidity 31.948%, light 26.68 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-04-03",
+              "time": "15:58:09.236422",
+              "epoch": "1216",
+              "moteid": "58.0",
+              "temperature": "25.0942",
+              "humidity": "31.948",
+              "light": "26.68",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-04-03 at 15:58:39.558579, sensor 58.0 measured temperature 25.0942°C, humidity 31.948%, light 26.68 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-04-03",
+              "time": "15:58:39.558579",
+              "epoch": "1217",
+              "moteid": "58.0",
+              "temperature": "25.0942",
+              "humidity": "31.948",
+              "light": "26.68",
+              "voltage": "2.69964"
+            }
+          }
+        ]
+      },
+      "llm": {
+        "answer": "To find the maximum light value for epoch 58, we need to look at all entries related to epoch 58 and identify the highest light value.\n\nFrom the provided data:\n\n- Epoch 58 has the following entries:\n    - `2004-03-29 at 16:43:58.963298, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 920.0 Lux, and voltage 2.09866V`\n    - `2004-03-29 at 20:58:43.408848, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.09127V`\n    - `2004-03-29 at 21:58:42.953809, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.09127V`\n    - `2004-03-29 at 22:58:43.505395, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.09127V`\n    - `2004-03-29 at 23:58:43.784773, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.08393V`\n    - `2004-03-30 at 00:58:13.687015, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 74,
+      "category": "aggregation",
+      "question": "What is the maximum light value in epoch 58?",
+      "gold_answer": "Maximum Light (Epoch 58): 655.04Lux",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 58})\nRETURN max(m.light) AS value"
+    },
+    "graph_judge_context": [
+      "aggregate_value=655.04 field=value",
+      "value=655.04"
+    ],
+    "base_judge_context": [
+      "On 2004-04-01 at 17:51:58.163843, sensor 58.0 measured temperature 24.9668°C, humidity 23.7449%, light 920.0 Lux, and voltage 2.85538V.",
+      "On 2004-04-01 at 17:37:58.427006, sensor 58.0 measured temperature 25.3784°C, humidity 21.5839%, light 1023.04 Lux, and voltage 2.85538V.",
+      "On 2004-04-01 at 17:41:58.333338, sensor 58.0 measured temperature 25.0452°C, humidity 22.3187%, light 1023.04 Lux, and voltage 2.85538V.",
+      "On 2004-04-03 at 15:58:09.236422, sensor 58.0 measured temperature 25.0942°C, humidity 31.948%, light 26.68 Lux, and voltage 2.69964V.",
+      "On 2004-04-03 at 15:58:39.558579, sensor 58.0 measured temperature 25.0942°C, humidity 31.948%, light 26.68 Lux, and voltage 2.69964V."
+    ]
+  }
+}

@@ -1,0 +1,515 @@
+{
+  "id": 57,
+  "category": "list",
+  "question": "List all measurements from sensor 17.0 in epoch 12.",
+  "gold_answer": "mote_id=17 time=2004-02-28T01:11:16.917886 temperature=18.4988 humidity=39.9591 light=32.2 voltage=2.57108\nmote_id=17 time=2004-02-28T06:14:16.383795 temperature=16.3134 humidity=41.7469 light=7.36 voltage=2.52732\nmote_id=17 time=2004-03-17T18:41:14.567279 temperature=122.153 humidity=-4.0 light=114.08 voltage=2.19159\nmote_id=17 time=2004-03-18T00:08:45.616237 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.15188\nmote_id=17 time=2004-03-18T07:20:46.235553 temperature=122.153 humidity=-3.91901 light=1552.96 voltage=2.12114\nmote_id=17 time=2004-03-19T10:20:18.441054 temperature=122.153 humidity=-3.91901 light=1199.68 voltage=2.12114",
+  "graph": {
+    "answer": "Based on the provided data, here is a summary of the measurements recorded by mote ID 17:\n\n### Temperature:\n- **Average**: 80.63°C\n- **Minimum**: 16.31°C at `2004-02-28T06:14:16.383795`\n- **Maximum**: 122.15°C from `2004-03-17T18:41:14.567279` to `2004-03-19T10:20:18.441054`\n- **Trend**: The temperature increased significantly from early February to mid-March.\n\n### Humidity:\n- **Average**: 21.56%\n- **Minimum**: -4.0% at `2004-03-17T18:41:14.567279`\n- **Maximum**: 41.75% at `2004-02-28T06:14:16.383795`\n- **Trend**: Humidity values decreased significantly after mid-March.\n\n### Light:\n- **Average**: 377.5 lumens\n- **Minimum**: 7.36 lumens at `2004-02-28T06:14:16.383795`\n- **Maximum**: 1552.96 lumens at `2004-03-18T07:20:46.235553`\n- **Trend**: Light levels increased significantly from early February to mid-March.\n\n### Voltage:\n- **Average**: 2.28V\n- **Minimum**: 2.12V at `2004-03-18T07:20:46.235553`\n- **Maximum**: 2.57V at `2004-02-28T01:11:16.917886`\n- **Trend**: Voltage levels decreased slightly over time.\n\n### Summary:\nThe data shows significant changes in temperature, humidity, and light levels from early February to mid",
+    "exact_match": false,
+    "f1": 0.37254901960784315,
+    "cypher": "MATCH (s:Sensor {mote_id: 17.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 12})\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage\nORDER BY m.time ASC, mote_id ASC\nLIMIT 20",
+    "cypher_policy_ok": true,
+    "cypher_explain_ok": true,
+    "cypher_error": null,
+    "error": null
+  },
+  "base": {
+    "answer": "Based on the provided data, here are all the measurements from sensor 17.0 that occurred at epoch 12:\n\n- **Timestamp:** 2004-02-28 at 12:12:17.638368  \n  - Temperature: 24.5944°C\n  - Humidity: 30.3238%\n  - Light: 566.72 Lux\n  - Voltage: 2.74963V\n\n- **Timestamp:** 2004-02-28 at 12:12:47.146976  \n  - Temperature: 23.3204°C\n  - Humidity: 32.7557%\n  - Light: 684.48 Lux\n  - Voltage: 2.61639V\n\n- **Timestamp:** 2004-02-28 at 12:12:17.533937  \n  - Temperature: 22.6638°C\n  - Humidity: 35.1609%\n  - Light: 1847.36 Lux\n  - Voltage: 2.67532V\n\n- **Timestamp:** 2004-02-28 at 12:12:17.219608  \n  - Temperature: 24.0064°C\n  - Humidity: 32.8608%\n  - Light: 1023.04 Lux\n  - Voltage: 2.7244V\n\n- **Timestamp:** 2004-02-28 at 12:12:17.990015  \n  - Temperature: 25.5058°C\n  - Humidity: 29.08%\n  - Light: 537.28 Lux\n  - Voltage: 2.73696V\n\n- **Timestamp:** 2004-02-28 at 12:12:17.040366  \n  - Temperature: 26.035°C\n ",
+    "exact_match": false,
+    "f1": 0.3223443223443223,
+    "error": null
+  },
+  "meta": {
+    "generator_model": "qwen2.5:32b-instruct",
+    "judge_model": "qwen2.5:32b-instruct"
+  },
+  "log_path": "/app/tests/outputs/20251222T100009/logs/0056_57.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 17.0})-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 12})\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage\nORDER BY m.time ASC, mote_id ASC\nLIMIT 20"
+      },
+      "retriever": {
+        "documents_total": 6
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "17"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": null
+          },
+          "analysis": {
+            "17": {
+              "temperature": {
+                "stats_global": {
+                  "count": 6,
+                  "mean": 87.23736666666667,
+                  "std": 54.095481141022,
+                  "min": {
+                    "value": 16.3134,
+                    "timestamp": "2004-02-28T06:14:16.383795"
+                  },
+                  "max": {
+                    "value": 122.153,
+                    "timestamp": "2004-03-17T18:41:14.567279"
+                  },
+                  "quantiles": {
+                    "p05": 16.859750000000002,
+                    "p50": 122.153,
+                    "p95": 122.153
+                  }
+                },
+                "trend": {
+                  "direction": "up",
+                  "slope_per_hour": 0.2262424219641653,
+                  "delta_start_end": 110.66657642744295
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 21600,
+                  "buckets": [
+                    {
+                      "t_start": "2004-02-28T01:11:16.917886",
+                      "count": 2,
+                      "mean": 17.406100000000002,
+                      "min": 16.3134,
+                      "max": 18.4988,
+                      "std": 1.5453111596050795
+                    },
+                    {
+                      "t_start": "2004-03-17T13:11:16.917886",
+                      "count": 1,
+                      "mean": 122.153,
+                      "min": 122.153,
+                      "max": 122.153,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-17T19:11:16.917886",
+                      "count": 1,
+                      "mean": 122.153,
+                      "min": 122.153,
+                      "max": 122.153,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-18T07:11:16.917886",
+                      "count": 1,
+                      "mean": 122.153,
+                      "min": 122.153,
+                      "max": 122.153,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-19T07:11:16.917886",
+                      "count": 2,
+                      "mean": 122.153,
+                      "min": 122.153,
+                      "max": 122.153,
+                      "std": 0.0
+                    }
+                  ]
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 6,
+                  "mean": 10.991494999999999,
+                  "std": 23.137551627387673,
+                  "min": {
+                    "value": -4.0,
+                    "timestamp": "2004-03-17T18:41:14.567279"
+                  },
+                  "max": {
+                    "value": 41.7469,
+                    "timestamp": "2004-02-28T06:14:16.383795"
+                  },
+                  "quantiles": {
+                    "p05": -3.9797525,
+                    "p50": -3.91901,
+                    "p95": 41.299949999999995
+                  }
+                },
+                "trend": {
+                  "direction": "down",
+                  "slope_per_hour": -0.09673495162242567,
+                  "delta_start_end": -47.31794251488251
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 21600,
+                  "buckets": [
+                    {
+                      "t_start": "2004-02-28T01:11:16.917886",
+                      "count": 2,
+                      "mean": 40.852999999999994,
+                      "min": 39.9591,
+                      "max": 41.7469,
+                      "std": 1.2641655034053076
+                    },
+                    {
+                      "t_start": "2004-03-17T13:11:16.917886",
+                      "count": 1,
+                      "mean": -4.0,
+                      "min": -4.0,
+                      "max": -4.0,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-17T19:11:16.917886",
+                      "count": 1,
+                      "mean": -3.91901,
+                      "min": -3.91901,
+                      "max": -3.91901,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-18T07:11:16.917886",
+                      "count": 1,
+                      "mean": -3.91901,
+                      "min": -3.91901,
+                      "max": -3.91901,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-19T07:11:16.917886",
+                      "count": 2,
+                      "mean": -3.91901,
+                      "min": -3.91901,
+                      "max": -3.91901,
+                      "std": 0.0
+                    }
+                  ]
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 6,
+                  "mean": 504.62,
+                  "std": 685.8457154783429,
+                  "min": {
+                    "value": 7.36,
+                    "timestamp": "2004-02-28T06:14:16.383795"
+                  },
+                  "max": {
+                    "value": 1552.96,
+                    "timestamp": "2004-03-18T07:20:46.235553"
+                  },
+                  "quantiles": {
+                    "p05": 13.57,
+                    "p50": 117.75999999999999,
+                    "p95": 1464.64
+                  }
+                },
+                "trend": {
+                  "direction": "up",
+                  "slope_per_hour": 1.6575654319550401,
+                  "delta_start_end": 810.7988323604256
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 21600,
+                  "buckets": [
+                    {
+                      "t_start": "2004-02-28T01:11:16.917886",
+                      "count": 2,
+                      "mean": 19.78,
+                      "min": 7.36,
+                      "max": 32.2,
+                      "std": 17.56453244467384
+                    },
+                    {
+                      "t_start": "2004-03-17T13:11:16.917886",
+                      "count": 1,
+                      "mean": 114.08,
+                      "min": 114.08,
+                      "max": 114.08,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-17T19:11:16.917886",
+                      "count": 1,
+                      "mean": 121.44,
+                      "min": 121.44,
+                      "max": 121.44,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-18T07:11:16.917886",
+                      "count": 1,
+                      "mean": 1552.96,
+                      "min": 1552.96,
+                      "max": 1552.96,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-19T07:11:16.917886",
+                      "count": 2,
+                      "mean": 1199.68,
+                      "min": 1199.68,
+                      "max": 1199.68,
+                      "std": 0.0
+                    }
+                  ]
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 6,
+                  "mean": 2.280691666666667,
+                  "std": 0.21004568078555352,
+                  "min": {
+                    "value": 2.12114,
+                    "timestamp": "2004-03-18T07:20:46.235553"
+                  },
+                  "max": {
+                    "value": 2.57108,
+                    "timestamp": "2004-02-28T01:11:16.917886"
+                  },
+                  "quantiles": {
+                    "p05": 2.12114,
+                    "p50": 2.171735,
+                    "p95": 2.5601399999999996
+                  }
+                },
+                "trend": {
+                  "direction": "down",
+                  "slope_per_hour": -0.0008749294994928849,
+                  "delta_start_end": -0.42797213486156016
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 21600,
+                  "buckets": [
+                    {
+                      "t_start": "2004-02-28T01:11:16.917886",
+                      "count": 2,
+                      "mean": 2.5492,
+                      "min": 2.52732,
+                      "max": 2.57108,
+                      "std": 0.030942992744723178
+                    },
+                    {
+                      "t_start": "2004-03-17T13:11:16.917886",
+                      "count": 1,
+                      "mean": 2.19159,
+                      "min": 2.19159,
+                      "max": 2.19159,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-17T19:11:16.917886",
+                      "count": 1,
+                      "mean": 2.15188,
+                      "min": 2.15188,
+                      "max": 2.15188,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-18T07:11:16.917886",
+                      "count": 1,
+                      "mean": 2.12114,
+                      "min": 2.12114,
+                      "max": 2.12114,
+                      "std": 0.0
+                    },
+                    {
+                      "t_start": "2004-03-19T07:11:16.917886",
+                      "count": 2,
+                      "mean": 2.12114,
+                      "min": 2.12114,
+                      "max": 2.12114,
+                      "std": 0.0
+                    }
+                  ]
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 6,
+            "records": [
+              {
+                "mote_id": 17,
+                "Measurement": {
+                  "time": "2004-02-28T01:11:16.917886",
+                  "temperature": 18.4988,
+                  "humidity": 39.9591,
+                  "light": 32.2,
+                  "voltage": 2.57108
+                }
+              },
+              {
+                "mote_id": 17,
+                "Measurement": {
+                  "time": "2004-02-28T06:14:16.383795",
+                  "temperature": 16.3134,
+                  "humidity": 41.7469,
+                  "light": 7.36,
+                  "voltage": 2.52732
+                }
+              },
+              {
+                "mote_id": 17,
+                "Measurement": {
+                  "time": "2004-03-17T18:41:14.567279",
+                  "temperature": 122.153,
+                  "humidity": -4.0,
+                  "light": 114.08,
+                  "voltage": 2.19159
+                }
+              },
+              {
+                "mote_id": 17,
+                "Measurement": {
+                  "time": "2004-03-18T00:08:45.616237",
+                  "temperature": 122.153,
+                  "humidity": -3.91901,
+                  "light": 121.44,
+                  "voltage": 2.15188
+                }
+              },
+              {
+                "mote_id": 17,
+                "Measurement": {
+                  "time": "2004-03-18T07:20:46.235553",
+                  "temperature": 122.153,
+                  "humidity": -3.91901,
+                  "light": 1552.96,
+                  "voltage": 2.12114
+                }
+              },
+              {
+                "mote_id": 17,
+                "Measurement": {
+                  "time": "2004-03-19T10:20:18.441054",
+                  "temperature": 122.153,
+                  "humidity": -3.91901,
+                  "light": 1199.68,
+                  "voltage": 2.12114
+                }
+              }
+            ]
+          }
+        }
+      },
+      "generator": {
+        "answer": "Based on the provided data, here is a summary of the measurements recorded by mote ID 17:\n\n### Temperature:\n- **Average**: 80.63°C\n- **Minimum**: 16.31°C at `2004-02-28T06:14:16.383795`\n- **Maximum**: 122.15°C from `2004-03-17T18:41:14.567279` to `2004-03-19T10:20:18.441054`\n- **Trend**: The temperature increased significantly from early February to mid-March.\n\n### Humidity:\n- **Average**: 21.56%\n- **Minimum**: -4.0% at `2004-03-17T18:41:14.567279`\n- **Maximum**: 41.75% at `2004-02-28T06:14:16.383795`\n- **Trend**: Humidity values decreased significantly after mid-March.\n\n### Light:\n- **Average**: 377.5 lumens\n- **Minimum**: 7.36 lumens at `2004-02-28T06:14:16.383795`\n- **Maximum**: 1552.96 lumens at `2004-03-18T07:20:46.235553`\n- **Trend**: Light levels increased significantly from early February to mid-March.\n\n### Voltage:\n- **Average**: 2.28V\n- **Minimum**: 2.12V at `2004-03-18T07:20:46.235553`\n- **Maximum**: 2.57V at `2004-02-28T01:11:16.917886`\n- **Trend**: Voltage levels decreased slightly over time.\n\n### Summary:\nThe data shows significant changes in temperature, humidity, and light levels from early February to mid",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 12:17:17.650162, sensor 12.0 measured temperature 20.0178°C, humidity 39.6878%, light 1847.36 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "12:17:17.650162",
+              "epoch": "1359",
+              "moteid": "12.0",
+              "temperature": "20.0178",
+              "humidity": "39.6878",
+              "light": "1847.36",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 12:12:17.43307, sensor 17.0 measured temperature 23.3302°C, humidity 32.7907%, light 684.48 Lux, and voltage 2.61639V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "12:12:17.43307",
+              "epoch": "1349",
+              "moteid": "17.0",
+              "temperature": "23.3302",
+              "humidity": "32.7907",
+              "light": "684.48",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 06:12:17.579348, sensor 23.0 measured temperature 17.4698°C, humidity 38.872%, light 217.12 Lux, and voltage 2.66332V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:12:17.579348",
+              "epoch": "629",
+              "moteid": "23.0",
+              "temperature": "17.4698",
+              "humidity": "38.872",
+              "light": "217.12",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 03:12:17.068494, sensor 36.0 measured temperature 17.9598°C, humidity 42.9523%, light 79.12 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:12:17.068494",
+              "epoch": "269",
+              "moteid": "36.0",
+              "temperature": "17.9598",
+              "humidity": "42.9523",
+              "light": "79.12",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 12:12:17.379536, sensor 1.0 measured temperature 24.6042°C, humidity 30.5363%, light 426.88 Lux, and voltage 2.74963V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "12:12:17.379536",
+              "epoch": "1349",
+              "moteid": "1.0",
+              "temperature": "24.6042",
+              "humidity": "30.5363",
+              "light": "426.88",
+              "voltage": "2.74963"
+            }
+          }
+        ]
+      },
+      "llm": {
+        "answer": "Based on the provided data, here are all the measurements from sensor 17.0 that occurred at epoch 12:\n\n- **Timestamp:** 2004-02-28 at 12:12:17.638368  \n  - Temperature: 24.5944°C\n  - Humidity: 30.3238%\n  - Light: 566.72 Lux\n  - Voltage: 2.74963V\n\n- **Timestamp:** 2004-02-28 at 12:12:47.146976  \n  - Temperature: 23.3204°C\n  - Humidity: 32.7557%\n  - Light: 684.48 Lux\n  - Voltage: 2.61639V\n\n- **Timestamp:** 2004-02-28 at 12:12:17.533937  \n  - Temperature: 22.6638°C\n  - Humidity: 35.1609%\n  - Light: 1847.36 Lux\n  - Voltage: 2.67532V\n\n- **Timestamp:** 2004-02-28 at 12:12:17.219608  \n  - Temperature: 24.0064°C\n  - Humidity: 32.8608%\n  - Light: 1023.04 Lux\n  - Voltage: 2.7244V\n\n- **Timestamp:** 2004-02-28 at 12:12:17.990015  \n  - Temperature: 25.5058°C\n  - Humidity: 29.08%\n  - Light: 537.28 Lux\n  - Voltage: 2.73696V\n\n- **Timestamp:** 2004-02-28 at 12:12:17.040366  \n  - Temperature: 26.035°C\n ",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 57,
+      "category": "list",
+      "question": "List all measurements from sensor 17.0 in epoch 12.",
+      "gold_answer": "mote_id=17 time=2004-02-28T01:11:16.917886 temperature=18.4988 humidity=39.9591 light=32.2 voltage=2.57108\nmote_id=17 time=2004-02-28T06:14:16.383795 temperature=16.3134 humidity=41.7469 light=7.36 voltage=2.52732\nmote_id=17 time=2004-03-17T18:41:14.567279 temperature=122.153 humidity=-4.0 light=114.08 voltage=2.19159\nmote_id=17 time=2004-03-18T00:08:45.616237 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.15188\nmote_id=17 time=2004-03-18T07:20:46.235553 temperature=122.153 humidity=-3.91901 light=1552.96 voltage=2.12114\nmote_id=17 time=2004-03-19T10:20:18.441054 temperature=122.153 humidity=-3.91901 light=1199.68 voltage=2.12114",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 17})-[:GENERATED]->(m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 12})\nWITH m, s\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage ORDER BY time, mote_id LIMIT 20",
+      "gold_meta": {
+        "total": 6
+      }
+    },
+    "graph_judge_context": [
+      "mote_id=17 Measurement={'time': '2004-02-28T01:11:16.917886', 'temperature': 18.4988, 'humidity': 39.9591, 'light': 32.2, 'voltage': 2.57108}",
+      "mote_id=17 Measurement={'time': '2004-02-28T06:14:16.383795', 'temperature': 16.3134, 'humidity': 41.7469, 'light': 7.36, 'voltage': 2.52732}",
+      "mote_id=17 Measurement={'time': '2004-03-17T18:41:14.567279', 'temperature': 122.153, 'humidity': -4.0, 'light': 114.08, 'voltage': 2.19159}",
+      "mote_id=17 Measurement={'time': '2004-03-18T00:08:45.616237', 'temperature': 122.153, 'humidity': -3.91901, 'light': 121.44, 'voltage': 2.15188}",
+      "mote_id=17 Measurement={'time': '2004-03-18T07:20:46.235553', 'temperature': 122.153, 'humidity': -3.91901, 'light': 1552.96, 'voltage': 2.12114}",
+      "mote_id=17 Measurement={'time': '2004-03-19T10:20:18.441054', 'temperature': 122.153, 'humidity': -3.91901, 'light': 1199.68, 'voltage': 2.12114}"
+    ],
+    "base_judge_context": [
+      "On 2004-02-28 at 12:17:17.650162, sensor 12.0 measured temperature 20.0178°C, humidity 39.6878%, light 1847.36 Lux, and voltage 2.68742V.",
+      "On 2004-02-28 at 12:12:17.43307, sensor 17.0 measured temperature 23.3302°C, humidity 32.7907%, light 684.48 Lux, and voltage 2.61639V.",
+      "On 2004-02-28 at 06:12:17.579348, sensor 23.0 measured temperature 17.4698°C, humidity 38.872%, light 217.12 Lux, and voltage 2.66332V.",
+      "On 2004-02-28 at 03:12:17.068494, sensor 36.0 measured temperature 17.9598°C, humidity 42.9523%, light 79.12 Lux, and voltage 2.67532V.",
+      "On 2004-02-28 at 12:12:17.379536, sensor 1.0 measured temperature 24.6042°C, humidity 30.5363%, light 426.88 Lux, and voltage 2.74963V."
+    ]
+  }
+}

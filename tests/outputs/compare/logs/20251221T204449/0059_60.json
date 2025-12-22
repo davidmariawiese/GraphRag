@@ -1,0 +1,43 @@
+{
+  "id": 60,
+  "category": "list",
+  "question": "List all measurements from sensor 17.0 in epoch 5.",
+  "gold_answer": "mote_id=17 time=2004-02-28T02:38:16.856602 temperature=18.1068 humidity=39.5521 light=7.36 voltage=2.56\nmote_id=17 time=2004-03-17T13:03:35.340233 temperature=122.153 humidity=-3.91901 light=861.12 voltage=2.16759\nmote_id=17 time=2004-03-18T00:05:15.577063 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.15188\nmote_id=17 time=2004-03-19T12:48:18.724519 temperature=122.153 humidity=-3.91901 light=964.16 voltage=2.1061\nmote_id=17 time=2004-03-20T04:44:21.694142 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.06222",
+  "graph_prediction": "Here are the measurements for mote_id 17 in epoch 5:\n\n1. **Time:** 2004-02-28T02:38:16.856602  \n   - Temperature: 18.1068°C  \n   - Humidity: 39.5521%  \n   - Light: 7.36 lux  \n   - Voltage: 2.56 V  \n\n2. **Time:** 2004-03-17T13:03:35.340233  \n   - Temperature: 122.153°C  \n   - Humidity: -3.91901%  \n   - Light: 861.12 lux  \n   - Voltage: 2.16759 V  \n\n3. **Time:** 2004-03-18T00:05:15.577063  \n   - Temperature: 122.153°C  \n   - Humidity: -3.91901%  \n   - Light: 121.44 lux  \n   - Voltage: 2.15188 V  \n\n4. **Time:** 2004-03-19T12:48:18.724519  \n   - Temperature: 122.153°C  \n   - Humidity: -3.91901%  \n   - Light: 964.16 lux  \n   - Voltage: 2.1061 V  \n\n5. **Time:** 2004-03-20T04:44:21.694142  \n   - Temperature: 122.153°C  \n   - Humidity: -3.91901%  \n   - Light: 121.44 lux  \n   - Voltage: 2.06222 V  \n\nThese are the recorded measurements for mote_id 17 across different timestamps within epoch 5.",
+  "graph_exact_match": false,
+  "graph_f1": 0.8114754098360656,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T204449/0059_60.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "Here are the measurements for mote_id 17 in epoch 5:\n\n1. **Time:** 2004-02-28T02:38:16.856602  \n   - Temperature: 18.1068°C  \n   - Humidity: 39.5521%  \n   - Light: 7.36 lux  \n   - Voltage: 2.56 V  \n\n2. **Time:** 2004-03-17T13:03:35.340233  \n   - Temperature: 122.153°C  \n   - Humidity: -3.91901%  \n   - Light: 861.12 lux  \n   - Voltage: 2.16759 V  \n\n3. **Time:** 2004-03-18T00:05:15.577063  \n   - Temperature: 122.153°C  \n   - Humidity: -3.91901%  \n   - Light: 121.44 lux  \n   - Voltage: 2.15188 V  \n\n4. **Time:** 2004-03-19T12:48:18.724519  \n   - Temperature: 122.153°C  \n   - Humidity: -3.91901%  \n   - Light: 964.16 lux  \n   - Voltage: 2.1061 V  \n\n5. **Time:** 2004-03-20T04:44:21.694142  \n   - Temperature: 122.153°C  \n   - Humidity: -3.91901%  \n   - Light: 121.44 lux  \n   - Voltage: 2.06222 V  \n\nThese are the recorded measurements for mote_id 17 across different timestamps within epoch 5."
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 60,
+      "category": "list",
+      "question": "List all measurements from sensor 17.0 in epoch 5.",
+      "gold_answer": "mote_id=17 time=2004-02-28T02:38:16.856602 temperature=18.1068 humidity=39.5521 light=7.36 voltage=2.56\nmote_id=17 time=2004-03-17T13:03:35.340233 temperature=122.153 humidity=-3.91901 light=861.12 voltage=2.16759\nmote_id=17 time=2004-03-18T00:05:15.577063 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.15188\nmote_id=17 time=2004-03-19T12:48:18.724519 temperature=122.153 humidity=-3.91901 light=964.16 voltage=2.1061\nmote_id=17 time=2004-03-20T04:44:21.694142 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.06222",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 17})-[:GENERATED]->(m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 5})\nWITH m, s\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage ORDER BY time, mote_id LIMIT 20",
+      "gold_meta": {
+        "total": 5
+      }
+    }
+  }
+}

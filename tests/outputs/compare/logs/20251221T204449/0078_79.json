@@ -1,0 +1,40 @@
+{
+  "id": 79,
+  "category": "aggregation",
+  "question": "What is the average temperature in epoch 957?",
+  "gold_answer": "Average Temperature (Epoch 957): 22.63243°C",
+  "graph_prediction": "Average Temperature (Epoch 957): 22.63°C",
+  "graph_exact_match": false,
+  "graph_f1": 0.8571428571428571,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T204449/0078_79.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "Average Temperature (Epoch 957): 22.63°C"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 79,
+      "category": "aggregation",
+      "question": "What is the average temperature in epoch 957?",
+      "gold_answer": "Average Temperature (Epoch 957): 22.63243°C",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 957})\nRETURN avg(m.temperature) AS value"
+    }
+  }
+}

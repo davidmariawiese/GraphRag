@@ -1,0 +1,40 @@
+{
+  "id": 37,
+  "category": "factual",
+  "question": "What voltage did sensor 29.0 measure on 2004-02-28 at 01:00:46?",
+  "gold_answer": "Voltage of sensor 29.0 at 2004-02-28 01:00:46: 2.68742V",
+  "graph_prediction": "Voltage of sensor 29.0 at 2004-02-28T01:00:46.592272: 2.68742V",
+  "graph_exact_match": false,
+  "graph_f1": 0.8571428571428571,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T204449/0036_37.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "Voltage of sensor 29.0 at 2004-02-28T01:00:46.592272: 2.68742V"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 37,
+      "category": "factual",
+      "question": "What voltage did sensor 29.0 measure on 2004-02-28 at 01:00:46?",
+      "gold_answer": "Voltage of sensor 29.0 at 2004-02-28 01:00:46: 2.68742V",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 29})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:00:46\"\nRETURN m.time AS time, m.voltage AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

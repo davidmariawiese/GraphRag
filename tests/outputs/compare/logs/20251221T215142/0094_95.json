@@ -1,0 +1,40 @@
+{
+  "id": 95,
+  "category": "trend",
+  "question": "How does the temperature of sensor 21.0 change over time?",
+  "gold_answer": "The trend of Temperature for sensor 21.0 is: increasing.",
+  "graph_prediction": "The JSON data provided contains temperature measurements from a sensor with the ID `21` over a period of time on February 28, 2023. The temperatures are recorded in degrees Celsius and span from approximately 2:45 AM to 2:56 AM.\n\nHere is a summary of the key points:\n\n- **Sensor ID:** 21\n- **Date:** February 28, 2023\n- **Time Range:** From around 2:45 AM to 2:56 AM\n\nThe temperature measurements show a gradual decrease over time. Here are some notable temperatures and their corresponding times:\n\n- At `2:45 AM`, the temperature was approximately `18.37°C`.\n- By `2:50 AM`, it had dropped slightly to around `18.33°C`.\n- Around `2:56 AM`, the temperature reached about `18.22°C`.\n\nThe data indicates a steady cooling trend, with temperatures decreasing by roughly 0.15 degrees Celsius over the observed period.\n\nWould you like more detailed information or analysis on this dataset?",
+  "graph_exact_match": false,
+  "graph_f1": 0.09937888198757763,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.125,
+  "base_faithfulness": 0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T215142/0094_95.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "The JSON data provided contains temperature measurements from a sensor with the ID `21` over a period of time on February 28, 2023. The temperatures are recorded in degrees Celsius and span from approximately 2:45 AM to 2:56 AM.\n\nHere is a summary of the key points:\n\n- **Sensor ID:** 21\n- **Date:** February 28, 2023\n- **Time Range:** From around 2:45 AM to 2:56 AM\n\nThe temperature measurements show a gradual decrease over time. Here are some notable temperatures and their corresponding times:\n\n- At `2:45 AM`, the temperature was approximately `18.37°C`.\n- By `2:50 AM`, it had dropped slightly to around `18.33°C`.\n- Around `2:56 AM`, the temperature reached about `18.22°C`.\n\nThe data indicates a steady cooling trend, with temperatures decreasing by roughly 0.15 degrees Celsius over the observed period.\n\nWould you like more detailed information or analysis on this dataset?"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 95,
+      "category": "trend",
+      "question": "How does the temperature of sensor 21.0 change over time?",
+      "gold_answer": "The trend of Temperature for sensor 21.0 is: increasing.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 21})-[:GENERATED]->(m:Measurement)\nWHERE m.temperature IS NOT NULL\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC"
+    }
+  }
+}
