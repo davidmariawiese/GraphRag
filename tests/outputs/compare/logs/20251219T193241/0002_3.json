@@ -1,0 +1,393 @@
+{
+  "id": 3,
+  "category": "factual",
+  "question": "Welche Helligkeit hat Sensor 1.0 am 2004-02-28 um 01:06:16 gemessen?",
+  "gold_answer": "Helligkeit von Sensor 1.0 um 2004-02-28 01:06:16: 45.08Lux",
+  "graph_prediction": "Um die Frage zu beantworten, müssen wir zunächst bestimmen, welcher Ausgabemodus aktiviert ist. Da der Benutzer eine spezifische Frage stellt (\"Welche Helligkeit hat Sensor 1.0 am 2004-02-28 um 01:06:16 gemessen?\"), können wir den MODE ANSWER als aktiven Modus annehmen.\n\nUm die Antwort zu finden, müssen wir zunächst nach der Zeit in der JSON-Datenbank suchen, die dem angegebenen Datum und Uhrzeit entspricht. Da die Zeitfelder (time, ts, epoch, date) genau wie sie in der JSON erscheinen, können wir diese direkt verwenden.\n\nIn der JSON-Datenbank finden wir folgende Einträge:\n\n* \"date\": \"2025-12-19T19:33:07.226626\"\n* \"timestamp\": \"2025-12-19T19:33:06.226626\"\n\nDa die Frage jedoch nach dem Datum und Uhrzeit \"2004-02-28 um 01:06:16\" fragt, können wir diese nicht direkt in der JSON-Datenbank finden. Es ist jedoch möglich, dass die Zeitdifferenz zwischen den beiden Zeiten so groß ist, dass sie sich auf derselben Stelle im Datenbestand befinden.\n\nUm dies zu überprüfen, müssen wir die Zeitdifferenz zwischen den beiden Zeiten ermitteln:\n\n* \"2004-02-28 um 01:06:16\" - \"2025-12-19T19:33:07.226626\" = ca. 21 Jahre und 1 Stunde\n\nDa dies eine sehr große Zeitdifferenz ist, können wir davon ausgehen, dass die beiden Zeiten sich auf derselben Stelle im Datenbestand befinden.\n\nUm nun die Antwort zu finden, müssen wir den Eintrag in der JSON-Datenbank suchen, der dem angegebenen Datum und Uhrzeit entspricht. Da die Zeitfelder genau wie sie in der JSON erscheinen, können wir diese direkt verwenden.\n\nIn der JSON-Datenbank finden wir folgenden Eintrag:\n\n* \"date\": \"2025-12-19T19:33:07.226626\"\n* \"timestamp\": \"2025-12-19T19:33:06.226626\"\n\nDa die Frage jedoch nach dem Datum und Uhrzeit \"2004-02-28 um",
+  "graph_exact_match": false,
+  "graph_f1": 0.0738255033557047,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 6})\nRETURN m.light",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T193241/0002_3.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 1.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 6})\nRETURN m.light"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Um die Frage zu beantworten, müssen wir zunächst bestimmen, welcher Ausgabemodus aktiviert ist. Da der Benutzer eine spezifische Frage stellt (\"Welche Helligkeit hat Sensor 1.0 am 2004-02-28 um 01:06:16 gemessen?\"), können wir den MODE ANSWER als aktiven Modus annehmen.\n\nUm die Antwort zu finden, müssen wir zunächst nach der Zeit in der JSON-Datenbank suchen, die dem angegebenen Datum und Uhrzeit entspricht. Da die Zeitfelder (time, ts, epoch, date) genau wie sie in der JSON erscheinen, können wir diese direkt verwenden.\n\nIn der JSON-Datenbank finden wir folgende Einträge:\n\n* \"date\": \"2025-12-19T19:33:07.226626\"\n* \"timestamp\": \"2025-12-19T19:33:06.226626\"\n\nDa die Frage jedoch nach dem Datum und Uhrzeit \"2004-02-28 um 01:06:16\" fragt, können wir diese nicht direkt in der JSON-Datenbank finden. Es ist jedoch möglich, dass die Zeitdifferenz zwischen den beiden Zeiten so groß ist, dass sie sich auf derselben Stelle im Datenbestand befinden.\n\nUm dies zu überprüfen, müssen wir die Zeitdifferenz zwischen den beiden Zeiten ermitteln:\n\n* \"2004-02-28 um 01:06:16\" - \"2025-12-19T19:33:07.226626\" = ca. 21 Jahre und 1 Stunde\n\nDa dies eine sehr große Zeitdifferenz ist, können wir davon ausgehen, dass die beiden Zeiten sich auf derselben Stelle im Datenbestand befinden.\n\nUm nun die Antwort zu finden, müssen wir den Eintrag in der JSON-Datenbank suchen, der dem angegebenen Datum und Uhrzeit entspricht. Da die Zeitfelder genau wie sie in der JSON erscheinen, können wir diese direkt verwenden.\n\nIn der JSON-Datenbank finden wir folgenden Eintrag:\n\n* \"date\": \"2025-12-19T19:33:07.226626\"\n* \"timestamp\": \"2025-12-19T19:33:06.226626\"\n\nDa die Frage jedoch nach dem Datum und Uhrzeit \"2004-02-28 um",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 855,
+        "documents": [
+          {
+            "content": "{\"m.light\": 368.0}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 397.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 121.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 507.84}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 338.56}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 279.68}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 309.12}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 75.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 250.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 397.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 235.52}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 64.4}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 456.32}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 309.12}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 180.32}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 45.08}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 309.12}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 368.0}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 60.72}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 294.4}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 507.84}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 397.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 71.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 441.6}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 412.16}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 507.84}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 121.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 86.48}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 478.4}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 456.32}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 264.96}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 309.12}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 114.08}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 441.6}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 150.88}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 43.24}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 45.08}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 309.12}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 06:01:16.633898 hat Sensor 24.0 16.725°C Temperatur, 40.3652% Luftfeuchtigkeit, 136.16 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:16.633898",
+              "epoch": "607",
+              "moteid": "24.0",
+              "temperature": "16.725",
+              "humidity": "40.3652",
+              "light": "136.16",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:06:46.879195 hat Sensor 16.0 16.9896°C Temperatur, 44.4819% Luftfeuchtigkeit, 18.4 Lux Licht und 2.62796V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:06:46.879195",
+              "epoch": "18",
+              "moteid": "16.0",
+              "temperature": "16.9896",
+              "humidity": "44.4819",
+              "light": "18.4",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:01:16.699274 hat Sensor 42.0 16.2252°C Temperatur, 42.4509% Luftfeuchtigkeit, 441.6 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:16.699274",
+              "epoch": "607",
+              "moteid": "42.0",
+              "temperature": "16.2252",
+              "humidity": "42.4509",
+              "light": "441.6",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:01:16.47811 hat Sensor 47.0 16.3232°C Temperatur, 42.5513% Luftfeuchtigkeit, 625.6 Lux Licht und 2.63964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:16.47811",
+              "epoch": "607",
+              "moteid": "47.0",
+              "temperature": "16.3232",
+              "humidity": "42.5513",
+              "light": "625.6",
+              "voltage": "2.63964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:01:16.917029 hat Sensor 21.0 16.97°C Temperatur, 39.7557% Luftfeuchtigkeit, 93.84 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:16.917029",
+              "epoch": "607",
+              "moteid": "21.0",
+              "temperature": "16.97",
+              "humidity": "39.7557",
+              "light": "93.84",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:01:16.803653 hat Sensor 22.0 16.6172°C Temperatur, 40.3652% Luftfeuchtigkeit, 75.44 Lux Licht und 2.63964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:16.803653",
+              "epoch": "607",
+              "moteid": "22.0",
+              "temperature": "16.6172",
+              "humidity": "40.3652",
+              "light": "75.44",
+              "voltage": "2.63964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:01:47.137099 hat Sensor 24.0 16.725°C Temperatur, 40.3652% Luftfeuchtigkeit, 136.16 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:47.137099",
+              "epoch": "608",
+              "moteid": "24.0",
+              "temperature": "16.725",
+              "humidity": "40.3652",
+              "light": "136.16",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:01:16.813235 hat Sensor 26.0 16.4506°C Temperatur, 43.1191% Luftfeuchtigkeit, 114.08 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:16.813235",
+              "epoch": "607",
+              "moteid": "26.0",
+              "temperature": "16.4506",
+              "humidity": "43.1191",
+              "light": "114.08",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:01:47.228001 hat Sensor 31.0 16.9798°C Temperatur, 41.8476% Luftfeuchtigkeit, 136.16 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:47.228001",
+              "epoch": "608",
+              "moteid": "31.0",
+              "temperature": "16.9798",
+              "humidity": "41.8476",
+              "light": "136.16",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:01:17.500193 hat Sensor 51.0 16.0586°C Temperatur, 42.25% Luftfeuchtigkeit, 136.16 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:01:17.500193",
+              "epoch": "607",
+              "moteid": "51.0",
+              "temperature": "16.0586",
+              "humidity": "42.25",
+              "light": "136.16",
+              "voltage": "2.65143"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 3,
+      "category": "factual",
+      "question": "Welche Helligkeit hat Sensor 1.0 am 2004-02-28 um 01:06:16 gemessen?",
+      "gold_answer": "Helligkeit von Sensor 1.0 um 2004-02-28 01:06:16: 45.08Lux",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 1})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:06:16\"\nRETURN m.time AS time, m.light AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

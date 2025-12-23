@@ -1,0 +1,106 @@
+id,question,gold_answer,graph_answer,graph_exact_match,graph_f1,graph_cypher_policy_ok,graph_cypher_explain_ok,graph_error,base_answer,base_exact_match,base_f1,base_error,log_path
+1,What temperature did sensor 19.0 measure on 2004-02-28 at 00:58:46?,Temperature of sensor 19.0 at 2004-02-28 00:58:46: 19.7336°C,Temperature of sensor 19.0 at 2004-02-28T00:58:46.002832: 19.7336°C,False,0.8666666666666667,True,True,,"Based on the provided data, sensor 19.0 did not record a measurement exactly at 2004-02-28 00:58:46. The closest timestamp for sensor 19.0 is 2004-02-28 00:58:46, but it does not have an entry.
+
+However, the nearest available measurement from sensor 19.0 around that time was at 2004-02-28 00:58:46 (though this exact timestamp is missing), and the next closest one is:
+
+- At 2004-02-28 01:58:46.421833, sensor 19.0 measured a temperature of **18.5772°C**.
+
+Since there's no exact timestamp available for the requested time, we can't provide an accurate answer to your question with the given data.",False,0.21212121212121213,,/app/tests/outputs/20251222T094225/logs/0000_1.json
+2,What temperature did sensor 25.0 measure on 2004-02-28 at 00:58:46?,Temperature of sensor 25.0 at 2004-02-28 00:58:46: 19.616°C,Temperature of sensor 25.0 at 2004-02-28T00:58:46.171824: 19.616°C,False,0.8666666666666667,True,True,,"Based on the data provided, sensor 25.0 measured a temperature of **17.5384°C** at 00:58:46 on 2004-02-28.
+
+However, it's important to note that there is no exact timestamp of 00:58:46 for sensor 25.0 in the provided data. The closest timestamps are:
+
+- **17.5384°C** at 03:00:46.598774
+- **17.5678°C** at 02:58:46.292356
+
+Since the question asks for a specific timestamp that is not present in the data, it's possible there might be an error or misinterpretation of the time. If you need the temperature closest to 00:58:46, please clarify further.",False,0.21138211382113822,,/app/tests/outputs/20251222T094225/logs/0001_2.json
+3,What temperature did sensor 24.0 measure on 2004-02-28 at 00:58:46?,Temperature of sensor 24.0 at 2004-02-28 00:58:46: 19.7728°C,Temperature of sensor 24.0 at 2004-02-28T00:58:46.206631: 19.7728°C,False,0.8666666666666667,True,True,,"Based on the data provided, sensor 24.0 measured a temperature of **17.9108°C** at 2004-02-28 00:58:46.
+
+However, it's important to note that there is no exact timestamp of ""00:58:46"" for sensor 24.0 in the provided data. The closest timestamps are:
+
+- **17.9108°C** at 2004-02-28 03:00:46.291567
+- **18.4008°C** at 2004-02-28 01:58:46.708646
+
+If you need the exact temperature at 00:58:46, it is not available in the provided dataset.",False,0.2476190476190476,,/app/tests/outputs/20251222T094225/logs/0002_3.json
+4,What light did sensor 3.0 measure on 2004-02-28 at 00:58:46?,Light of sensor 3.0 at 2004-02-28 00:58:46: 50.6Lux,Light of sensor 3.0 at 2004-02-28T00:58:46.497331: 50.6 Lux,False,0.7586206896551724,True,True,,"Based on the information provided in the data:
+
+Sensor 3.0 measured a light value of **101.2 Lux** on 2004-02-28 at 00:58:46.
+
+However, there is no direct entry for sensor 3.0 at exactly that time. The closest measurement provided is from sensor 7.0:
+
+```
+On 2004-02-28 at 02:00:46.49605, sensor 7.0 measured temperature 19.1064°C, humidity 38.872%, light 101.2 Lux, and voltage 2.68742V.
+```
+
+And for sensor 3.0:
+
+```
+On 2004-02-28 at 00:58:46, sensor 3.0 measured temperature 19.1064°C, humidity 38.872%, light ?, and voltage ?.
+```
+
+The exact light value for sensor 3.0 is not provided in the data given.
+
+Therefore, based on the available information:
+
+**Sensor 3.0's light measurement at 2004-02-28 at 00:58:46 is unknown from the provided dataset.**",False,0.15,,/app/tests/outputs/20251222T094225/logs/0003_4.json
+5,What temperature did sensor 6.0 measure on 2004-02-28 at 00:58:46?,Temperature of sensor 6.0 at 2004-02-28 00:58:46: 20.4196°C,Temperature of sensor 6.0 at 2004-02-28T00:58:46.657464: 20.4196°C,False,0.8666666666666667,True,True,,"The temperature measured by sensor 6.0 on 2004-02-28 at 00:58:46 was **19.1°C**.
+
+Here is the relevant data from the provided log:
+
+```
+2004-02-28 at 00:58:46 - Sensor 6.0 measured a temperature of 19.1°C.
+``` 
+
+However, to be precise with the exact wording in your dataset:
+```
+2004-02-28 at 00:58:46 - Sensor 6.0 measured a temperature of 19.1°C (the value is directly extracted from the log provided).
+```
+
+So, the temperature was **19.1°C**.",False,0.25,,/app/tests/outputs/20251222T094225/logs/0004_5.json
+6,What humidity did sensor 26.0 measure on 2004-02-28 at 00:58:46?,Humidity of sensor 26.0 at 2004-02-28 00:58:46: 39.62%,Humidity of sensor 26.0 at 2004-02-28T00:58:46.780824: 39.62%,False,0.8571428571428571,True,True,,"Based on the data provided, sensor 26.0 measured a humidity of **37.0246%** at 2004-02-28 at 00:58:46.
+
+However, it's important to note that there is no exact timestamp of 00:58:46 for sensor 26.0 in the provided data. The closest timestamps are:
+
+- **2004-02-28 at 00:58:47**: Humidity = 39.0763%
+- **2004-02-28 at 01:58:46**: Humidity = 46.1968%
+
+Given the exact timestamp requested, there is no direct measurement available for sensor 26.0 at that specific time.",False,0.2524271844660194,,/app/tests/outputs/20251222T094225/logs/0005_6.json
+7,What temperature did sensor 27.0 measure on 2004-02-28 at 00:58:46?,Temperature of sensor 27.0 at 2004-02-28 00:58:46: 20.1354°C,Temperature of sensor 27.0 at 2004-02-28T00:58:46.876528: 20.1354°C,False,0.8666666666666667,True,True,,"Based on the data provided, sensor 27.0 measured a temperature of **20.1396°C** on 2004-02-28 at 00:58:46.
+
+Here is the relevant entry from the log:
+
+```
+On 2004-02-28 at 00:58:46.749921, sensor 27.0 measured temperature 20.1396°C, humidity 37.4708%, light 79.12 Lux, and voltage 2.69964V.
+```",False,0.37837837837837834,,/app/tests/outputs/20251222T094225/logs/0006_7.json
+8,What temperature did sensor 31.0 measure on 2004-02-28 at 00:58:46?,Temperature of sensor 31.0 at 2004-02-28 00:58:46: 19.5572°C,Temperature of sensor 31.0 at 2004-02-28T00:58:46.910403: 19.5572°C,False,0.8666666666666667,True,True,,"Based on the data provided, there is no exact measurement for sensor 31.0 at 2004-02-28 00:58:46. However, we can see two close timestamps:
+
+1. At 2004-02-28 00:58:46.974151, sensor 31.0 measured a temperature of **17.9206°C**.
+2. At 2004-02-28 00:58:46.493092, sensor 31.0 measured a temperature of **18.244°C**.
+
+Since both timestamps are very close to the requested time (00:58:46), we can reasonably approximate that the temperature measured by sensor 31.0 at 2004-02-28 00:58:46 was around **17.9206°C** or **18.244°C**.
+
+If you need a single value, we can take an average of these two values:
+
+\[
+\frac{17.9206 + 18.244}{2} \approx 18.0823°C
+\]
+
+So the temperature measured by sensor 31.0 at 2004-02-28 00:58:46 can be approximated as **18.0823°C**.",False,0.15384615384615385,,/app/tests/outputs/20251222T094225/logs/0007_8.json
+9,What voltage did sensor 34.0 measure on 2004-02-28 at 00:58:47?,Voltage of sensor 34.0 at 2004-02-28 00:58:47: 2.68742V,Voltage of sensor 34.0 at 2004-02-28T00:58:47.044836: 2.68742V,False,0.8571428571428571,True,True,,"The voltage measured by sensor 34.0 on 2004-02-28 at 00:58:47 was 2.65143V.
+
+This can be seen from the following entry in the data:
+
+""On 2004-02-28 at 00:58:47, sensor 34.0 measured a voltage of 2.65143V (along with other measurements).""",False,0.40625,,/app/tests/outputs/20251222T094225/logs/0008_9.json
+10,What voltage did sensor 43.0 measure on 2004-02-28 at 00:58:47?,Voltage of sensor 43.0 at 2004-02-28 00:58:47: 2.65143V,Voltage of sensor 43.0 at 2004-02-28T00:58:47.132121: 2.65143V,False,0.8571428571428571,True,True,,"Based on the information provided in the context, the voltage measured by sensor 43.0 on 2004-02-28 at 00:58:47 was **2.69964V**.
+
+Here is the relevant entry from the data:
+
+```
+On 2004-02-28 at 00:58:47, sensor 43.0 measured:
+    Temperature: 19.75°C
+    Humidity: 37.06%
+    Light: 143.52 Lux
+    Voltage: 2.69964V
+```
+
+Therefore, the voltage was **2.69964V**.",False,0.30000000000000004,,/app/tests/outputs/20251222T094225/logs/0009_10.json

@@ -1,0 +1,197 @@
+{
+  "id": 61,
+  "category": "aggregation",
+  "question": "Was ist die durchschnittliche Temperatur in Epoche 40?",
+  "gold_answer": "Durchschnitt Temperatur (Epoche 40): 25.030327272727277°C",
+  "graph_prediction": "Die durchschnittliche Temperatur in Epoche 40 beträgt 25,03 Grad Celsius.\n\nIch habe die Antwort aus dem JSON-Objekt abgeleitet, das die Analyse der Messwerte enthält. Die Frage bezieht sich auf eine bestimmte Epoche (Epoch 40), und die Antwort kann direkt aus der Analyse abgelesen werden.",
+  "graph_exact_match": false,
+  "graph_f1": 0.15094339622641512,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 40})\nRETURN avg(m.temperature) AS average_temperature",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Die durchschnittliche Temperatur für den Sensor 40.0 beträgt 17,64°C.",
+  "base_exact_match": false,
+  "base_f1": 0.3157894736842105,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251217T185553/0060_61.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 40})\nRETURN avg(m.temperature) AS average_temperature"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Die durchschnittliche Temperatur in Epoche 40 beträgt 25,03 Grad Celsius.\n\nIch habe die Antwort aus dem JSON-Objekt abgeleitet, das die Analyse der Messwerte enthält. Die Frage bezieht sich auf eine bestimmte Epoche (Epoch 40), und die Antwort kann direkt aus der Analyse abgelesen werden.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"average_temperature\": 25.030327272727277}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 04:40:17.145979 hat Sensor 40.0 17.46°C Temperatur, 40.6355% Luftfeuchtigkeit, 165.6 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "04:40:17.145979",
+              "epoch": "445",
+              "moteid": "40.0",
+              "temperature": "17.46",
+              "humidity": "40.6355",
+              "light": "165.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 04:40:46.395061 hat Sensor 40.0 17.46°C Temperatur, 40.568% Luftfeuchtigkeit, 165.6 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "04:40:46.395061",
+              "epoch": "446",
+              "moteid": "40.0",
+              "temperature": "17.46",
+              "humidity": "40.568",
+              "light": "165.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 05:40:46.452734 hat Sensor 40.0 17.1562°C Temperatur, 40.7706% Luftfeuchtigkeit, 165.6 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "05:40:46.452734",
+              "epoch": "566",
+              "moteid": "40.0",
+              "temperature": "17.1562",
+              "humidity": "40.7706",
+              "light": "165.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 02:40:16.905157 hat Sensor 40.0 18.1656°C Temperatur, 40.0945% Luftfeuchtigkeit, 172.96 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:40:16.905157",
+              "epoch": "205",
+              "moteid": "40.0",
+              "temperature": "18.1656",
+              "humidity": "40.0945",
+              "light": "172.96",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 02:40:46.939379 hat Sensor 40.0 18.1656°C Temperatur, 40.1622% Luftfeuchtigkeit, 172.96 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:40:46.939379",
+              "epoch": "206",
+              "moteid": "40.0",
+              "temperature": "18.1656",
+              "humidity": "40.1622",
+              "light": "172.96",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:40:16.707391 hat Sensor 40.0 17.8716°C Temperatur, 40.2976% Luftfeuchtigkeit, 172.96 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:40:16.707391",
+              "epoch": "325",
+              "moteid": "40.0",
+              "temperature": "17.8716",
+              "humidity": "40.2976",
+              "light": "172.96",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:40:16.814097 hat Sensor 40.0 17.0092°C Temperatur, 40.8718% Luftfeuchtigkeit, 172.96 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:40:16.814097",
+              "epoch": "685",
+              "moteid": "40.0",
+              "temperature": "17.0092",
+              "humidity": "40.8718",
+              "light": "172.96",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:40:17.157195 hat Sensor 8.0 17.2542°C Temperatur, 40.2976% Luftfeuchtigkeit, 128.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:40:17.157195",
+              "epoch": "685",
+              "moteid": "8.0",
+              "temperature": "17.2542",
+              "humidity": "40.2976",
+              "light": "128.8",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:40:46.999886 hat Sensor 8.0 17.2444°C Temperatur, 40.2976% Luftfeuchtigkeit, 128.8 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:40:46.999886",
+              "epoch": "686",
+              "moteid": "8.0",
+              "temperature": "17.2444",
+              "humidity": "40.2976",
+              "light": "128.8",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 04:40:16.264404 hat Sensor 9.0 17.8716°C Temperatur, 40.9055% Luftfeuchtigkeit, 101.2 Lux Licht und 2.74963V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "04:40:16.264404",
+              "epoch": "445",
+              "moteid": "9.0",
+              "temperature": "17.8716",
+              "humidity": "40.9055",
+              "light": "101.2",
+              "voltage": "2.74963"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Die durchschnittliche Temperatur für den Sensor 40.0 beträgt 17,64°C.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 61,
+      "category": "aggregation",
+      "question": "Was ist die durchschnittliche Temperatur in Epoche 40?",
+      "gold_answer": "Durchschnitt Temperatur (Epoche 40): 25.030327272727277°C",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: $epoch_id})\nRETURN avg(m.temperature) AS value"
+    }
+  }
+}

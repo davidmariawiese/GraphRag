@@ -1,0 +1,192 @@
+{
+  "id": 25,
+  "category": "factual",
+  "question": "What temperature did sensor 7.0 measure on 2004-03-01 at 03:20:16?",
+  "gold_answer": "No data available.",
+  "graph_prediction": "No data available.",
+  "graph_exact_match": true,
+  "graph_f1": 1.0,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-03-01T03:20:16\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T212843/0024_25.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-03-01T03:20:16\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "No data available.",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "On 2004-03-20 at 03:16:20.299741, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "03:16:20.299741",
+              "epoch": "7",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.07664"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 03:28:20.386651, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "03:28:20.386651",
+              "epoch": "7",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.07664"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 03:22:20.349212, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "03:22:20.349212",
+              "epoch": "7",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.07664"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 03:23:20.346173, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.06941V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "03:23:20.346173",
+              "epoch": "9",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.06941"
+            }
+          },
+          {
+            "content": "On 2004-03-23 at 20:34:20.946671, sensor 19.0 measured temperature 122.153°C, humidity -3.91901%, light 90.16 Lux, and voltage 2.16759V.",
+            "meta": {
+              "date": "2004-03-23",
+              "time": "20:34:20.946671",
+              "epoch": "16",
+              "moteid": "19.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "90.16",
+              "voltage": "2.16759"
+            }
+          },
+          {
+            "content": "On 2004-03-23 at 20:40:20.678649, sensor 19.0 measured temperature 122.153°C, humidity -3.91901%, light 90.16 Lux, and voltage 2.15971V.",
+            "meta": {
+              "date": "2004-03-23",
+              "time": "20:40:20.678649",
+              "epoch": "28",
+              "moteid": "19.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "90.16",
+              "voltage": "2.15971"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 03:03:50.291015, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "03:03:50.291015",
+              "epoch": "11",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.07664"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 05:15:20.604047, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.06222V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "05:15:20.604047",
+              "epoch": "3",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.06222"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 02:55:20.261418, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.08393V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "02:55:20.261418",
+              "epoch": "7",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.08393"
+            }
+          },
+          {
+            "content": "On 2004-03-20 at 02:48:20.222937, sensor 17.0 measured temperature 122.153°C, humidity -3.91901%, light 121.44 Lux, and voltage 2.08393V.",
+            "meta": {
+              "date": "2004-03-20",
+              "time": "02:48:20.222937",
+              "epoch": "8",
+              "moteid": "17.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "121.44",
+              "voltage": "2.08393"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 25,
+      "category": "factual",
+      "question": "What temperature did sensor 7.0 measure on 2004-03-01 at 03:20:16?",
+      "gold_answer": "No data available.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 7})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-03-01T03:20:16\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

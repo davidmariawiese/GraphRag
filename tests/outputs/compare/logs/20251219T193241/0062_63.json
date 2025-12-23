@@ -1,0 +1,197 @@
+{
+  "id": 63,
+  "category": "aggregation",
+  "question": "Wie hoch ist die minimale Helligkeit in Epoche 60?",
+  "gold_answer": "Minimum Helligkeit (Epoche 60): 1.84Lux",
+  "graph_prediction": "Die minimale Helligkeit in Epoche 60 beträgt 1,84.",
+  "graph_exact_match": false,
+  "graph_f1": 0.5333333333333333,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 60})\nRETURN MIN(m.light) AS min_light",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Es liegen keine Informationen über die Helligkeit des Sensors 1.0 am 2004-02-28 um 17:37:18.8274 vor. Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.12121212121212122,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T193241/0062_63.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 60})\nRETURN MIN(m.light) AS min_light"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Die minimale Helligkeit in Epoche 60 beträgt 1,84.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"min_light\": 1.84}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 17:37:18.8274 hat Sensor 1.0 21.282°C Temperatur, 36.1983% Luftfeuchtigkeit, 60.72 Lux Licht und 2.71196V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "17:37:18.8274",
+              "epoch": "1999",
+              "moteid": "1.0",
+              "temperature": "21.282",
+              "humidity": "36.1983",
+              "light": "60.72",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:55:16.601113 hat Sensor 3.0 17.6462°C Temperatur, 39.5521% Luftfeuchtigkeit, 60.72 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:55:16.601113",
+              "epoch": "715",
+              "moteid": "3.0",
+              "temperature": "17.6462",
+              "humidity": "39.5521",
+              "light": "60.72",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:57:46.718204 hat Sensor 3.0 17.6168°C Temperatur, 39.4162% Luftfeuchtigkeit, 60.72 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:57:46.718204",
+              "epoch": "720",
+              "moteid": "3.0",
+              "temperature": "17.6168",
+              "humidity": "39.4162",
+              "light": "60.72",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:59:16.550612 hat Sensor 3.0 17.607°C Temperatur, 39.5521% Luftfeuchtigkeit, 60.72 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:59:16.550612",
+              "epoch": "723",
+              "moteid": "3.0",
+              "temperature": "17.607",
+              "humidity": "39.5521",
+              "light": "60.72",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:36:47.810054 hat Sensor 10.0 17.2738°C Temperatur, 41.5453% Luftfeuchtigkeit, 60.72 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:36:47.810054",
+              "epoch": "678",
+              "moteid": "10.0",
+              "temperature": "17.2738",
+              "humidity": "41.5453",
+              "light": "60.72",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:37:17.155908 hat Sensor 10.0 17.2836°C Temperatur, 41.5116% Luftfeuchtigkeit, 60.72 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:37:17.155908",
+              "epoch": "679",
+              "moteid": "10.0",
+              "temperature": "17.2836",
+              "humidity": "41.5116",
+              "light": "60.72",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:37:47.424761 hat Sensor 10.0 17.2836°C Temperatur, 41.4444% Luftfeuchtigkeit, 60.72 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:37:47.424761",
+              "epoch": "680",
+              "moteid": "10.0",
+              "temperature": "17.2836",
+              "humidity": "41.4444",
+              "light": "60.72",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:38:17.329113 hat Sensor 10.0 17.2836°C Temperatur, 41.478% Luftfeuchtigkeit, 60.72 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:38:17.329113",
+              "epoch": "681",
+              "moteid": "10.0",
+              "temperature": "17.2836",
+              "humidity": "41.478",
+              "light": "60.72",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:38:47.363726 hat Sensor 10.0 17.3032°C Temperatur, 41.4444% Luftfeuchtigkeit, 60.72 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:38:47.363726",
+              "epoch": "682",
+              "moteid": "10.0",
+              "temperature": "17.3032",
+              "humidity": "41.4444",
+              "light": "60.72",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:53:17.508934 hat Sensor 11.0 15.8038°C Temperatur, 45.3413% Luftfeuchtigkeit, 60.72 Lux Licht und 2.60491V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:53:17.508934",
+              "epoch": "711",
+              "moteid": "11.0",
+              "temperature": "15.8038",
+              "humidity": "45.3413",
+              "light": "60.72",
+              "voltage": "2.60491"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Es liegen keine Informationen über die Helligkeit des Sensors 1.0 am 2004-02-28 um 17:37:18.8274 vor. Dazu liegen mir keine Daten vor.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 63,
+      "category": "aggregation",
+      "question": "Wie hoch ist die minimale Helligkeit in Epoche 60?",
+      "gold_answer": "Minimum Helligkeit (Epoche 60): 1.84Lux",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 60})\nRETURN min(m.light) AS value"
+    }
+  }
+}

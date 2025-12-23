@@ -1,0 +1,393 @@
+{
+  "id": 79,
+  "category": "trend",
+  "question": "Is the temperature trend of sensor 8.0 constant?",
+  "gold_answer": "The trend of Temperature for sensor 8.0 is: increasing.",
+  "graph_prediction": "Es scheint, als ob es keine spezifische Frage oder Aufgabe gibt, die beantwortet werden muss. Der bereitgestellte Text ist ein JSON-Objekt, das eine Liste von Objekten enthält, die jeweils einen Schlüssel-Wert-Paar \"m1.temperature\" und \"m2.temperature\" enthalten.\n\nWenn Sie jedoch nach einer Möglichkeit suchen, diese Daten zu analysieren oder zu visualisieren, kann ich Ihnen einige Vorschläge machen:\n\n* Sie können die Liste der Objekte durchlaufen und die Werte von \"m1.temperature\" und \"m2.temperature\" für jedes Objekt ausgeben.\n* Sie können die Werte von \"m1.temperature\" und \"m2.temperature\" vergleichen, um zu sehen, ob es eine Korrelation zwischen den beiden gibt.\n* Sie können die Daten visualisieren, indem Sie ein Diagramm erstellen, das die Beziehung zwischen \"m1.temperature\" und \"m2.temperature\" zeigt.\n\nWenn Sie jedoch nach einer spezifischen Frage oder Aufgabe suchen, die beantwortet werden muss, müssen Sie mir bitte mehr Informationen geben.",
+  "graph_exact_match": false,
+  "graph_f1": 0.0130718954248366,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m1:Measurement)-[:EPOCH_IN]->(e1:Epoch)\nOPTIONAL MATCH (s)-[:GENERATED]->(m2:Measurement)-[:EPOCH_IN]->(e2:Epoch)\nWHERE e1.epoch_id < e2.epoch_id\nRETURN DISTINCT m1.temperature, m2.temperature",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor. Es gibt keinen Eintrag mit einem Sensor mit der ID 8.0 im KONTEXT.",
+  "base_exact_match": false,
+  "base_f1": 0.2,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T203601/0078_79.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m1:Measurement)-[:EPOCH_IN]->(e1:Epoch)\nOPTIONAL MATCH (s)-[:GENERATED]->(m2:Measurement)-[:EPOCH_IN]->(e2:Epoch)\nWHERE e1.epoch_id < e2.epoch_id\nRETURN DISTINCT m1.temperature, m2.temperature"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Es scheint, als ob es keine spezifische Frage oder Aufgabe gibt, die beantwortet werden muss. Der bereitgestellte Text ist ein JSON-Objekt, das eine Liste von Objekten enthält, die jeweils einen Schlüssel-Wert-Paar \"m1.temperature\" und \"m2.temperature\" enthalten.\n\nWenn Sie jedoch nach einer Möglichkeit suchen, diese Daten zu analysieren oder zu visualisieren, kann ich Ihnen einige Vorschläge machen:\n\n* Sie können die Liste der Objekte durchlaufen und die Werte von \"m1.temperature\" und \"m2.temperature\" für jedes Objekt ausgeben.\n* Sie können die Werte von \"m1.temperature\" und \"m2.temperature\" vergleichen, um zu sehen, ob es eine Korrelation zwischen den beiden gibt.\n* Sie können die Daten visualisieren, indem Sie ein Diagramm erstellen, das die Beziehung zwischen \"m1.temperature\" und \"m2.temperature\" zeigt.\n\nWenn Sie jedoch nach einer spezifischen Frage oder Aufgabe suchen, die beantwortet werden muss, müssen Sie mir bitte mehr Informationen geben.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 102653,
+        "documents": [
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 17.264}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 17.2248}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 17.2052}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.7814}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.9484}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.801}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.115}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 20.7822}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 19.273}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 19.9884}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 17.2444}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 19.126}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.0464}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 18.0676}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.9872}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.0954}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 17.558}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 20.449}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 17.4992}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.703}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.2918}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 23.046}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.7328}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 23.0068}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 17.95}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 18.146}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.3012}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.5172}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.4976}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.7716}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.0562}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.017}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.9676}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.9876}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.429}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.8112}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.1738}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.36}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.458}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 18.3224}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.8206}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.8304}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 20.792}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.6246}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.4776}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.1154}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 17.607}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 21.5074}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.3992}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m1.temperature\": 17.2738, \"m2.temperature\": 22.9284}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am date um time hat Sensor moteid temperature°C Temperatur, humidity% Luftfeuchtigkeit, light Lux Licht und voltageV Spannung gemessen.",
+            "meta": {
+              "date": "date",
+              "time": "time",
+              "epoch": "epoch",
+              "moteid": "moteid",
+              "temperature": "temperature",
+              "humidity": "humidity",
+              "light": "light",
+              "voltage": "voltage"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 15:46:17.307584 hat Sensor 20.0 -38.4°C Temperatur, -4.0% Luftfeuchtigkeit, 625.6 Lux Licht und 2.4341V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:46:17.307584",
+              "epoch": "1777",
+              "moteid": "20.0",
+              "temperature": "-38.4",
+              "humidity": "-4.0",
+              "light": "625.6",
+              "voltage": "2.4341"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 11:42:47.011106 hat Sensor 2.0 23.5164°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.71196V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:42:47.011106",
+              "epoch": "1290",
+              "moteid": "2.0",
+              "temperature": "23.5164",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 12:00:18.006341 hat Sensor 2.0 23.6536°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "12:00:18.006341",
+              "epoch": "1325",
+              "moteid": "2.0",
+              "temperature": "23.6536",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:28:18.712415 hat Sensor 2.0 24.0064°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.71196V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:28:18.712415",
+              "epoch": "1501",
+              "moteid": "2.0",
+              "temperature": "24.0064",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:52:17.423474 hat Sensor 2.0 24.0456°C Temperatur, 33.7% Luftfeuchtigkeit, 478.4 Lux Licht und 2.7244V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:52:17.423474",
+              "epoch": "1549",
+              "moteid": "2.0",
+              "temperature": "24.0456",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:11:18.323178 hat Sensor 3.0 20.4°C Temperatur, 35.5072% Luftfeuchtigkeit, 368.0 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:11:18.323178",
+              "epoch": "987",
+              "moteid": "3.0",
+              "temperature": "20.4",
+              "humidity": "35.5072",
+              "light": "368.0",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:47:17.758496 hat Sensor 6.0 23.3792°C Temperatur, 33.7% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:47:17.758496",
+              "epoch": "1539",
+              "moteid": "6.0",
+              "temperature": "23.3792",
+              "humidity": "33.7",
+              "light": "1140.8",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:48:47.378971 hat Sensor 6.0 23.3792°C Temperatur, 33.7% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:48:47.378971",
+              "epoch": "1542",
+              "moteid": "6.0",
+              "temperature": "23.3792",
+              "humidity": "33.7",
+              "light": "1140.8",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:55:17.446625 hat Sensor 6.0 23.4086°C Temperatur, 33.7% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:55:17.446625",
+              "epoch": "1555",
+              "moteid": "6.0",
+              "temperature": "23.4086",
+              "humidity": "33.7",
+              "light": "1140.8",
+              "voltage": "2.67532"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor. Es gibt keinen Eintrag mit einem Sensor mit der ID 8.0 im KONTEXT.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 79,
+      "category": "trend",
+      "question": "Is the temperature trend of sensor 8.0 constant?",
+      "gold_answer": "The trend of Temperature for sensor 8.0 is: increasing.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 8})-[:GENERATED]->(m:Measurement)\nWHERE m.temperature IS NOT NULL\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC"
+    }
+  }
+}

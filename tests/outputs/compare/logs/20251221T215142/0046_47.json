@@ -1,0 +1,43 @@
+{
+  "id": 47,
+  "category": "list",
+  "question": "List all measurements in epoch 58.",
+  "gold_answer": "mote_id=16 time=2004-02-28T01:26:45.952107 temperature=16.9504 humidity=44.5151 light=18.4 voltage=2.62796\nmote_id=47 time=2004-02-28T01:26:45.975171 temperature=17.9794 humidity=40.2299 light=655.04 voltage=2.67532\nmote_id=3 time=2004-02-28T01:26:45.989696 temperature=19.1652 humidity=39.0422 light=48.76 voltage=2.68742\nmote_id=43 time=2004-02-28T01:26:46.016705 temperature=18.734 humidity=37.8477 light=456.32 voltage=2.65143\nmote_id=37 time=2004-02-28T01:26:46.028181 temperature=19.2632 humidity=41.2425 light=235.52 voltage=2.68742\nmote_id=50 time=2004-02-28T01:26:46.051491 temperature=16.5682 humidity=42.7853 light=79.12 voltage=2.66332\nmote_id=21 time=2004-02-28T01:26:46.070351 temperature=18.9594 humidity=38.3946 light=108.56 voltage=2.68742\nmote_id=10 time=2004-02-28T01:26:46.074206 temperature=18.8222 humidity=41.3098 light=53.36 voltage=2.67532\nmote_id=30 time=2004-02-28T01:26:46.092738 temperature=17.8716 humidity=42.6182 light=108.56 voltage=2.68742\nmote_id=41 time=2004-02-28T01:26:46.122102 temperature=18.4204 humidity=39.2123 light=382.72 voltage=2.67532\nmote_id=17 time=2004-02-28T01:26:46.151422 temperature=18.4302 humidity=39.9591 light=32.2 voltage=2.58226\nmote_id=11 time=2004-02-28T01:26:46.192423 temperature=18.3224 humidity=42.0489 light=2.3 voltage=2.57108\nmote_id=14 time=2004-02-28T01:26:46.234621 temperature=17.7638 humidity=41.8476 light=23.0 voltage=2.69964\nmote_id=46 time=2004-02-28T01:26:46.264121 temperature=18.2342 humidity=38.8379 light=114.08 voltage=2.50599\nmote_id=20 time=2004-02-28T01:26:46.29572 temperature=19.4984 humidity=37.4365 light=158.24 voltage=3.12589\nmote_id=8 time=2004-02-28T01:26:46.324764 temperature=18.7144 humidity=40.0607 light=108.56 voltage=2.68742\nmote_id=25 time=2004-02-28T01:26:46.325278 temperature=18.3126 humidity=40.0607 light=101.2 voltage=2.68742\nmote_id=40 time=2004-02-28T01:26:46.345843 temperature=18.6066 humidity=39.5521 light=172.96 voltage=2.68742\nmote_id=1 time=2004-02-28T01:26:46.463293 temperature=19.0084 humidity=38.9401 light=43.24 voltage=2.69964\nmote_id=45 time=2004-02-28T01:26:46.501643 temperature=18.1656 humidity=38.3946 light=172.96 voltage=2.67532\n... (additional 20 measurements omitted)",
+  "graph_prediction": "Based on the provided JSON data, here is a summary of the measurements for each mote:\n\n### Summary by Mote ID\n\n1. **Mote ID: 1**\n   - Temperature: 19.0084°C\n   - Humidity: 38.9401%\n   - Light: 43.24 lux\n   - Voltage: 2.69964V\n\n2. **Mote ID: 3**\n   - Temperature: 19.1652°C\n   - Humidity: 39.0422%\n   - Light: 48.76 lux\n   - Voltage: 2.68742V\n\n3. **Mote ID: 8**\n   - Temperature: 18.7144°C\n   - Humidity: 40.0607%\n   - Light: 108.56 lux\n   - Voltage: 2.68742V\n\n4. **Mote ID: 10**\n   - Temperature: 18.8222°C\n   - Humidity: 41.3098%\n   - Light: 53.36 lux\n   - Voltage: 2.67532V\n\n5. **Mote ID: 11**\n   - Temperature: 18.3224°C\n   - Humidity: 42.0489%\n   - Light: 2.3 lux\n   - Voltage: 2.57108V\n\n6. **Mote ID: 14**\n   - Temperature: 17.7638°C\n   - Humidity: 41.8476%\n   - Light: 23.0 lux\n   - Voltage: 2.69964V\n\n7. **Mote ID: 17**\n   - Temperature: 18.4302°C\n   - Humidity: 39.9591%\n   - Light: 32.2 lux\n   - Voltage: 2.58226V\n\n8. **Mote ID: 20**\n   - Temperature: 19.4984°C\n   - Humidity: 37.4365",
+  "graph_exact_match": false,
+  "graph_f1": 0.32702237521514627,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T215142/0046_47.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "Based on the provided JSON data, here is a summary of the measurements for each mote:\n\n### Summary by Mote ID\n\n1. **Mote ID: 1**\n   - Temperature: 19.0084°C\n   - Humidity: 38.9401%\n   - Light: 43.24 lux\n   - Voltage: 2.69964V\n\n2. **Mote ID: 3**\n   - Temperature: 19.1652°C\n   - Humidity: 39.0422%\n   - Light: 48.76 lux\n   - Voltage: 2.68742V\n\n3. **Mote ID: 8**\n   - Temperature: 18.7144°C\n   - Humidity: 40.0607%\n   - Light: 108.56 lux\n   - Voltage: 2.68742V\n\n4. **Mote ID: 10**\n   - Temperature: 18.8222°C\n   - Humidity: 41.3098%\n   - Light: 53.36 lux\n   - Voltage: 2.67532V\n\n5. **Mote ID: 11**\n   - Temperature: 18.3224°C\n   - Humidity: 42.0489%\n   - Light: 2.3 lux\n   - Voltage: 2.57108V\n\n6. **Mote ID: 14**\n   - Temperature: 17.7638°C\n   - Humidity: 41.8476%\n   - Light: 23.0 lux\n   - Voltage: 2.69964V\n\n7. **Mote ID: 17**\n   - Temperature: 18.4302°C\n   - Humidity: 39.9591%\n   - Light: 32.2 lux\n   - Voltage: 2.58226V\n\n8. **Mote ID: 20**\n   - Temperature: 19.4984°C\n   - Humidity: 37.4365"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 47,
+      "category": "list",
+      "question": "List all measurements in epoch 58.",
+      "gold_answer": "mote_id=16 time=2004-02-28T01:26:45.952107 temperature=16.9504 humidity=44.5151 light=18.4 voltage=2.62796\nmote_id=47 time=2004-02-28T01:26:45.975171 temperature=17.9794 humidity=40.2299 light=655.04 voltage=2.67532\nmote_id=3 time=2004-02-28T01:26:45.989696 temperature=19.1652 humidity=39.0422 light=48.76 voltage=2.68742\nmote_id=43 time=2004-02-28T01:26:46.016705 temperature=18.734 humidity=37.8477 light=456.32 voltage=2.65143\nmote_id=37 time=2004-02-28T01:26:46.028181 temperature=19.2632 humidity=41.2425 light=235.52 voltage=2.68742\nmote_id=50 time=2004-02-28T01:26:46.051491 temperature=16.5682 humidity=42.7853 light=79.12 voltage=2.66332\nmote_id=21 time=2004-02-28T01:26:46.070351 temperature=18.9594 humidity=38.3946 light=108.56 voltage=2.68742\nmote_id=10 time=2004-02-28T01:26:46.074206 temperature=18.8222 humidity=41.3098 light=53.36 voltage=2.67532\nmote_id=30 time=2004-02-28T01:26:46.092738 temperature=17.8716 humidity=42.6182 light=108.56 voltage=2.68742\nmote_id=41 time=2004-02-28T01:26:46.122102 temperature=18.4204 humidity=39.2123 light=382.72 voltage=2.67532\nmote_id=17 time=2004-02-28T01:26:46.151422 temperature=18.4302 humidity=39.9591 light=32.2 voltage=2.58226\nmote_id=11 time=2004-02-28T01:26:46.192423 temperature=18.3224 humidity=42.0489 light=2.3 voltage=2.57108\nmote_id=14 time=2004-02-28T01:26:46.234621 temperature=17.7638 humidity=41.8476 light=23.0 voltage=2.69964\nmote_id=46 time=2004-02-28T01:26:46.264121 temperature=18.2342 humidity=38.8379 light=114.08 voltage=2.50599\nmote_id=20 time=2004-02-28T01:26:46.29572 temperature=19.4984 humidity=37.4365 light=158.24 voltage=3.12589\nmote_id=8 time=2004-02-28T01:26:46.324764 temperature=18.7144 humidity=40.0607 light=108.56 voltage=2.68742\nmote_id=25 time=2004-02-28T01:26:46.325278 temperature=18.3126 humidity=40.0607 light=101.2 voltage=2.68742\nmote_id=40 time=2004-02-28T01:26:46.345843 temperature=18.6066 humidity=39.5521 light=172.96 voltage=2.68742\nmote_id=1 time=2004-02-28T01:26:46.463293 temperature=19.0084 humidity=38.9401 light=43.24 voltage=2.69964\nmote_id=45 time=2004-02-28T01:26:46.501643 temperature=18.1656 humidity=38.3946 light=172.96 voltage=2.67532\n... (additional 20 measurements omitted)",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 58})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage ORDER BY time, mote_id LIMIT 20",
+      "gold_meta": {
+        "total": 40
+      }
+    }
+  }
+}

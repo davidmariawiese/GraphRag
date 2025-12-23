@@ -1,0 +1,197 @@
+{
+  "id": 55,
+  "category": "aggregation",
+  "question": "Wie viele Messungen gibt es in Epoche 35?",
+  "gold_answer": "Anzahl Messungen (Epoche 35): 37",
+  "graph_prediction": "Ich kann nur eine Antwort geben, da die Frage nach der Anzahl der Messungen in Epoche 35 ist. Die Antwort lautet:\n\n1\n\nDie Begründung dafür ist, dass im GRAPH CONTEXT ein Eintrag mit dem Schlüssel \"epoch_id\" = 35 vorhanden ist und darin genau eine Messung enthalten ist.\n\nDa die Frage nach der Anzahl der Messungen in Epoche 35 ist, kann ich mich auf die Analyse stützen, da sie Informationen über Trends, Minima, Maxima, Mittelwerte und Quantile enthält. Die Analyse zeigt an, dass es genau eine Messung in Epoche 35 gibt.\n\nDie Antwort lautet also \"1\", da es nur eine Messung in Epoche 35 gibt.",
+  "graph_exact_match": false,
+  "graph_f1": 0.07407407407407407,
+  "graph_faithfulness": 0.4,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 35})\nRETURN COUNT(DISTINCT m) AS count",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Es gibt zwei Messungen in Epoche 35. Die ersten Messwerte sind vom 2004-02-28 um 16:35:18 und die zweiten Messwerte sind vom 2004-02-28 um 16:35:48.",
+  "base_exact_match": false,
+  "base_f1": 0.16216216216216214,
+  "base_faithfulness": 0.3333333333333333,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T193241/0054_55.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 35})\nRETURN COUNT(DISTINCT m) AS count"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Ich kann nur eine Antwort geben, da die Frage nach der Anzahl der Messungen in Epoche 35 ist. Die Antwort lautet:\n\n1\n\nDie Begründung dafür ist, dass im GRAPH CONTEXT ein Eintrag mit dem Schlüssel \"epoch_id\" = 35 vorhanden ist und darin genau eine Messung enthalten ist.\n\nDa die Frage nach der Anzahl der Messungen in Epoche 35 ist, kann ich mich auf die Analyse stützen, da sie Informationen über Trends, Minima, Maxima, Mittelwerte und Quantile enthält. Die Analyse zeigt an, dass es genau eine Messung in Epoche 35 gibt.\n\nDie Antwort lautet also \"1\", da es nur eine Messung in Epoche 35 gibt.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"count\": 37}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 16:35:18.100677 hat Sensor 35.0 23.0754°C Temperatur, 35.6802% Luftfeuchtigkeit, 397.44 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:18.100677",
+              "epoch": "1875",
+              "moteid": "35.0",
+              "temperature": "23.0754",
+              "humidity": "35.6802",
+              "light": "397.44",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:35:48.551418 hat Sensor 35.0 23.0656°C Temperatur, 35.6456% Luftfeuchtigkeit, 397.44 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:48.551418",
+              "epoch": "1876",
+              "moteid": "35.0",
+              "temperature": "23.0656",
+              "humidity": "35.6456",
+              "light": "397.44",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:35:17.168976 hat Sensor 2.0 21.3212°C Temperatur, 35.2302% Luftfeuchtigkeit, 478.4 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:35:17.168976",
+              "epoch": "1035",
+              "moteid": "2.0",
+              "temperature": "21.3212",
+              "humidity": "35.2302",
+              "light": "478.4",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 08:35:17.929571 hat Sensor 1.0 19.763°C Temperatur, 35.7839% Luftfeuchtigkeit, 397.44 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "08:35:17.929571",
+              "epoch": "915",
+              "moteid": "1.0",
+              "temperature": "19.763",
+              "humidity": "35.7839",
+              "light": "397.44",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 08:35:47.736949 hat Sensor 1.0 19.7728°C Temperatur, 35.6802% Luftfeuchtigkeit, 397.44 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "08:35:47.736949",
+              "epoch": "916",
+              "moteid": "1.0",
+              "temperature": "19.7728",
+              "humidity": "35.6802",
+              "light": "397.44",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:35:17.67229 hat Sensor 4.0 21.1056°C Temperatur, 35.4034% Luftfeuchtigkeit, 338.56 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:35:17.67229",
+              "epoch": "1035",
+              "moteid": "4.0",
+              "temperature": "21.1056",
+              "humidity": "35.4034",
+              "light": "338.56",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:35:46.847186 hat Sensor 4.0 21.1252°C Temperatur, 35.2995% Luftfeuchtigkeit, 338.56 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:35:46.847186",
+              "epoch": "1036",
+              "moteid": "4.0",
+              "temperature": "21.1252",
+              "humidity": "35.2995",
+              "light": "338.56",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:35:19.682961 hat Sensor 4.0 22.3306°C Temperatur, 35.7148% Luftfeuchtigkeit, 180.32 Lux Licht und 2.69964V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:19.682961",
+              "epoch": "1875",
+              "moteid": "4.0",
+              "temperature": "22.3306",
+              "humidity": "35.7148",
+              "light": "180.32",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:35:18.605669 hat Sensor 6.0 22.0464°C Temperatur, 35.2995% Luftfeuchtigkeit, 426.88 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:18.605669",
+              "epoch": "1875",
+              "moteid": "6.0",
+              "temperature": "22.0464",
+              "humidity": "35.2995",
+              "light": "426.88",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:35:48.394884 hat Sensor 6.0 22.0464°C Temperatur, 35.2995% Luftfeuchtigkeit, 426.88 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:35:48.394884",
+              "epoch": "1876",
+              "moteid": "6.0",
+              "temperature": "22.0464",
+              "humidity": "35.2995",
+              "light": "426.88",
+              "voltage": "2.66332"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Es gibt zwei Messungen in Epoche 35. Die ersten Messwerte sind vom 2004-02-28 um 16:35:18 und die zweiten Messwerte sind vom 2004-02-28 um 16:35:48.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 55,
+      "category": "aggregation",
+      "question": "Wie viele Messungen gibt es in Epoche 35?",
+      "gold_answer": "Anzahl Messungen (Epoche 35): 37",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 35})\nRETURN count(m) AS value"
+    }
+  }
+}

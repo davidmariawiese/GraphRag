@@ -1,0 +1,158 @@
+{
+  "id": 85,
+  "category": "aggregation",
+  "question": "How many measurements are available for sensor 22.0?",
+  "gold_answer": "Number of measurements (Sensor 22.0): 1768",
+  "graph": {
+    "answer": "Number of measurements for sensor 22.0: 1768",
+    "exact_match": false,
+    "f1": 0.9333333333333333,
+    "cypher": "MATCH (s:Sensor {mote_id: 22.0})-[:GENERATED]->(m:Measurement) RETURN count(m) AS value",
+    "cypher_policy_ok": true,
+    "cypher_explain_ok": true,
+    "cypher_error": null,
+    "error": null
+  },
+  "base": {
+    "answer": "To determine the number of measurements available for sensor 22.0, we need to count all entries that correspond to this specific sensor.\n\nFrom the provided data:\n\n1. On 2004-02-28 at 17:22:20.901052, sensor 22.0 is not mentioned.\n2. On 2004-02-28 at 17:34:22.281366, sensor 22.0 is not mentioned.\n3. On 2004-02-28 at 10:22:17.296707, sensor 22.0 is not mentioned.\n4. On 2004-02-28 at 12:22:19.012411, sensor 22.0 is not mentioned.\n5. On 2004-02-28 at 16:22:50.806622, sensor 22.0 is not mentioned.\n\nHowever, there are two entries for sensor 22.0:\n\n1. On 2004-02-28 at 17:22:20.901052, sensor 22.0 measured temperature 22.1836°C.\n2. On 2004-02-28 at 17:34:22.281366, sensor 22.0 is not mentioned.\n\nTherefore, there are **two** measurements available for sensor 22.0:\n\n1. On 2004-02-28 at 17:22:20.901052\n2. On 2004-02-28 at 17:34:22.281366\n\nSo, the number of measurements available for sensor 22.0 is **2**.\n\nANSWER: There are 2 measurements available for sensor 22.0.",
+    "exact_match": false,
+    "f1": 0.057416267942583726,
+    "error": null
+  },
+  "meta": {
+    "generator_model": "qwen2.5:32b-instruct",
+    "judge_model": "qwen2.5:32b-instruct"
+  },
+  "log_path": "/app/tests/outputs/20251222T100009/logs/0084_85.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 22.0})-[:GENERATED]->(m:Measurement) RETURN count(m) AS value"
+      },
+      "retriever": {
+        "documents_total": 1
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 1768.0,
+              "rows": 1
+            }
+          },
+          "analysis": {},
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 1768
+              }
+            ]
+          }
+        }
+      },
+      "generator": {
+        "answer": "Number of measurements for sensor 22.0: 1768",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 16:22:22.346384, sensor 16.0 measured temperature 22.5168°C, humidity 35.7839%, light 1435.2 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:22:22.346384",
+              "epoch": "1849",
+              "moteid": "16.0",
+              "temperature": "22.5168",
+              "humidity": "35.7839",
+              "light": "1435.2",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 17:22:18.222914, sensor 22.0 measured temperature 22.2914°C, humidity 35.3341%, light 165.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "17:22:18.222914",
+              "epoch": "1969",
+              "moteid": "22.0",
+              "temperature": "22.2914",
+              "humidity": "35.3341",
+              "light": "165.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 17:22:47.73191, sensor 22.0 measured temperature 22.2816°C, humidity 35.2995%, light 172.96 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "17:22:47.73191",
+              "epoch": "1970",
+              "moteid": "22.0",
+              "temperature": "22.2816",
+              "humidity": "35.2995",
+              "light": "172.96",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:22:47.721031, sensor 3.0 measured temperature 22.4776°C, humidity 34.536%, light 165.6 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:22:47.721031",
+              "epoch": "1850",
+              "moteid": "3.0",
+              "temperature": "22.4776",
+              "humidity": "34.536",
+              "light": "165.6",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:22:17.776162, sensor 4.0 measured temperature 22.1934°C, humidity 34.536%, light 368.0 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:22:17.776162",
+              "epoch": "1129",
+              "moteid": "4.0",
+              "temperature": "22.1934",
+              "humidity": "34.536",
+              "light": "368.0",
+              "voltage": "2.68742"
+            }
+          }
+        ]
+      },
+      "llm": {
+        "answer": "To determine the number of measurements available for sensor 22.0, we need to count all entries that correspond to this specific sensor.\n\nFrom the provided data:\n\n1. On 2004-02-28 at 17:22:20.901052, sensor 22.0 is not mentioned.\n2. On 2004-02-28 at 17:34:22.281366, sensor 22.0 is not mentioned.\n3. On 2004-02-28 at 10:22:17.296707, sensor 22.0 is not mentioned.\n4. On 2004-02-28 at 12:22:19.012411, sensor 22.0 is not mentioned.\n5. On 2004-02-28 at 16:22:50.806622, sensor 22.0 is not mentioned.\n\nHowever, there are two entries for sensor 22.0:\n\n1. On 2004-02-28 at 17:22:20.901052, sensor 22.0 measured temperature 22.1836°C.\n2. On 2004-02-28 at 17:34:22.281366, sensor 22.0 is not mentioned.\n\nTherefore, there are **two** measurements available for sensor 22.0:\n\n1. On 2004-02-28 at 17:22:20.901052\n2. On 2004-02-28 at 17:34:22.281366\n\nSo, the number of measurements available for sensor 22.0 is **2**.\n\nANSWER: There are 2 measurements available for sensor 22.0.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 85,
+      "category": "aggregation",
+      "question": "How many measurements are available for sensor 22.0?",
+      "gold_answer": "Number of measurements (Sensor 22.0): 1768",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 22})-[:GENERATED]->(m:Measurement)\nRETURN count(m) AS value"
+    },
+    "graph_judge_context": [
+      "aggregate_value=1768.0 field=value",
+      "value=1768"
+    ],
+    "base_judge_context": [
+      "On 2004-02-28 at 16:22:22.346384, sensor 16.0 measured temperature 22.5168°C, humidity 35.7839%, light 1435.2 Lux, and voltage 2.67532V.",
+      "On 2004-02-28 at 17:22:18.222914, sensor 22.0 measured temperature 22.2914°C, humidity 35.3341%, light 165.6 Lux, and voltage 2.7244V.",
+      "On 2004-02-28 at 17:22:47.73191, sensor 22.0 measured temperature 22.2816°C, humidity 35.2995%, light 172.96 Lux, and voltage 2.7244V.",
+      "On 2004-02-28 at 16:22:47.721031, sensor 3.0 measured temperature 22.4776°C, humidity 34.536%, light 165.6 Lux, and voltage 2.71196V.",
+      "On 2004-02-28 at 10:22:17.776162, sensor 4.0 measured temperature 22.1934°C, humidity 34.536%, light 368.0 Lux, and voltage 2.68742V."
+    ]
+  }
+}

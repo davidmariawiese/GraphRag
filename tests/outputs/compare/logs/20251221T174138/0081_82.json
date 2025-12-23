@@ -1,0 +1,173 @@
+{
+  "id": 82,
+  "category": "aggregation",
+  "question": "What is the minimum voltage of sensor 31.0?",
+  "gold_answer": "Minimum Voltage (Sensor 31.0): 2.06222V",
+  "graph_prediction": "Minimum Voltage of sensor 31.0: 2.06222V",
+  "graph_exact_match": false,
+  "graph_f1": 0.9333333333333333,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 31.0})-[:GENERATED]->(m:Measurement) RETURN min(m.voltage) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "To find the minimum voltage of sensor 31.0 from the provided data:\n\n1. Identify all entries for sensor 31.0 and their voltages:\n   - 2004-02-28 at 09:31:17: 2.60491V\n   - 2004-02-28 at 09:31:46: 2.60491V\n\n2. Compare the voltages:\n   Both entries have a voltage of 2.60491V.\n\nTherefore, the minimum voltage for sensor 31.0 based on the provided data is **2.60491V**.",
+  "base_exact_match": false,
+  "base_f1": 0.15584415584415584,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T174138/0081_82.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 31.0})-[:GENERATED]->(m:Measurement) RETURN min(m.voltage) AS value"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 2.06222,
+              "rows": 1
+            }
+          },
+          "analysis": {},
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 2.06222
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 2.06222,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 2.06222
+              }
+            ]
+          },
+          "analysis": {}
+        }
+      },
+      "generator": {
+        "answer": "Minimum Voltage of sensor 31.0: 2.06222V",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 2.06222}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 09:31:17.603722, sensor 31.0 measured temperature 23.2812°C, humidity 31.3844%, light 1611.84 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:31:17.603722",
+              "epoch": "1027",
+              "moteid": "31.0",
+              "temperature": "23.2812",
+              "humidity": "31.3844",
+              "light": "1611.84",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 09:31:47.078134, sensor 31.0 measured temperature 23.291°C, humidity 31.3844%, light 1611.84 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:31:47.078134",
+              "epoch": "1028",
+              "moteid": "31.0",
+              "temperature": "23.291",
+              "humidity": "31.3844",
+              "light": "1611.84",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-03-29 at 19:31:43.099175, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.09866V.",
+            "meta": {
+              "date": "2004-03-29",
+              "time": "19:31:43.099175",
+              "epoch": "790",
+              "moteid": "31.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "202.4",
+              "voltage": "2.09866"
+            }
+          },
+          {
+            "content": "On 2004-03-29 at 21:31:13.62671, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.09127V.",
+            "meta": {
+              "date": "2004-03-29",
+              "time": "21:31:13.62671",
+              "epoch": "1029",
+              "moteid": "31.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "202.4",
+              "voltage": "2.09127"
+            }
+          },
+          {
+            "content": "On 2004-03-30 at 01:31:44.021857, sensor 31.0 measured temperature 122.153°C, humidity -3.91901%, light 202.4 Lux, and voltage 2.07664V.",
+            "meta": {
+              "date": "2004-03-30",
+              "time": "01:31:44.021857",
+              "epoch": "1510",
+              "moteid": "31.0",
+              "temperature": "122.153",
+              "humidity": "-3.91901",
+              "light": "202.4",
+              "voltage": "2.07664"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "To find the minimum voltage of sensor 31.0 from the provided data:\n\n1. Identify all entries for sensor 31.0 and their voltages:\n   - 2004-02-28 at 09:31:17: 2.60491V\n   - 2004-02-28 at 09:31:46: 2.60491V\n\n2. Compare the voltages:\n   Both entries have a voltage of 2.60491V.\n\nTherefore, the minimum voltage for sensor 31.0 based on the provided data is **2.60491V**.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 82,
+      "category": "aggregation",
+      "question": "What is the minimum voltage of sensor 31.0?",
+      "gold_answer": "Minimum Voltage (Sensor 31.0): 2.06222V",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 31})-[:GENERATED]->(m:Measurement)\nRETURN min(m.voltage) AS value"
+    }
+  }
+}

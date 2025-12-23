@@ -1,0 +1,145 @@
+{
+  "id": 55,
+  "category": "list",
+  "question": "List all measurements in epoch 1723.",
+  "gold_answer": "mote_id=40 time=2004-02-28T15:19:17.249119 temperature=24.7512 humidity=31.3139 light=743.36 voltage=2.73696\nmote_id=15 time=2004-02-28T15:19:17.432738 temperature=22.6932 humidity=35.853 light=1847.36 voltage=2.49546\nmote_id=22 time=2004-02-28T15:19:17.549225 temperature=24.1044 humidity=31.6664 light=596.16 voltage=2.73696\nmote_id=1 time=2004-02-28T15:19:17.549416 temperature=23.438 humidity=32.5803 light=235.52 voltage=2.73696\nmote_id=12 time=2004-02-28T15:19:17.550113 temperature=20.9586 humidity=38.0871 light=1847.36 voltage=2.68742\nmote_id=25 time=2004-02-28T15:19:17.629654 temperature=24.7022 humidity=30.9608 light=1552.96 voltage=2.74963\nmote_id=29 time=2004-02-28T15:19:17.802449 temperature=24.565 humidity=30.8901 light=507.84 voltage=2.73696\nmote_id=30 time=2004-02-28T15:19:17.846246 temperature=24.7806 humidity=31.208 light=1611.84 voltage=2.74963\nmote_id=37 time=2004-02-28T15:19:17.854512 temperature=24.6532 humidity=34.536 light=655.04 voltage=2.74963\nmote_id=17 time=2004-02-28T15:19:17.931368 temperature=23.3988 humidity=33.1409 light=713.92 voltage=2.62796\nmote_id=31 time=2004-02-28T15:19:17.973832 temperature=24.3004 humidity=32.0887 light=920.0 voltage=2.74963\nmote_id=26 time=2004-02-28T15:19:18.074353 temperature=24.5062 humidity=32.159 light=802.24 voltage=2.74963\nmote_id=32 time=2004-02-28T15:19:18.117634 temperature=24.1632 humidity=31.4197 light=537.28 voltage=2.74963\nmote_id=33 time=2004-02-28T15:19:18.141685 temperature=23.9476 humidity=31.9832 light=478.4 voltage=2.73696\nmote_id=36 time=2004-02-28T15:19:18.174404 temperature=24.8884 humidity=33.1409 light=625.6 voltage=2.74963\nmote_id=14 time=2004-02-28T15:19:18.194408 temperature=22.4678 humidity=35.438 light=338.56 voltage=2.73696\nmote_id=21 time=2004-02-28T15:19:18.55712 temperature=23.8006 humidity=32.44 light=309.12 voltage=2.73696\nmote_id=43 time=2004-02-28T15:19:18.774598 temperature=24.9276 humidity=30.5363 light=743.36 voltage=2.74963\nmote_id=18 time=2004-02-28T15:19:18.877125 temperature=23.1048 humidity=33.7349 light=507.84 voltage=2.54901\nmote_id=34 time=2004-02-28T15:19:19.07135 temperature=24.3298 humidity=31.772 light=1081.92 voltage=2.73696\n... (additional 20 measurements omitted)",
+  "graph_prediction": "The provided data contains sensor readings from multiple motes at different times, with each mote recording temperature, humidity, light intensity, and voltage levels. Here is a summary of the key points:\n\n### Summary:\n- **Total Records:** There are 20 records in total.\n- **Time Range:** The timestamps range from `2004-02-28T15:19:17.249119` to `2004-02-28T15:19:19.07135`.\n- **Motes:** The data includes readings from 16 different motes (IDs: 1, 12, 14, 15, 17, 18, 21, 22, 25, 26, 29, 30, 31, 32, 33, 34, 36, 37, 40, and 43).\n\n### Detailed Breakdown:\n- **Temperature:** The temperature readings range from `20.9586` to `24.9276`.\n- **Humidity:** Humidity levels vary between `30.5363` and `38.0871`.\n- **Light Intensity:** Light intensity ranges from `235.52` to `1847.36`.\n- **Voltage:** Voltage readings are mostly around `2.73696`, with some variation.\n\n### Specific Mote Readings:\nHere is a breakdown of the data for each mote:\n\n#### Mote 40\n- Time: `2004-02-28T15:19:17.249119`\n- Temperature: `24.7512`\n- Humidity: `31.3139`\n- Light: `743.36`\n- Voltage: `2.73696`\n\n#### Mote 15\n- Time: `2004-02-28T15:19:17.432738`\n- Temperature: `22.6932`\n- Humidity: `35.853`\n- Light: `1847.36`\n- Voltage:",
+  "graph_exact_match": false,
+  "graph_f1": 0.3137254901960784,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1723})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage\nORDER BY m.time ASC, mote_id ASC\nLIMIT 20",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "No data available.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T222048/0054_55.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1723})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage\nORDER BY m.time ASC, mote_id ASC\nLIMIT 20"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "The provided data contains sensor readings from multiple motes at different times, with each mote recording temperature, humidity, light intensity, and voltage levels. Here is a summary of the key points:\n\n### Summary:\n- **Total Records:** There are 20 records in total.\n- **Time Range:** The timestamps range from `2004-02-28T15:19:17.249119` to `2004-02-28T15:19:19.07135`.\n- **Motes:** The data includes readings from 16 different motes (IDs: 1, 12, 14, 15, 17, 18, 21, 22, 25, 26, 29, 30, 31, 32, 33, 34, 36, 37, 40, and 43).\n\n### Detailed Breakdown:\n- **Temperature:** The temperature readings range from `20.9586` to `24.9276`.\n- **Humidity:** Humidity levels vary between `30.5363` and `38.0871`.\n- **Light Intensity:** Light intensity ranges from `235.52` to `1847.36`.\n- **Voltage:** Voltage readings are mostly around `2.73696`, with some variation.\n\n### Specific Mote Readings:\nHere is a breakdown of the data for each mote:\n\n#### Mote 40\n- Time: `2004-02-28T15:19:17.249119`\n- Temperature: `24.7512`\n- Humidity: `31.3139`\n- Light: `743.36`\n- Voltage: `2.73696`\n\n#### Mote 15\n- Time: `2004-02-28T15:19:17.432738`\n- Temperature: `22.6932`\n- Humidity: `35.853`\n- Light: `1847.36`\n- Voltage:",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 20,
+        "documents": [
+          {
+            "content": "{\"mote_id\": 40, \"time\": \"2004-02-28T15:19:17.249119\", \"temperature\": 24.7512, \"humidity\": 31.3139, \"light\": 743.36, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 15, \"time\": \"2004-02-28T15:19:17.432738\", \"temperature\": 22.6932, \"humidity\": 35.853, \"light\": 1847.36, \"voltage\": 2.49546}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 22, \"time\": \"2004-02-28T15:19:17.549225\", \"temperature\": 24.1044, \"humidity\": 31.6664, \"light\": 596.16, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 1, \"time\": \"2004-02-28T15:19:17.549416\", \"temperature\": 23.438, \"humidity\": 32.5803, \"light\": 235.52, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 12, \"time\": \"2004-02-28T15:19:17.550113\", \"temperature\": 20.9586, \"humidity\": 38.0871, \"light\": 1847.36, \"voltage\": 2.68742}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 25, \"time\": \"2004-02-28T15:19:17.629654\", \"temperature\": 24.7022, \"humidity\": 30.9608, \"light\": 1552.96, \"voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 29, \"time\": \"2004-02-28T15:19:17.802449\", \"temperature\": 24.565, \"humidity\": 30.8901, \"light\": 507.84, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 30, \"time\": \"2004-02-28T15:19:17.846246\", \"temperature\": 24.7806, \"humidity\": 31.208, \"light\": 1611.84, \"voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 37, \"time\": \"2004-02-28T15:19:17.854512\", \"temperature\": 24.6532, \"humidity\": 34.536, \"light\": 655.04, \"voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 17, \"time\": \"2004-02-28T15:19:17.931368\", \"temperature\": 23.3988, \"humidity\": 33.1409, \"light\": 713.92, \"voltage\": 2.62796}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 31, \"time\": \"2004-02-28T15:19:17.973832\", \"temperature\": 24.3004, \"humidity\": 32.0887, \"light\": 920.0, \"voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 26, \"time\": \"2004-02-28T15:19:18.074353\", \"temperature\": 24.5062, \"humidity\": 32.159, \"light\": 802.24, \"voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 32, \"time\": \"2004-02-28T15:19:18.117634\", \"temperature\": 24.1632, \"humidity\": 31.4197, \"light\": 537.28, \"voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 33, \"time\": \"2004-02-28T15:19:18.141685\", \"temperature\": 23.9476, \"humidity\": 31.9832, \"light\": 478.4, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 36, \"time\": \"2004-02-28T15:19:18.174404\", \"temperature\": 24.8884, \"humidity\": 33.1409, \"light\": 625.6, \"voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 14, \"time\": \"2004-02-28T15:19:18.194408\", \"temperature\": 22.4678, \"humidity\": 35.438, \"light\": 338.56, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 21, \"time\": \"2004-02-28T15:19:18.55712\", \"temperature\": 23.8006, \"humidity\": 32.44, \"light\": 309.12, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 43, \"time\": \"2004-02-28T15:19:18.774598\", \"temperature\": 24.9276, \"humidity\": 30.5363, \"light\": 743.36, \"voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 18, \"time\": \"2004-02-28T15:19:18.877125\", \"temperature\": 23.1048, \"humidity\": 33.7349, \"light\": 507.84, \"voltage\": 2.54901}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 34, \"time\": \"2004-02-28T15:19:19.07135\", \"temperature\": 24.3298, \"humidity\": 31.772, \"light\": 1081.92, \"voltage\": 2.73696}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "No data available.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 55,
+      "category": "list",
+      "question": "List all measurements in epoch 1723.",
+      "gold_answer": "mote_id=40 time=2004-02-28T15:19:17.249119 temperature=24.7512 humidity=31.3139 light=743.36 voltage=2.73696\nmote_id=15 time=2004-02-28T15:19:17.432738 temperature=22.6932 humidity=35.853 light=1847.36 voltage=2.49546\nmote_id=22 time=2004-02-28T15:19:17.549225 temperature=24.1044 humidity=31.6664 light=596.16 voltage=2.73696\nmote_id=1 time=2004-02-28T15:19:17.549416 temperature=23.438 humidity=32.5803 light=235.52 voltage=2.73696\nmote_id=12 time=2004-02-28T15:19:17.550113 temperature=20.9586 humidity=38.0871 light=1847.36 voltage=2.68742\nmote_id=25 time=2004-02-28T15:19:17.629654 temperature=24.7022 humidity=30.9608 light=1552.96 voltage=2.74963\nmote_id=29 time=2004-02-28T15:19:17.802449 temperature=24.565 humidity=30.8901 light=507.84 voltage=2.73696\nmote_id=30 time=2004-02-28T15:19:17.846246 temperature=24.7806 humidity=31.208 light=1611.84 voltage=2.74963\nmote_id=37 time=2004-02-28T15:19:17.854512 temperature=24.6532 humidity=34.536 light=655.04 voltage=2.74963\nmote_id=17 time=2004-02-28T15:19:17.931368 temperature=23.3988 humidity=33.1409 light=713.92 voltage=2.62796\nmote_id=31 time=2004-02-28T15:19:17.973832 temperature=24.3004 humidity=32.0887 light=920.0 voltage=2.74963\nmote_id=26 time=2004-02-28T15:19:18.074353 temperature=24.5062 humidity=32.159 light=802.24 voltage=2.74963\nmote_id=32 time=2004-02-28T15:19:18.117634 temperature=24.1632 humidity=31.4197 light=537.28 voltage=2.74963\nmote_id=33 time=2004-02-28T15:19:18.141685 temperature=23.9476 humidity=31.9832 light=478.4 voltage=2.73696\nmote_id=36 time=2004-02-28T15:19:18.174404 temperature=24.8884 humidity=33.1409 light=625.6 voltage=2.74963\nmote_id=14 time=2004-02-28T15:19:18.194408 temperature=22.4678 humidity=35.438 light=338.56 voltage=2.73696\nmote_id=21 time=2004-02-28T15:19:18.55712 temperature=23.8006 humidity=32.44 light=309.12 voltage=2.73696\nmote_id=43 time=2004-02-28T15:19:18.774598 temperature=24.9276 humidity=30.5363 light=743.36 voltage=2.74963\nmote_id=18 time=2004-02-28T15:19:18.877125 temperature=23.1048 humidity=33.7349 light=507.84 voltage=2.54901\nmote_id=34 time=2004-02-28T15:19:19.07135 temperature=24.3298 humidity=31.772 light=1081.92 voltage=2.73696\n... (additional 20 measurements omitted)",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1723})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage ORDER BY time, mote_id LIMIT 20",
+      "gold_meta": {
+        "total": 40
+      }
+    }
+  }
+}

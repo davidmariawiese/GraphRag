@@ -1,0 +1,40 @@
+{
+  "id": 92,
+  "category": "trend",
+  "question": "How does the temperature of sensor 48.0 change over time?",
+  "gold_answer": "The trend of Temperature for sensor 48.0 is: increasing.",
+  "graph_prediction": "The provided data contains a series of temperature measurements taken by a mote device over time, specifically from February 28th at approximately 2:00 AM to around 3:00 AM. Each measurement includes the timestamp and the corresponding temperature in degrees Celsius.\n\nHere are some key observations:\n\n1. **Timestamps**: The timestamps indicate that measurements were taken roughly every minute or so.\n   \n2. **Temperature Trend**:\n   - Initially, at about 2:00 AM, the temperature was around 17.3°C (e.g., 17.3816°C).\n   - Over time, there is a slight decrease in temperature, with readings dropping to approximately 17.2°C by around 3:00 AM.\n   \n3. **Variability**: The temperatures show small fluctuations but generally trend downward over the period.\n\n4. **Mote ID**: All measurements are from mote device `moteuser`.\n\nTo summarize:\n- The temperature data shows a gradual decrease in temperature from about 17.3°C to around 17.2°C.\n- The measurements were taken at regular intervals, indicating consistent monitoring by the mote device.\n\nIf you need further analysis or specific details (e.g., minimum/maximum temperatures), please let me know!",
+  "graph_exact_match": false,
+  "graph_f1": 0.05263157894736842,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.125,
+  "base_faithfulness": 0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T204449/0091_92.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "The provided data contains a series of temperature measurements taken by a mote device over time, specifically from February 28th at approximately 2:00 AM to around 3:00 AM. Each measurement includes the timestamp and the corresponding temperature in degrees Celsius.\n\nHere are some key observations:\n\n1. **Timestamps**: The timestamps indicate that measurements were taken roughly every minute or so.\n   \n2. **Temperature Trend**:\n   - Initially, at about 2:00 AM, the temperature was around 17.3°C (e.g., 17.3816°C).\n   - Over time, there is a slight decrease in temperature, with readings dropping to approximately 17.2°C by around 3:00 AM.\n   \n3. **Variability**: The temperatures show small fluctuations but generally trend downward over the period.\n\n4. **Mote ID**: All measurements are from mote device `moteuser`.\n\nTo summarize:\n- The temperature data shows a gradual decrease in temperature from about 17.3°C to around 17.2°C.\n- The measurements were taken at regular intervals, indicating consistent monitoring by the mote device.\n\nIf you need further analysis or specific details (e.g., minimum/maximum temperatures), please let me know!"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 92,
+      "category": "trend",
+      "question": "How does the temperature of sensor 48.0 change over time?",
+      "gold_answer": "The trend of Temperature for sensor 48.0 is: increasing.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 48})-[:GENERATED]->(m:Measurement)\nWHERE m.temperature IS NOT NULL\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC"
+    }
+  }
+}

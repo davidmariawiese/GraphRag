@@ -47,7 +47,8 @@ services:
       - ../src:/app/src
       - ../notebooks:/app/notebooks
       - ../data:/app/data
-      - ./data/graph:/neo4j-import          # unified import folder for Neo4j + notebooks
+      - ./data/graph:/neo4j-import         # unified import folder for Neo4j + notebooks
+      - ../tests:/app/tests
     environment:
       - PYTHONPATH=/app
       - NEO4J_IMPORT_DIR=/neo4j-import

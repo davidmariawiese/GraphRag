@@ -1,0 +1,141 @@
+{
+  "id": 100,
+  "category": "negative",
+  "question": "Is there any light data for sensor 999.0?",
+  "gold_answer": "No data available.",
+  "graph_prediction": "No data available.",
+  "graph_exact_match": true,
+  "graph_f1": 1.0,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 999.0})-[:GENERATED]->(m:Measurement)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.light AS light\nORDER BY time ASC\nLIMIT 20",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Based on the provided data, there is no information available for sensor 999.0. The data includes measurements from various sensors (e.g., 31.0, 45.0, etc.), but sensor 999.0 is not mentioned.\n\nTherefore, the answer to the question \"Is there any light data for sensor 999.0?\" is:\n\n**No, there is no light data available for sensor 999.0 in the provided dataset.**",
+  "base_exact_match": false,
+  "base_f1": 0.08695652173913045,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T083341/0099_100.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 999.0})-[:GENERATED]->(m:Measurement)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.light AS light\nORDER BY time ASC\nLIMIT 20"
+      },
+      "organizer": {
+        "analysis_json": {
+          "error": "No data found",
+          "context": {}
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {},
+          "raw": {
+            "total_records": null,
+            "records": []
+          },
+          "analysis": {}
+        }
+      },
+      "generator": {
+        "answer": "No data available.",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 01:34:46.485275, sensor 11.0 measured temperature 17.999°C, humidity 42.7853%, light 2.3 Lux, and voltage 2.57108V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:34:46.485275",
+              "epoch": "74",
+              "moteid": "11.0",
+              "temperature": "17.999",
+              "humidity": "42.7853",
+              "light": "2.3",
+              "voltage": "2.57108"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 06:21:17.211172, sensor 2.0 measured temperature 17.999°C, humidity 40.3314%, light 121.44 Lux, and voltage 2.65143V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:21:17.211172",
+              "epoch": "647",
+              "moteid": "2.0",
+              "temperature": "17.999",
+              "humidity": "40.3314",
+              "light": "121.44",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 05:50:16.532018, sensor 6.0 measured temperature 17.999°C, humidity 39.4162%, light 108.56 Lux, and voltage 2.62796V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "05:50:16.532018",
+              "epoch": "585",
+              "moteid": "6.0",
+              "temperature": "17.999",
+              "humidity": "39.4162",
+              "light": "108.56",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 05:52:17.277126, sensor 6.0 measured temperature 17.999°C, humidity 39.2803%, light 108.56 Lux, and voltage 2.62796V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "05:52:17.277126",
+              "epoch": "589",
+              "moteid": "6.0",
+              "temperature": "17.999",
+              "humidity": "39.2803",
+              "light": "108.56",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 05:58:46.606912, sensor 6.0 measured temperature 17.999°C, humidity 39.1443%, light 108.56 Lux, and voltage 2.62796V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "05:58:46.606912",
+              "epoch": "602",
+              "moteid": "6.0",
+              "temperature": "17.999",
+              "humidity": "39.1443",
+              "light": "108.56",
+              "voltage": "2.62796"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Based on the provided data, there is no information available for sensor 999.0. The data includes measurements from various sensors (e.g., 31.0, 45.0, etc.), but sensor 999.0 is not mentioned.\n\nTherefore, the answer to the question \"Is there any light data for sensor 999.0?\" is:\n\n**No, there is no light data available for sensor 999.0 in the provided dataset.**",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 100,
+      "category": "negative",
+      "question": "Is there any light data for sensor 999.0?",
+      "gold_answer": "No data available.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 999})-[:GENERATED]->(m:Measurement)\nWHERE m.light IS NOT NULL\nRETURN count(m) AS value",
+      "gold_meta": {
+        "count": 0
+      }
+    }
+  }
+}

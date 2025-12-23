@@ -1,0 +1,173 @@
+{
+  "id": 73,
+  "category": "aggregation",
+  "question": "What is the average temperature in epoch 58?",
+  "gold_answer": "Average Temperature (Epoch 58): 23.94023°C",
+  "graph_prediction": "Average Temperature (Epoch 58): 23.94°C",
+  "graph_exact_match": false,
+  "graph_f1": 0.8571428571428571,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 58}) RETURN avg(m.temperature) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "To find the average temperature for epoch 58, we need to identify all the measurements from sensor 58 (epoch 58) and calculate their average. However, upon reviewing the provided data, there are no entries for epoch 58.\n\nGiven that there is no data available for epoch 58, it's not possible to compute an average temperature.\n\n**Answer:** There is no data available for epoch 58, so the average temperature cannot be calculated.",
+  "base_exact_match": false,
+  "base_f1": 0.10126582278481013,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T174138/0072_73.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 58}) RETURN avg(m.temperature) AS value"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 23.94023,
+              "rows": 1
+            }
+          },
+          "analysis": {},
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 23.94023
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 23.94023,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 23.94023
+              }
+            ]
+          },
+          "analysis": {}
+        }
+      },
+      "generator": {
+        "answer": "Average Temperature (Epoch 58): 23.94°C",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 23.94023}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-04-01 at 17:51:58.163843, sensor 58.0 measured temperature 24.9668°C, humidity 23.7449%, light 920.0 Lux, and voltage 2.85538V.",
+            "meta": {
+              "date": "2004-04-01",
+              "time": "17:51:58.163843",
+              "epoch": "34",
+              "moteid": "58.0",
+              "temperature": "24.9668",
+              "humidity": "23.7449",
+              "light": "920.0",
+              "voltage": "2.85538"
+            }
+          },
+          {
+            "content": "On 2004-04-01 at 17:37:58.427006, sensor 58.0 measured temperature 25.3784°C, humidity 21.5839%, light 1023.04 Lux, and voltage 2.85538V.",
+            "meta": {
+              "date": "2004-04-01",
+              "time": "17:37:58.427006",
+              "epoch": "6",
+              "moteid": "58.0",
+              "temperature": "25.3784",
+              "humidity": "21.5839",
+              "light": "1023.04",
+              "voltage": "2.85538"
+            }
+          },
+          {
+            "content": "On 2004-04-01 at 17:41:58.333338, sensor 58.0 measured temperature 25.0452°C, humidity 22.3187%, light 1023.04 Lux, and voltage 2.85538V.",
+            "meta": {
+              "date": "2004-04-01",
+              "time": "17:41:58.333338",
+              "epoch": "14",
+              "moteid": "58.0",
+              "temperature": "25.0452",
+              "humidity": "22.3187",
+              "light": "1023.04",
+              "voltage": "2.85538"
+            }
+          },
+          {
+            "content": "On 2004-04-03 at 15:58:09.236422, sensor 58.0 measured temperature 25.0942°C, humidity 31.948%, light 26.68 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-04-03",
+              "time": "15:58:09.236422",
+              "epoch": "1216",
+              "moteid": "58.0",
+              "temperature": "25.0942",
+              "humidity": "31.948",
+              "light": "26.68",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-04-03 at 15:58:39.558579, sensor 58.0 measured temperature 25.0942°C, humidity 31.948%, light 26.68 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-04-03",
+              "time": "15:58:39.558579",
+              "epoch": "1217",
+              "moteid": "58.0",
+              "temperature": "25.0942",
+              "humidity": "31.948",
+              "light": "26.68",
+              "voltage": "2.69964"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "To find the average temperature for epoch 58, we need to identify all the measurements from sensor 58 (epoch 58) and calculate their average. However, upon reviewing the provided data, there are no entries for epoch 58.\n\nGiven that there is no data available for epoch 58, it's not possible to compute an average temperature.\n\n**Answer:** There is no data available for epoch 58, so the average temperature cannot be calculated.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 73,
+      "category": "aggregation",
+      "question": "What is the average temperature in epoch 58?",
+      "gold_answer": "Average Temperature (Epoch 58): 23.94023°C",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 58})\nRETURN avg(m.temperature) AS value"
+    }
+  }
+}

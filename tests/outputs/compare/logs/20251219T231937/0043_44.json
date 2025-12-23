@@ -1,0 +1,4130 @@
+{
+  "id": 44,
+  "category": "list",
+  "question": "List all measurements in epoch 1832.",
+  "gold_answer": "mote_id=24 time=2004-02-28T16:13:47.447007 temperature=23.4576 humidity=32.2995 light=507.84 voltage=2.74963\nmote_id=39 time=2004-02-28T16:13:47.461548 temperature=23.5262 humidity=34.2577 light=250.24 voltage=2.73696\nmote_id=37 time=2004-02-28T16:13:47.491459 temperature=23.5556 humidity=35.8185 light=456.32 voltage=2.73696\nmote_id=1 time=2004-02-28T16:13:47.533705 temperature=22.5364 humidity=33.979 light=158.24 voltage=2.73696\nmote_id=29 time=2004-02-28T16:13:47.546605 temperature=23.3596 humidity=33.2108 light=368.0 voltage=2.7244\nmote_id=30 time=2004-02-28T16:13:47.662378 temperature=23.0264 humidity=33.979 light=964.16 voltage=2.7244\nmote_id=41 time=2004-02-28T16:13:47.988556 temperature=23.5948 humidity=32.1941 light=684.48 voltage=2.7244\nmote_id=9 time=2004-02-28T16:13:48.046384 temperature=22.1248 humidity=35.3687 light=1435.2 voltage=2.78836\nmote_id=26 time=2004-02-28T16:13:48.06616 temperature=23.291 humidity=33.9093 light=478.4 voltage=2.73696\nmote_id=35 time=2004-02-28T16:13:48.106203 temperature=23.4772 humidity=34.9528 light=507.84 voltage=2.67532\nmote_id=20 time=2004-02-28T16:13:48.190848 temperature=22.8402 humidity=35.5072 light=507.84 voltage=2.73696\nmote_id=25 time=2004-02-28T16:13:48.207092 temperature=23.6438 humidity=33.1409 light=802.24 voltage=2.73696\nmote_id=3 time=2004-02-28T16:13:48.323262 temperature=22.5756 humidity=34.2577 light=172.96 voltage=2.7244\nmote_id=15 time=2004-02-28T16:13:48.635904 temperature=22.3796 humidity=36.2328 light=1847.36 voltage=2.48502\nmote_id=2 time=2004-02-28T16:13:48.710972 temperature=22.6344 humidity=35.438 light=264.96 voltage=2.71196\nmote_id=36 time=2004-02-28T16:13:48.711142 temperature=23.3694 humidity=35.2302 light=353.28 voltage=2.7244\nmote_id=16 time=2004-02-28T16:13:48.948229 temperature=22.5854 humidity=35.5764 light=1552.96 voltage=2.67532\nmote_id=53 time=2004-02-28T16:13:48.949657 temperature=22.4188 humidity=37.0933 light=890.56 voltage=2.71196\nmote_id=51 time=2004-02-28T16:13:48.966281 temperature=23.3498 humidity=34.536 light=507.84 voltage=2.7244\nmote_id=50 time=2004-02-28T16:13:49.26481 temperature=23.3596 humidity=34.6055 light=1317.44 voltage=2.7244\n... (additional 21 measurements omitted)",
+  "graph_prediction": "The JSON data provided contains sensor readings from multiple motes at different times. Here is a summary of the key information:\n\n### Summary:\n- **Total Records:** There are 20 records in total.\n- **Mote IDs and Their Readings:**\n  - Each mote has recorded values for temperature, humidity, light intensity, and voltage.\n\n### Detailed Breakdown by Mote ID:\n1. **Mote ID 24:**\n   - Time: `2004-02-28T16:13:47.447007`\n   - Temperature: `23.4576` °C\n   - Humidity: `32.2995` %\n   - Light: `507.84` lux\n   - Voltage: `2.74963` V\n\n2. **Mote ID 39:**\n   - Time: `2004-02-28T16:13:47.461548`\n   - Temperature: `23.5262` °C\n   - Humidity: `34.2577` %\n   - Light: `250.24` lux\n   - Voltage: `2.73696` V\n\n3. **Mote ID 37:**\n   - Time: `2004-02-28T16:13:47.491459`\n   - Temperature: `23.5556` °C\n   - Humidity: `35.8185` %\n   - Light: `456.32` lux\n   - Voltage: `2.73696` V\n\n4. **Mote ID 1:**\n   - Time: `2004-02-28T16:13:47.533705`\n   - Temperature: `22.5364` °C\n   - Humidity: `33.979` %\n   - Light: `158.24` lux\n   - Voltage: `2.73696` V\n\n5. **Mote ID 29:**\n   - Time: `2004-02",
+  "graph_exact_match": false,
+  "graph_f1": 0.313458262350937,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1832})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,\n       m.time AS time,\n       m.temperature AS temperature,\n       m.humidity AS humidity,\n       m.light AS light,\n       m.voltage AS voltage\nORDER BY m.time ASC, mote_id ASC\nLIMIT 20",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Here are the measurements that occurred during epoch 1832:\n\n- Epoch 1832:\n  - **Sensor 1**: No measurement found.\n  - **Sensor 2**: No measurement found.\n  - **Sensor 3**: No measurement found.\n  - **Sensor 4**: No measurement found.\n  - **Sensor 5**: No measurement found.\n  - **Sensor 6**: No measurement found.\n  - **Sensor 7**: No measurement found.\n ",
+  "base_exact_match": false,
+  "base_f1": 0.021276595744680854,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T231937/0043_44.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1832})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,\n       m.time AS time,\n       m.temperature AS temperature,\n       m.humidity AS humidity,\n       m.light AS light,\n       m.voltage AS voltage\nORDER BY m.time ASC, mote_id ASC\nLIMIT 20"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 20,
+            "entities": [
+              "24",
+              "39",
+              "37",
+              "1",
+              "29",
+              "30",
+              "41",
+              "9",
+              "26",
+              "35",
+              "20",
+              "25",
+              "3",
+              "15",
+              "2",
+              "36",
+              "16",
+              "53",
+              "51",
+              "50"
+            ],
+            "provenance": "Cypher Query Result"
+          },
+          "analysis": {
+            "24": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 24.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 24.0,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "max": {
+                    "value": 24.0,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "quantiles": {
+                    "p05": 24.0,
+                    "p50": 24.0,
+                    "p95": 24.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.4576,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.4576,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "max": {
+                    "value": 23.4576,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "quantiles": {
+                    "p05": 23.4576,
+                    "p50": 23.4576,
+                    "p95": 23.4576
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 32.2995,
+                  "std": 0.0,
+                  "min": {
+                    "value": 32.2995,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "max": {
+                    "value": 32.2995,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "quantiles": {
+                    "p05": 32.2995,
+                    "p50": 32.2995,
+                    "p95": 32.2995
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 507.84,
+                  "std": 0.0,
+                  "min": {
+                    "value": 507.84,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "max": {
+                    "value": 507.84,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "quantiles": {
+                    "p05": 507.84,
+                    "p50": 507.84,
+                    "p95": 507.84
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.74963,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.74963,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "max": {
+                    "value": 2.74963,
+                    "timestamp": "2004-02-28T16:13:47.447007"
+                  },
+                  "quantiles": {
+                    "p05": 2.74963,
+                    "p50": 2.74963,
+                    "p95": 2.74963
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "39": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 39.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 39.0,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "max": {
+                    "value": 39.0,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "quantiles": {
+                    "p05": 39.0,
+                    "p50": 39.0,
+                    "p95": 39.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.5262,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.5262,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "max": {
+                    "value": 23.5262,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "quantiles": {
+                    "p05": 23.5262,
+                    "p50": 23.5262,
+                    "p95": 23.5262
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 34.2577,
+                  "std": 0.0,
+                  "min": {
+                    "value": 34.2577,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "max": {
+                    "value": 34.2577,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "quantiles": {
+                    "p05": 34.2577,
+                    "p50": 34.2577,
+                    "p95": 34.2577
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 250.24,
+                  "std": 0.0,
+                  "min": {
+                    "value": 250.24,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "max": {
+                    "value": 250.24,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "quantiles": {
+                    "p05": 250.24,
+                    "p50": 250.24,
+                    "p95": 250.24
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.73696,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "max": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:47.461548"
+                  },
+                  "quantiles": {
+                    "p05": 2.73696,
+                    "p50": 2.73696,
+                    "p95": 2.73696
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "37": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 37.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 37.0,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "max": {
+                    "value": 37.0,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "quantiles": {
+                    "p05": 37.0,
+                    "p50": 37.0,
+                    "p95": 37.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.5556,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.5556,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "max": {
+                    "value": 23.5556,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "quantiles": {
+                    "p05": 23.5556,
+                    "p50": 23.5556,
+                    "p95": 23.5556
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 35.8185,
+                  "std": 0.0,
+                  "min": {
+                    "value": 35.8185,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "max": {
+                    "value": 35.8185,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "quantiles": {
+                    "p05": 35.8185,
+                    "p50": 35.8185,
+                    "p95": 35.8185
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 456.32,
+                  "std": 0.0,
+                  "min": {
+                    "value": 456.32,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "max": {
+                    "value": 456.32,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "quantiles": {
+                    "p05": 456.32,
+                    "p50": 456.32,
+                    "p95": 456.32
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.73696,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "max": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:47.491459"
+                  },
+                  "quantiles": {
+                    "p05": 2.73696,
+                    "p50": 2.73696,
+                    "p95": 2.73696
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "1": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 1.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 1.0,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "max": {
+                    "value": 1.0,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "quantiles": {
+                    "p05": 1.0,
+                    "p50": 1.0,
+                    "p95": 1.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 22.5364,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.5364,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "max": {
+                    "value": 22.5364,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "quantiles": {
+                    "p05": 22.5364,
+                    "p50": 22.5364,
+                    "p95": 22.5364
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 33.979,
+                  "std": 0.0,
+                  "min": {
+                    "value": 33.979,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "max": {
+                    "value": 33.979,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "quantiles": {
+                    "p05": 33.979,
+                    "p50": 33.979,
+                    "p95": 33.979
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 158.24,
+                  "std": 0.0,
+                  "min": {
+                    "value": 158.24,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "max": {
+                    "value": 158.24,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "quantiles": {
+                    "p05": 158.24,
+                    "p50": 158.24,
+                    "p95": 158.24
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.73696,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "max": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:47.533705"
+                  },
+                  "quantiles": {
+                    "p05": 2.73696,
+                    "p50": 2.73696,
+                    "p95": 2.73696
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "29": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 29.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 29.0,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "max": {
+                    "value": 29.0,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "quantiles": {
+                    "p05": 29.0,
+                    "p50": 29.0,
+                    "p95": 29.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.3596,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.3596,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "max": {
+                    "value": 23.3596,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "quantiles": {
+                    "p05": 23.3596,
+                    "p50": 23.3596,
+                    "p95": 23.3596
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 33.2108,
+                  "std": 0.0,
+                  "min": {
+                    "value": 33.2108,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "max": {
+                    "value": 33.2108,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "quantiles": {
+                    "p05": 33.2108,
+                    "p50": 33.2108,
+                    "p95": 33.2108
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 368.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 368.0,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "max": {
+                    "value": 368.0,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "quantiles": {
+                    "p05": 368.0,
+                    "p50": 368.0,
+                    "p95": 368.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.7244,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "max": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:47.546605"
+                  },
+                  "quantiles": {
+                    "p05": 2.7244,
+                    "p50": 2.7244,
+                    "p95": 2.7244
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "30": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 30.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 30.0,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "max": {
+                    "value": 30.0,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "quantiles": {
+                    "p05": 30.0,
+                    "p50": 30.0,
+                    "p95": 30.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.0264,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.0264,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "max": {
+                    "value": 23.0264,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "quantiles": {
+                    "p05": 23.0264,
+                    "p50": 23.0264,
+                    "p95": 23.0264
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 33.979,
+                  "std": 0.0,
+                  "min": {
+                    "value": 33.979,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "max": {
+                    "value": 33.979,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "quantiles": {
+                    "p05": 33.979,
+                    "p50": 33.979,
+                    "p95": 33.979
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 964.16,
+                  "std": 0.0,
+                  "min": {
+                    "value": 964.16,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "max": {
+                    "value": 964.16,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "quantiles": {
+                    "p05": 964.16,
+                    "p50": 964.16,
+                    "p95": 964.16
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.7244,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "max": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:47.662378"
+                  },
+                  "quantiles": {
+                    "p05": 2.7244,
+                    "p50": 2.7244,
+                    "p95": 2.7244
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "41": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 41.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 41.0,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "max": {
+                    "value": 41.0,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "quantiles": {
+                    "p05": 41.0,
+                    "p50": 41.0,
+                    "p95": 41.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.5948,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.5948,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "max": {
+                    "value": 23.5948,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "quantiles": {
+                    "p05": 23.5948,
+                    "p50": 23.5948,
+                    "p95": 23.5948
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 32.1941,
+                  "std": 0.0,
+                  "min": {
+                    "value": 32.1941,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "max": {
+                    "value": 32.1941,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "quantiles": {
+                    "p05": 32.1941,
+                    "p50": 32.1941,
+                    "p95": 32.1941
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 684.48,
+                  "std": 0.0,
+                  "min": {
+                    "value": 684.48,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "max": {
+                    "value": 684.48,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "quantiles": {
+                    "p05": 684.48,
+                    "p50": 684.48,
+                    "p95": 684.48
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.7244,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "max": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:47.988556"
+                  },
+                  "quantiles": {
+                    "p05": 2.7244,
+                    "p50": 2.7244,
+                    "p95": 2.7244
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "9": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 9.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 9.0,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "max": {
+                    "value": 9.0,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "quantiles": {
+                    "p05": 9.0,
+                    "p50": 9.0,
+                    "p95": 9.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 22.1248,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.1248,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "max": {
+                    "value": 22.1248,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "quantiles": {
+                    "p05": 22.1248,
+                    "p50": 22.1248,
+                    "p95": 22.1248
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 35.3687,
+                  "std": 0.0,
+                  "min": {
+                    "value": 35.3687,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "max": {
+                    "value": 35.3687,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "quantiles": {
+                    "p05": 35.3687,
+                    "p50": 35.3687,
+                    "p95": 35.3687
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 1435.2,
+                  "std": 0.0,
+                  "min": {
+                    "value": 1435.2,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "max": {
+                    "value": 1435.2,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "quantiles": {
+                    "p05": 1435.2,
+                    "p50": 1435.2,
+                    "p95": 1435.2
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.78836,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.78836,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "max": {
+                    "value": 2.78836,
+                    "timestamp": "2004-02-28T16:13:48.046384"
+                  },
+                  "quantiles": {
+                    "p05": 2.78836,
+                    "p50": 2.78836,
+                    "p95": 2.78836
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "26": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 26.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 26.0,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "max": {
+                    "value": 26.0,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "quantiles": {
+                    "p05": 26.0,
+                    "p50": 26.0,
+                    "p95": 26.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.291,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.291,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "max": {
+                    "value": 23.291,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "quantiles": {
+                    "p05": 23.291,
+                    "p50": 23.291,
+                    "p95": 23.291
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 33.9093,
+                  "std": 0.0,
+                  "min": {
+                    "value": 33.9093,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "max": {
+                    "value": 33.9093,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "quantiles": {
+                    "p05": 33.9093,
+                    "p50": 33.9093,
+                    "p95": 33.9093
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 478.4,
+                  "std": 0.0,
+                  "min": {
+                    "value": 478.4,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "max": {
+                    "value": 478.4,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "quantiles": {
+                    "p05": 478.4,
+                    "p50": 478.4,
+                    "p95": 478.4
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.73696,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "max": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:48.066160"
+                  },
+                  "quantiles": {
+                    "p05": 2.73696,
+                    "p50": 2.73696,
+                    "p95": 2.73696
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "35": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 35.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 35.0,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "max": {
+                    "value": 35.0,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "quantiles": {
+                    "p05": 35.0,
+                    "p50": 35.0,
+                    "p95": 35.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.4772,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.4772,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "max": {
+                    "value": 23.4772,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "quantiles": {
+                    "p05": 23.4772,
+                    "p50": 23.4772,
+                    "p95": 23.4772
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 34.9528,
+                  "std": 0.0,
+                  "min": {
+                    "value": 34.9528,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "max": {
+                    "value": 34.9528,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "quantiles": {
+                    "p05": 34.9528,
+                    "p50": 34.9528,
+                    "p95": 34.9528
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 507.84,
+                  "std": 0.0,
+                  "min": {
+                    "value": 507.84,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "max": {
+                    "value": 507.84,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "quantiles": {
+                    "p05": 507.84,
+                    "p50": 507.84,
+                    "p95": 507.84
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.67532,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.67532,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "max": {
+                    "value": 2.67532,
+                    "timestamp": "2004-02-28T16:13:48.106203"
+                  },
+                  "quantiles": {
+                    "p05": 2.67532,
+                    "p50": 2.67532,
+                    "p95": 2.67532
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "20": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 20.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 20.0,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "max": {
+                    "value": 20.0,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "quantiles": {
+                    "p05": 20.0,
+                    "p50": 20.0,
+                    "p95": 20.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 22.8402,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.8402,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "max": {
+                    "value": 22.8402,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "quantiles": {
+                    "p05": 22.8402,
+                    "p50": 22.8402,
+                    "p95": 22.8402
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 35.5072,
+                  "std": 0.0,
+                  "min": {
+                    "value": 35.5072,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "max": {
+                    "value": 35.5072,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "quantiles": {
+                    "p05": 35.5072,
+                    "p50": 35.5072,
+                    "p95": 35.5072
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 507.84,
+                  "std": 0.0,
+                  "min": {
+                    "value": 507.84,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "max": {
+                    "value": 507.84,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "quantiles": {
+                    "p05": 507.84,
+                    "p50": 507.84,
+                    "p95": 507.84
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.73696,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "max": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:48.190848"
+                  },
+                  "quantiles": {
+                    "p05": 2.73696,
+                    "p50": 2.73696,
+                    "p95": 2.73696
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "25": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 25.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 25.0,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "max": {
+                    "value": 25.0,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "quantiles": {
+                    "p05": 25.0,
+                    "p50": 25.0,
+                    "p95": 25.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.6438,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.6438,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "max": {
+                    "value": 23.6438,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "quantiles": {
+                    "p05": 23.6438,
+                    "p50": 23.6438,
+                    "p95": 23.6438
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 33.1409,
+                  "std": 0.0,
+                  "min": {
+                    "value": 33.1409,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "max": {
+                    "value": 33.1409,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "quantiles": {
+                    "p05": 33.1409,
+                    "p50": 33.1409,
+                    "p95": 33.1409
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 802.24,
+                  "std": 0.0,
+                  "min": {
+                    "value": 802.24,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "max": {
+                    "value": 802.24,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "quantiles": {
+                    "p05": 802.24,
+                    "p50": 802.24,
+                    "p95": 802.24
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.73696,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "max": {
+                    "value": 2.73696,
+                    "timestamp": "2004-02-28T16:13:48.207092"
+                  },
+                  "quantiles": {
+                    "p05": 2.73696,
+                    "p50": 2.73696,
+                    "p95": 2.73696
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "3": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 3.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 3.0,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "max": {
+                    "value": 3.0,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "quantiles": {
+                    "p05": 3.0,
+                    "p50": 3.0,
+                    "p95": 3.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 22.5756,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.5756,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "max": {
+                    "value": 22.5756,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "quantiles": {
+                    "p05": 22.5756,
+                    "p50": 22.5756,
+                    "p95": 22.5756
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 34.2577,
+                  "std": 0.0,
+                  "min": {
+                    "value": 34.2577,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "max": {
+                    "value": 34.2577,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "quantiles": {
+                    "p05": 34.2577,
+                    "p50": 34.2577,
+                    "p95": 34.2577
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 172.96,
+                  "std": 0.0,
+                  "min": {
+                    "value": 172.96,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "max": {
+                    "value": 172.96,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "quantiles": {
+                    "p05": 172.96,
+                    "p50": 172.96,
+                    "p95": 172.96
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.7244,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "max": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:48.323262"
+                  },
+                  "quantiles": {
+                    "p05": 2.7244,
+                    "p50": 2.7244,
+                    "p95": 2.7244
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "15": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 15.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 15.0,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "max": {
+                    "value": 15.0,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "quantiles": {
+                    "p05": 15.0,
+                    "p50": 15.0,
+                    "p95": 15.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 22.3796,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.3796,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "max": {
+                    "value": 22.3796,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "quantiles": {
+                    "p05": 22.3796,
+                    "p50": 22.3796,
+                    "p95": 22.3796
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 36.2328,
+                  "std": 0.0,
+                  "min": {
+                    "value": 36.2328,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "max": {
+                    "value": 36.2328,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "quantiles": {
+                    "p05": 36.2328,
+                    "p50": 36.2328,
+                    "p95": 36.2328
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 1847.36,
+                  "std": 0.0,
+                  "min": {
+                    "value": 1847.36,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "max": {
+                    "value": 1847.36,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "quantiles": {
+                    "p05": 1847.36,
+                    "p50": 1847.36,
+                    "p95": 1847.36
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.48502,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.48502,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "max": {
+                    "value": 2.48502,
+                    "timestamp": "2004-02-28T16:13:48.635904"
+                  },
+                  "quantiles": {
+                    "p05": 2.48502,
+                    "p50": 2.48502,
+                    "p95": 2.48502
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "2": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.0,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "max": {
+                    "value": 2.0,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "quantiles": {
+                    "p05": 2.0,
+                    "p50": 2.0,
+                    "p95": 2.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 22.6344,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.6344,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "max": {
+                    "value": 22.6344,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "quantiles": {
+                    "p05": 22.6344,
+                    "p50": 22.6344,
+                    "p95": 22.6344
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 35.438,
+                  "std": 0.0,
+                  "min": {
+                    "value": 35.438,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "max": {
+                    "value": 35.438,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "quantiles": {
+                    "p05": 35.438,
+                    "p50": 35.438,
+                    "p95": 35.438
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 264.96,
+                  "std": 0.0,
+                  "min": {
+                    "value": 264.96,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "max": {
+                    "value": 264.96,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "quantiles": {
+                    "p05": 264.96,
+                    "p50": 264.96,
+                    "p95": 264.96
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.71196,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.71196,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "max": {
+                    "value": 2.71196,
+                    "timestamp": "2004-02-28T16:13:48.710972"
+                  },
+                  "quantiles": {
+                    "p05": 2.71196,
+                    "p50": 2.71196,
+                    "p95": 2.71196
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "36": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 36.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 36.0,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "max": {
+                    "value": 36.0,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "quantiles": {
+                    "p05": 36.0,
+                    "p50": 36.0,
+                    "p95": 36.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.3694,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.3694,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "max": {
+                    "value": 23.3694,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "quantiles": {
+                    "p05": 23.3694,
+                    "p50": 23.3694,
+                    "p95": 23.3694
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 35.2302,
+                  "std": 0.0,
+                  "min": {
+                    "value": 35.2302,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "max": {
+                    "value": 35.2302,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "quantiles": {
+                    "p05": 35.2302,
+                    "p50": 35.2302,
+                    "p95": 35.2302
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 353.28,
+                  "std": 0.0,
+                  "min": {
+                    "value": 353.28,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "max": {
+                    "value": 353.28,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "quantiles": {
+                    "p05": 353.28,
+                    "p50": 353.28,
+                    "p95": 353.28
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.7244,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "max": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:48.711142"
+                  },
+                  "quantiles": {
+                    "p05": 2.7244,
+                    "p50": 2.7244,
+                    "p95": 2.7244
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "16": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 16.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 16.0,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "max": {
+                    "value": 16.0,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "quantiles": {
+                    "p05": 16.0,
+                    "p50": 16.0,
+                    "p95": 16.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 22.5854,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.5854,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "max": {
+                    "value": 22.5854,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "quantiles": {
+                    "p05": 22.5854,
+                    "p50": 22.5854,
+                    "p95": 22.5854
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 35.5764,
+                  "std": 0.0,
+                  "min": {
+                    "value": 35.5764,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "max": {
+                    "value": 35.5764,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "quantiles": {
+                    "p05": 35.5764,
+                    "p50": 35.5764,
+                    "p95": 35.5764
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 1552.96,
+                  "std": 0.0,
+                  "min": {
+                    "value": 1552.96,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "max": {
+                    "value": 1552.96,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "quantiles": {
+                    "p05": 1552.96,
+                    "p50": 1552.96,
+                    "p95": 1552.96
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.67532,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.67532,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "max": {
+                    "value": 2.67532,
+                    "timestamp": "2004-02-28T16:13:48.948229"
+                  },
+                  "quantiles": {
+                    "p05": 2.67532,
+                    "p50": 2.67532,
+                    "p95": 2.67532
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "53": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 53.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 53.0,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "max": {
+                    "value": 53.0,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "quantiles": {
+                    "p05": 53.0,
+                    "p50": 53.0,
+                    "p95": 53.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 22.4188,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.4188,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "max": {
+                    "value": 22.4188,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "quantiles": {
+                    "p05": 22.4188,
+                    "p50": 22.4188,
+                    "p95": 22.4188
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 37.0933,
+                  "std": 0.0,
+                  "min": {
+                    "value": 37.0933,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "max": {
+                    "value": 37.0933,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "quantiles": {
+                    "p05": 37.0933,
+                    "p50": 37.0933,
+                    "p95": 37.0933
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 890.56,
+                  "std": 0.0,
+                  "min": {
+                    "value": 890.56,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "max": {
+                    "value": 890.56,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "quantiles": {
+                    "p05": 890.56,
+                    "p50": 890.56,
+                    "p95": 890.56
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.71196,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.71196,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "max": {
+                    "value": 2.71196,
+                    "timestamp": "2004-02-28T16:13:48.949657"
+                  },
+                  "quantiles": {
+                    "p05": 2.71196,
+                    "p50": 2.71196,
+                    "p95": 2.71196
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "51": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 51.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 51.0,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "max": {
+                    "value": 51.0,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "quantiles": {
+                    "p05": 51.0,
+                    "p50": 51.0,
+                    "p95": 51.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.3498,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.3498,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "max": {
+                    "value": 23.3498,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "quantiles": {
+                    "p05": 23.3498,
+                    "p50": 23.3498,
+                    "p95": 23.3498
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 34.536,
+                  "std": 0.0,
+                  "min": {
+                    "value": 34.536,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "max": {
+                    "value": 34.536,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "quantiles": {
+                    "p05": 34.536,
+                    "p50": 34.536,
+                    "p95": 34.536
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 507.84,
+                  "std": 0.0,
+                  "min": {
+                    "value": 507.84,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "max": {
+                    "value": 507.84,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "quantiles": {
+                    "p05": 507.84,
+                    "p50": 507.84,
+                    "p95": 507.84
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.7244,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "max": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:48.966281"
+                  },
+                  "quantiles": {
+                    "p05": 2.7244,
+                    "p50": 2.7244,
+                    "p95": 2.7244
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            },
+            "50": {
+              "mote_id": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 50.0,
+                  "std": 0.0,
+                  "min": {
+                    "value": 50.0,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "max": {
+                    "value": 50.0,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "quantiles": {
+                    "p05": 50.0,
+                    "p50": 50.0,
+                    "p95": 50.0
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "temperature": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 23.3596,
+                  "std": 0.0,
+                  "min": {
+                    "value": 23.3596,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "max": {
+                    "value": 23.3596,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "quantiles": {
+                    "p05": 23.3596,
+                    "p50": 23.3596,
+                    "p95": 23.3596
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "humidity": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 34.6055,
+                  "std": 0.0,
+                  "min": {
+                    "value": 34.6055,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "max": {
+                    "value": 34.6055,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "quantiles": {
+                    "p05": 34.6055,
+                    "p50": 34.6055,
+                    "p95": 34.6055
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "light": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 1317.44,
+                  "std": 0.0,
+                  "min": {
+                    "value": 1317.44,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "max": {
+                    "value": 1317.44,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "quantiles": {
+                    "p05": 1317.44,
+                    "p50": 1317.44,
+                    "p95": 1317.44
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              },
+              "voltage": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.7244,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "max": {
+                    "value": 2.7244,
+                    "timestamp": "2004-02-28T16:13:49.264810"
+                  },
+                  "quantiles": {
+                    "p05": 2.7244,
+                    "p50": 2.7244,
+                    "p95": 2.7244
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 20,
+            "records": [
+              {
+                "mote_id": 24,
+                "time": "2004-02-28T16:13:47.447007",
+                "temperature": 23.4576,
+                "humidity": 32.2995,
+                "light": 507.84,
+                "voltage": 2.74963
+              },
+              {
+                "mote_id": 39,
+                "time": "2004-02-28T16:13:47.461548",
+                "temperature": 23.5262,
+                "humidity": 34.2577,
+                "light": 250.24,
+                "voltage": 2.73696
+              },
+              {
+                "mote_id": 37,
+                "time": "2004-02-28T16:13:47.491459",
+                "temperature": 23.5556,
+                "humidity": 35.8185,
+                "light": 456.32,
+                "voltage": 2.73696
+              },
+              {
+                "mote_id": 1,
+                "time": "2004-02-28T16:13:47.533705",
+                "temperature": 22.5364,
+                "humidity": 33.979,
+                "light": 158.24,
+                "voltage": 2.73696
+              },
+              {
+                "mote_id": 29,
+                "time": "2004-02-28T16:13:47.546605",
+                "temperature": 23.3596,
+                "humidity": 33.2108,
+                "light": 368.0,
+                "voltage": 2.7244
+              },
+              {
+                "mote_id": 30,
+                "time": "2004-02-28T16:13:47.662378",
+                "temperature": 23.0264,
+                "humidity": 33.979,
+                "light": 964.16,
+                "voltage": 2.7244
+              },
+              {
+                "mote_id": 41,
+                "time": "2004-02-28T16:13:47.988556",
+                "temperature": 23.5948,
+                "humidity": 32.1941,
+                "light": 684.48,
+                "voltage": 2.7244
+              },
+              {
+                "mote_id": 9,
+                "time": "2004-02-28T16:13:48.046384",
+                "temperature": 22.1248,
+                "humidity": 35.3687,
+                "light": 1435.2,
+                "voltage": 2.78836
+              },
+              {
+                "mote_id": 26,
+                "time": "2004-02-28T16:13:48.06616",
+                "temperature": 23.291,
+                "humidity": 33.9093,
+                "light": 478.4,
+                "voltage": 2.73696
+              },
+              {
+                "mote_id": 35,
+                "time": "2004-02-28T16:13:48.106203",
+                "temperature": 23.4772,
+                "humidity": 34.9528,
+                "light": 507.84,
+                "voltage": 2.67532
+              },
+              {
+                "mote_id": 20,
+                "time": "2004-02-28T16:13:48.190848",
+                "temperature": 22.8402,
+                "humidity": 35.5072,
+                "light": 507.84,
+                "voltage": 2.73696
+              },
+              {
+                "mote_id": 25,
+                "time": "2004-02-28T16:13:48.207092",
+                "temperature": 23.6438,
+                "humidity": 33.1409,
+                "light": 802.24,
+                "voltage": 2.73696
+              },
+              {
+                "mote_id": 3,
+                "time": "2004-02-28T16:13:48.323262",
+                "temperature": 22.5756,
+                "humidity": 34.2577,
+                "light": 172.96,
+                "voltage": 2.7244
+              },
+              {
+                "mote_id": 15,
+                "time": "2004-02-28T16:13:48.635904",
+                "temperature": 22.3796,
+                "humidity": 36.2328,
+                "light": 1847.36,
+                "voltage": 2.48502
+              },
+              {
+                "mote_id": 2,
+                "time": "2004-02-28T16:13:48.710972",
+                "temperature": 22.6344,
+                "humidity": 35.438,
+                "light": 264.96,
+                "voltage": 2.71196
+              },
+              {
+                "mote_id": 36,
+                "time": "2004-02-28T16:13:48.711142",
+                "temperature": 23.3694,
+                "humidity": 35.2302,
+                "light": 353.28,
+                "voltage": 2.7244
+              },
+              {
+                "mote_id": 16,
+                "time": "2004-02-28T16:13:48.948229",
+                "temperature": 22.5854,
+                "humidity": 35.5764,
+                "light": 1552.96,
+                "voltage": 2.67532
+              },
+              {
+                "mote_id": 53,
+                "time": "2004-02-28T16:13:48.949657",
+                "temperature": 22.4188,
+                "humidity": 37.0933,
+                "light": 890.56,
+                "voltage": 2.71196
+              },
+              {
+                "mote_id": 51,
+                "time": "2004-02-28T16:13:48.966281",
+                "temperature": 23.3498,
+                "humidity": 34.536,
+                "light": 507.84,
+                "voltage": 2.7244
+              },
+              {
+                "mote_id": 50,
+                "time": "2004-02-28T16:13:49.26481",
+                "temperature": 23.3596,
+                "humidity": 34.6055,
+                "light": 1317.44,
+                "voltage": 2.7244
+              }
+            ]
+          }
+        }
+      },
+      "generator": {
+        "answer": "The JSON data provided contains sensor readings from multiple motes at different times. Here is a summary of the key information:\n\n### Summary:\n- **Total Records:** There are 20 records in total.\n- **Mote IDs and Their Readings:**\n  - Each mote has recorded values for temperature, humidity, light intensity, and voltage.\n\n### Detailed Breakdown by Mote ID:\n1. **Mote ID 24:**\n   - Time: `2004-02-28T16:13:47.447007`\n   - Temperature: `23.4576` °C\n   - Humidity: `32.2995` %\n   - Light: `507.84` lux\n   - Voltage: `2.74963` V\n\n2. **Mote ID 39:**\n   - Time: `2004-02-28T16:13:47.461548`\n   - Temperature: `23.5262` °C\n   - Humidity: `34.2577` %\n   - Light: `250.24` lux\n   - Voltage: `2.73696` V\n\n3. **Mote ID 37:**\n   - Time: `2004-02-28T16:13:47.491459`\n   - Temperature: `23.5556` °C\n   - Humidity: `35.8185` %\n   - Light: `456.32` lux\n   - Voltage: `2.73696` V\n\n4. **Mote ID 1:**\n   - Time: `2004-02-28T16:13:47.533705`\n   - Temperature: `22.5364` °C\n   - Humidity: `33.979` %\n   - Light: `158.24` lux\n   - Voltage: `2.73696` V\n\n5. **Mote ID 29:**\n   - Time: `2004-02",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 20,
+        "documents": [
+          {
+            "content": "{\"mote_id\": 24, \"time\": \"2004-02-28T16:13:47.447007\", \"temperature\": 23.4576, \"humidity\": 32.2995, \"light\": 507.84, \"voltage\": 2.74963}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 39, \"time\": \"2004-02-28T16:13:47.461548\", \"temperature\": 23.5262, \"humidity\": 34.2577, \"light\": 250.24, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 37, \"time\": \"2004-02-28T16:13:47.491459\", \"temperature\": 23.5556, \"humidity\": 35.8185, \"light\": 456.32, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 1, \"time\": \"2004-02-28T16:13:47.533705\", \"temperature\": 22.5364, \"humidity\": 33.979, \"light\": 158.24, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 29, \"time\": \"2004-02-28T16:13:47.546605\", \"temperature\": 23.3596, \"humidity\": 33.2108, \"light\": 368.0, \"voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 30, \"time\": \"2004-02-28T16:13:47.662378\", \"temperature\": 23.0264, \"humidity\": 33.979, \"light\": 964.16, \"voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 41, \"time\": \"2004-02-28T16:13:47.988556\", \"temperature\": 23.5948, \"humidity\": 32.1941, \"light\": 684.48, \"voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 9, \"time\": \"2004-02-28T16:13:48.046384\", \"temperature\": 22.1248, \"humidity\": 35.3687, \"light\": 1435.2, \"voltage\": 2.78836}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 26, \"time\": \"2004-02-28T16:13:48.06616\", \"temperature\": 23.291, \"humidity\": 33.9093, \"light\": 478.4, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 35, \"time\": \"2004-02-28T16:13:48.106203\", \"temperature\": 23.4772, \"humidity\": 34.9528, \"light\": 507.84, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 20, \"time\": \"2004-02-28T16:13:48.190848\", \"temperature\": 22.8402, \"humidity\": 35.5072, \"light\": 507.84, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 25, \"time\": \"2004-02-28T16:13:48.207092\", \"temperature\": 23.6438, \"humidity\": 33.1409, \"light\": 802.24, \"voltage\": 2.73696}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 3, \"time\": \"2004-02-28T16:13:48.323262\", \"temperature\": 22.5756, \"humidity\": 34.2577, \"light\": 172.96, \"voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 15, \"time\": \"2004-02-28T16:13:48.635904\", \"temperature\": 22.3796, \"humidity\": 36.2328, \"light\": 1847.36, \"voltage\": 2.48502}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 2, \"time\": \"2004-02-28T16:13:48.710972\", \"temperature\": 22.6344, \"humidity\": 35.438, \"light\": 264.96, \"voltage\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 36, \"time\": \"2004-02-28T16:13:48.711142\", \"temperature\": 23.3694, \"humidity\": 35.2302, \"light\": 353.28, \"voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 16, \"time\": \"2004-02-28T16:13:48.948229\", \"temperature\": 22.5854, \"humidity\": 35.5764, \"light\": 1552.96, \"voltage\": 2.67532}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 53, \"time\": \"2004-02-28T16:13:48.949657\", \"temperature\": 22.4188, \"humidity\": 37.0933, \"light\": 890.56, \"voltage\": 2.71196}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 51, \"time\": \"2004-02-28T16:13:48.966281\", \"temperature\": 23.3498, \"humidity\": 34.536, \"light\": 507.84, \"voltage\": 2.7244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"mote_id\": 50, \"time\": \"2004-02-28T16:13:49.26481\", \"temperature\": 23.3596, \"humidity\": 34.6055, \"light\": 1317.44, \"voltage\": 2.7244}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 10:59:17.231274, sensor 3.0 measured temperature 23.1832°C, humidity 32.5102%, light 441.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:59:17.231274",
+              "epoch": "1203",
+              "moteid": "3.0",
+              "temperature": "23.1832",
+              "humidity": "32.5102",
+              "light": "441.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:16:49.107364, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 478.4 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:16:49.107364",
+              "epoch": "1478",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:36:48.496811, sensor 1.0 measured temperature 23.1832°C, humidity 32.8608%, light 180.32 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:36:48.496811",
+              "epoch": "1758",
+              "moteid": "1.0",
+              "temperature": "23.1832",
+              "humidity": "32.8608",
+              "light": "180.32",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:35:48.279674, sensor 2.0 measured temperature 23.1832°C, humidity 34.675%, light 279.68 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:35:48.279674",
+              "epoch": "1756",
+              "moteid": "2.0",
+              "temperature": "23.1832",
+              "humidity": "34.675",
+              "light": "279.68",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:12:18.958846, sensor 3.0 measured temperature 23.1832°C, humidity 32.6505%, light 426.88 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:12:18.958846",
+              "epoch": "1229",
+              "moteid": "3.0",
+              "temperature": "23.1832",
+              "humidity": "32.6505",
+              "light": "426.88",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:13:17.198701, sensor 3.0 measured temperature 23.1832°C, humidity 32.6505%, light 426.88 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:13:17.198701",
+              "epoch": "1231",
+              "moteid": "3.0",
+              "temperature": "23.1832",
+              "humidity": "32.6505",
+              "light": "426.88",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:33:18.953185, sensor 3.0 measured temperature 23.1832°C, humidity 33.2808%, light 224.48 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:33:18.953185",
+              "epoch": "1751",
+              "moteid": "3.0",
+              "temperature": "23.1832",
+              "humidity": "33.2808",
+              "light": "224.48",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:25:18.604604, sensor 4.0 measured temperature 23.1832°C, humidity 34.0836%, light 412.16 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:25:18.604604",
+              "epoch": "1255",
+              "moteid": "4.0",
+              "temperature": "23.1832",
+              "humidity": "34.0836",
+              "light": "412.16",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:43:18.127594, sensor 7.0 measured temperature 23.1832°C, humidity 33.9442%, light 397.44 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:43:18.127594",
+              "epoch": "1531",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.9442",
+              "light": "397.44",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:44:19.299945, sensor 7.0 measured temperature 23.1832°C, humidity 33.8744%, light 382.72 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:44:19.299945",
+              "epoch": "1533",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.8744",
+              "light": "382.72",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:44:47.481084, sensor 7.0 measured temperature 23.1832°C, humidity 33.9442%, light 382.72 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:44:47.481084",
+              "epoch": "1534",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.9442",
+              "light": "382.72",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:12:49.144137, sensor 7.0 measured temperature 23.1832°C, humidity 33.8396%, light 353.28 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:12:49.144137",
+              "epoch": "1590",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.8396",
+              "light": "353.28",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:13:17.5282, sensor 7.0 measured temperature 23.1832°C, humidity 33.8744%, light 353.28 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:13:17.5282",
+              "epoch": "1591",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.8744",
+              "light": "353.28",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:58:19.317734, sensor 9.0 measured temperature 23.1832°C, humidity 34.8487%, light 1847.36 Lux, and voltage 2.80151V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:58:19.317734",
+              "epoch": "1561",
+              "moteid": "9.0",
+              "temperature": "23.1832",
+              "humidity": "34.8487",
+              "light": "1847.36",
+              "voltage": "2.80151"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:58:47.23606, sensor 9.0 measured temperature 23.1832°C, humidity 34.8487%, light 1847.36 Lux, and voltage 2.80151V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:58:47.23606",
+              "epoch": "1562",
+              "moteid": "9.0",
+              "temperature": "23.1832",
+              "humidity": "34.8487",
+              "light": "1847.36",
+              "voltage": "2.80151"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:28:18.135465, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 456.32 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:28:18.135465",
+              "epoch": "1501",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "456.32",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:29:18.030798, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 507.84 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:29:18.030798",
+              "epoch": "1503",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "507.84",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:30:17.966927, sensor 18.0 measured temperature 23.1832°C, humidity 33.7698%, light 478.4 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:30:17.966927",
+              "epoch": "1505",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7698",
+              "light": "478.4",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:31:17.315301, sensor 18.0 measured temperature 23.1832°C, humidity 33.7349%, light 478.4 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:31:17.315301",
+              "epoch": "1507",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7349",
+              "light": "478.4",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:31:47.836569, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 456.32 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:31:47.836569",
+              "epoch": "1508",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "456.32",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:33:17.688215, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 426.88 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:33:17.688215",
+              "epoch": "1511",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "426.88",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:42:50.101373, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 566.72 Lux, and voltage 2.53812V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:42:50.101373",
+              "epoch": "1650",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "566.72",
+              "voltage": "2.53812"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:44:50.094433, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 566.72 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:44:50.094433",
+              "epoch": "1654",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "566.72",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:45:19.938187, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 566.72 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:45:19.938187",
+              "epoch": "1655",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "566.72",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:51:46.787713, sensor 19.0 measured temperature 23.1832°C, humidity 32.2293%, light 294.4 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:51:46.787713",
+              "epoch": "1188",
+              "moteid": "19.0",
+              "temperature": "23.1832",
+              "humidity": "32.2293",
+              "light": "294.4",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:53:19.150182, sensor 19.0 measured temperature 23.1832°C, humidity 32.2644%, light 294.4 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:53:19.150182",
+              "epoch": "1191",
+              "moteid": "19.0",
+              "temperature": "23.1832",
+              "humidity": "32.2644",
+              "light": "294.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 09:48:17.68803, sensor 21.0 measured temperature 23.1832°C, humidity 31.1021%, light 441.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:48:17.68803",
+              "epoch": "1061",
+              "moteid": "21.0",
+              "temperature": "23.1832",
+              "humidity": "31.1021",
+              "light": "441.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:18:49.230649, sensor 22.0 measured temperature 23.1832°C, humidity 33.2808%, light 368.0 Lux, and voltage 2.73696V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:18:49.230649",
+              "epoch": "1842",
+              "moteid": "22.0",
+              "temperature": "23.1832",
+              "humidity": "33.2808",
+              "light": "368.0",
+              "voltage": "2.73696"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:17:48.220161, sensor 26.0 measured temperature 23.1832°C, humidity 34.0487%, light 441.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:17:48.220161",
+              "epoch": "1840",
+              "moteid": "26.0",
+              "temperature": "23.1832",
+              "humidity": "34.0487",
+              "light": "441.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:26:18.491289, sensor 35.0 measured temperature 23.1832°C, humidity 35.438%, light 478.4 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:26:18.491289",
+              "epoch": "1857",
+              "moteid": "35.0",
+              "temperature": "23.1832",
+              "humidity": "35.438",
+              "light": "478.4",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:17:47.487185, sensor 38.0 measured temperature 23.1832°C, humidity 32.8608%, light 441.6 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:17:47.487185",
+              "epoch": "1840",
+              "moteid": "38.0",
+              "temperature": "23.1832",
+              "humidity": "32.8608",
+              "light": "441.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:18:20.517372, sensor 38.0 measured temperature 23.1832°C, humidity 32.8608%, light 441.6 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:18:20.517372",
+              "epoch": "1841",
+              "moteid": "38.0",
+              "temperature": "23.1832",
+              "humidity": "32.8608",
+              "light": "441.6",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:31:49.183103, sensor 41.0 measured temperature 23.1832°C, humidity 32.8608%, light 625.6 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:31:49.183103",
+              "epoch": "1868",
+              "moteid": "41.0",
+              "temperature": "23.1832",
+              "humidity": "32.8608",
+              "light": "625.6",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:45:21.352011, sensor 45.0 measured temperature 23.1832°C, humidity 33.3857%, light 625.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:45:21.352011",
+              "epoch": "1895",
+              "moteid": "45.0",
+              "temperature": "23.1832",
+              "humidity": "33.3857",
+              "light": "625.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:11:19.376081, sensor 46.0 measured temperature 23.1832°C, humidity 34.6055%, light 478.4 Lux, and voltage 2.52732V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:11:19.376081",
+              "epoch": "1827",
+              "moteid": "46.0",
+              "temperature": "23.1832",
+              "humidity": "34.6055",
+              "light": "478.4",
+              "voltage": "2.52732"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:30:48.147027, sensor 51.0 measured temperature 23.1832°C, humidity 34.7097%, light 441.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:30:48.147027",
+              "epoch": "1866",
+              "moteid": "51.0",
+              "temperature": "23.1832",
+              "humidity": "34.7097",
+              "light": "441.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:37:17.456848, sensor 15.0 measured temperature 23.1832°C, humidity 35.0915%, light 1847.36 Lux, and voltage 2.49546V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:37:17.456848",
+              "epoch": "35",
+              "moteid": "15.0",
+              "temperature": "23.1832",
+              "humidity": "35.0915",
+              "light": "1847.36",
+              "voltage": "2.49546"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:51:49.739535, sensor 16.0 measured temperature 23.1832°C, humidity 35.0222%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:51:49.739535",
+              "epoch": "1548",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "35.0222",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:35:18.894296, sensor 16.0 measured temperature 23.1832°C, humidity 34.7445%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:35:18.894296",
+              "epoch": "1635",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.7445",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:35:48.501764, sensor 16.0 measured temperature 23.1832°C, humidity 34.6055%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:35:48.501764",
+              "epoch": "1636",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.6055",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:36:47.809292, sensor 16.0 measured temperature 23.1832°C, humidity 34.7445%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:36:47.809292",
+              "epoch": "1638",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.7445",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:17:18.344467, sensor 16.0 measured temperature 23.1832°C, humidity 34.6055%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:17:18.344467",
+              "epoch": "1719",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.6055",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:20:19.696508, sensor 16.0 measured temperature 23.1832°C, humidity 34.675%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:20:19.696508",
+              "epoch": "1725",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.675",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:00:46.968145, sensor 17.0 measured temperature 23.1832°C, humidity 31.5607%, light 964.16 Lux, and voltage 2.61639V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:00:46.968145",
+              "epoch": "1086",
+              "moteid": "17.0",
+              "temperature": "23.1832",
+              "humidity": "31.5607",
+              "light": "964.16",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:20:47.588086, sensor 17.0 measured temperature 23.1832°C, humidity 31.772%, light 861.12 Lux, and voltage 2.61639V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:20:47.588086",
+              "epoch": "1126",
+              "moteid": "17.0",
+              "temperature": "23.1832",
+              "humidity": "31.772",
+              "light": "861.12",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:21:48.25626, sensor 17.0 measured temperature 23.1832°C, humidity 31.8776%, light 861.12 Lux, and voltage 2.61639V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:21:48.25626",
+              "epoch": "1128",
+              "moteid": "17.0",
+              "temperature": "23.1832",
+              "humidity": "31.8776",
+              "light": "861.12",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:36:18.669312, sensor 17.0 measured temperature 23.1832°C, humidity 33.3507%, light 507.84 Lux, and voltage 2.61639V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:36:18.669312",
+              "epoch": "1757",
+              "moteid": "17.0",
+              "temperature": "23.1832",
+              "humidity": "33.3507",
+              "light": "507.84",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:32:18.158683, sensor 18.0 measured temperature 23.1832°C, humidity 33.7349%, light 456.32 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:32:18.158683",
+              "epoch": "1509",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7349",
+              "light": "456.32",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:34:48.216541, sensor 18.0 measured temperature 23.1832°C, humidity 33.7698%, light 397.44 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:34:48.216541",
+              "epoch": "1514",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7698",
+              "light": "397.44",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:15:18.695539, sensor 18.0 measured temperature 23.1832°C, humidity 33.7698%, light 353.28 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:15:18.695539",
+              "epoch": "1595",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7698",
+              "light": "353.28",
+              "voltage": "2.54901"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Here are the measurements that occurred during epoch 1832:\n\n- Epoch 1832:\n  - **Sensor 1**: No measurement found.\n  - **Sensor 2**: No measurement found.\n  - **Sensor 3**: No measurement found.\n  - **Sensor 4**: No measurement found.\n  - **Sensor 5**: No measurement found.\n  - **Sensor 6**: No measurement found.\n  - **Sensor 7**: No measurement found.\n ",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 44,
+      "category": "list",
+      "question": "List all measurements in epoch 1832.",
+      "gold_answer": "mote_id=24 time=2004-02-28T16:13:47.447007 temperature=23.4576 humidity=32.2995 light=507.84 voltage=2.74963\nmote_id=39 time=2004-02-28T16:13:47.461548 temperature=23.5262 humidity=34.2577 light=250.24 voltage=2.73696\nmote_id=37 time=2004-02-28T16:13:47.491459 temperature=23.5556 humidity=35.8185 light=456.32 voltage=2.73696\nmote_id=1 time=2004-02-28T16:13:47.533705 temperature=22.5364 humidity=33.979 light=158.24 voltage=2.73696\nmote_id=29 time=2004-02-28T16:13:47.546605 temperature=23.3596 humidity=33.2108 light=368.0 voltage=2.7244\nmote_id=30 time=2004-02-28T16:13:47.662378 temperature=23.0264 humidity=33.979 light=964.16 voltage=2.7244\nmote_id=41 time=2004-02-28T16:13:47.988556 temperature=23.5948 humidity=32.1941 light=684.48 voltage=2.7244\nmote_id=9 time=2004-02-28T16:13:48.046384 temperature=22.1248 humidity=35.3687 light=1435.2 voltage=2.78836\nmote_id=26 time=2004-02-28T16:13:48.06616 temperature=23.291 humidity=33.9093 light=478.4 voltage=2.73696\nmote_id=35 time=2004-02-28T16:13:48.106203 temperature=23.4772 humidity=34.9528 light=507.84 voltage=2.67532\nmote_id=20 time=2004-02-28T16:13:48.190848 temperature=22.8402 humidity=35.5072 light=507.84 voltage=2.73696\nmote_id=25 time=2004-02-28T16:13:48.207092 temperature=23.6438 humidity=33.1409 light=802.24 voltage=2.73696\nmote_id=3 time=2004-02-28T16:13:48.323262 temperature=22.5756 humidity=34.2577 light=172.96 voltage=2.7244\nmote_id=15 time=2004-02-28T16:13:48.635904 temperature=22.3796 humidity=36.2328 light=1847.36 voltage=2.48502\nmote_id=2 time=2004-02-28T16:13:48.710972 temperature=22.6344 humidity=35.438 light=264.96 voltage=2.71196\nmote_id=36 time=2004-02-28T16:13:48.711142 temperature=23.3694 humidity=35.2302 light=353.28 voltage=2.7244\nmote_id=16 time=2004-02-28T16:13:48.948229 temperature=22.5854 humidity=35.5764 light=1552.96 voltage=2.67532\nmote_id=53 time=2004-02-28T16:13:48.949657 temperature=22.4188 humidity=37.0933 light=890.56 voltage=2.71196\nmote_id=51 time=2004-02-28T16:13:48.966281 temperature=23.3498 humidity=34.536 light=507.84 voltage=2.7244\nmote_id=50 time=2004-02-28T16:13:49.26481 temperature=23.3596 humidity=34.6055 light=1317.44 voltage=2.7244\n... (additional 21 measurements omitted)",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1832})\nOPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage ORDER BY time, mote_id LIMIT 20",
+      "gold_meta": {
+        "total": 41
+      }
+    }
+  }
+}

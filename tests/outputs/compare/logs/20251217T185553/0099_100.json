@@ -1,0 +1,393 @@
+{
+  "id": 100,
+  "category": "negative",
+  "question": "Gibt es Helligkeitsdaten für Sensor 50.0?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "graph_prediction": "Es scheint, als ob du eine JSON-Datenstruktur hast und nach einer bestimmten Frage oder einem bestimmten Ergebnis suchst. Ich werde versuchen, deine Frage zu verstehen.\n\nWenn ich mich nicht irre, möchtest du wissen, wie man die Daten in der JSON-Struktur analysiert oder wie man ein bestimmtes Ergebnis findet.\n\nHier sind einige Fragen, um deine Absicht besser zu verstehen:\n\n1. Möchtest du wissen, wie man die Anzahl der Einträge in der Liste \"data\" findet?\n2. Möchtest du wissen, wie man den ersten oder letzten Eintrag in der Liste \"data\" findet?\n3. Möchtest du wissen, wie man bestimmte Daten aus der Liste \"data\" filtert (z.B. alle Einträge mit einer bestimmten Uhrzeit)?\n4. Möchtest du wissen, wie man ein bestimmtes Ergebnis in der Liste \"data\" findet (z.B. den Eintrag mit der größten oder kleinsten Uhrzeit)?\n\nBitte gib mir eine Antwort auf diese Fragen, damit ich besser verstehen kann, was du suchst.\n\nWenn du keine dieser Fragen beantwortest, kannst du auch einfach deine Frage stellen und ich werde mein Bestes tun, um dir zu helfen!",
+  "graph_exact_match": false,
+  "graph_f1": 0.03314917127071824,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 50.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour), (m)-[:AT_MINUTE]->(mi:Minute)\nWHERE m.light IS NOT NULL\nRETURN DISTINCT s, d, h, mi",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Ja, es gibt Helligkeitsdaten für Sensor 50.0. Am 2004-02-28 um 08:50:17 wurden 1140,8 Lux gemessen. Es folgen weitere Werte:\n- 09:50:18: 1729,6 Lux\n- 15:09:50: 1729,6 Lux\n- 15:33:50: 1729,6 Lux\n- 15:46:",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.16666666666666666,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251217T185553/0099_100.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 50.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date)\nOPTIONAL MATCH (m)-[:AT_HOUR]->(h:Hour), (m)-[:AT_MINUTE]->(mi:Minute)\nWHERE m.light IS NOT NULL\nRETURN DISTINCT s, d, h, mi"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Es scheint, als ob du eine JSON-Datenstruktur hast und nach einer bestimmten Frage oder einem bestimmten Ergebnis suchst. Ich werde versuchen, deine Frage zu verstehen.\n\nWenn ich mich nicht irre, möchtest du wissen, wie man die Daten in der JSON-Struktur analysiert oder wie man ein bestimmtes Ergebnis findet.\n\nHier sind einige Fragen, um deine Absicht besser zu verstehen:\n\n1. Möchtest du wissen, wie man die Anzahl der Einträge in der Liste \"data\" findet?\n2. Möchtest du wissen, wie man den ersten oder letzten Eintrag in der Liste \"data\" findet?\n3. Möchtest du wissen, wie man bestimmte Daten aus der Liste \"data\" filtert (z.B. alle Einträge mit einer bestimmten Uhrzeit)?\n4. Möchtest du wissen, wie man ein bestimmtes Ergebnis in der Liste \"data\" findet (z.B. den Eintrag mit der größten oder kleinsten Uhrzeit)?\n\nBitte gib mir eine Antwort auf diese Fragen, damit ich besser verstehen kann, was du suchst.\n\nWenn du keine dieser Fragen beantwortest, kannst du auch einfach deine Frage stellen und ich werde mein Bestes tun, um dir zu helfen!",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 725,
+        "documents": [
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 17}, \"mi\": {\"minute\": 37}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 32}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 10}, \"mi\": {\"minute\": 42}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 8}, \"mi\": {\"minute\": 6}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 14}, \"mi\": {\"minute\": 58}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 7}, \"mi\": {\"minute\": 59}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 16}, \"mi\": {\"minute\": 32}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 4}, \"mi\": {\"minute\": 36}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 5}, \"mi\": {\"minute\": 7}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 12}, \"mi\": {\"minute\": 19}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 14}, \"mi\": {\"minute\": 57}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 51}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 17}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 42}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 6}, \"mi\": {\"minute\": 4}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 11}, \"mi\": {\"minute\": 14}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 3}, \"mi\": {\"minute\": 22}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 11}, \"mi\": {\"minute\": 48}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 13}, \"mi\": {\"minute\": 26}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 11}, \"mi\": {\"minute\": 57}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 10}, \"mi\": {\"minute\": 47}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 10}, \"mi\": {\"minute\": 32}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 24}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 6}, \"mi\": {\"minute\": 59}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 13}, \"mi\": {\"minute\": 53}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 13}, \"mi\": {\"minute\": 56}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 10}, \"mi\": {\"minute\": 15}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 2}, \"mi\": {\"minute\": 0}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 17}, \"mi\": {\"minute\": 23}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 9}, \"mi\": {\"minute\": 37}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 17}, \"mi\": {\"minute\": 33}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 13}, \"mi\": {\"minute\": 48}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 16}, \"mi\": {\"minute\": 27}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 7}, \"mi\": {\"minute\": 31}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 23}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 28}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 8}, \"mi\": {\"minute\": 3}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 50}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 12}, \"mi\": {\"minute\": 45}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 31}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 2}, \"mi\": {\"minute\": 7}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 52}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 15}, \"mi\": {\"minute\": 20}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 11}, \"mi\": {\"minute\": 46}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 8}, \"mi\": {\"minute\": 59}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 2}, \"mi\": {\"minute\": 28}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 4}, \"mi\": {\"minute\": 10}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 12}, \"mi\": {\"minute\": 9}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 16}, \"mi\": {\"minute\": 12}}",
+            "meta": {}
+          },
+          {
+            "content": "{\"s\": {\"mote_id\": 50}, \"d\": {\"date\": \"2004-02-28\"}, \"h\": {\"hour\": 1}, \"mi\": {\"minute\": 44}}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 06:50:17.330629 hat Sensor 11.0 15.8234°C Temperatur, 45.3413% Luftfeuchtigkeit, 50.6 Lux Licht und 2.60491V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:50:17.330629",
+              "epoch": "705",
+              "moteid": "11.0",
+              "temperature": "15.8234",
+              "humidity": "45.3413",
+              "light": "50.6",
+              "voltage": "2.60491"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 16:50:50.185778 hat Sensor 11.0 20.7332°C Temperatur, 38.872% Luftfeuchtigkeit, 478.4 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:50:50.185778",
+              "epoch": "1906",
+              "moteid": "11.0",
+              "temperature": "20.7332",
+              "humidity": "38.872",
+              "light": "478.4",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 15:50:50.683641 hat Sensor 43.0 24.2808°C Temperatur, 31.4549% Luftfeuchtigkeit, 625.6 Lux Licht und 2.7244V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:50:50.683641",
+              "epoch": "1786",
+              "moteid": "43.0",
+              "temperature": "24.2808",
+              "humidity": "31.4549",
+              "light": "625.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 08:50:17.280059 hat Sensor 50.0 16.921°C Temperatur, 41.9147% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "08:50:17.280059",
+              "epoch": "945",
+              "moteid": "50.0",
+              "temperature": "16.921",
+              "humidity": "41.9147",
+              "light": "1140.8",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 08:50:47.965967 hat Sensor 50.0 16.9504°C Temperatur, 41.8476% Luftfeuchtigkeit, 1140.8 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "08:50:47.965967",
+              "epoch": "946",
+              "moteid": "50.0",
+              "temperature": "16.9504",
+              "humidity": "41.8476",
+              "light": "1140.8",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:50:18.580154 hat Sensor 50.0 18.93°C Temperatur, 39.1103% Luftfeuchtigkeit, 1729.6 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:50:18.580154",
+              "epoch": "1065",
+              "moteid": "50.0",
+              "temperature": "18.93",
+              "humidity": "39.1103",
+              "light": "1729.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 09:50:47.564087 hat Sensor 50.0 18.93°C Temperatur, 39.2123% Luftfeuchtigkeit, 1729.6 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:50:47.564087",
+              "epoch": "1066",
+              "moteid": "50.0",
+              "temperature": "18.93",
+              "humidity": "39.2123",
+              "light": "1729.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 15:09:50.694224 hat Sensor 50.0 24.2514°C Temperatur, 33.0709% Luftfeuchtigkeit, 1729.6 Lux Licht und 2.73696V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:09:50.694224",
+              "epoch": "1704",
+              "moteid": "50.0",
+              "temperature": "24.2514",
+              "humidity": "33.0709",
+              "light": "1729.6",
+              "voltage": "2.73696"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 15:33:50.946599 hat Sensor 50.0 24.124°C Temperatur, 33.4206% Luftfeuchtigkeit, 1729.6 Lux Licht und 2.7244V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:33:50.946599",
+              "epoch": "1752",
+              "moteid": "50.0",
+              "temperature": "24.124",
+              "humidity": "33.4206",
+              "light": "1729.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 15:46:50.293003 hat Sensor 50.0 23.7908°C Temperatur, 33.9093% Luftfeuchtigkeit, 1435.2 Lux Licht und 2.7244V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:46:50.293003",
+              "epoch": "1778",
+              "moteid": "50.0",
+              "temperature": "23.7908",
+              "humidity": "33.9093",
+              "light": "1435.2",
+              "voltage": "2.7244"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Ja, es gibt Helligkeitsdaten für Sensor 50.0. Am 2004-02-28 um 08:50:17 wurden 1140,8 Lux gemessen. Es folgen weitere Werte:\n- 09:50:18: 1729,6 Lux\n- 15:09:50: 1729,6 Lux\n- 15:33:50: 1729,6 Lux\n- 15:46:",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 100,
+      "category": "negative",
+      "question": "Gibt es Helligkeitsdaten für Sensor 50.0?",
+      "gold_answer": "Dazu liegen mir keine Daten vor.",
+      "gold_cypher": null
+    }
+  }
+}

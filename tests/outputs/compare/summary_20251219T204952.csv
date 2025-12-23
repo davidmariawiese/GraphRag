@@ -1,0 +1,1113 @@
+id,category,question,gold_answer,graph_prediction,graph_exact_match,graph_f1,graph_faithfulness,graph_cypher,graph_cypher_policy_ok,graph_cypher_explain_ok,graph_cypher_error,base_prediction,base_exact_match,base_f1,base_faithfulness,log_path,generator_model,judge_model
+1,factual,What temperature did sensor 1.0 measure on 2004-02-28 at 00:59:16?,Temperature of sensor 1.0 at 2004-02-28 00:59:16: 19.9884°C,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""1.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T00:59:16""
+RETURN m.time AS time, m.temperature AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Sensor 1.0 hat am 2004-02-28 um 00:59:16.02785 eine Temperatur von 19.9884°C gemessen.,False,0.6857142857142857,1.0,/app/tests/outputs/compare/logs/20251219T204952/0000_1.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+2,factual,What humidity did sensor 1.0 measure on 2004-02-28 at 01:03:16?,Humidity of sensor 1.0 at 2004-02-28 01:03:16: 38.4629%,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""1.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:03:16""
+RETURN m.time AS time, m.humidity AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0001_2.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+3,factual,What light value did sensor 1.0 measure on 2004-02-28 at 01:06:16?,Light of sensor 1.0 at 2004-02-28 01:06:16: 45.08Lux,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""1.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:06:16""
+RETURN m.time AS time, m.light AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0002_3.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+4,factual,What voltage did sensor 1.0 measure on 2004-02-28 at 01:10:16?,Voltage of sensor 1.0 at 2004-02-28 01:10:16: 2.69964V,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""1.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:10:16""
+RETURN m.time AS time, m.voltage AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Sensor 1.0 hat am 2004-02-28 um 01:10:16 eine Spannung von 2.69964V gemessen.,False,0.6875000000000001,1.0,/app/tests/outputs/compare/logs/20251219T204952/0003_4.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+5,factual,What temperature did sensor 2.0 measure on 2004-02-28 at 01:15:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""2.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:15:16""
+RETURN m.time AS time, m.temperature AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0004_5.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+6,factual,What humidity did sensor 2.0 measure on 2004-02-28 at 01:20:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""2.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:20:16""
+RETURN m.time AS time, m.humidity AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0005_6.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+7,factual,What light value did sensor 2.0 measure on 2004-02-28 at 01:25:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""2.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:25:16""
+RETURN m.time AS time, m.light AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0006_7.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+8,factual,What voltage did sensor 2.0 measure on 2004-02-28 at 01:30:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""2.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:30:16""
+RETURN m.time AS time, m.voltage AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0007_8.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+9,factual,What temperature did sensor 3.0 measure on 2004-02-28 at 01:35:16?,Temperature of sensor 3.0 at 2004-02-28 01:35:16: 19.2338°C,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:35:16""
+RETURN m.time AS time, m.temperature AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0008_9.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+10,factual,What humidity did sensor 3.0 measure on 2004-02-28 at 01:40:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:40:16""
+RETURN m.time AS time, m.humidity AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0009_10.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+11,factual,What light value did sensor 3.0 measure on 2004-02-28 at 01:45:16?,Light of sensor 3.0 at 2004-02-28 01:45:16: 48.76Lux,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:45:16""
+RETURN m.time AS time, m.light AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0010_11.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+12,factual,What voltage did sensor 3.0 measure on 2004-02-28 at 01:50:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:50:16""
+RETURN m.time AS time, m.voltage AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0011_12.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+13,factual,What temperature did sensor 4.0 measure on 2004-02-28 at 01:55:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""4.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T01:55:16""
+RETURN m.time AS time, m.temperature AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0012_13.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+14,factual,What humidity did sensor 4.0 measure on 2004-02-28 at 02:00:16?,Humidity of sensor 4.0 at 2004-02-28 02:00:16: 39.2123%,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""4.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T02:00:16""
+RETURN m.time AS time, m.humidity AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0013_14.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+15,factual,What light value did sensor 4.0 measure on 2004-02-28 at 02:05:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""4.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T02:05:16""
+RETURN m.time AS time, m.light AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0014_15.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+16,factual,What voltage did sensor 4.0 measure on 2004-02-28 at 02:10:16?,Voltage of sensor 4.0 at 2004-02-28 02:10:16: 2.65143V,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""4.0""})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T02:10:16""
+RETURN m.time AS time, m.voltage AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0015_16.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+17,factual,What temperature did sensor 5.0 measure on 2004-02-28 at 02:15:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T02:15:16""
+RETURN m.time AS time, m.temperature AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0016_17.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+18,factual,What humidity did sensor 5.0 measure on 2004-02-28 at 02:20:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T02:20:16""
+RETURN m.time AS time, m.humidity AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0017_18.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+19,factual,What light value did sensor 5.0 measure on 2004-02-28 at 02:25:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T02:25:16""
+RETURN m.time AS time, m.light AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0018_19.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+20,factual,What voltage did sensor 5.0 measure on 2004-02-28 at 02:30:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28T02:30:16""
+RETURN m.time AS time, m.voltage AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0019_20.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+21,factual,What temperature did sensor 6.0 measure on 2004-03-01 at 03:00:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:00:16""
+RETURN m.time AS time, m.temperature AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0020_21.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+22,factual,What humidity did sensor 6.0 measure on 2004-03-01 at 03:05:16?,No data available.,No data available.,True,1.0,1.0,"MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:05:16""
+RETURN m.time AS time, m.humidity AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0021_22.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+23,factual,What light value did sensor 6.0 measure on 2004-03-01 at 03:10:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:10:16""
+RETURN m.time AS time, m.light AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0022_23.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+24,factual,What voltage did sensor 6.0 measure on 2004-03-01 at 03:15:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:15:16""
+RETURN m.time AS time, m.voltage AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0023_24.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+25,factual,What temperature did sensor 7.0 measure on 2004-03-01 at 03:20:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:20:16""
+RETURN m.time AS time, m.temperature AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0024_25.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+26,factual,What humidity did sensor 7.0 measure on 2004-03-01 at 03:25:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:25:16""
+RETURN m.time AS time, m.humidity AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0025_26.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+27,factual,What light value did sensor 7.0 measure on 2004-03-01 at 03:30:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:30:16""
+RETURN m.time AS time, m.light AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0026_27.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+28,factual,What voltage did sensor 7.0 measure on 2004-03-01 at 03:35:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:35:16""
+RETURN m.time AS time, m.voltage AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0027_28.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+29,factual,What temperature did sensor 8.0 measure on 2004-03-01 at 03:40:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:40:16""
+RETURN m.time AS time, m.temperature AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0028_29.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+30,factual,What humidity did sensor 8.0 measure on 2004-03-01 at 03:45:16?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-03-01T03:45:16""
+RETURN m.time AS time, m.humidity AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0029_30.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+31,list,List all measurements from sensor 1.0 in epoch 3.,mote_id=1 time=2004-02-28T00:59:16.02785 temperature=19.9884 humidity=37.0933 light=45.08 voltage=2.69964,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""1.0""})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0030_31.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+32,list,List all measurements in epoch 11.,"mote_id=26 time=2004-02-28T01:03:16.133126 temperature=18.6164 humidity=41.478 light=121.44 voltage=2.68742
+mote_id=36 time=2004-02-28T01:03:16.179903 temperature=18.9496 humidity=41.1414 light=79.12 voltage=2.67532
+mote_id=1 time=2004-02-28T01:03:16.33393 temperature=19.3024 humidity=38.4629 light=45.08 voltage=2.68742
+mote_id=29 time=2004-02-28T01:03:16.399785 temperature=19.028 humidity=39.5521 light=180.32 voltage=2.67532
+mote_id=19 time=2004-02-28T01:03:16.699203 temperature=19.0672 humidity=38.5652 light=71.76 voltage=2.68742
+mote_id=34 time=2004-02-28T01:03:16.886569 temperature=18.5576 humidity=41.1078 light=60.72 voltage=2.67532
+mote_id=21 time=2004-02-28T01:03:16.92293 temperature=19.371 humidity=37.6765 light=114.08 voltage=2.69964
+mote_id=40 time=2004-02-28T01:03:16.981838 temperature=18.881 humidity=39.1443 light=172.96 voltage=2.68742
+mote_id=17 time=2004-02-28T01:10:46.180433 temperature=18.4792 humidity=39.9591 light=32.2 voltage=2.57108
+mote_id=15 time=2004-02-28T06:26:46.945042 temperature=15.6568 humidity=44.3162 light=5.52 voltage=2.42416
+mote_id=16 time=2004-03-17T15:25:59.203978 temperature=122.153 humidity=-3.91901 light=1847.36 voltage=2.25825
+mote_id=17 time=2004-03-20T02:49:50.330131 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.08393
+mote_id=17 time=2004-03-20T03:03:50.291015 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.07664
+mote_id=3 time=2004-03-30T14:46:16.080796 temperature=122.153 humidity=-3.91901 light=397.44 voltage=2.1364
+mote_id=54 time=2004-03-31T04:19:29.570624 temperature=122.153 humidity=23.5261 light=0.46 voltage=1.99973
+mote_id=58 time=2004-04-01T14:24:48.943245 temperature=27.701 humidity=22.0985 light=143.52 voltage=2.88311
+mote_id=56 time=2004-04-05T10:39:03.058457 temperature=24.2416 humidity=33.7 light=0.0201102 voltage=2.82819","Based on the provided data, here are some key insights and observations:
+
+### General Observations:
+- The dataset contains records from multiple motes (sensors) over different timestamps.
+- There is a wide range of values for temperature, humidity, light intensity, and voltage.
+
+### Temperature:
+- Most temperatures are around 18°C to 20°C, except for some extreme readings like 15.6568°C and 122.153°C.
+- The highest recorded temperature is 122.153°C, which seems unusually high and might indicate a malfunction or error in the sensor.
+
+### Humidity:
+- Most humidity values are around 40%, but there are some extreme readings like -3.91901% and 44.3162%.
+- The lowest recorded humidity is -3.91901%, which is not physically possible, indicating a potential sensor malfunction.
+
+### Light Intensity:
+- Most light values range from around 5 to 180 lux.
+- There are some extreme readings like 1847.36 lux and 0.0201102 lux, suggesting significant variations in lighting conditions or possible errors.
+
+### Voltage:
+- The voltage ranges from about 1.99973V to 2.88311V.
+- There is a general downward trend in the voltage readings over time, which could indicate battery depletion or other issues with power supply.
+
+### Specific Records:
+- **Mote ID 56** recorded an extremely low light value of 0.0201102 lux on April 5th at 10:39 AM.
+- **Mote ID 16** and others recorded a very high temperature of 122.153°C, which is highly unusual and likely indicates sensor malfunction.
+
+### Summary:
+The data shows significant variability in the readings from different motes over time. There are several instances where the values seem to be outside normal ranges, suggesting potential issues with the sensors or environmental conditions. Further investigation into these extreme values would be necessary to determine if they represent actual conditions or sensor malfunctions.",False,0.14573643410852713,,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 11})
+OPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,"Am 2004-02-28 um 11:11:17.187987 hat Sensor 1.0 eine Temperatur von 24.418°C, Luftfeuchtigkeit von 30.0401%, 478.4 Lux Licht und 2.73696V Spannung gemessen.
+Am 2004-02-28 um 1",False,0.055696202531645575,1.0,/app/tests/outputs/compare/logs/20251219T204952/0031_32.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+33,list,Output all measurements from sensor 2.0 in epoch 17.,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""2.0""})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 17})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0032_33.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+34,list,Show all measurements from sensor 3.0 in epoch 25.,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 25})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0033_34.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+35,list,List all measurements from sensor 4.0 in epoch 35.,mote_id=4 time=2004-02-28T01:15:16.778245 temperature=19.714 humidity=39.3483 light=97.52 voltage=2.65143,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""4.0""})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 35})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,"Am 2004-02-28 um 09:35:17.67229 hat Sensor 4.0 21.1056°C Temperatur, 35.4034% Luftfeuchtigkeit, 338.56 Lux Licht und 2.67532V Spannung gemessen.
+Am 2004-02-28 um 09",False,0.14285714285714285,0.5,/app/tests/outputs/compare/logs/20251219T204952/0034_35.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+36,list,Name all measurements in epoch 40.,No data available.,"Based on the provided data, here is a summary of the sensor readings and their statistics:
+
+### Summary Statistics:
+- **Total Records:** 20
+
+#### Temperature:
+- **Minimum:** 16.6368°C
+- **Maximum:** 19.714°C
+- **Average:** 18.5674°C
+- **Standard Deviation:** ~0.57°C
+- **Median:** Not directly provided, but can be inferred to be around the average.
+
+#### Humidity:
+- **Minimum:** 38.1213%
+- **Maximum:** 42.9189%
+- **Average:** 40.2299%
+- **Standard Deviation:** ~1.57%
+- **Median:** Not directly provided, but can be inferred to be around the average.
+
+#### Light:
+- **Minimum:** 43.24 lux
+- **Maximum:** 655.04 lux
+- **Average:** 180.32 lux
+- **Standard Deviation:** ~179.56 lux
+- **Median:** Not directly provided, but can be inferred to be around the average.
+
+#### Voltage:
+- **Minimum:** 2.49546 V
+- **Maximum:** 2.69964 V
+- **Average:** 2.67532 V
+- **Standard Deviation:** ~0.081 V
+- **Median:** Not directly provided, but can be inferred to be around the average.
+
+### Detailed Breakdown:
+#### Temperature:
+- The temperature readings range from a minimum of 16.6368°C (recorded by mote_id 50) to a maximum of 19.714°C (recorded by mote_id 4).
+- The average temperature is 18.5674°C, indicating that the environment is relatively stable with minor fluctuations.
+
+#### Humidity:
+- The humidity readings range from a minimum of 38.1213% (recorded by mote_id 23) to a maximum of 42.9189% (recorded by mote_id 36).
+- The average humidity is 40.2299%, indicating moderate levels with minor variations.
+
+#### Light:
+- The light readings range from a minimum of 43.24 lux (recorded by",False,0.008298755186721992,,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 40})
+OPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage
+ORDER BY time, mote_id
+LIMIT 20",True,True,,"Am 2004-02-28 um 04:40:17.145979 hat Sensor 40.0 17.46°C Temperatur, 40.6355% Luftfeuchtigkeit, 165.6 Lux Licht und 2.67532V Spannung gemessen.
+Am 2004-02-28 um 04:",False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0035_36.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+37,list,Output all measurements from sensor 5.0 in epoch 45.,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 45})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0036_37.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+38,list,List all measurements from sensor 6.0 in epoch 50.,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 50})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0037_38.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+39,list,Show all measurements in epoch 55.,"mote_id=20 time=2004-02-28T01:25:15.896008 temperature=19.616 humidity=37.1963 light=158.24 voltage=3.14243
+mote_id=6 time=2004-02-28T01:25:15.936757 temperature=19.3122 humidity=39.0082 light=114.08 voltage=2.63964
+mote_id=14 time=2004-02-28T01:25:15.972871 temperature=17.7638 humidity=41.8476 light=23.0 voltage=2.69964
+mote_id=38 time=2004-02-28T01:25:15.976637 temperature=18.4988 humidity=39.1443 light=187.68 voltage=2.59354
+mote_id=10 time=2004-02-28T01:25:16.071861 temperature=18.8124 humidity=40.973 light=53.36 voltage=2.67532
+mote_id=43 time=2004-02-28T01:25:16.080327 temperature=18.734 humidity=37.9161 light=456.32 voltage=2.65143
+mote_id=31 time=2004-02-28T01:25:16.098168 temperature=18.4008 humidity=41.3771 light=143.52 voltage=2.68742
+mote_id=41 time=2004-02-28T01:25:16.117215 temperature=18.4204 humidity=39.2803 light=382.72 voltage=2.67532
+mote_id=52 time=2004-02-28T01:25:16.139682 temperature=17.4698 humidity=40.7031 light=53.36 voltage=2.65143
+mote_id=21 time=2004-02-28T01:25:16.145412 temperature=19.0084 humidity=38.3263 light=108.56 voltage=2.69964
+mote_id=12 time=2004-02-28T01:25:16.16666 temperature=17.019 humidity=43.8515 light=0.46 voltage=2.66332
+mote_id=45 time=2004-02-28T01:25:16.252913 temperature=18.1754 humidity=38.3605 light=172.96 voltage=2.67532
+mote_id=24 time=2004-02-28T01:25:16.314383 temperature=18.6654 humidity=39.3823 light=143.52 voltage=2.69964
+mote_id=22 time=2004-02-28T01:25:16.342356 temperature=18.6066 humidity=39.1103 light=79.12 voltage=2.66332
+mote_id=18 time=2004-02-28T01:25:16.388611 temperature=18.7928 humidity=39.0082 light=57.04 voltage=2.50599
+mote_id=40 time=2004-02-28T01:25:16.498299 temperature=18.5968 humidity=39.5521 light=172.96 voltage=2.68742
+mote_id=39 time=2004-02-28T01:25:16.513387 temperature=18.93 humidity=39.8574 light=158.24 voltage=2.68742
+mote_id=46 time=2004-02-28T01:25:16.531178 temperature=18.2538 humidity=38.8379 light=114.08 voltage=2.49546
+mote_id=23 time=2004-02-28T01:25:16.547495 temperature=19.2828 humidity=38.2922 light=224.48 voltage=2.68742
+mote_id=53 time=2004-02-28T01:25:16.568942 temperature=15.9116 humidity=45.6049 light=8.28 voltage=2.65143
+... (additional 8 measurements omitted)","Based on the provided data, here is a summary of the sensor readings for each parameter:
+
+### Summary Statistics
+
+#### Temperature:
+- **Total Records:** 20
+- **Minimum Value:** 15.9116°C
+- **Maximum Value:** 19.616°C
+- **Average (Mean):** 18.4732°C
+- **Median:** 18.5968°C
+
+#### Humidity:
+- **Total Records:** 20
+- **Minimum Value:** 37.1963%
+- **Maximum Value:** 45.6049%
+- **Average (Mean):** 39.6111%
+- **Median:** 39.1443%
+
+#### Light:
+- **Total Records:** 20
+- **Minimum Value:** 0.46 lux
+- **Maximum Value:** 456.32 lux
+- **Average (Mean):** 147.848 lux
+- **Median:** 143.52 lux
+
+#### Voltage:
+- **Total Records:** 20
+- **Minimum Value:** 2.49546 V
+- **Maximum Value:** 3.14243 V
+- **Average (Mean):** 2.70817 V
+- **Median:** 2.68742 V
+
+### Detailed Breakdown of Each Parameter:
+
+#### Temperature:
+- **Minimum:** 15.9116°C (Mote ID: 53)
+- **Maximum:** 19.616°C (Mote ID: 20)
+
+#### Humidity:
+- **Minimum:** 37.1963% (Mote ID: 20)
+- **Maximum:** 45.6049% (Mote ID: 53)
+
+#### Light:
+- **Minimum:** 0.46 lux (Mote ID: 12)
+- **Maximum:** 456.32 lux (Mote ID: 43)
+
+#### Voltage:
+- **Minimum:** 2.49546 V (Mote ID: 46)
+- **Maximum:** 3.14243 V (Mote ID: 20)
+
+### Observations:
+
+1. **Temperature** readings range from a low of",False,0.159468438538206,1.0,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 55})
+OPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,"Am 2004-03-11 um 17:23:55 hat Sensor 55.0 eine Temperatur von 25.2216°C, Luftfeuchtigkeit von 33.5604%, Licht von 86.48 Lux und Spannung von 3.01482V gemessen.
+Am 2004-03-29 um 13:5",False,0.034482758620689655,1.0,/app/tests/outputs/compare/logs/20251219T204952/0038_39.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+40,list,List all measurements from sensor 7.0 in epoch 60.,mote_id=7 time=2004-02-28T01:27:46.803128 temperature=19.2828 humidity=39.2123 light=97.52 voltage=2.68742,"mote_id=7 time=2004-02-28T01:27:46.803128 temperature=19.2828 humidity=39.2123 light=97.52 voltage=2.68742
+... (additional 0 measurements omitted)",False,0.9130434782608696,0.0,"MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 60})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0039_40.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+41,list,Output all measurements from sensor 8.0 in epoch 65.,mote_id=8 time=2004-02-28T01:30:16.570353 temperature=18.7144 humidity=40.3652 light=108.56 voltage=2.68742,"mote_id=8 time=2004-02-28T01:30:16.570353 temperature=18.7144 humidity=40.3652 light=108.56 voltage=2.68742
+... (additional 0 measurements omitted)",False,0.9130434782608696,0.0,"MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 65})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0040_41.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+42,list,List all measurements in epoch 70.,"mote_id=4 time=2004-02-28T01:32:45.984681 temperature=19.6356 humidity=39.3483 light=97.52 voltage=2.65143
+mote_id=32 time=2004-02-28T01:32:46.028314 temperature=18.3126 humidity=40.9392 light=114.08 voltage=2.67532
+mote_id=8 time=2004-02-28T01:32:46.044603 temperature=18.7046 humidity=40.3652 light=108.56 voltage=2.68742
+mote_id=30 time=2004-02-28T01:32:46.061712 temperature=17.8912 humidity=42.685 light=108.56 voltage=2.68742
+mote_id=47 time=2004-02-28T01:32:46.062169 temperature=17.95 humidity=40.2976 light=655.04 voltage=2.67532
+mote_id=52 time=2004-02-28T01:32:46.098332 temperature=17.4502 humidity=40.7706 light=53.36 voltage=2.65143
+mote_id=18 time=2004-02-28T01:32:46.138832 temperature=18.7634 humidity=39.0082 light=57.04 voltage=2.50599
+mote_id=35 time=2004-02-28T01:32:46.150658 temperature=19.077 humidity=41.5116 light=165.6 voltage=2.61639
+mote_id=27 time=2004-02-28T01:32:46.280829 temperature=19.126 humidity=39.3143 light=79.12 voltage=2.69964
+mote_id=1 time=2004-02-28T01:32:46.312039 temperature=18.979 humidity=39.0763 light=43.24 voltage=2.69964
+mote_id=38 time=2004-02-28T01:32:46.333783 temperature=18.4204 humidity=39.5521 light=187.68 voltage=2.57108
+mote_id=9 time=2004-02-28T01:32:46.348369 temperature=18.8516 humidity=41.0741 light=104.88 voltage=2.76242
+mote_id=50 time=2004-02-28T01:32:46.369458 temperature=16.5584 humidity=42.8521 light=79.12 voltage=2.66332
+mote_id=44 time=2004-02-28T01:32:46.471167 temperature=17.5384 humidity=40.8043 light=97.52 voltage=2.67532
+mote_id=36 time=2004-02-28T01:32:46.505283 temperature=18.4792 humidity=42.9856 light=79.12 voltage=2.67532
+mote_id=42 time=2004-02-28T01:32:46.532605 temperature=17.7246 humidity=40.8043 light=478.4 voltage=2.68742
+mote_id=23 time=2004-02-28T01:32:46.576814 temperature=19.2338 humidity=38.2239 light=224.48 voltage=2.68742
+mote_id=37 time=2004-02-28T01:32:46.582455 temperature=19.2926 humidity=41.7133 light=235.52 voltage=2.68742
+mote_id=20 time=2004-02-28T01:32:46.604717 temperature=19.1848 humidity=38.1213 light=158.24 voltage=3.12589
+mote_id=25 time=2004-02-28T01:32:46.609249 temperature=18.3028 humidity=39.9252 light=97.52 voltage=2.67532
+... (additional 16 measurements omitted)","Based on the provided JSON data, here is a summary of the sensor readings for each parameter:
+
+### Summary Statistics
+
+#### Temperature:
+- **Minimum**: 16.5584°C
+- **Maximum**: 19.6356°C
+- **Average**: 18.7046°C
+- **Standard Deviation**: 0.6277°C
+- **Median**: 18.7046°C
+
+#### Humidity:
+- **Minimum**: 38.1213%
+- **Maximum**: 42.9856%
+- **Average**: 40.3652%
+- **Standard Deviation**: 1.3121%
+- **Median**: 40.3652%
+
+#### Light:
+- **Minimum**: 43.24 lux
+- **Maximum**: 791.2 lux (Note: The maximum value is actually 655.04 lux, but the data shows a record with 791.2 lux which seems to be an error)
+- **Average**: 187.68 lux
+- **Standard Deviation**: 187.68 lux
+- **Median**: 108.56 lux
+
+#### Voltage:
+- **Minimum**: 2.50599 V
+- **Maximum**: 3.12589 V
+- **Average**: 2.67532 V
+- **Standard Deviation**: 0.2047 V
+- **Median**: 2.67532 V
+
+### Trends and Observations:
+
+#### Temperature:
+- The temperature readings are relatively stable, with a small range of variation (about ±1°C around the average).
+- There is no significant trend observed in the temperature data.
+
+#### Humidity:
+- The humidity values show moderate variability but remain within a narrow band.
+- No clear trend can be identified from the provided data.
+
+#### Light:
+- The light readings exhibit high variability, with some records showing very low lux levels (e.g., 43.24) and others showing much higher levels (up to 655.04).
+- There is no discernible pattern or trend in the light data.
+
+#### Voltage:
+- The voltage values are relatively consistent but show a slight range of variation.
+- No significant trend can be observed from the provided data.
+
+###",False,0.1462686567164179,,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 70})
+OPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0041_42.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+43,list,Show all measurements from sensor 9.0 in epoch 75.,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 75})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0042_43.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+44,list,Output all measurements in epoch 80.,"mote_id=6 time=2004-02-28T01:37:45.967637 temperature=19.224 humidity=38.9401 light=114.08 voltage=2.62796
+mote_id=14 time=2004-02-28T01:37:46.036102 temperature=17.6756 humidity=41.8812 light=23.0 voltage=2.69964
+mote_id=7 time=2004-02-28T01:37:46.052228 temperature=19.1848 humidity=38.9401 light=97.52 voltage=2.68742
+mote_id=52 time=2004-02-28T01:37:46.062425 temperature=17.4992 humidity=40.7706 light=57.04 voltage=2.65143
+mote_id=21 time=2004-02-28T01:37:46.11708 temperature=18.9104 humidity=38.4287 light=108.56 voltage=2.69964
+mote_id=35 time=2004-02-28T01:37:46.178414 temperature=19.0574 humidity=41.4108 light=165.6 voltage=2.62796
+mote_id=42 time=2004-02-28T01:37:46.17893 temperature=17.6952 humidity=40.7706 light=478.4 voltage=2.67532
+mote_id=37 time=2004-02-28T01:37:46.223376 temperature=19.2632 humidity=41.478 light=224.48 voltage=2.68742
+mote_id=13 time=2004-02-28T01:37:46.240183 temperature=17.705 humidity=43.4857 light=1.84 voltage=2.65143
+mote_id=29 time=2004-02-28T01:37:46.270121 temperature=18.6948 humidity=39.9252 light=180.32 voltage=2.68742
+mote_id=4 time=2004-02-28T01:37:46.283037 temperature=19.616 humidity=39.2123 light=97.52 voltage=2.65143
+mote_id=8 time=2004-02-28T01:37:46.356 temperature=18.6654 humidity=40.0945 light=108.56 voltage=2.68742
+mote_id=41 time=2004-02-28T01:37:46.367701 temperature=18.3518 humidity=39.5521 light=382.72 voltage=2.66332
+mote_id=17 time=2004-02-28T01:37:46.377831 temperature=18.6164 humidity=39.4162 light=32.2 voltage=2.57108
+mote_id=22 time=2004-02-28T01:37:46.407868 temperature=18.5282 humidity=39.0763 light=79.12 voltage=2.65143
+mote_id=53 time=2004-02-28T01:37:46.443595 temperature=15.9116 humidity=46.2297 light=8.28 voltage=2.65143
+mote_id=51 time=2004-02-28T01:37:46.479993 temperature=17.6658 humidity=39.9252 light=143.52 voltage=2.68742
+mote_id=3 time=2004-02-28T01:37:46.516298 temperature=19.2436 humidity=38.6675 light=48.76 voltage=2.67532
+mote_id=47 time=2004-02-28T01:37:46.529542 temperature=17.9304 humidity=40.3652 light=655.04 voltage=2.67532
+mote_id=25 time=2004-02-28T01:37:46.606293 temperature=18.244 humidity=40.0268 light=101.2 voltage=2.68742
+... (additional 13 measurements omitted)","Based on the provided JSON data, here is a summary of the sensor readings for each parameter:
+
+### Summary Statistics
+
+#### Temperature:
+- **Total Records:** 20
+- **Minimum Value:** 15.9116°C
+- **Maximum Value:** 19.616°C
+- **Average Value:** 18.3744°C
+- **Median Value:** 18.5282°C
+
+#### Humidity:
+- **Total Records:** 20
+- **Minimum Value:** 38.4287%
+- **Maximum Value:** 43.4857%
+- **Average Value:** 40.2967%
+- **Median Value:** 40.0945%
+
+#### Light:
+- **Total Records:** 20
+- **Minimum Value:** 1.84 lux
+- **Maximum Value:** 655.04 lux
+- **Average Value:** 137.56 lux
+- **Median Value:** 108.56 lux
+
+#### Voltage:
+- **Total Records:** 20
+- **Minimum Value:** 2.57108 V
+- **Maximum Value:** 2.69964 V
+- **Average Value:** 2.65937 V
+- **Median Value:** 2.67532 V
+
+### Detailed Sensor Readings (Raw Data)
+
+Here are the raw sensor readings for each mote:
+
+| Mote ID | Time                         | Temperature (°C) | Humidity (%) | Light (lux) | Voltage (V) |
+|---------|------------------------------|------------------|--------------|-------------|-------------|
+| 6       | 2004-02-28T01:37:45.967637   | 19.224           | 38.9401      | 114.08      | 2.62796     |
+| 14      | 2004-02-28T01:37:46.036102   | 17.6756          | 41.8812      | 23.0        | 2.69964     |
+| 7       | ",False,0.23050847457627116,1.0,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 80})
+OPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0043_44.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+45,list,List all measurements from sensor 10.0 in epoch 85.,mote_id=10 time=2004-02-28T01:40:16.985756 temperature=18.8124 humidity=40.6693 light=53.36 voltage=2.67532,"mote_id=10 time=2004-02-28T01:40:16.985756 temperature=18.8124 humidity=40.6693 light=53.36 voltage=2.67532
+... (additional 0 measurements omitted)",False,0.9130434782608696,0.0,"MATCH (s:Sensor {mote_id: 10.0})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 85})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0044_45.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+46,list,Show all measurements in epoch 90.,"mote_id=24 time=2004-02-28T01:42:46.001293 temperature=18.538 humidity=39.4162 light=143.52 voltage=2.69964
+mote_id=51 time=2004-02-28T01:42:46.006701 temperature=17.6756 humidity=39.8913 light=143.52 voltage=2.67532
+mote_id=29 time=2004-02-28T01:42:46.041047 temperature=18.6556 humidity=39.9252 light=180.32 voltage=2.68742
+mote_id=42 time=2004-02-28T01:42:46.041704 temperature=17.5972 humidity=40.9055 light=478.4 voltage=2.67532
+mote_id=27 time=2004-02-28T01:42:46.078677 temperature=19.0868 humidity=39.3823 light=79.12 voltage=2.69964
+mote_id=1 time=2004-02-28T01:42:46.087976 temperature=18.9692 humidity=38.8039 light=43.24 voltage=2.69964
+mote_id=22 time=2004-02-28T01:42:46.118199 temperature=18.4694 humidity=39.1443 light=79.12 voltage=2.65143
+mote_id=52 time=2004-02-28T01:42:46.125421 temperature=17.4992 humidity=40.7706 light=57.04 voltage=2.65143
+mote_id=17 time=2004-02-28T01:42:46.161179 temperature=18.5772 humidity=39.4502 light=32.2 voltage=2.57108
+mote_id=23 time=2004-02-28T01:42:46.194686 temperature=19.126 humidity=38.2922 light=224.48 voltage=2.68742
+mote_id=48 time=2004-02-28T01:42:46.248162 temperature=17.8716 humidity=39.6878 light=114.08 voltage=2.69964
+mote_id=32 time=2004-02-28T01:42:46.280136 temperature=18.2832 humidity=40.6355 light=114.08 voltage=2.67532
+mote_id=44 time=2004-02-28T01:42:46.284149 temperature=17.4992 humidity=41.0404 light=97.52 voltage=2.66332
+mote_id=34 time=2004-02-28T01:42:46.309327 temperature=18.195 humidity=41.6125 light=60.72 voltage=2.66332
+mote_id=38 time=2004-02-28T01:42:46.425389 temperature=18.342 humidity=39.2803 light=187.68 voltage=2.58226
+mote_id=45 time=2004-02-28T01:42:46.46762 temperature=18.097 humidity=38.5311 light=172.96 voltage=2.68742
+mote_id=30 time=2004-02-28T01:42:46.507266 temperature=17.8324 humidity=42.4174 light=108.56 voltage=2.68742
+mote_id=41 time=2004-02-28T01:42:46.516053 temperature=18.3126 humidity=39.5521 light=382.72 voltage=2.67532
+mote_id=7 time=2004-02-28T01:42:46.539453 temperature=19.1848 humidity=38.7698 light=97.52 voltage=2.68742
+mote_id=11 time=2004-02-28T01:42:46.544876 temperature=17.7736 humidity=43.1191 light=2.3 voltage=2.57108
+... (additional 14 measurements omitted)","Based on the provided JSON data, here is a summary of the sensor readings for each mote:
+
+### Summary of Sensor Readings
+
+#### Temperature:
+- **Average**: 18.29°C
+- **Minimum**: 17.4992°C
+- **Maximum**: 19.1848°C
+
+#### Humidity:
+- **Average**: 39.65%
+- **Minimum**: 38.2922%
+- **Maximum**: 43.1191%
+
+#### Light:
+- **Average**: 107.52 lux
+- **Minimum**: 2.3 lux
+- **Maximum**: 478.4 lux
+
+#### Voltage:
+- **Average**: 2.66332V
+- **Minimum**: 2.57108V
+- **Maximum**: 2.69964V
+
+### Detailed Sensor Readings for Each Mote:
+
+| Mote ID | Time (UTC)                | Temperature (°C) | Humidity (%) | Light (lux) | Voltage (V) |
+|---------|----------------------------|------------------|--------------|-------------|-------------|
+| 24      | 2004-02-28T01:42:46.001293 | 18.538           | 39.4162      | 143.52      | 2.69964     |
+| 51      | 2004-02-28T01:42:46.006701 | 17.6756          | 39.8913      | 143.52      | 2.67532     |
+| 29      | 2004-02-28T01:42:46.041047 | 18.6556          | 39.9252      | 180.32      | 2.68742     |
+| 42      | 2004-02-28T01:42:46.041704 | 17.5972          | 4",False,0.2877442273534636,0.0,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 90})
+OPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0045_46.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+47,list,List all measurements from sensor 1.0 in epoch 95.,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""1.0""})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 95})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,"Am 2004-02-28 um 07:43:47.524823 hat Sensor 1.0 17.95°C Temperatur, 38.6334% Luftfeuchtigkeit, 368.0 Lux Licht und 2.67532V Spannung gemessen.
+Am 2004-02-28 um 07:4",False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0046_47.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+48,list,Output all measurements from sensor 2.0 in epoch 100.,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""2.0""})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 100})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0047_48.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+49,list,List all measurements in epoch 105.,"mote_id=26 time=2004-02-28T01:50:15.92354 temperature=18.0578 humidity=42.25 light=121.44 voltage=2.67532
+mote_id=52 time=2004-02-28T01:50:15.986577 temperature=17.4894 humidity=40.8381 light=57.04 voltage=2.65143
+mote_id=48 time=2004-02-28T01:50:16.01458 temperature=17.803 humidity=39.8235 light=114.08 voltage=2.69964
+mote_id=40 time=2004-02-28T01:50:16.04472 temperature=18.4792 humidity=39.7896 light=172.96 voltage=2.68742
+mote_id=34 time=2004-02-28T01:50:16.090073 temperature=18.1558 humidity=41.7133 light=60.72 voltage=2.67532
+mote_id=23 time=2004-02-28T01:50:16.118305 temperature=19.077 humidity=38.3263 light=224.48 voltage=2.68742
+mote_id=46 time=2004-02-28T01:50:16.1244 temperature=18.1362 humidity=39.0763 light=114.08 voltage=2.51661
+mote_id=31 time=2004-02-28T01:50:16.199936 temperature=18.3028 humidity=41.5116 light=143.52 voltage=2.68742
+mote_id=1 time=2004-02-28T01:50:16.243615 temperature=18.9006 humidity=39.0082 light=43.24 voltage=2.69964
+mote_id=18 time=2004-02-28T01:50:16.251738 temperature=18.6066 humidity=39.0763 light=57.04 voltage=2.50599
+mote_id=38 time=2004-02-28T01:50:16.292926 temperature=18.342 humidity=39.5521 light=187.68 voltage=2.58226
+mote_id=7 time=2004-02-28T01:50:16.32771 temperature=19.1358 humidity=39.4162 light=97.52 voltage=2.68742
+mote_id=45 time=2004-02-28T01:50:16.333799 temperature=18.0284 humidity=38.7016 light=172.96 voltage=2.68742
+mote_id=47 time=2004-02-28T01:50:16.378704 temperature=17.8814 humidity=40.4666 light=655.04 voltage=2.66332
+mote_id=14 time=2004-02-28T01:50:16.434995 temperature=17.5972 humidity=41.9147 light=23.0 voltage=2.69964
+mote_id=33 time=2004-02-28T01:50:16.488357 temperature=18.8516 humidity=39.4842 light=101.2 voltage=2.69964
+mote_id=41 time=2004-02-28T01:50:16.517195 temperature=18.3322 humidity=39.4162 light=382.72 voltage=2.67532
+mote_id=30 time=2004-02-28T01:50:16.51814 temperature=17.7932 humidity=42.5847 light=108.56 voltage=2.67532
+mote_id=54 time=2004-02-28T01:50:16.557437 temperature=15.6176 humidity=46.7215 light=0.46 voltage=2.65143
+mote_id=2 time=2004-02-28T01:50:16.592877 temperature=19.371 humidity=39.5521 light=121.44 voltage=2.66332
+... (additional 12 measurements omitted)","Based on the provided JSON data, here is a summary of the sensor readings for each mote:
+
+### Summary of Sensor Readings
+
+#### Temperature:
+- **Average**: 18.0578°C to 19.371°C
+- **Minimum**: 15.6176°C (Mote ID: 54)
+- **Maximum**: 19.371°C (Mote ID: 2)
+
+#### Humidity:
+- **Average**: 38.3263% to 46.7215%
+- **Minimum**: 38.3263% (Mote ID: 23)
+- **Maximum**: 46.7215% (Mote ID: 54)
+
+#### Light:
+- **Average**: 0.46 lux to 655.04 lux
+- **Minimum**: 0.46 lux (Mote ID: 54)
+- **Maximum**: 655.04 lux (Mote ID: 47)
+
+#### Voltage:
+- **Average**: 2.50599V to 2.69964V
+- **Minimum**: 2.50599V (Mote ID: 18)
+- **Maximum**: 2.69964V (Multiple Motes)
+
+### Detailed Sensor Readings
+
+#### Temperature:
+- The temperature readings range from a minimum of 15.6176°C to a maximum of 19.371°C.
+- Most temperatures are around the average value, with some variation.
+
+#### Humidity:
+- The humidity readings range from a minimum of 38.3263% to a maximum of 46.7215%.
+- There is moderate variability in humidity across different motes.
+
+#### Light:
+- The light readings vary significantly, ranging from a minimum of 0.46 lux (Mote ID: 54) to a maximum of 655.04 lux (Mote ID: 47).
+- This indicates that some areas are very dark while others are well-lit.
+
+#### Voltage:
+- The voltage readings range from a minimum of 2.50599V to a maximum of 2.69964V.
+- Most voltages are close to the average value, indicating stable power",False,0.14373088685015292,0.0,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 105})
+OPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0048_49.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+50,list,Show all measurements from sensor 3.0 in epoch 110.,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement)
+MATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 110})
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id,
+       m.time AS time,
+       m.temperature AS temperature,
+       m.humidity AS humidity,
+       m.light AS light,
+       m.voltage AS voltage
+ORDER BY m.time ASC, mote_id ASC
+LIMIT 20",True,True,,"Am 2004-02-28 um 09:11:18.323178 hat Sensor 3.0 20.4°C Temperatur, 35.5072% Luftfeuchtigkeit, 368.0 Lux Licht und 2.68742V Spannung gemessen.",False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0049_50.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+51,aggregation,What is the average temperature in epoch 3?,Average Temperature (Epoch 3): 44.64804666666666°C,No data available.,False,0.0,0.0,MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3}) RETURN avg(m.temperature) AS value,True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0050_51.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+52,aggregation,What is the maximum light value in epoch 11?,Maximum Light (Epoch 11): 1847.36Lux,No data available.,False,0.0,0.0,MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 11}) RETURN max(m.light) AS value,True,True,,"Der maximale Lichtwert im Zeitpunkt 11 ist 1317.44 Lux, gemessen von Sensor 6.0.",False,0.09523809523809522,1.0,/app/tests/outputs/compare/logs/20251219T204952/0051_52.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+53,aggregation,What is the minimum voltage in epoch 17?,Minimum Voltage (Epoch 17): 1.99973V,No data available.,False,0.0,1.0,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 17})
+RETURN min(m.voltage) AS value",True,True,,Das Minimumspannungswert für Sensor 17 beträgt 2.54901V.,False,0.14285714285714288,1.0,/app/tests/outputs/compare/logs/20251219T204952/0052_53.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+54,aggregation,What is the average humidity in epoch 25?,Average Humidity (Epoch 25): 37.65423729729729%,No data available.,False,0.0,1.0,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 25})
+RETURN avg(m.humidity) AS value",True,True,,"Durchschnittliche Luftfeuchtigkeit für Sensor 25.0: 38.4121%
+
+Berechnet aus den Werten:
+- 40.0607%
+- 40.2299%
+- 40.2299%
+- 40.7031%
+- 40.6355%
+- 30.1111%
+- 30.",False,0.06451612903225806,1.0,/app/tests/outputs/compare/logs/20251219T204952/0053_54.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+55,aggregation,How many measurements are there in epoch 35?,Number of measurements (Epoch 35): 37,No data available.,False,0.0,0.0,MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 35}) RETURN count(m) AS value,True,True,,Es gibt zwei Messungen für Sensor 35.0.,False,0.14285714285714288,1.0,/app/tests/outputs/compare/logs/20251219T204952/0054_55.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+56,aggregation,What is the average temperature of sensor 1.0?,Average Temperature (Sensor 1.0): 21.589039485981353°C,No data available.,False,0.0,1.0,"MATCH (s:Sensor {mote_id: ""1.0""})-[:GENERATED]->(m:Measurement)
+RETURN avg(m.temperature) AS value",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0055_56.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+57,aggregation,What is the maximum humidity of sensor 2.0?,Maximum Humidity (Sensor 2.0): 40.5004%,No data available.,False,0.0,1.0,"MATCH (s:Sensor {mote_id: ""2.0""})-[:GENERATED]->(m:Measurement)
+RETURN max(m.humidity) AS value",True,True,,Sensor 2.0 hat eine Luftfeuchtigkeit von 33.7%.,False,0.375,1.0,/app/tests/outputs/compare/logs/20251219T204952/0056_57.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+58,aggregation,What is the minimum voltage of sensor 3.0?,Minimum Voltage (Sensor 3.0): 2.08393V,No data available.,False,0.0,1.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement) RETURN min(m.voltage) AS value",True,True,,Sensor 3.0 hat am 2004-02-28 um 09:11:18.323178 eine Spannung von 2.68742V gemessen. Dazu liegen mir keine Daten vor einem niedrigeren Spannungswert vor.,False,0.2222222222222222,0.5,/app/tests/outputs/compare/logs/20251219T204952/0057_58.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+59,aggregation,What is the mean light value of sensor 4.0?,Average Light (Sensor 4.0): 224.53935483870978Lux,224.53935483870978,False,0.22222222222222224,0.0,MATCH (s:Sensor {mote_id: 4.0})-[:GENERATED]->(m:Measurement) RETURN avg(m.light) AS value,True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0058_59.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+60,aggregation,How many measurements are available for sensor 5.0?,Number of measurements (Sensor 5.0): 0,No data available.,False,0.0,1.0,"MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)
+RETURN count(m) AS value",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0059_60.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+61,aggregation,What is the average temperature in epoch 40?,Average Temperature (Epoch 40): 25.030327272727277°C,25.030327272727277,False,0.4444444444444445,0.0,MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 40}) RETURN avg(m.temperature) AS value,True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0060_61.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+62,aggregation,What is the maximum voltage in epoch 50?,Maximum Voltage (Epoch 50): 3.14243V,No data available.,False,0.0,1.0,MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 50}) RETURN max(m.voltage) AS value,True,True,,Die maximale Spannung des Sensors 50.0 betrug 2.73696V.,False,0.125,1.0,/app/tests/outputs/compare/logs/20251219T204952/0061_62.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+63,aggregation,What is the minimum light value in epoch 60?,Minimum Light (Epoch 60): 1.84Lux,No data available.,False,0.0,1.0,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 60})
+RETURN min(m.light) AS value",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0062_63.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+64,aggregation,What is the average humidity in epoch 70?,Average Humidity (Epoch 70): 36.6308436111111%,No data available.,False,0.0,1.0,MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 70}) RETURN avg(m.humidity) AS value,True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0063_64.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+65,aggregation,How many measurements are there in epoch 80?,Number of measurements (Epoch 80): 33,No data available.,False,0.0,1.0,MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 80}) RETURN count(m) AS value,True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0064_65.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+66,aggregation,What is the average temperature of sensor 6.0?,Average Temperature (Sensor 6.0): 20.40566086956518°C,20.40566086956518,False,0.4,0.0,MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement) RETURN avg(m.temperature) AS value,True,True,,"Der durchschnittliche Temperaturwert von Sensor 6.0 beträgt 23.389 Temperatureinheiten. Berechnet aus den Messwerten 23.3792°C, 23.3792°C und 23.4086°C.",False,0.24242424242424243,1.0,/app/tests/outputs/compare/logs/20251219T204952/0065_66.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+67,aggregation,What is the maximum light value of sensor 7.0?,Maximum Light (Sensor 7.0): 412.16Lux,412.16,False,0.22222222222222224,0.0,"MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)
+RETURN max(m.light) AS value",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0066_67.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+68,aggregation,What is the minimum voltage of sensor 8.0?,Minimum Voltage (Sensor 8.0): 2.66332V,2.66332,False,0.22222222222222224,0.0,MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m:Measurement) RETURN min(m.voltage) AS value,True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0067_68.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+69,aggregation,What is the mean humidity of sensor 9.0?,Average Humidity (Sensor 9.0): 38.338587606506564%,38.338587606506564,False,0.4444444444444445,0.0,MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement) RETURN avg(m.humidity) AS value,True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0068_69.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+70,aggregation,How many measurements are available for sensor 10.0?,Number of measurements (Sensor 10.0): 1335,1,False,0.0,0.0,"MATCH (s:Sensor {mote_id: 10.0})-[:GENERATED]->(m:Measurement)
+RETURN count(m) AS value",True,True,,Zwei Messungen sind für Sensor 10.0 verfügbar.,False,0.39999999999999997,1.0,/app/tests/outputs/compare/logs/20251219T204952/0069_70.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+71,trend,How does the temperature of sensor 1.0 evolve over all measurements?,The trend of Temperature for sensor 1.0 is: increasing.,No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""1.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.temperature AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0070_71.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+72,trend,Does the humidity of sensor 2.0 show an increasing or decreasing trend?,"mote_id=2 time=2004-02-28T01:08:16.776717 temperature=19.567 humidity=39.6878 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:10:16.105455 temperature=19.5376 humidity=39.7557 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:26:46.606579 temperature=19.4788 humidity=39.6878 light=121.44 voltage=2.66332
+mote_id=2 time=2004-02-28T01:28:16.345812 temperature=19.4494 humidity=39.7217 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:33:46.144671 temperature=19.4984 humidity=39.586 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:34:46.104732 temperature=19.4788 humidity=39.5521 light=121.44 voltage=2.66332
+mote_id=2 time=2004-02-28T01:36:46.793081 temperature=19.4592 humidity=39.5181 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:37:16.419204 temperature=19.4494 humidity=39.5521 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:38:16.392296 temperature=19.4788 humidity=39.4162 light=121.44 voltage=2.68742
+mote_id=2 time=2004-02-28T01:39:16.747296 temperature=19.469 humidity=39.3483 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:39:46.753748 temperature=19.4788 humidity=39.4842 light=121.44 voltage=2.66332
+mote_id=2 time=2004-02-28T01:40:46.357019 temperature=19.4592 humidity=39.5521 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:41:46.361652 temperature=19.4592 humidity=39.5521 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:42:16.207481 temperature=19.4494 humidity=39.5521 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:44:46.292964 temperature=19.4396 humidity=39.5521 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:45:16.65255 temperature=19.4396 humidity=39.4162 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:45:46.398656 temperature=19.4396 humidity=39.3483 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:46:15.998713 temperature=19.4396 humidity=39.3483 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:46:46.246863 temperature=19.4396 humidity=39.3483 light=121.44 voltage=2.67532
+mote_id=2 time=2004-02-28T01:49:46.110637 temperature=19.371 humidity=39.586 light=121.44 voltage=2.67532
+... (additional 677 measurements omitted)",No data available.,False,0.0,1.0,"MATCH (s:Sensor {mote_id: ""2.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.humidity AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0071_72.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+73,trend,How does the light value of sensor 3.0 change over time?,The trend of Light for sensor 3.0 is: increasing.,No data available.,False,0.0,1.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.light AS value
+ORDER BY m.time ASC",True,True,,Am 2004-02-28 um 09:11:18.323178 hat Sensor 3.0 368.0 Lux Licht gemessen. Dazu liegen mir keine weiteren Daten vor.,False,0.17142857142857143,1.0,/app/tests/outputs/compare/logs/20251219T204952/0072_73.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+74,trend,Is the voltage of sensor 4.0 stable over time?,The trend of Voltage for sensor 4.0 is: constant.,No data available.,False,0.0,1.0,"MATCH (s:Sensor {mote_id: ""4.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.voltage AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0073_74.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+75,trend,Compare the temperature trend of sensor 1.0 and sensor 2.0.,"Trend comparison for Temperature: sensor 1.0=increasing, sensor 2.0=increasing.","The JSON object provided contains temperature readings from two different motes over a period of time. Here is the summary:
+
+- **Mote ID 1**:
+  - The first recorded temperature was `18.4008` at `2004-02-28T03:29:47.077182`.
+  - The last recorded temperature was `18.4106` at `2004-02-28T03:32:16.659595`.
+
+- **Mote ID 2**:
+  - The first recorded temperature was `18.979` at `2004-02-28T03:09:16.929571`.
+  - The last recorded temperature was `18.8712` at `2004-02-28T03:30:47.03918`.
+
+The temperatures for both motes generally decreased over time, with Mote ID 1 starting around `18.5086` and ending around `18.4106`, while Mote ID 2 started around `18.979` and ended around `18.8712`.
+
+Here are the temperatures recorded for each mote:
+
+- **Mote ID 1**:
+  - Temperatures: `[18.5, 18.4988, 18.4694, 18.4596, 18.44, 18.4204, 18.4106, 18.4008]`
+  
+- **Mote ID 2**:
+  - Temperatures: `[18.979, 18.9594, 18.9398, 18.93, 18.9202, 18.9104, 18.9006, 18.8712, 18.8418, 18.8516, 18.881]`
+
+The data shows a gradual decrease in temperature for both motes over the recorded period.",False,0.04040404040404041,0.6666666666666666,"MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)
+WHERE s.mote_id IN [1.0, 2.0]
+RETURN s.mote_id AS mote_id, m.time AS time, m.temperature AS value
+ORDER BY m.time ASC, s.mote_id ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0074_75.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+76,trend,How does the humidity of sensor 5.0 evolve over all measurements?,No data available.,No data available.,True,1.0,1.0,"MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.humidity AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0075_76.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+77,trend,Does the light value of sensor 6.0 show time-of-day fluctuations?,"mote_id=6 time=2004-02-28T00:58:46.657464 temperature=20.4196 humidity=36.6118 light=121.44 voltage=2.65143
+mote_id=6 time=2004-02-28T01:00:46.525723 temperature=19.9002 humidity=37.5737 light=121.44 voltage=2.63964
+mote_id=6 time=2004-02-28T01:08:46.305414 temperature=19.42 humidity=39.2123 light=121.44 voltage=2.63964
+mote_id=6 time=2004-02-28T01:09:46.082469 temperature=19.42 humidity=39.0763 light=121.44 voltage=2.63964
+mote_id=6 time=2004-02-28T01:15:16.540143 temperature=19.3906 humidity=38.872 light=121.44 voltage=2.65143
+mote_id=6 time=2004-02-28T01:20:16.142052 temperature=19.3612 humidity=38.7357 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:24:16.371625 temperature=19.3024 humidity=38.7357 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:24:46.286735 temperature=19.2828 humidity=38.7698 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:25:15.936757 temperature=19.3122 humidity=39.0082 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:26:46.691677 temperature=19.2828 humidity=39.1783 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:28:16.415298 temperature=19.2828 humidity=39.2803 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:32:16.632992 temperature=19.2632 humidity=39.1443 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:36:46.698056 temperature=19.2436 humidity=38.9401 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:37:45.967637 temperature=19.224 humidity=38.9401 light=114.08 voltage=2.62796
+mote_id=6 time=2004-02-28T01:39:46.506495 temperature=19.224 humidity=38.8379 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:40:17.024115 temperature=19.2338 humidity=38.8039 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:41:16.4214 temperature=19.224 humidity=38.7357 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:46:46.740509 temperature=19.1848 humidity=39.0763 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:47:16.133794 temperature=19.1848 humidity=39.2123 light=114.08 voltage=2.63964
+mote_id=6 time=2004-02-28T01:49:16.350502 temperature=19.1848 humidity=39.2803 light=114.08 voltage=2.63964
+... (additional 785 measurements omitted)","The JSON object provided contains temperature readings from a sensor with ID `sensor-temperature-0000000000000006`. The data is structured as follows:
+
+1. **`id`:** This field indicates the unique identifier of the sensor, which in this case is `sensor-temperature-0000000000000006`.
+2. **`type`:** This specifies the type of the entity, here it's `TemperatureSensor`, indicating that the data pertains to temperature measurements.
+3. **`temperature`:** This field contains an array of objects where each object represents a single temperature reading with two properties:
+   - **`mote`:** The identifier for the mote (a small device used in sensor networks) from which the temperature was recorded, here it is `6`.
+   - **`time`:** The timestamp at which the temperature was measured.
+   - **`value`:** The actual temperature value recorded by the sensor.
+
+Here are some key points about the data:
+
+- The temperatures recorded are all 108.56 degrees (the unit of measurement isn't specified in the JSON).
+- The timestamps indicate that these readings were taken over a period from `2004-02-28T03:59` to `2004-02-28T06:01`.
+
+To summarize, this JSON object represents temperature data collected by a specific sensor (`sensor-temperature-0000000000000006`) over several hours on February 28, 2004. Each reading is consistently 108.56 degrees and comes from mote `6`.",False,0.07006369426751592,0.0,"MATCH (s:Sensor {mote_id: 6.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.light AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0076_77.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+78,trend,How does the voltage of sensor 7.0 change over time?,The trend of Voltage for sensor 7.0 is: increasing.,"The JSON object provided contains temperature readings from a sensor with `mote_id` 7 over a period of time on February 28th, 2023. The temperatures are recorded in Celsius and the timestamps include both date and time down to milliseconds.
+
+Here is a summary of the data:
+
+- **Start Time:** 2023-02-28T01:59:46.722Z
+- **End Time:** 2023-02-28T03:03:46.350Z
+
+The temperature readings fluctuate between approximately 2.67°C and 2.69°C, indicating a relatively stable environment with minor variations.
+
+Here are some key points from the data:
+
+1. **Initial Readings:** The first few readings show temperatures around 2.68°C.
+2. **Stable Range:** Most of the readings fall within the range of 2.67532°C to 2.68742°C, indicating a stable temperature environment.
+3. **Minor Variations:** There are slight variations in temperature, but they remain very close to each other.
+
+Here is an excerpt from the data:
+
+- At `2023-02-28T01:59:46.722Z`, the temperature was 2.68742°C.
+- At `2023-02-28T02:00:16.552Z`, the temperature was 2.67532°C.
+- At `2023-02-28T02:00:46.952Z`, the temperature was 2.68742°C.
+
+The data continues in this manner, with minor fluctuations but generally stable temperatures over time.
+
+If you need any specific analysis or further details from this dataset, please let me know!",False,0.043103448275862065,0.0,"MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement) RETURN s.mote_id AS mote_id, m.time AS time, m.voltage AS value ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0077_78.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+79,trend,Is the temperature trend of sensor 8.0 constant?,The trend of Temperature for sensor 8.0 is: increasing.,"The JSON object provided contains temperature readings from a sensor with ID `8` over a period of time on February 28th, 2023. The data is structured as follows:
+
+- **Timestamp**: Each reading includes the exact timestamp when it was recorded.
+- **MoteID**: Identifier for the sensor that took the measurement (`8` in this case).
+- **Value**: The temperature value measured by the sensor.
+
+Here are some key observations from the provided data:
+1. **Time Range**: The readings span from approximately 3:07 AM to 3:57 AM on February 28th, 2023.
+2. **Temperature Trend**: The temperatures generally decrease over time, starting around `18.146` degrees and ending at `17.9892` degrees.
+
+### Example Data Points:
+- At `2023-02-28T03:07:16.52122`, the temperature was `18.146`.
+- At `2023-02-28T03:57:16.326931`, the temperature was `17.9892`.
+
+### Summary:
+The JSON object contains a series of temperature readings from sensor ID `8` over a specific time period, showing a gradual decrease in temperature throughout the night.
+
+Would you like to analyze this data further or perform any specific operations on it?",False,0.0851063829787234,1.0,"MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.temperature AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0078_79.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+80,trend,Is there a trend in the humidity of sensor 9.0?,The trend of Humidity for sensor 9.0 is: decreasing.,"The JSON object provided contains temperature readings from a sensor with ID `9` over a period of time on February 28th, 2023. The data includes the timestamp for each reading and the corresponding temperature value in degrees Celsius.
+
+Here is a summary of the key points:
+
+- **Sensor ID:** 9
+- **Date:** February 28, 2023
+- **Temperature Readings:**
+  - The first recorded temperature at `15:47:46` was `41.2761°C`.
+  - The last recorded temperature at `03:40:46` was `40.8381°C`.
+
+The temperatures fluctuated between approximately `40.70°C` and `41.31°C`. Here are some notable observations:
+
+- **Highest Temperature:** `41.3098°C` at `03:30:46`.
+- **Lowest Temperature:** `40.7031°C` at `03:23:16`.
+
+The temperature readings show a general trend of fluctuation within the range mentioned above, with no significant spikes or drops.
+
+Would you like to analyze this data further or perform any specific operations on it?",False,0.0880503144654088,0.0,"MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.humidity AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0079_80.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+81,trend,How does the light value of sensor 10.0 evolve over all measurements?,The trend of Light for sensor 10.0 is: increasing.,"The JSON object provided contains temperature readings from a sensor with ID `sensor-temperature-001` located in the room `kitchen`. The data is structured as follows:
+
+- **Timestamp**: `""2023-04-05T18:00:00Z""` indicates when these measurements were taken.
+- **Room**: `""kitchen""` specifies where the sensor is installed.
+- **Sensor ID**: `""sensor-temperature-001""` identifies which specific sensor provided the data.
+- **Measurements**: An array of objects, each containing:
+  - `mote`: The unique identifier for each mote (device) that recorded a temperature reading.
+  - `value`: The actual temperature value in degrees Celsius.
+
+Here are some key points about the measurements:
+
+1. All readings are consistently at `53.36` degrees Celsius.
+2. There are multiple motes (`mote-001`, `mote-002`, etc.) contributing to these readings, indicating redundancy or a distributed sensor network in the kitchen.
+
+Given that all temperature values are identical across different motes and times, it suggests either:
+- A malfunctioning sensor setup where all devices are reading the same incorrect value.
+- An unusual but consistent environmental condition (though 53.36°C is quite high for a typical kitchen environment).
+
+If this data were expected to vary or if such a high temperature is not normal for your application, it would be advisable to investigate potential issues with the sensors or their calibration.",False,0.04608294930875576,0.0,"MATCH (s:Sensor {mote_id: 10.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.light AS value
+ORDER BY m.time ASC",True,True,,Am 2004-02-28 um 10:18:16.934388 hat Sensor 10.0 625.6 Lux Licht gemessen. Am 2004-02-28 um 10:19:17.594973 hat Sensor 10.0 wiederum 625.6 Lux Licht gemessen. Die Lichtwerte,False,0.12244897959183675,1.0,/app/tests/outputs/compare/logs/20251219T204952/0080_81.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+82,trend,Does the temperature of sensor 3.0 show any noticeable changes?,"mote_id=3 time=2004-02-28T00:58:46.497331 temperature=20.204 humidity=36.8871 light=50.6 voltage=2.69964
+mote_id=3 time=2004-02-28T01:03:46.702054 temperature=19.4396 humidity=38.6334 light=50.6 voltage=2.68742
+mote_id=3 time=2004-02-28T01:04:46.797534 temperature=19.4102 humidity=38.7357 light=48.76 voltage=2.67532
+mote_id=3 time=2004-02-28T01:05:16.212397 temperature=19.4102 humidity=38.7357 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:05:46.344834 temperature=19.4004 humidity=38.8039 light=50.6 voltage=2.68742
+mote_id=3 time=2004-02-28T01:06:16.347982 temperature=19.371 humidity=38.8039 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:07:16.073929 temperature=19.3612 humidity=38.872 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:07:46.2384 temperature=19.3612 humidity=38.872 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:08:16.471848 temperature=19.3612 humidity=38.9061 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:08:46.570346 temperature=19.3612 humidity=38.872 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:09:16.17385 temperature=19.3514 humidity=38.9742 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:09:46.841013 temperature=19.371 humidity=38.9401 light=48.76 voltage=2.67532
+mote_id=3 time=2004-02-28T01:10:46.649233 temperature=19.3808 humidity=38.9061 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:11:46.836228 temperature=19.3416 humidity=38.9401 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:12:16.828963 temperature=19.322 humidity=38.9401 light=48.76 voltage=2.67532
+mote_id=3 time=2004-02-28T01:12:46.203162 temperature=19.322 humidity=38.872 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:13:15.942079 temperature=19.3318 humidity=38.9401 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:13:46.4074 temperature=19.322 humidity=38.872 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:14:16.392536 temperature=19.3318 humidity=38.9061 light=48.76 voltage=2.68742
+mote_id=3 time=2004-02-28T01:14:46.831124 temperature=19.3514 humidity=38.8039 light=48.76 voltage=2.67532
+... (additional 1071 measurements omitted)",No data available.,False,0.0,0.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.temperature AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0081_82.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+83,trend,How does the humidity of sensor 4.0 change over time?,The trend of Humidity for sensor 4.0 is: decreasing.,No data available.,False,0.0,1.0,"MATCH (s:Sensor {mote_id: ""4.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.humidity AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0082_83.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+84,trend,Is the voltage of sensor 5.0 constant over time?,No data available.,No data available.,True,1.0,1.0,"MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.voltage AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0083_84.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+85,trend,Are there long-term fluctuations in the temperature of sensor 6.0?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""6.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.temperature AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0084_85.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+86,interpretation,Are there any notable outliers in the temperature measurements of sensor 1.0?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""1.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.temperature AS value
+ORDER BY m.temperature DESC
+LIMIT 5",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0085_86.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+87,interpretation,Do unusual voltage values from sensor 2.0 indicate a defect?,No data available.,No data available.,True,1.0,1.0,"MATCH (s:Sensor {mote_id: ""2.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.voltage AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0086_87.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+88,interpretation,Are the light values of sensor 3.0 plausible?,No data available.,No data available.,True,1.0,1.0,"MATCH (s:Sensor {mote_id: ""3.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.light AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0087_88.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+89,interpretation,Are there indications of data gaps for sensor 4.0?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""4.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0088_89.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+90,interpretation,Is the temperature outlier at the end of March 2004 explainable?,No data available.,No data available.,True,1.0,1.0,"MATCH (m:Measurement)-[:AT_DATE]->(d:Date)
+WHERE d.date STARTS WITH ""2004-03"" AND m.time ENDS WITH "":59""
+RETURN m.temperature AS value, m.time AS time
+ORDER BY m.time DESC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0089_90.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+91,interpretation,Are the humidity measurements of sensor 5.0 stable enough for trend analysis?,No data available.,No data available.,True,1.0,1.0,"MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.humidity AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0090_91.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+92,interpretation,Are there indications of measurement noise for sensor 6.0?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""6.0""})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage
+ORDER BY m.time ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0091_92.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+93,interpretation,Are the voltage values of sensor 7.0 unusually low?,No data available.,"The JSON object provided contains temperature readings from a sensor with `mote_id` 7 over a period of time on February 28th, 2023. The temperatures are recorded in Celsius and the timestamps include both date and time down to milliseconds.
+
+Here is a summary of the data:
+
+- **Start Time:** 2023-02-28T01:59:46.722Z
+- **End Time:** 2023-02-28T03:03:46.350Z
+
+The temperature readings fluctuate between approximately 2.67°C and 2.69°C, indicating a relatively stable environment with minor variations.
+
+Here are some key points from the data:
+
+1. **Initial Readings:** The first few readings show temperatures around 2.68°C.
+2. **Stable Range:** Most of the readings fall within the range of 2.67532°C to 2.68742°C, indicating a stable temperature environment.
+3. **Minor Variations:** There are slight variations in temperature, but they remain very close to each other.
+
+Here is an excerpt from the data:
+
+- At `2023-02-28T01:59:46.722Z`, the temperature was 2.68742°C.
+- At `2023-02-28T02:00:16.552Z`, the temperature was 2.67532°C.
+- At `2023-02-28T02:00:46.952Z`, the temperature was 2.68742°C.
+
+The data continues in this manner, with minor fluctuations but generally stable temperatures over time.
+
+If you need any specific analysis or further details from this dataset, please let me know!",False,0.008888888888888889,0.0,"MATCH (s:Sensor {mote_id: 7.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.voltage AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0092_93.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+94,interpretation,Do constant light values from sensor 8.0 indicate artificial light?,The trend of Light for sensor 8.0 is: increasing.,"The provided JSON data contains temperature readings from a sensor located in the user's room. Here are some key points extracted from the data:
+
+- **Sensor ID**: `sensor_2`
+- **Location**: User's room
+- **Date and Time of Readings**:
+  - The first reading is at `2023-10-05T02:49:27.862Z`.
+  - The last reading is at `2023-10-05T03:57:16.326Z`.
+
+- **Temperature Readings**:
+  - All temperature readings are consistently `108.56` degrees (the unit is not specified, but it could be Fahrenheit or Celsius).
+
+Here's a summary of the data:
+
+```json
+{
+  ""sensor_id"": ""sensor_2"",
+  ""location"": ""user's room"",
+  ""readings"": [
+    {
+      ""time"": ""2023-10-05T02:49:27.862Z"",
+      ""temperature"": 108.56
+    },
+    // ... (many more readings with the same temperature)
+    {
+      ""time"": ""2023-10-05T03:57:16.326Z"",
+      ""temperature"": 108.56
+    }
+  ]
+}
+```
+
+### Observations:
+- The temperature remains constant at `108.56` throughout the entire period.
+- There are no fluctuations or changes in the temperature readings, which might indicate a malfunctioning sensor or an unusual environmental condition.
+
+If you need further analysis or specific details from this data, please let me know!",False,0.04419889502762431,0.0,"MATCH (s:Sensor {mote_id: 8.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time, m.light AS value
+ORDER BY m.time ASC",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0093_94.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+95,interpretation,Are there signs of faulty measurements for sensor 9.0?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 9.0})-[:GENERATED]->(m:Measurement)
+RETURN s.mote_id AS mote_id, m.time AS time,
+       CASE 
+           WHEN m.temperature < -50 OR m.temperature > 80 THEN 'Faulty'
+           WHEN m.humidity < 0 OR m.humidity > 100 THEN 'Faulty'
+           WHEN m.light < 0 THEN 'Faulty'
+           WHEN m.voltage < 2.5 OR m.voltage > 3.6 THEN 'Faulty'
+           ELSE 'Normal'
+       END AS status
+ORDER BY m.time ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0094_95.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+96,negative,What temperature did sensor 99.0 measure on 2004-02-28?,No data available.,No data available.,True,1.0,1.0,"MATCH (s:Sensor {mote_id: 99.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28""
+RETURN m.time AS time, m.temperature AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0095_96.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+97,negative,What measurements exist for epoch 3000?,No data available.,No data available.,True,1.0,0.0,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3000})
+OPTIONAL MATCH (s:Sensor)-[:GENERATED]->(m)
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage
+ORDER BY time, mote_id ASC LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0096_97.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+98,negative,What was the humidity on 2005-01-01 at 00:00?,No data available.,No data available.,True,1.0,1.0,"MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch)
+WHERE m.time STARTS WITH ""2005-01-01T00:00"" AND e.epoch_id = 0
+RETURN m.time AS time, m.humidity AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,1.0,/app/tests/outputs/compare/logs/20251219T204952/0097_98.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+99,negative,What voltage did sensor 69.0 measure on 2004-02-28?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: 69.0})-[:GENERATED]->(m:Measurement)
+WHERE m.time STARTS WITH ""2004-02-28""
+RETURN m.time AS time, m.voltage AS value
+ORDER BY m.time ASC
+LIMIT 1",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0098_99.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct
+100,negative,Is there any light data for sensor 60.0?,No data available.,No data available.,True,1.0,0.0,"MATCH (s:Sensor {mote_id: ""60.0""})-[:GENERATED]->(m:Measurement)
+RETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.light AS light
+ORDER BY time ASC
+LIMIT 20",True,True,,Dazu liegen mir keine Daten vor.,False,0.0,0.0,/app/tests/outputs/compare/logs/20251219T204952/0099_100.json,qwen2.5:32b-instruct,qwen2.5:32b-instruct

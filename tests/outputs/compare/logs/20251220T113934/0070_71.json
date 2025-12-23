@@ -1,0 +1,238 @@
+{
+  "id": 71,
+  "category": "aggregation",
+  "question": "What is the average temperature in epoch 1996?",
+  "gold_answer": "Average Temperature (Epoch 1996): 24.31783902439025°C",
+  "graph_prediction": "Average Temperature (Epoch 1996): 24.31783902439025°C",
+  "graph_exact_match": true,
+  "graph_f1": 1.0,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1996}) RETURN avg(m.temperature) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Based on the provided context, there are no measurements from epoch 1996. All of the timestamps given are for February 28th, and they do not specify a year, but it can be inferred that all data points belong to the same day.\n\nTherefore, the question \"What is the average temperature in epoch 1996?\" cannot be answered with the provided information since there are no measurements from epoch 1996. \n\nIf you meant to ask for an average temperature over a different time period or specific set of measurements, please clarify your request.",
+  "base_exact_match": false,
+  "base_f1": 0.08163265306122451,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T113934/0070_71.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1996}) RETURN avg(m.temperature) AS value"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 24.31783902439025,
+              "rows": 1
+            }
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 24.31783902439025,
+                  "std": 0.0,
+                  "min": {
+                    "value": 24.31783902439025,
+                    "timestamp": "2025-12-20T12:20:17.059605"
+                  },
+                  "max": {
+                    "value": 24.31783902439025,
+                    "timestamp": "2025-12-20T12:20:17.059605"
+                  },
+                  "quantiles": {
+                    "p05": 24.31783902439025,
+                    "p50": 24.31783902439025,
+                    "p95": 24.31783902439025
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 24.31783902439025
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 24.31783902439025,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 24.31783902439025
+              }
+            ]
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 24.31783902439025,
+                  "std": 0.0,
+                  "min": {
+                    "value": 24.31783902439025,
+                    "timestamp": "2025-12-20T12:20:17.059605"
+                  },
+                  "max": {
+                    "value": 24.31783902439025,
+                    "timestamp": "2025-12-20T12:20:17.059605"
+                  },
+                  "quantiles": {
+                    "p05": 24.31783902439025,
+                    "p50": 24.31783902439025,
+                    "p95": 24.31783902439025
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "generator": {
+        "answer": "Average Temperature (Epoch 1996): 24.31783902439025°C",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 24.31783902439025}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 15:46:17.307584, sensor 20.0 measured temperature -38.4°C, humidity -4.0%, light 625.6 Lux, and voltage 2.4341V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:46:17.307584",
+              "epoch": "1777",
+              "moteid": "20.0",
+              "temperature": "-38.4",
+              "humidity": "-4.0",
+              "light": "625.6",
+              "voltage": "2.4341"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:42:47.011106, sensor 2.0 measured temperature 23.5164°C, humidity 33.7%, light 478.4 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:42:47.011106",
+              "epoch": "1290",
+              "moteid": "2.0",
+              "temperature": "23.5164",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 12:00:18.006341, sensor 2.0 measured temperature 23.6536°C, humidity 33.7%, light 478.4 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "12:00:18.006341",
+              "epoch": "1325",
+              "moteid": "2.0",
+              "temperature": "23.6536",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:28:18.712415, sensor 2.0 measured temperature 24.0064°C, humidity 33.7%, light 478.4 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:28:18.712415",
+              "epoch": "1501",
+              "moteid": "2.0",
+              "temperature": "24.0064",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:52:17.423474, sensor 2.0 measured temperature 24.0456°C, humidity 33.7%, light 478.4 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:52:17.423474",
+              "epoch": "1549",
+              "moteid": "2.0",
+              "temperature": "24.0456",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.7244"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Based on the provided context, there are no measurements from epoch 1996. All of the timestamps given are for February 28th, and they do not specify a year, but it can be inferred that all data points belong to the same day.\n\nTherefore, the question \"What is the average temperature in epoch 1996?\" cannot be answered with the provided information since there are no measurements from epoch 1996. \n\nIf you meant to ask for an average temperature over a different time period or specific set of measurements, please clarify your request.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 71,
+      "category": "aggregation",
+      "question": "What is the average temperature in epoch 1996?",
+      "gold_answer": "Average Temperature (Epoch 1996): 24.31783902439025°C",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1996})\nRETURN avg(m.temperature) AS value"
+    }
+  }
+}

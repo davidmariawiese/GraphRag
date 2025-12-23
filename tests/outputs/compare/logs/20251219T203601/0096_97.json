@@ -1,0 +1,61 @@
+{
+  "id": 97,
+  "category": "negative",
+  "question": "What measurements exist for epoch 3000?",
+  "gold_answer": "No data available.",
+  "graph_prediction": "Es gibt keine Messungen für den Zeitpunkt 3000.\n\n(Translation: There are no measurements for epoch 3000.)\n\nExplanation:\n\n* The user question asks about measurements for a specific epoch.\n* Since the GRAPH CONTEXT contains an \"error\" message indicating that \"No data found\", we cannot derive any information from the analysis or raw records.\n* According to the rules in MODE ANSWER, if the answer cannot be derived from the JSON, output exactly: \"Keine Daten verfügbar.\" (No data available).\n* However, since the question specifically asks about measurements for a certain epoch, we can provide a more specific answer based on the error message.",
+  "graph_exact_match": false,
+  "graph_f1": 0.05882352941176471,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3000})\nRETURN DISTINCT m,e",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T203601/0096_97.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 3000})\nRETURN DISTINCT m,e"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Es gibt keine Messungen für den Zeitpunkt 3000.\n\n(Translation: There are no measurements for epoch 3000.)\n\nExplanation:\n\n* The user question asks about measurements for a specific epoch.\n* Since the GRAPH CONTEXT contains an \"error\" message indicating that \"No data found\", we cannot derive any information from the analysis or raw records.\n* According to the rules in MODE ANSWER, if the answer cannot be derived from the JSON, output exactly: \"Keine Daten verfügbar.\" (No data available).\n* However, since the question specifically asks about measurements for a certain epoch, we can provide a more specific answer based on the error message.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 97,
+      "category": "negative",
+      "question": "What measurements exist for epoch 3000?",
+      "gold_answer": "No data available.",
+      "gold_cypher": null
+    }
+  }
+}

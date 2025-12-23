@@ -1,0 +1,768 @@
+{
+  "id": 67,
+  "category": "aggregation",
+  "question": "What is the average temperature in epoch 1832?",
+  "gold_answer": "Average Temperature (Epoch 1832): 22.922424390243894°C",
+  "graph_prediction": "Average Temperature (Epoch 1832): 22.92°C",
+  "graph_exact_match": false,
+  "graph_f1": 0.8571428571428571,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1832}) RETURN avg(m.temperature) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "The provided data does not include any timestamps or epochs, only specific dates and times for various sensor readings. Therefore, there isn't an \"epoch 1832\" mentioned explicitly in the dataset. All given temperature measurements are taken on February 28th, 20XX (the year is not specified), at different times of the day.\n\nAll recorded temperatures in this data set are consistently reported as 23.1832°C for all entries regardless of which epoch or",
+  "base_exact_match": false,
+  "base_f1": 0.09876543209876544,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T231937/0066_67.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1832}) RETURN avg(m.temperature) AS value"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result"
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 22.922424390243894,
+                  "std": 0.0,
+                  "min": {
+                    "value": 22.922424390243894,
+                    "timestamp": "2025-12-19T23:55:45.813549"
+                  },
+                  "max": {
+                    "value": 22.922424390243894,
+                    "timestamp": "2025-12-19T23:55:45.813549"
+                  },
+                  "quantiles": {
+                    "p05": 22.922424390243894,
+                    "p50": 22.922424390243894,
+                    "p95": 22.922424390243894
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 22.922424390243894
+              }
+            ]
+          }
+        }
+      },
+      "generator": {
+        "answer": "Average Temperature (Epoch 1832): 22.92°C",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 22.922424390243894}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 10:59:17.231274, sensor 3.0 measured temperature 23.1832°C, humidity 32.5102%, light 441.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:59:17.231274",
+              "epoch": "1203",
+              "moteid": "3.0",
+              "temperature": "23.1832",
+              "humidity": "32.5102",
+              "light": "441.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:16:49.107364, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 478.4 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:16:49.107364",
+              "epoch": "1478",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:36:48.496811, sensor 1.0 measured temperature 23.1832°C, humidity 32.8608%, light 180.32 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:36:48.496811",
+              "epoch": "1758",
+              "moteid": "1.0",
+              "temperature": "23.1832",
+              "humidity": "32.8608",
+              "light": "180.32",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:35:48.279674, sensor 2.0 measured temperature 23.1832°C, humidity 34.675%, light 279.68 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:35:48.279674",
+              "epoch": "1756",
+              "moteid": "2.0",
+              "temperature": "23.1832",
+              "humidity": "34.675",
+              "light": "279.68",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:12:18.958846, sensor 3.0 measured temperature 23.1832°C, humidity 32.6505%, light 426.88 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:12:18.958846",
+              "epoch": "1229",
+              "moteid": "3.0",
+              "temperature": "23.1832",
+              "humidity": "32.6505",
+              "light": "426.88",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:13:17.198701, sensor 3.0 measured temperature 23.1832°C, humidity 32.6505%, light 426.88 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:13:17.198701",
+              "epoch": "1231",
+              "moteid": "3.0",
+              "temperature": "23.1832",
+              "humidity": "32.6505",
+              "light": "426.88",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:33:18.953185, sensor 3.0 measured temperature 23.1832°C, humidity 33.2808%, light 224.48 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:33:18.953185",
+              "epoch": "1751",
+              "moteid": "3.0",
+              "temperature": "23.1832",
+              "humidity": "33.2808",
+              "light": "224.48",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:25:18.604604, sensor 4.0 measured temperature 23.1832°C, humidity 34.0836%, light 412.16 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:25:18.604604",
+              "epoch": "1255",
+              "moteid": "4.0",
+              "temperature": "23.1832",
+              "humidity": "34.0836",
+              "light": "412.16",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:43:18.127594, sensor 7.0 measured temperature 23.1832°C, humidity 33.9442%, light 397.44 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:43:18.127594",
+              "epoch": "1531",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.9442",
+              "light": "397.44",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:44:19.299945, sensor 7.0 measured temperature 23.1832°C, humidity 33.8744%, light 382.72 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:44:19.299945",
+              "epoch": "1533",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.8744",
+              "light": "382.72",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:44:47.481084, sensor 7.0 measured temperature 23.1832°C, humidity 33.9442%, light 382.72 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:44:47.481084",
+              "epoch": "1534",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.9442",
+              "light": "382.72",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:12:49.144137, sensor 7.0 measured temperature 23.1832°C, humidity 33.8396%, light 353.28 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:12:49.144137",
+              "epoch": "1590",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.8396",
+              "light": "353.28",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:13:17.5282, sensor 7.0 measured temperature 23.1832°C, humidity 33.8744%, light 353.28 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:13:17.5282",
+              "epoch": "1591",
+              "moteid": "7.0",
+              "temperature": "23.1832",
+              "humidity": "33.8744",
+              "light": "353.28",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:58:19.317734, sensor 9.0 measured temperature 23.1832°C, humidity 34.8487%, light 1847.36 Lux, and voltage 2.80151V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:58:19.317734",
+              "epoch": "1561",
+              "moteid": "9.0",
+              "temperature": "23.1832",
+              "humidity": "34.8487",
+              "light": "1847.36",
+              "voltage": "2.80151"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:58:47.23606, sensor 9.0 measured temperature 23.1832°C, humidity 34.8487%, light 1847.36 Lux, and voltage 2.80151V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:58:47.23606",
+              "epoch": "1562",
+              "moteid": "9.0",
+              "temperature": "23.1832",
+              "humidity": "34.8487",
+              "light": "1847.36",
+              "voltage": "2.80151"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:28:18.135465, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 456.32 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:28:18.135465",
+              "epoch": "1501",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "456.32",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:29:18.030798, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 507.84 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:29:18.030798",
+              "epoch": "1503",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "507.84",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:30:17.966927, sensor 18.0 measured temperature 23.1832°C, humidity 33.7698%, light 478.4 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:30:17.966927",
+              "epoch": "1505",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7698",
+              "light": "478.4",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:31:17.315301, sensor 18.0 measured temperature 23.1832°C, humidity 33.7349%, light 478.4 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:31:17.315301",
+              "epoch": "1507",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7349",
+              "light": "478.4",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:31:47.836569, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 456.32 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:31:47.836569",
+              "epoch": "1508",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "456.32",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:33:17.688215, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 426.88 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:33:17.688215",
+              "epoch": "1511",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "426.88",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:42:50.101373, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 566.72 Lux, and voltage 2.53812V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:42:50.101373",
+              "epoch": "1650",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "566.72",
+              "voltage": "2.53812"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:44:50.094433, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 566.72 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:44:50.094433",
+              "epoch": "1654",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "566.72",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:45:19.938187, sensor 18.0 measured temperature 23.1832°C, humidity 33.7%, light 566.72 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:45:19.938187",
+              "epoch": "1655",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7",
+              "light": "566.72",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:51:46.787713, sensor 19.0 measured temperature 23.1832°C, humidity 32.2293%, light 294.4 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:51:46.787713",
+              "epoch": "1188",
+              "moteid": "19.0",
+              "temperature": "23.1832",
+              "humidity": "32.2293",
+              "light": "294.4",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:53:19.150182, sensor 19.0 measured temperature 23.1832°C, humidity 32.2644%, light 294.4 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:53:19.150182",
+              "epoch": "1191",
+              "moteid": "19.0",
+              "temperature": "23.1832",
+              "humidity": "32.2644",
+              "light": "294.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 09:48:17.68803, sensor 21.0 measured temperature 23.1832°C, humidity 31.1021%, light 441.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "09:48:17.68803",
+              "epoch": "1061",
+              "moteid": "21.0",
+              "temperature": "23.1832",
+              "humidity": "31.1021",
+              "light": "441.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:18:49.230649, sensor 22.0 measured temperature 23.1832°C, humidity 33.2808%, light 368.0 Lux, and voltage 2.73696V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:18:49.230649",
+              "epoch": "1842",
+              "moteid": "22.0",
+              "temperature": "23.1832",
+              "humidity": "33.2808",
+              "light": "368.0",
+              "voltage": "2.73696"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:17:48.220161, sensor 26.0 measured temperature 23.1832°C, humidity 34.0487%, light 441.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:17:48.220161",
+              "epoch": "1840",
+              "moteid": "26.0",
+              "temperature": "23.1832",
+              "humidity": "34.0487",
+              "light": "441.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:26:18.491289, sensor 35.0 measured temperature 23.1832°C, humidity 35.438%, light 478.4 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:26:18.491289",
+              "epoch": "1857",
+              "moteid": "35.0",
+              "temperature": "23.1832",
+              "humidity": "35.438",
+              "light": "478.4",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:17:47.487185, sensor 38.0 measured temperature 23.1832°C, humidity 32.8608%, light 441.6 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:17:47.487185",
+              "epoch": "1840",
+              "moteid": "38.0",
+              "temperature": "23.1832",
+              "humidity": "32.8608",
+              "light": "441.6",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:18:20.517372, sensor 38.0 measured temperature 23.1832°C, humidity 32.8608%, light 441.6 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:18:20.517372",
+              "epoch": "1841",
+              "moteid": "38.0",
+              "temperature": "23.1832",
+              "humidity": "32.8608",
+              "light": "441.6",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:31:49.183103, sensor 41.0 measured temperature 23.1832°C, humidity 32.8608%, light 625.6 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:31:49.183103",
+              "epoch": "1868",
+              "moteid": "41.0",
+              "temperature": "23.1832",
+              "humidity": "32.8608",
+              "light": "625.6",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:45:21.352011, sensor 45.0 measured temperature 23.1832°C, humidity 33.3857%, light 625.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:45:21.352011",
+              "epoch": "1895",
+              "moteid": "45.0",
+              "temperature": "23.1832",
+              "humidity": "33.3857",
+              "light": "625.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:11:19.376081, sensor 46.0 measured temperature 23.1832°C, humidity 34.6055%, light 478.4 Lux, and voltage 2.52732V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:11:19.376081",
+              "epoch": "1827",
+              "moteid": "46.0",
+              "temperature": "23.1832",
+              "humidity": "34.6055",
+              "light": "478.4",
+              "voltage": "2.52732"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:30:48.147027, sensor 51.0 measured temperature 23.1832°C, humidity 34.7097%, light 441.6 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:30:48.147027",
+              "epoch": "1866",
+              "moteid": "51.0",
+              "temperature": "23.1832",
+              "humidity": "34.7097",
+              "light": "441.6",
+              "voltage": "2.7244"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:37:17.456848, sensor 15.0 measured temperature 23.1832°C, humidity 35.0915%, light 1847.36 Lux, and voltage 2.49546V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:37:17.456848",
+              "epoch": "35",
+              "moteid": "15.0",
+              "temperature": "23.1832",
+              "humidity": "35.0915",
+              "light": "1847.36",
+              "voltage": "2.49546"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:51:49.739535, sensor 16.0 measured temperature 23.1832°C, humidity 35.0222%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:51:49.739535",
+              "epoch": "1548",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "35.0222",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:35:18.894296, sensor 16.0 measured temperature 23.1832°C, humidity 34.7445%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:35:18.894296",
+              "epoch": "1635",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.7445",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:35:48.501764, sensor 16.0 measured temperature 23.1832°C, humidity 34.6055%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:35:48.501764",
+              "epoch": "1636",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.6055",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:36:47.809292, sensor 16.0 measured temperature 23.1832°C, humidity 34.7445%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:36:47.809292",
+              "epoch": "1638",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.7445",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:17:18.344467, sensor 16.0 measured temperature 23.1832°C, humidity 34.6055%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:17:18.344467",
+              "epoch": "1719",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.6055",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:20:19.696508, sensor 16.0 measured temperature 23.1832°C, humidity 34.675%, light 1847.36 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:20:19.696508",
+              "epoch": "1725",
+              "moteid": "16.0",
+              "temperature": "23.1832",
+              "humidity": "34.675",
+              "light": "1847.36",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:00:46.968145, sensor 17.0 measured temperature 23.1832°C, humidity 31.5607%, light 964.16 Lux, and voltage 2.61639V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:00:46.968145",
+              "epoch": "1086",
+              "moteid": "17.0",
+              "temperature": "23.1832",
+              "humidity": "31.5607",
+              "light": "964.16",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:20:47.588086, sensor 17.0 measured temperature 23.1832°C, humidity 31.772%, light 861.12 Lux, and voltage 2.61639V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:20:47.588086",
+              "epoch": "1126",
+              "moteid": "17.0",
+              "temperature": "23.1832",
+              "humidity": "31.772",
+              "light": "861.12",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 10:21:48.25626, sensor 17.0 measured temperature 23.1832°C, humidity 31.8776%, light 861.12 Lux, and voltage 2.61639V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:21:48.25626",
+              "epoch": "1128",
+              "moteid": "17.0",
+              "temperature": "23.1832",
+              "humidity": "31.8776",
+              "light": "861.12",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 15:36:18.669312, sensor 17.0 measured temperature 23.1832°C, humidity 33.3507%, light 507.84 Lux, and voltage 2.61639V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:36:18.669312",
+              "epoch": "1757",
+              "moteid": "17.0",
+              "temperature": "23.1832",
+              "humidity": "33.3507",
+              "light": "507.84",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:32:18.158683, sensor 18.0 measured temperature 23.1832°C, humidity 33.7349%, light 456.32 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:32:18.158683",
+              "epoch": "1509",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7349",
+              "light": "456.32",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:34:48.216541, sensor 18.0 measured temperature 23.1832°C, humidity 33.7698%, light 397.44 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:34:48.216541",
+              "epoch": "1514",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7698",
+              "light": "397.44",
+              "voltage": "2.54901"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 14:15:18.695539, sensor 18.0 measured temperature 23.1832°C, humidity 33.7698%, light 353.28 Lux, and voltage 2.54901V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:15:18.695539",
+              "epoch": "1595",
+              "moteid": "18.0",
+              "temperature": "23.1832",
+              "humidity": "33.7698",
+              "light": "353.28",
+              "voltage": "2.54901"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "The provided data does not include any timestamps or epochs, only specific dates and times for various sensor readings. Therefore, there isn't an \"epoch 1832\" mentioned explicitly in the dataset. All given temperature measurements are taken on February 28th, 20XX (the year is not specified), at different times of the day.\n\nAll recorded temperatures in this data set are consistently reported as 23.1832°C for all entries regardless of which epoch or",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 67,
+      "category": "aggregation",
+      "question": "What is the average temperature in epoch 1832?",
+      "gold_answer": "Average Temperature (Epoch 1832): 22.922424390243894°C",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1832})\nRETURN avg(m.temperature) AS value"
+    }
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "id": 84,
+  "category": "aggregation",
+  "question": "What is the minimum voltage of sensor 48.0?",
+  "gold_answer": "Minimum Voltage (Sensor 48.0): 2.54901V",
+  "graph_prediction": "Minimum Voltage of sensor 48.0: 2.54901V",
+  "graph_exact_match": false,
+  "graph_f1": 0.9333333333333333,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 48.0})-[:GENERATED]->(m:Measurement) RETURN min(m.voltage) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "To find the minimum voltage of sensor 48.0 from the provided data, we need to look at all the entries for that specific sensor and identify the lowest recorded voltage.\n\nHere are the voltages recorded for sensor 48.0:\n\n- 2.71196V (multiple times)\n- 2.7244V (multiple times)\n\nThe minimum voltage among these is **2.71196V**.\n\nTherefore, the minimum voltage of sensor 48.0 is **2.71196V**.",
+  "base_exact_match": false,
+  "base_f1": 0.16216216216216214,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T113934/0083_84.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 48.0})-[:GENERATED]->(m:Measurement) RETURN min(m.voltage) AS value"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 2.54901,
+              "rows": 1
+            }
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.54901,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.54901,
+                    "timestamp": "2025-12-20T12:24:49.556570"
+                  },
+                  "max": {
+                    "value": 2.54901,
+                    "timestamp": "2025-12-20T12:24:49.556570"
+                  },
+                  "quantiles": {
+                    "p05": 2.54901,
+                    "p50": 2.54901,
+                    "p95": 2.54901
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 2.54901
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 2.54901,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 2.54901
+              }
+            ]
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.54901,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.54901,
+                    "timestamp": "2025-12-20T12:24:49.556570"
+                  },
+                  "max": {
+                    "value": 2.54901,
+                    "timestamp": "2025-12-20T12:24:49.556570"
+                  },
+                  "quantiles": {
+                    "p05": 2.54901,
+                    "p50": 2.54901,
+                    "p95": 2.54901
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "generator": {
+        "answer": "Minimum Voltage of sensor 48.0: 2.54901V",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 2.54901}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 10:48:48.442558, sensor 48.0 measured temperature 20.7038°C, humidity 37.0246%, light 684.48 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "10:48:48.442558",
+              "epoch": "1182",
+              "moteid": "48.0",
+              "temperature": "20.7038",
+              "humidity": "37.0246",
+              "light": "684.48",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:48:48.064485, sensor 8.0 measured temperature 21.625°C, humidity 35.5072%, light 684.48 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:48:48.064485",
+              "epoch": "1902",
+              "moteid": "8.0",
+              "temperature": "21.625",
+              "humidity": "35.5072",
+              "light": "684.48",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:48:48.532679, sensor 10.0 measured temperature 22.8696°C, humidity 35.5764%, light 684.48 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:48:48.532679",
+              "epoch": "1542",
+              "moteid": "10.0",
+              "temperature": "22.8696",
+              "humidity": "35.5764",
+              "light": "684.48",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:48:48.162803, sensor 38.0 measured temperature 25.104°C, humidity 29.5072%, light 1788.48 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:48:48.162803",
+              "epoch": "1302",
+              "moteid": "38.0",
+              "temperature": "25.104",
+              "humidity": "29.5072",
+              "light": "1788.48",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 16:48:48.74254, sensor 39.0 measured temperature 22.8598°C, humidity 35.2302%, light 224.48 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "16:48:48.74254",
+              "epoch": "1902",
+              "moteid": "39.0",
+              "temperature": "22.8598",
+              "humidity": "35.2302",
+              "light": "224.48",
+              "voltage": "2.7244"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "To find the minimum voltage of sensor 48.0 from the provided data, we need to look at all the entries for that specific sensor and identify the lowest recorded voltage.\n\nHere are the voltages recorded for sensor 48.0:\n\n- 2.71196V (multiple times)\n- 2.7244V (multiple times)\n\nThe minimum voltage among these is **2.71196V**.\n\nTherefore, the minimum voltage of sensor 48.0 is **2.71196V**.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 84,
+      "category": "aggregation",
+      "question": "What is the minimum voltage of sensor 48.0?",
+      "gold_answer": "Minimum Voltage (Sensor 48.0): 2.54901V",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 48})-[:GENERATED]->(m:Measurement)\nRETURN min(m.voltage) AS value"
+    }
+  }
+}

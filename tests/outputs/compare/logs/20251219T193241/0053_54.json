@@ -1,0 +1,197 @@
+{
+  "id": 54,
+  "category": "aggregation",
+  "question": "Wie hoch ist der Durchschnitt der Luftfeuchtigkeit in Epoche 25?",
+  "gold_answer": "Durchschnitt Luftfeuchtigkeit (Epoche 25): 37.65423729729729%",
+  "graph_prediction": "Der Durchschnitt der Luftfeuchtigkeit in Epoche 25 beträgt 37,65 %.",
+  "graph_exact_match": false,
+  "graph_f1": 0.625,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 25})\nRETURN avg(m.humidity) AS average_humidity",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Der Durchschnitt der Luftfeuchtigkeit für Sensor 25 beträgt: \n(40.0607% + 40.2299% + 40.2299% + 40.7031% + 40.6355% + 30.182% + 30.1111%) / 7 = 37,1249%",
+  "base_exact_match": false,
+  "base_f1": 0.25806451612903225,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T193241/0053_54.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor)-[:GENERATED]->(m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 25})\nRETURN avg(m.humidity) AS average_humidity"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Der Durchschnitt der Luftfeuchtigkeit in Epoche 25 beträgt 37,65 %.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"average_humidity\": 37.65423729729729}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 14:25:49.329804 hat Sensor 25.0 25.4372°C Temperatur, 30.1111% Luftfeuchtigkeit, 1847.36 Lux Licht und 2.76242V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:25:49.329804",
+              "epoch": "1616",
+              "moteid": "25.0",
+              "temperature": "25.4372",
+              "humidity": "30.1111",
+              "light": "1847.36",
+              "voltage": "2.76242"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:25:48.144421 hat Sensor 23.0 25.888°C Temperatur, 28.9018% Luftfeuchtigkeit, 478.4 Lux Licht und 2.74963V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:25:48.144421",
+              "epoch": "1496",
+              "moteid": "23.0",
+              "temperature": "25.888",
+              "humidity": "28.9018",
+              "light": "478.4",
+              "voltage": "2.74963"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:25:46.383465 hat Sensor 25.0 18.3028°C Temperatur, 40.0607% Luftfeuchtigkeit, 101.2 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:25:46.383465",
+              "epoch": "56",
+              "moteid": "25.0",
+              "temperature": "18.3028",
+              "humidity": "40.0607",
+              "light": "101.2",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 02:25:16.96111 hat Sensor 25.0 17.8324°C Temperatur, 40.2299% Luftfeuchtigkeit, 101.2 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:25:16.96111",
+              "epoch": "175",
+              "moteid": "25.0",
+              "temperature": "17.8324",
+              "humidity": "40.2299",
+              "light": "101.2",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 02:25:46.851994 hat Sensor 25.0 17.8226°C Temperatur, 40.2299% Luftfeuchtigkeit, 101.2 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:25:46.851994",
+              "epoch": "176",
+              "moteid": "25.0",
+              "temperature": "17.8226",
+              "humidity": "40.2299",
+              "light": "101.2",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:25:16.249969 hat Sensor 25.0 17.4208°C Temperatur, 40.7031% Luftfeuchtigkeit, 101.2 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:25:16.249969",
+              "epoch": "295",
+              "moteid": "25.0",
+              "temperature": "17.4208",
+              "humidity": "40.7031",
+              "light": "101.2",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:25:46.962118 hat Sensor 25.0 17.4208°C Temperatur, 40.6355% Luftfeuchtigkeit, 101.2 Lux Licht und 2.67532V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:25:46.962118",
+              "epoch": "296",
+              "moteid": "25.0",
+              "temperature": "17.4208",
+              "humidity": "40.6355",
+              "light": "101.2",
+              "voltage": "2.67532"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 14:30:17.447575 hat Sensor 25.0 25.398°C Temperatur, 30.182% Luftfeuchtigkeit, 1729.6 Lux Licht und 2.74963V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:30:17.447575",
+              "epoch": "1625",
+              "moteid": "25.0",
+              "temperature": "25.398",
+              "humidity": "30.182",
+              "light": "1729.6",
+              "voltage": "2.74963"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 14:32:17.735537 hat Sensor 25.0 25.3196°C Temperatur, 30.1111% Luftfeuchtigkeit, 1729.6 Lux Licht und 2.73696V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "14:32:17.735537",
+              "epoch": "1629",
+              "moteid": "25.0",
+              "temperature": "25.3196",
+              "humidity": "30.1111",
+              "light": "1729.6",
+              "voltage": "2.73696"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 13:25:48.001725 hat Sensor 33.0 25.3294°C Temperatur, 29.8271% Luftfeuchtigkeit, 625.6 Lux Licht und 2.76242V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:25:48.001725",
+              "epoch": "1496",
+              "moteid": "33.0",
+              "temperature": "25.3294",
+              "humidity": "29.8271",
+              "light": "625.6",
+              "voltage": "2.76242"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Der Durchschnitt der Luftfeuchtigkeit für Sensor 25 beträgt: \n(40.0607% + 40.2299% + 40.2299% + 40.7031% + 40.6355% + 30.182% + 30.1111%) / 7 = 37,1249%",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 54,
+      "category": "aggregation",
+      "question": "Wie hoch ist der Durchschnitt der Luftfeuchtigkeit in Epoche 25?",
+      "gold_answer": "Durchschnitt Luftfeuchtigkeit (Epoche 25): 37.65423729729729%",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 25})\nRETURN avg(m.humidity) AS value"
+    }
+  }
+}

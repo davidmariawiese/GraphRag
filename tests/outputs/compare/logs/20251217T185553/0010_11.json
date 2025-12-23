@@ -1,0 +1,393 @@
+{
+  "id": 11,
+  "category": "factual",
+  "question": "Welche Helligkeit hat Sensor 3.0 am 2004-02-28 um 01:45:16 gemessen?",
+  "gold_answer": "Helligkeit von Sensor 3.0 um 2004-02-28 01:45:16: 48.76Lux",
+  "graph_prediction": "Um die Frage zu beantworten, müssen wir den MODE ANSWER verwenden.\n\nDie Frage lautet: \"Welche Helligkeit hat Sensor 3.0 am 2004-02-28 um 01:45:16 gemessen?\"\n\nWir können sehen, dass in der GRAPH CONTEXT ein Eintrag für den Sensor 3.0 mit einer Messung von m.light = 48.76 existiert.\n\nDa die Frage nach der Helligkeit des Sensors am spezifischen Datum und Uhrzeit fragt, müssen wir uns das erste Eintrag im raw.records-Array ansehen:\n\n{\n  \"m.light\": 46.92\n}\n\nDieser Eintrag ist jedoch nicht für den Sensor 3.0, sondern für einen anderen Sensor.\n\nWir müssen also weiter suchen. Im Array gibt es mehrere Einträge mit m.light = 48.76, aber wir können sehen, dass sie alle für verschiedene Szenarien gelten (z.B. am 2004-02-28 um 01:45:16).\n\nUm die richtige Antwort zu finden, müssen wir uns den Eintrag ansehen, der genau für den Sensor 3.0 und das spezifische Datum und Uhrzeit gilt.\n\nNach sorgfältiger Überprüfung können wir sehen, dass es keinen Eintrag gibt, der genau für den Sensor 3.0 am 2004-02-28 um 01:45:16 gelten würde.\n\nDaher lautet die Antwort:\n\n\"Es ist nicht möglich, die Helligkeit des Sensors 3.0 am 2004-02-28 um 01:45:16 zu bestimmen.\"\n\nIch hoffe, das hilft!",
+  "graph_exact_match": false,
+  "graph_f1": 0.11304347826086955,
+  "graph_faithfulness": 0.2,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 3.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 45})\nRETURN m.light",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.5,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251217T185553/0010_11.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 3.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 45})\nRETURN m.light"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Um die Frage zu beantworten, müssen wir den MODE ANSWER verwenden.\n\nDie Frage lautet: \"Welche Helligkeit hat Sensor 3.0 am 2004-02-28 um 01:45:16 gemessen?\"\n\nWir können sehen, dass in der GRAPH CONTEXT ein Eintrag für den Sensor 3.0 mit einer Messung von m.light = 48.76 existiert.\n\nDa die Frage nach der Helligkeit des Sensors am spezifischen Datum und Uhrzeit fragt, müssen wir uns das erste Eintrag im raw.records-Array ansehen:\n\n{\n  \"m.light\": 46.92\n}\n\nDieser Eintrag ist jedoch nicht für den Sensor 3.0, sondern für einen anderen Sensor.\n\nWir müssen also weiter suchen. Im Array gibt es mehrere Einträge mit m.light = 48.76, aber wir können sehen, dass sie alle für verschiedene Szenarien gelten (z.B. am 2004-02-28 um 01:45:16).\n\nUm die richtige Antwort zu finden, müssen wir uns den Eintrag ansehen, der genau für den Sensor 3.0 und das spezifische Datum und Uhrzeit gilt.\n\nNach sorgfältiger Überprüfung können wir sehen, dass es keinen Eintrag gibt, der genau für den Sensor 3.0 am 2004-02-28 um 01:45:16 gelten würde.\n\nDaher lautet die Antwort:\n\n\"Es ist nicht möglich, die Helligkeit des Sensors 3.0 am 2004-02-28 um 01:45:16 zu bestimmen.\"\n\nIch hoffe, das hilft!",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 1082,
+        "documents": [
+          {
+            "content": "{\"m.light\": 46.92}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 104.88}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 309.12}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 397.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 101.2}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 224.48}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 235.52}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 128.8}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 180.32}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 426.88}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 46.92}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 172.96}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 397.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 309.12}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 46.92}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 412.16}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 426.88}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 46.92}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 323.84}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 279.68}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 46.92}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 209.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 397.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 382.72}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 79.12}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 48.76}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 108.56}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 368.0}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 426.88}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 426.88}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 264.96}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 412.16}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 338.56}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 180.32}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 426.88}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 426.88}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 79.12}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 46.92}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 397.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 323.84}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.light\": 426.88}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 01:45:46.103169 hat Sensor 12.0 16.2742°C Temperatur, 45.572% Luftfeuchtigkeit, 0.46 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:45:46.103169",
+              "epoch": "96",
+              "moteid": "12.0",
+              "temperature": "16.2742",
+              "humidity": "45.572",
+              "light": "0.46",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:45:16.440917 hat Sensor 45.0 18.097°C Temperatur, 38.5993% Luftfeuchtigkeit, 172.96 Lux Licht und 2.68742V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:45:16.440917",
+              "epoch": "95",
+              "moteid": "45.0",
+              "temperature": "18.097",
+              "humidity": "38.5993",
+              "light": "172.96",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:45:16.132354 hat Sensor 16.0 16.7838°C Temperatur, 44.5813% Luftfeuchtigkeit, 18.4 Lux Licht und 2.62796V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:45:16.132354",
+              "epoch": "95",
+              "moteid": "16.0",
+              "temperature": "16.7838",
+              "humidity": "44.5813",
+              "light": "18.4",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:41:16.951755 hat Sensor 12.0 16.4114°C Temperatur, 45.3743% Luftfeuchtigkeit, 0.46 Lux Licht und 2.66332V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:41:16.951755",
+              "epoch": "87",
+              "moteid": "12.0",
+              "temperature": "16.4114",
+              "humidity": "45.3743",
+              "light": "0.46",
+              "voltage": "2.66332"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:49:16.032318 hat Sensor 12.0 16.1664°C Temperatur, 45.8682% Luftfeuchtigkeit, 0.46 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:49:16.032318",
+              "epoch": "103",
+              "moteid": "12.0",
+              "temperature": "16.1664",
+              "humidity": "45.8682",
+              "light": "0.46",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:22:45.937026 hat Sensor 16.0 16.9602°C Temperatur, 44.3825% Luftfeuchtigkeit, 18.4 Lux Licht und 2.62796V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:22:45.937026",
+              "epoch": "50",
+              "moteid": "16.0",
+              "temperature": "16.9602",
+              "humidity": "44.3825",
+              "light": "18.4",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:26:45.952107 hat Sensor 16.0 16.9504°C Temperatur, 44.5151% Luftfeuchtigkeit, 18.4 Lux Licht und 2.62796V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:26:45.952107",
+              "epoch": "58",
+              "moteid": "16.0",
+              "temperature": "16.9504",
+              "humidity": "44.5151",
+              "light": "18.4",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:30:45.96941 hat Sensor 16.0 16.97°C Temperatur, 44.3825% Luftfeuchtigkeit, 18.4 Lux Licht und 2.62796V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:30:45.96941",
+              "epoch": "66",
+              "moteid": "16.0",
+              "temperature": "16.97",
+              "humidity": "44.3825",
+              "light": "18.4",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:45:46.147793 hat Sensor 16.0 16.7642°C Temperatur, 44.6806% Luftfeuchtigkeit, 18.4 Lux Licht und 2.61639V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:45:46.147793",
+              "epoch": "96",
+              "moteid": "16.0",
+              "temperature": "16.7642",
+              "humidity": "44.6806",
+              "light": "18.4",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:55:45.912703 hat Sensor 16.0 16.5976°C Temperatur, 44.9782% Luftfeuchtigkeit, 18.4 Lux Licht und 2.62796V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:55:45.912703",
+              "epoch": "116",
+              "moteid": "16.0",
+              "temperature": "16.5976",
+              "humidity": "44.9782",
+              "light": "18.4",
+              "voltage": "2.62796"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 11,
+      "category": "factual",
+      "question": "Welche Helligkeit hat Sensor 3.0 am 2004-02-28 um 01:45:16 gemessen?",
+      "gold_answer": "Helligkeit von Sensor 3.0 um 2004-02-28 01:45:16: 48.76Lux",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: $mote_id})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH $ts_prefix\nRETURN m.time AS time, m.light AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

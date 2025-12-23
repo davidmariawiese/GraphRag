@@ -1,12 +1,108 @@
-from haystack import component
-from haystack.dataclasses import Document
+"""Deterministic aggregation/structuring of Neo4j retrieval results.
+
+`Organizer` consumes a list of Haystack `Document`s. Each document is expected to
+contain JSON (as produced by `CypherRetriever`). The output is a structured JSON
+object with:
+
+- `raw`: capped list of raw records for list-style questions
+- `analysis`: per-sensor/per-metric statistics, trends and bucketed aggregates
+- `context`: provenance metadata
+
+Important:
+- This module expects `Document.content` to contain JSON-serializable data
+    (as produced by a well-behaved Retriever). The retriever normalizes Neo4j
+    driver types into plain dicts so the Organizer can rely on JSON parsing.
+"""
+
 import json
+import logging
 import os
-import math
 import statistics
 from datetime import datetime, timedelta
+from typing import Any, Dict, List, Optional, Tuple
+
 import numpy as np
-from typing import List, Dict, Any, Optional, Tuple
+from haystack import component
+from haystack.dataclasses import Document
+
+from ..config import GRAPH_RAG_DEBUG_ENV
+
+
+logger = logging.getLogger(__name__)
+
+
+_DEBUG_JSON_PREVIEW_CHARS = 1000
+_NUMERIC_FIELDS = ("temperature", "humidity", "light", "voltage")
+_NON_METRIC_KEYS = {
+    "moteid",
+    "mote_id",
+    "sensor_id",
+    "epoch_id",
+    "epoch",
+    "date",
+    "week",
+    "hour",
+    "minute",
+    "time",
+    "ts",
+}
+_BUCKET_CANDIDATES_SECONDS = (15 * 60, 60 * 60, 6 * 60 * 60, 24 * 60 * 60)
+_TREND_FLAT_STD_FRACTION = 0.1
+_MAX_ANOMALIES = 5
+_BUCKET_SAFETY_OVERFLOW = 10
+_NODE_KEYS = {"Sensor", "Measurement", "Epoch", "Date", "Week", "Hour", "Minute"}
+
+
+def _debug_enabled() -> bool:
+    return os.getenv(GRAPH_RAG_DEBUG_ENV) == "true"
+
+
+def _coerce_numeric(value: Any) -> Optional[float]:
+    try:
+        if value is None:
+            return None
+        if isinstance(value, bool):
+            return None
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _detect_aggregate_payload(raw_data: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    """Detect the common aggregate return shape.
+
+    Aggregate Cypher queries are expected to return a single row with a single
+    numeric field (usually `value`). In this case, downstream components should
+    use that numeric `value` as the answer, and not confuse it with
+    `stats_global.count` (which would be 1 because there's only one row).
+    """
+    # Controlled pipeline: expect a list of rows; only a single-row list can
+    # represent an aggregate payload. Fail-fast if not exactly one row.
+    if len(raw_data) != 1:
+        return None
+    row = raw_data[0]
+
+    # Prefer the canonical alias used by QueryProcessor: AS value
+    if "value" in row:
+        num = _coerce_numeric(row.get("value"))
+        if num is None:
+            return None
+        # If the record only contains the aggregate field, treat as aggregate.
+        if len(row.keys()) == 1:
+            return {"field": "value", "value": num, "rows": 1}
+
+    # Fallback: if there is exactly one numeric scalar field, treat it as aggregate.
+    numeric_fields = []
+    for k, v in row.items():
+        num = _coerce_numeric(v)
+        if num is None:
+            continue
+        numeric_fields.append((k, num))
+    if len(numeric_fields) == 1:
+        k, num = numeric_fields[0]
+        return {"field": k, "value": num, "rows": 1}
+
+    return None
 
 @component
 class Organizer:
@@ -32,44 +128,59 @@ class Organizer:
 
     @component.output_types(analysis_json=Dict[str, Any])
     def run(self, documents: List[Document]):
-        debug = os.getenv("GRAPH_RAG_DEBUG") == "true"
+        """Parse retrieved documents and optionally compute deterministic analysis.
+
+        The retriever returns Neo4j rows serialized as JSON strings.
+
+        Output contract:
+        - analysis_json.context: metadata + optional aggregate hint
+        - analysis_json.raw: raw records (capped)
+        - analysis_json.analysis: deterministic statistics (only in "full" mode)
+
+        This component is intentionally deterministic (no LLM calls): it prepares
+        a structured JSON context for the downstream Generator (LLM).
+        """
+
+        debug = _debug_enabled()
 
         if debug:
             print("\n[organizer] input.documents:")
-            try:
-                total = len(documents) if isinstance(documents, list) else 0
-            except Exception:
-                total = 0
+            total = len(documents)
             print(f"documents_total={total}")
 
-        # 1. Parse & Flatten
+        # 1) Parse & flatten JSON rows.
         raw_data = self._parse_documents(documents)
         if not raw_data:
             return {"analysis_json": {"error": "No data found", "context": {}}}
 
-        # 2. Group by Sensor & Metric
+        # In the controlled pipeline we expect `raw_data` to be the flat list of rows
+        # produced by the Retriever (no wrapper objects).
+
+        aggregate = _detect_aggregate_payload(raw_data)
+
+        # 2) Group by sensor + metric.
         # Structure: { sensor_id: { metric_name: [(timestamp, value), ...] } }
         grouped_data = self._group_data(raw_data)
 
-        # 3. Analyze each series
-        analysis_results = {}
-        
+        # 3) Deterministic analysis for each time series.
+        analysis_results: Dict[str, Dict[str, Any]] = {}
+
         for sensor_id, metrics in grouped_data.items():
             analysis_results[sensor_id] = {}
             for metric, series in metrics.items():
                 if not series:
                     continue
-                # Sort by timestamp
                 series.sort(key=lambda x: x[0])
-                
                 analysis_results[sensor_id][metric] = self._analyze_series(series)
 
-        # 4. Construct final JSON
+        # 4) Construct final JSON
         final_output = {
             "context": {
                 "entity_count": len(analysis_results),
                 "entities": list(analysis_results.keys()),
-                "provenance": "Cypher Query Result"
+                "provenance": "Cypher Query Result",
+                # Optional hint for downstream rendering when the Cypher result is an aggregate.
+                "aggregate": aggregate,
             },
             "analysis": analysis_results,
             # Keep raw records to answer list-style questions; capped to avoid blow-up.
@@ -80,137 +191,144 @@ class Organizer:
         }
 
         if debug:
-            try:
-                preview = json.dumps(final_output, ensure_ascii=False)[:1000]
-                suffix = "..." if len(json.dumps(final_output, ensure_ascii=False)) > 1000 else ""
-                print("[organizer] output.analysis_json preview (len={}):".format(len(json.dumps(final_output, ensure_ascii=False))))
-                print(preview + suffix)
-            except Exception:
-                print("[organizer] output.analysis_json: <unserializable>")
+            serialized = json.dumps(final_output, ensure_ascii=False)
+            preview = serialized[:_DEBUG_JSON_PREVIEW_CHARS]
+            suffix = "..." if len(serialized) > _DEBUG_JSON_PREVIEW_CHARS else ""
+            print("[organizer] output.analysis_json preview (len={}):".format(len(serialized)))
+            print(preview + suffix)
 
         return {"analysis_json": final_output}
 
-    def _parse_documents(self, documents) -> List[Dict[str, Any]]:
-        results = []
+    def _parse_documents(self, documents: List[Document]) -> List[Dict[str, Any]]:
+        """Parse `Document.content` into Python objects.
+        This implementation enforces the Retriever contract: `Document.content`
+        must be a JSON string produced by the `CypherRetriever` (i.e. rows
+        serialized with `json.dumps`). Any non-string or invalid JSON will
+        raise an error. This keeps the Organizer strictly dependent on the
+        pipeline and avoids accepting inputs from ad-hoc callers.
+        """
+
+        results: List[Dict[str, Any]] = []
         for doc in documents:
-            content = getattr(doc, "content", "")
-            try:
-                data = json.loads(content)
-            except Exception:
-                try:
-                    data = eval(content)
-                except Exception:
-                    continue
-            
+            content = getattr(doc, "content", None)
+            if not isinstance(content, str):
+                raise TypeError("Document.content must be a JSON string from CypherRetriever")
+
+            # json.loads will raise on invalid JSON — fail fast in controlled env
+            data = json.loads(content)
+
             if isinstance(data, list):
                 results.extend(data)
             elif isinstance(data, dict):
                 results.append(data)
+            else:
+                raise ValueError("Document content must be a JSON object or array")
+
         return results
 
+    # NOTE: We assume the retriever provides plain dicts for nested nodes.
+    # In this controlled environment we prefer direct `.get(..., {})` calls
+    # in `_group_data` instead of keeping a defensive `_as_dict` helper.
+
+    # `_merge_measurement_fields` removed: Retriever guarantees flat `Measurement` dicts
+    # and any necessary normalization should be done there. This keeps the
+    # Organizer small and focused on analysis only.
+
+    def _extract_sensor_id(self, mapped: Dict[str, Any], sensor: Dict[str, Any], meas: Dict[str, Any]) -> str:
+        """Best-effort extraction of the sensor identifier.
+
+        We accept multiple keys because different Cypher queries / datasets use
+        different naming conventions (mote_id vs moteid, nested node vs flat).
+        """
+        sensor_id_val = (
+            mapped.get("mote_id")
+            or mapped.get("moteid")
+            or sensor.get("mote_id")
+            or sensor.get("moteid")
+            or meas.get("mote_id")
+            or meas.get("moteid")
+        )
+        return str(sensor_id_val) if sensor_id_val is not None else "Unknown"
+
+    def _extract_metric_values(self, meas: Dict[str, Any], mapped: Dict[str, Any]) -> Dict[str, float]:
+        """Extract canonical metric values from `meas`.
+
+        With the stricter Retriever contract we prefer explicit canonical fields
+        (`temperature`, `humidity`, `light`, `voltage`). If none are present,
+        we return an empty dict (do not attempt broad heuristics).
+        """
+
+        metrics: Dict[str, float] = {}
+        for field in _NUMERIC_FIELDS:
+            val = meas.get(field)
+            if val is None:
+                continue
+            try:
+                metrics[field] = float(val)
+            except (ValueError, TypeError):
+                continue
+        return metrics
+
     def _group_data(self, data: List[Dict[str, Any]]) -> Dict[str, Dict[str, List[Tuple[datetime, float]]]]:
-        grouped = {}
+        """Group flat Neo4j rows into time series per sensor and metric.
+
+        Heuristics:
+        - Accept multiple return shapes: nested nodes (Sensor/Measurement) or flat
+          aliased fields (e.g., mote_id, time, temperature).
+        - Timestamp fallback: if no time can be extracted, uses a synthetic time
+          sequence to keep downstream analysis stable.
+
+                Output shape:
+                    { "<sensor_id>": { "<metric>": [(datetime, float), ...], ... }, ... }
+        """
+
+        grouped: Dict[str, Dict[str, List[Tuple[datetime, float]]]] = {}
         base_time = datetime.utcnow()
-        
+
         for idx, record in enumerate(data):
-            # Resolve aliases
-            mapped = self._map_aliases(record)
-            
-            # Extract Sensor ID
+            # Retriever provides normalized rows: use record directly.
+            mapped = record
+
             sensor = mapped.get("Sensor", {})
             meas = mapped.get("Measurement", {})
-            
-            # Fallback for flat structures (e.g. "m.temperature")
-            flat_meas = {}
-            for k, v in mapped.items():
-                if "." in k:
-                    prefix, suffix = k.split(".", 1)
-                    if prefix == "Measurement" or prefix == "m":
-                        flat_meas[suffix] = v
-            
-            # Merge flat measurements into meas dict
-            meas.update(flat_meas)
 
-            sensor_id = (
-                sensor.get("mote_id")
-                or sensor.get("moteid")
-                or meas.get("mote_id")
-                or meas.get("moteid")
-                or "Unknown"
-            )
-            
-            # Extract Timestamp
+            sensor_id = self._extract_sensor_id(mapped, sensor, meas)
+
             ts = self._extract_timestamp(mapped, meas)
             if not ts:
                 ts = base_time + timedelta(seconds=idx)
 
-            if sensor_id not in grouped:
-                grouped[sensor_id] = {}
+            metric_values = self._extract_metric_values(meas, mapped)
+            if not metric_values:
+                continue
 
-            # Extract Metrics
-            added_metric = False
-            numeric_fields = ["temperature", "humidity", "light", "voltage"]
-            for field in numeric_fields:
-                val = meas.get(field)
-                if val is not None:
-                    try:
-                        f_val = float(val)
-                        if field not in grouped[sensor_id]:
-                            grouped[sensor_id][field] = []
-                        grouped[sensor_id][field].append((ts, f_val))
-                        added_metric = True
-                    except (ValueError, TypeError):
-                        pass
+            sensor_bucket = grouped.setdefault(sensor_id, {})
+            for metric, f_val in metric_values.items():
+                sensor_bucket.setdefault(metric, []).append((ts, f_val))
 
-            # Fallback: take any numeric fields from meas
-            if not added_metric:
-                for k, v in meas.items():
-                    if k in ["time", "date", "epoch", "moteid", "mote_id"]:
-                        continue
-                    try:
-                        f_val = float(v)
-                        if k not in grouped[sensor_id]:
-                            grouped[sensor_id][k] = []
-                        grouped[sensor_id][k].append((ts, f_val))
-                        added_metric = True
-                    except (ValueError, TypeError):
-                        continue
-
-            # Final fallback: take numeric scalars from the mapped record (e.g., aggregates like average_temperature)
-            if not added_metric:
-                for k, v in mapped.items():
-                    if isinstance(v, (dict, list)):
-                        continue
-                    if k in ["Sensor", "Measurement", "Epoch", "Date", "Week", "Hour", "Minute"]:
-                        continue
-                    try:
-                        f_val = float(v)
-                        if k not in grouped[sensor_id]:
-                            grouped[sensor_id][k] = []
-                        grouped[sensor_id][k].append((ts, f_val))
-                        added_metric = True
-                    except (ValueError, TypeError):
-                        continue
-                        
         return grouped
 
-    def _map_aliases(self, record: Dict[str, Any]) -> Dict[str, Any]:
-        new_record = {}
-        for key, value in record.items():
-            # Handle dotted keys like "m.temperature"
-            if isinstance(key, str) and "." in key:
-                prefix, suffix = key.split(".", 1)
-                mapped_prefix = self.alias_map.get(prefix, prefix)
-                new_key = f"{mapped_prefix}.{suffix}"
-                new_record[new_key] = value
-            else:
-                new_key = self.alias_map.get(key, key)
-                new_record[new_key] = value
-        return new_record
+    # Alias mapping removed: Retriever produces canonical `Measurement`/`Sensor`
+    # nested dicts, so Organizer no longer needs to rewrite record keys.
 
     def _extract_timestamp(self, record: Dict[str, Any], meas: Dict[str, Any]) -> Optional[datetime]:
+        """Extract a best-effort timestamp from a row.
+
+        Preferred order:
+        1) Measurement.time
+        2) top-level time/ts alias
+        3) Date/Hour/Minute nodes (reconstructed)
+
+        Returns a timezone-naive datetime in UTC/local parsing semantics
+        (no conversion is done; values are treated as provided by the dataset).
+        """
         # 1. Try direct 'time' field in Measurement
         raw_time = meas.get("time")
+        if raw_time:
+            return self._parse_time(raw_time)
+
+        # 1b. Common flat return shape: time/ts at the top-level
+        raw_time = record.get("time") or record.get("ts")
         if raw_time:
             return self._parse_time(raw_time)
             
@@ -224,45 +342,35 @@ class Organizer:
         m_val = min_node.get("minute")
         
         if d_str:
-            try:
-                dt = datetime.strptime(d_str, "%Y-%m-%d")
-                if h_val is not None:
-                    dt = dt.replace(hour=int(h_val))
-                if m_val is not None:
-                    dt = dt.replace(minute=int(m_val))
-                return dt
-            except Exception:
-                pass
+            dt = datetime.strptime(d_str, "%Y-%m-%d")
+            if h_val is not None:
+                dt = dt.replace(hour=int(h_val))
+            if m_val is not None:
+                dt = dt.replace(minute=int(m_val))
+            return dt
                 
         return None
 
     def _parse_time(self, t_val: Any) -> Optional[datetime]:
-        if isinstance(t_val, datetime):
-            return t_val
-        if isinstance(t_val, str):
-            # Try common formats
-            formats = [
-                "%Y-%m-%dT%H:%M:%S.%f",
-                "%Y-%m-%d %H:%M:%S.%f",
-                "%Y-%m-%d %H:%M:%S",
-                "%Y-%m-%dT%H:%M:%S",
-                "%Y-%m-%d"
-            ]
-            # Fast path: ISO parser
-            try:
-                return datetime.fromisoformat(t_val)
-            except Exception:
-                pass
-            for fmt in formats:
-                try:
-                    return datetime.strptime(t_val, fmt)
-                except ValueError:
-                    continue
-        return None
+        """Parse timestamps from multiple formats seen in the dataset.
+
+        This is intentionally permissive: Neo4j stores time as strings, and
+        different dataset exports include either ISO timestamps or split date/time.
+        """
+        # Controlled pipeline: timestamps are provided as ISO or common strings.
+        if not isinstance(t_val, str):
+            return None
+
+        # Strict ISO parser for controlled inputs
+        return datetime.fromisoformat(t_val)
 
     def _analyze_series(self, series: List[Tuple[datetime, float]]) -> Dict[str, Any]:
-        """
-        Performs statistical analysis on a time series.
+        """Perform deterministic analysis on a time series.
+
+        Output fields are consumed by the Generator prompt.
+
+        The analysis is purely numerical (no LLM): global stats, trend via
+        linear regression, windowed bucket aggregates, and simple anomaly flags.
         """
         values = [v for _, v in series]
         timestamps = [t for t, _ in series]
@@ -270,10 +378,7 @@ class Organizer:
         # Global Stats
         count = len(values)
         mean_val = statistics.mean(values)
-        try:
-            std_val = statistics.stdev(values) if count > 1 else 0.0
-        except Exception:
-            std_val = 0.0
+        std_val = statistics.stdev(values) if count > 1 else 0.0
             
         min_val = min(values)
         max_val = max(values)
@@ -307,7 +412,7 @@ class Organizer:
             # Simple heuristic for direction
             # If change over total duration is significant compared to std dev
             total_change = slope * duration_seconds
-            if abs(total_change) < (0.1 * std_val): # Threshold: change < 10% of std
+            if abs(total_change) < (_TREND_FLAT_STD_FRACTION * std_val): # Threshold: change < 10% of std
                 direction = "flat"
             else:
                 direction = "up" if slope > 0 else "down"
@@ -323,7 +428,7 @@ class Organizer:
         if duration_seconds > 0:
             # Determine bucket size
             # Try 15min, 1h, 6h, 1d
-            candidates = [15*60, 60*60, 6*60*60, 24*60*60]
+            candidates = _BUCKET_CANDIDATES_SECONDS
             bucket_size = candidates[0]
             
             for size in candidates:
@@ -363,7 +468,7 @@ class Organizer:
                 
                 current_t = next_t
                 bucket_idx += 1
-                if bucket_idx > self.max_buckets + 10: # Safety break
+                if bucket_idx > self.max_buckets + _BUCKET_SAFETY_OVERFLOW: # Safety break
                     break
 
         # Anomalies (Highlight Top-N buckets by z-score of their mean)
@@ -380,7 +485,7 @@ class Organizer:
                     })
             # Sort by absolute score descending and take top 5
             anomalies.sort(key=lambda x: abs(x["score"]), reverse=True)
-            anomalies = anomalies[:5]
+            anomalies = anomalies[:_MAX_ANOMALIES]
 
         return {
             "stats_global": {

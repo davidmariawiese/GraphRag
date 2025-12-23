@@ -1,0 +1,40 @@
+{
+  "id": 93,
+  "category": "trend",
+  "question": "How does the temperature of sensor 22.0 change over time?",
+  "gold_answer": "The trend of Temperature for sensor 22.0 is: increasing.",
+  "graph_prediction": "The JSON data provided contains temperature measurements from a sensor with the ID `22` over a period of time on February 28, 2004. Here are some key points extracted from the data:\n\n1. **Sensor Information**:\n   - The sensor's unique identifier is `22`.\n   - It belongs to user `user2`.\n\n2. **Temperature Readings**:\n   - The temperature readings start at approximately 2:35 AM and continue until around 3:01 AM.\n   - The temperatures recorded range from a high of about `17.999` degrees Celsius to a low of about `17.8618` degrees Celsius.\n\nHere are some specific temperature measurements:\n\n- **2:35 AM**: Temperature is approximately `18.04`.\n- **2:36 AM**: Temperature drops slightly to around `18.02`.\n- **2:37 AM**: Temperature continues to drop, reaching about `18.01`.\n\nThe data shows a gradual decrease in temperature over time:\n\n- By **2:59 AM**, the temperature is approximately `17.8912` degrees Celsius.\n- At **3:01 AM**, the temperature has further decreased to around `17.8618` degrees Celsius.\n\nThis indicates that there was a steady cooling trend during this period, with temperatures dropping by about 0.18 degrees Celsius over approximately 25 minutes from the start of the measurements.\n\nIf you need more specific details or analysis on any particular aspect of the data, please let me know!",
+  "graph_exact_match": false,
+  "graph_f1": 0.07272727272727274,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.125,
+  "base_faithfulness": 0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T204449/0092_93.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "The JSON data provided contains temperature measurements from a sensor with the ID `22` over a period of time on February 28, 2004. Here are some key points extracted from the data:\n\n1. **Sensor Information**:\n   - The sensor's unique identifier is `22`.\n   - It belongs to user `user2`.\n\n2. **Temperature Readings**:\n   - The temperature readings start at approximately 2:35 AM and continue until around 3:01 AM.\n   - The temperatures recorded range from a high of about `17.999` degrees Celsius to a low of about `17.8618` degrees Celsius.\n\nHere are some specific temperature measurements:\n\n- **2:35 AM**: Temperature is approximately `18.04`.\n- **2:36 AM**: Temperature drops slightly to around `18.02`.\n- **2:37 AM**: Temperature continues to drop, reaching about `18.01`.\n\nThe data shows a gradual decrease in temperature over time:\n\n- By **2:59 AM**, the temperature is approximately `17.8912` degrees Celsius.\n- At **3:01 AM**, the temperature has further decreased to around `17.8618` degrees Celsius.\n\nThis indicates that there was a steady cooling trend during this period, with temperatures dropping by about 0.18 degrees Celsius over approximately 25 minutes from the start of the measurements.\n\nIf you need more specific details or analysis on any particular aspect of the data, please let me know!"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 93,
+      "category": "trend",
+      "question": "How does the temperature of sensor 22.0 change over time?",
+      "gold_answer": "The trend of Temperature for sensor 22.0 is: increasing.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 22})-[:GENERATED]->(m:Measurement)\nWHERE m.temperature IS NOT NULL\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC"
+    }
+  }
+}

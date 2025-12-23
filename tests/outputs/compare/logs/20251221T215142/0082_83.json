@@ -1,0 +1,40 @@
+{
+  "id": 83,
+  "category": "aggregation",
+  "question": "How many measurements are available for sensor 48.0?",
+  "gold_answer": "Number of measurements (Sensor 48.0): 1775",
+  "graph_prediction": "Number of measurements for sensor 48.0: 1775",
+  "graph_exact_match": false,
+  "graph_f1": 0.9333333333333333,
+  "graph_faithfulness": 0.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T215142/0082_83.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "Number of measurements for sensor 48.0: 1775"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 83,
+      "category": "aggregation",
+      "question": "How many measurements are available for sensor 48.0?",
+      "gold_answer": "Number of measurements (Sensor 48.0): 1775",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 48})-[:GENERATED]->(m:Measurement)\nRETURN count(m) AS value"
+    }
+  }
+}

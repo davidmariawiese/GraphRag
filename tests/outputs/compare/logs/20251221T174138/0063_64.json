@@ -1,0 +1,173 @@
+{
+  "id": 64,
+  "category": "aggregation",
+  "question": "What is the maximum light value in epoch 1997?",
+  "gold_answer": "Maximum Light (Epoch 1997): 1376.32Lux",
+  "graph_prediction": "Maximum Light (Epoch 1997): 1376.32 Lux",
+  "graph_exact_match": false,
+  "graph_f1": 0.7692307692307692,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1997}) RETURN max(m.light) AS value",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "The question asks for the maximum light value in epoch 1997. However, all of the data provided falls within a single day (February 28th) and does not specify different epochs or time periods beyond that day. Therefore, there is no information available about any \"epoch 1997\" from the given context.\n\nGiven this, it's impossible to determine the maximum light value for epoch 1997 based on the provided data. If you meant a specific time period within February 28th or another date, please clarify so I can provide an accurate answer.",
+  "base_exact_match": false,
+  "base_f1": 0.08247422680412372,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T174138/0063_64.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (m:Measurement)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1997}) RETURN max(m.light) AS value"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 1376.32,
+              "rows": 1
+            }
+          },
+          "analysis": {},
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 1376.32
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 1376.32,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 1376.32
+              }
+            ]
+          },
+          "analysis": {}
+        }
+      },
+      "generator": {
+        "answer": "Maximum Light (Epoch 1997): 1376.32 Lux",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"value\": 1376.32}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 15:46:17.307584, sensor 20.0 measured temperature -38.4°C, humidity -4.0%, light 625.6 Lux, and voltage 2.4341V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "15:46:17.307584",
+              "epoch": "1777",
+              "moteid": "20.0",
+              "temperature": "-38.4",
+              "humidity": "-4.0",
+              "light": "625.6",
+              "voltage": "2.4341"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 11:42:47.011106, sensor 2.0 measured temperature 23.5164°C, humidity 33.7%, light 478.4 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "11:42:47.011106",
+              "epoch": "1290",
+              "moteid": "2.0",
+              "temperature": "23.5164",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 12:00:18.006341, sensor 2.0 measured temperature 23.6536°C, humidity 33.7%, light 478.4 Lux, and voltage 2.69964V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "12:00:18.006341",
+              "epoch": "1325",
+              "moteid": "2.0",
+              "temperature": "23.6536",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.69964"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:28:18.712415, sensor 2.0 measured temperature 24.0064°C, humidity 33.7%, light 478.4 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:28:18.712415",
+              "epoch": "1501",
+              "moteid": "2.0",
+              "temperature": "24.0064",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.71196"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 13:52:17.423474, sensor 2.0 measured temperature 24.0456°C, humidity 33.7%, light 478.4 Lux, and voltage 2.7244V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "13:52:17.423474",
+              "epoch": "1549",
+              "moteid": "2.0",
+              "temperature": "24.0456",
+              "humidity": "33.7",
+              "light": "478.4",
+              "voltage": "2.7244"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "The question asks for the maximum light value in epoch 1997. However, all of the data provided falls within a single day (February 28th) and does not specify different epochs or time periods beyond that day. Therefore, there is no information available about any \"epoch 1997\" from the given context.\n\nGiven this, it's impossible to determine the maximum light value for epoch 1997 based on the provided data. If you meant a specific time period within February 28th or another date, please clarify so I can provide an accurate answer.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 64,
+      "category": "aggregation",
+      "question": "What is the maximum light value in epoch 1997?",
+      "gold_answer": "Maximum Light (Epoch 1997): 1376.32Lux",
+      "gold_cypher": "MATCH (m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 1997})\nRETURN max(m.light) AS value"
+    }
+  }
+}

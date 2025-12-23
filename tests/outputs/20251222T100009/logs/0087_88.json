@@ -1,0 +1,158 @@
+{
+  "id": 88,
+  "category": "aggregation",
+  "question": "What is the minimum voltage of sensor 45.0?",
+  "gold_answer": "Minimum Voltage (Sensor 45.0): 2.51661V",
+  "graph": {
+    "answer": "Minimum Voltage of sensor 45.0: 2.51661V",
+    "exact_match": false,
+    "f1": 0.9333333333333333,
+    "cypher": "MATCH (s:Sensor {mote_id: 45.0})-[:GENERATED]->(m:Measurement) RETURN min(m.voltage) AS value",
+    "cypher_policy_ok": true,
+    "cypher_explain_ok": true,
+    "cypher_error": null,
+    "error": null
+  },
+  "base": {
+    "answer": "To find the minimum voltage of sensor 45.0 from the provided data:\n\n1. Identify all entries for sensor 45.0 and note their voltages.\n\n2. Compare these voltages to determine the smallest value.\n\nHere are the relevant entries with their voltages:\n\n- Voltage: 2.68742V\n- Voltage: 2.68742V\n- Voltage: 2.68742V\n- Voltage: 2.68742V\n- Voltage: 2.68742V\n- Voltage: 2.65143V\n- Voltage: 2.65143V\n- Voltage: 2.65143V\n- Voltage: 2.66332V\n- Voltage: 2.67532V\n- Voltage: 2.71196V\n- Voltage: 2.71196V\n- Voltage: 2.7244V\n- Voltage: 2.7244V\n- Voltage: 2.7244V\n- Voltage: 2.7244V\n- Voltage: 2.73696V\n- Voltage: 2.73696V\n- Voltage: 2.73696V\n\nThe minimum voltage among these is **2.65143V**.\n\nTherefore, the minimum voltage of sensor 45.0 is **2.65143V**.",
+    "exact_match": false,
+    "f1": 0.09600000000000002,
+    "error": null
+  },
+  "meta": {
+    "generator_model": "qwen2.5:32b-instruct",
+    "judge_model": "qwen2.5:32b-instruct"
+  },
+  "log_path": "/app/tests/outputs/20251222T100009/logs/0087_88.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 45.0})-[:GENERATED]->(m:Measurement) RETURN min(m.voltage) AS value"
+      },
+      "retriever": {
+        "documents_total": 1
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 0,
+            "entities": [],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 2.51661,
+              "rows": 1
+            }
+          },
+          "analysis": {},
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "value": 2.51661
+              }
+            ]
+          }
+        }
+      },
+      "generator": {
+        "answer": "Minimum Voltage of sensor 45.0: 2.51661V",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 05:45:47.190007, sensor 11.0 measured temperature 15.9508°C, humidity 45.1103%, light 2.3 Lux, and voltage 2.56V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "05:45:47.190007",
+              "epoch": "576",
+              "moteid": "11.0",
+              "temperature": "15.9508",
+              "humidity": "45.1103",
+              "light": "2.3",
+              "voltage": "2.56"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:08:45.992524, sensor 1.0 measured temperature 19.1456°C, humidity 38.9401%, light 45.08 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:08:45.992524",
+              "epoch": "22",
+              "moteid": "1.0",
+              "temperature": "19.1456",
+              "humidity": "38.9401",
+              "light": "45.08",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:45:46.103169, sensor 12.0 measured temperature 16.2742°C, humidity 45.572%, light 0.46 Lux, and voltage 2.65143V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:45:46.103169",
+              "epoch": "96",
+              "moteid": "12.0",
+              "temperature": "16.2742",
+              "humidity": "45.572",
+              "light": "0.46",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 01:45:45.995702, sensor 35.0 measured temperature 18.9986°C, humidity 41.5116%, light 165.6 Lux, and voltage 2.62796V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:45:45.995702",
+              "epoch": "96",
+              "moteid": "35.0",
+              "temperature": "18.9986",
+              "humidity": "41.5116",
+              "light": "165.6",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 02:45:16.618682, sensor 45.0 measured temperature 17.6462°C, humidity 39.1783%, light 165.6 Lux, and voltage 2.67532V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:45:16.618682",
+              "epoch": "215",
+              "moteid": "45.0",
+              "temperature": "17.6462",
+              "humidity": "39.1783",
+              "light": "165.6",
+              "voltage": "2.67532"
+            }
+          }
+        ]
+      },
+      "llm": {
+        "answer": "To find the minimum voltage of sensor 45.0 from the provided data:\n\n1. Identify all entries for sensor 45.0 and note their voltages.\n\n2. Compare these voltages to determine the smallest value.\n\nHere are the relevant entries with their voltages:\n\n- Voltage: 2.68742V\n- Voltage: 2.68742V\n- Voltage: 2.68742V\n- Voltage: 2.68742V\n- Voltage: 2.68742V\n- Voltage: 2.65143V\n- Voltage: 2.65143V\n- Voltage: 2.65143V\n- Voltage: 2.66332V\n- Voltage: 2.67532V\n- Voltage: 2.71196V\n- Voltage: 2.71196V\n- Voltage: 2.7244V\n- Voltage: 2.7244V\n- Voltage: 2.7244V\n- Voltage: 2.7244V\n- Voltage: 2.73696V\n- Voltage: 2.73696V\n- Voltage: 2.73696V\n\nThe minimum voltage among these is **2.65143V**.\n\nTherefore, the minimum voltage of sensor 45.0 is **2.65143V**.",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 88,
+      "category": "aggregation",
+      "question": "What is the minimum voltage of sensor 45.0?",
+      "gold_answer": "Minimum Voltage (Sensor 45.0): 2.51661V",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 45})-[:GENERATED]->(m:Measurement)\nRETURN min(m.voltage) AS value"
+    },
+    "graph_judge_context": [
+      "aggregate_value=2.51661 field=value",
+      "value=2.51661"
+    ],
+    "base_judge_context": [
+      "On 2004-02-28 at 05:45:47.190007, sensor 11.0 measured temperature 15.9508°C, humidity 45.1103%, light 2.3 Lux, and voltage 2.56V.",
+      "On 2004-02-28 at 01:08:45.992524, sensor 1.0 measured temperature 19.1456°C, humidity 38.9401%, light 45.08 Lux, and voltage 2.68742V.",
+      "On 2004-02-28 at 01:45:46.103169, sensor 12.0 measured temperature 16.2742°C, humidity 45.572%, light 0.46 Lux, and voltage 2.65143V.",
+      "On 2004-02-28 at 01:45:45.995702, sensor 35.0 measured temperature 18.9986°C, humidity 41.5116%, light 165.6 Lux, and voltage 2.62796V.",
+      "On 2004-02-28 at 02:45:16.618682, sensor 45.0 measured temperature 17.6462°C, humidity 39.1783%, light 165.6 Lux, and voltage 2.67532V."
+    ]
+  }
+}

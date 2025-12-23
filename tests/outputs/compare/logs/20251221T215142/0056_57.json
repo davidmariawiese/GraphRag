@@ -1,0 +1,43 @@
+{
+  "id": 57,
+  "category": "list",
+  "question": "List all measurements from sensor 17.0 in epoch 12.",
+  "gold_answer": "mote_id=17 time=2004-02-28T01:11:16.917886 temperature=18.4988 humidity=39.9591 light=32.2 voltage=2.57108\nmote_id=17 time=2004-02-28T06:14:16.383795 temperature=16.3134 humidity=41.7469 light=7.36 voltage=2.52732\nmote_id=17 time=2004-03-17T18:41:14.567279 temperature=122.153 humidity=-4.0 light=114.08 voltage=2.19159\nmote_id=17 time=2004-03-18T00:08:45.616237 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.15188\nmote_id=17 time=2004-03-18T07:20:46.235553 temperature=122.153 humidity=-3.91901 light=1552.96 voltage=2.12114\nmote_id=17 time=2004-03-19T10:20:18.441054 temperature=122.153 humidity=-3.91901 light=1199.68 voltage=2.12114",
+  "graph_prediction": "Based on the provided data, here is a summary of the measurements for mote ID 17:\n\n### Temperature:\n- **Count**: 6\n- **Mean**: 80.2539°C\n- **Standard Deviation**: 47.4217°C\n- **Minimum Value**: 16.3134°C (at 2004-02-28T06:14:16.383795)\n- **Maximum Value**: 122.153°C (from 2004-03-17T18:41:14.567279 to 2004-03-19T10:20:18.441054)\n- **Trend**: The temperature increased significantly from the initial readings (around 16°C) to a constant high value of 122.153°C.\n\n### Humidity:\n- **Count**: 6\n- **Mean**: -0.7981%\n- **Standard Deviation**: 24.0717%\n- **Minimum Value**: -4.0% (at 2004-03-17T18:41:14.567279)\n- **Maximum Value**: 41.7469% (at 2004-02-28T06:14:16.383795)\n- **Trend**: The humidity readings dropped significantly from the initial positive values to negative values, indicating a possible malfunction or unusual environmental conditions.\n\n### Light:\n- **Count**: 6\n- **Mean**: 438.213 Lux\n- **Standard Deviation**: 607.591 Lux\n- **Minimum Value**: 7.36 Lux (at 2004-02-28T06:14:16.383795)\n- **Maximum Value**: 1552.96 Lux (at 2004-03-18T07:20:46.235553)\n- **Trend**: The light readings increased significantly from the initial low values to very high values, indicating a possible change in",
+  "graph_exact_match": false,
+  "graph_f1": 0.31645569620253167,
+  "graph_faithfulness": null,
+  "graph_faithfulness_error": "Response from LLM evaluator is not a valid JSON.",
+  "graph_cypher": null,
+  "graph_cypher_policy_ok": false,
+  "graph_cypher_explain_ok": false,
+  "graph_cypher_error": "empty cypher",
+  "graph_error": null,
+  "base_prediction": "[ERROR] name '_extract_base_answer' is not defined",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 0.0,
+  "base_faithfulness_error": null,
+  "base_error": "name '_extract_base_answer' is not defined",
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251221T215142/0056_57.json",
+  "component_outputs": {
+    "graph": {
+      "answer": "Based on the provided data, here is a summary of the measurements for mote ID 17:\n\n### Temperature:\n- **Count**: 6\n- **Mean**: 80.2539°C\n- **Standard Deviation**: 47.4217°C\n- **Minimum Value**: 16.3134°C (at 2004-02-28T06:14:16.383795)\n- **Maximum Value**: 122.153°C (from 2004-03-17T18:41:14.567279 to 2004-03-19T10:20:18.441054)\n- **Trend**: The temperature increased significantly from the initial readings (around 16°C) to a constant high value of 122.153°C.\n\n### Humidity:\n- **Count**: 6\n- **Mean**: -0.7981%\n- **Standard Deviation**: 24.0717%\n- **Minimum Value**: -4.0% (at 2004-03-17T18:41:14.567279)\n- **Maximum Value**: 41.7469% (at 2004-02-28T06:14:16.383795)\n- **Trend**: The humidity readings dropped significantly from the initial positive values to negative values, indicating a possible malfunction or unusual environmental conditions.\n\n### Light:\n- **Count**: 6\n- **Mean**: 438.213 Lux\n- **Standard Deviation**: 607.591 Lux\n- **Minimum Value**: 7.36 Lux (at 2004-02-28T06:14:16.383795)\n- **Maximum Value**: 1552.96 Lux (at 2004-03-18T07:20:46.235553)\n- **Trend**: The light readings increased significantly from the initial low values to very high values, indicating a possible change in"
+    },
+    "base": {
+      "error": "name '_extract_base_answer' is not defined"
+    },
+    "gold_row": {
+      "id": 57,
+      "category": "list",
+      "question": "List all measurements from sensor 17.0 in epoch 12.",
+      "gold_answer": "mote_id=17 time=2004-02-28T01:11:16.917886 temperature=18.4988 humidity=39.9591 light=32.2 voltage=2.57108\nmote_id=17 time=2004-02-28T06:14:16.383795 temperature=16.3134 humidity=41.7469 light=7.36 voltage=2.52732\nmote_id=17 time=2004-03-17T18:41:14.567279 temperature=122.153 humidity=-4.0 light=114.08 voltage=2.19159\nmote_id=17 time=2004-03-18T00:08:45.616237 temperature=122.153 humidity=-3.91901 light=121.44 voltage=2.15188\nmote_id=17 time=2004-03-18T07:20:46.235553 temperature=122.153 humidity=-3.91901 light=1552.96 voltage=2.12114\nmote_id=17 time=2004-03-19T10:20:18.441054 temperature=122.153 humidity=-3.91901 light=1199.68 voltage=2.12114",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 17})-[:GENERATED]->(m:Measurement)\nMATCH (m)-[:EPOCH_IN]->(e:Epoch {epoch_id: 12})\nWITH m, s\nRETURN coalesce(s.mote_id, m.moteid, m.mote_id) AS mote_id, m.time AS time, m.temperature AS temperature, m.humidity AS humidity, m.light AS light, m.voltage AS voltage ORDER BY time, mote_id LIMIT 20",
+      "gold_meta": {
+        "total": 6
+      }
+    }
+  }
+}

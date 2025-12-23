@@ -1,0 +1,192 @@
+{
+  "id": 17,
+  "category": "factual",
+  "question": "Welche Temperatur hat Sensor 5.0 am 2004-02-28 um 02:15:16 gemessen?",
+  "gold_answer": "Dazu liegen mir keine Daten vor.",
+  "graph_prediction": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält jedoch eine Fehlermeldung: \"No data found\". Dies bedeutet, dass keine Messdaten für den angegebenen Zeitpunkt und Sensor verfügbar sind.\n\nDa es keine Daten gibt, kann die Antwort nicht auf der Grundlage von Trends, Minima, Maxima, Mittelwerten oder Quantilen ermittelt werden. Daher lautet die Antwort:\n\nKeine Daten verfügbar.",
+  "graph_exact_match": false,
+  "graph_f1": 0.08695652173913042,
+  "graph_faithfulness": 0.6666666666666666,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 15})\nRETURN m",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Dazu liegen mir keine Daten vor. Der Sensor 5.0 wurde nirgends in den bereitgestellten Messungen erwähnt.",
+  "base_exact_match": false,
+  "base_f1": 0.5217391304347826,
+  "base_faithfulness": 0.5,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251217T185553/0016_17.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 5.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 2})-[:HAS_MINUTE]->(mi:Minute {minute: 15})\nRETURN m"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Es tut mir leid, aber ich kann diese Frage nicht beantworten. Der bereitgestellte JSON-Context enthält jedoch eine Fehlermeldung: \"No data found\". Dies bedeutet, dass keine Messdaten für den angegebenen Zeitpunkt und Sensor verfügbar sind.\n\nDa es keine Daten gibt, kann die Antwort nicht auf der Grundlage von Trends, Minima, Maxima, Mittelwerten oder Quantilen ermittelt werden. Daher lautet die Antwort:\n\nKeine Daten verfügbar.",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 0,
+        "documents": []
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am 2004-02-28 um 01:15:15.932851 hat Sensor 16.0 16.9308°C Temperatur, 44.4488% Luftfeuchtigkeit, 18.4 Lux Licht und 2.61639V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:15:15.932851",
+              "epoch": "35",
+              "moteid": "16.0",
+              "temperature": "16.9308",
+              "humidity": "44.4488",
+              "light": "18.4",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 04:15:16.572726 hat Sensor 16.0 15.3432°C Temperatur, 46.3937% Luftfeuchtigkeit, 1.38 Lux Licht und 2.60491V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "04:15:16.572726",
+              "epoch": "395",
+              "moteid": "16.0",
+              "temperature": "15.3432",
+              "humidity": "46.3937",
+              "light": "1.38",
+              "voltage": "2.60491"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 02:58:15.997495 hat Sensor 16.0 15.9116°C Temperatur, 45.9011% Luftfeuchtigkeit, 1.38 Lux Licht und 2.60491V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:58:15.997495",
+              "epoch": "241",
+              "moteid": "16.0",
+              "temperature": "15.9116",
+              "humidity": "45.9011",
+              "light": "1.38",
+              "voltage": "2.60491"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 02:15:16.384345 hat Sensor 54.0 15.353°C Temperatur, 47.1467% Luftfeuchtigkeit, 0.46 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "02:15:16.384345",
+              "epoch": "155",
+              "moteid": "54.0",
+              "temperature": "15.353",
+              "humidity": "47.1467",
+              "light": "0.46",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 07:15:16.957503 hat Sensor 11.0 15.9802°C Temperatur, 44.9782% Luftfeuchtigkeit, 294.4 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "07:15:16.957503",
+              "epoch": "755",
+              "moteid": "11.0",
+              "temperature": "15.9802",
+              "humidity": "44.9782",
+              "light": "294.4",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 06:32:16.463239 hat Sensor 15.0 15.8724°C Temperatur, 43.7851% Luftfeuchtigkeit, 13.8 Lux Licht und 2.42416V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "06:32:16.463239",
+              "epoch": "22",
+              "moteid": "15.0",
+              "temperature": "15.8724",
+              "humidity": "43.7851",
+              "light": "13.8",
+              "voltage": "2.42416"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 07:01:16.842533 hat Sensor 15.0 15.9116°C Temperatur, 43.6521% Luftfeuchtigkeit, 202.4 Lux Licht und 2.42416V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "07:01:16.842533",
+              "epoch": "80",
+              "moteid": "15.0",
+              "temperature": "15.9116",
+              "humidity": "43.6521",
+              "light": "202.4",
+              "voltage": "2.42416"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 03:15:17.142636 hat Sensor 16.0 15.892°C Temperatur, 45.7695% Luftfeuchtigkeit, 1.38 Lux Licht und 2.61639V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "03:15:17.142636",
+              "epoch": "275",
+              "moteid": "16.0",
+              "temperature": "15.892",
+              "humidity": "45.7695",
+              "light": "1.38",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 04:15:46.706618 hat Sensor 16.0 15.3726°C Temperatur, 46.3609% Luftfeuchtigkeit, 1.38 Lux Licht und 2.60491V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "04:15:46.706618",
+              "epoch": "396",
+              "moteid": "16.0",
+              "temperature": "15.3726",
+              "humidity": "46.3609",
+              "light": "1.38",
+              "voltage": "2.60491"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:15:16.573413 hat Sensor 54.0 15.8136°C Temperatur, 46.3281% Luftfeuchtigkeit, 41.4 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:15:16.573413",
+              "epoch": "35",
+              "moteid": "54.0",
+              "temperature": "15.8136",
+              "humidity": "46.3281",
+              "light": "41.4",
+              "voltage": "2.65143"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Dazu liegen mir keine Daten vor. Der Sensor 5.0 wurde nirgends in den bereitgestellten Messungen erwähnt.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 17,
+      "category": "factual",
+      "question": "Welche Temperatur hat Sensor 5.0 am 2004-02-28 um 02:15:16 gemessen?",
+      "gold_answer": "Dazu liegen mir keine Daten vor.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: $mote_id})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH $ts_prefix\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

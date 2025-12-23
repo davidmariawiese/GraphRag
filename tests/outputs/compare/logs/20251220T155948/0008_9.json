@@ -1,0 +1,240 @@
+{
+  "id": 9,
+  "category": "factual",
+  "question": "What voltage did sensor 34.0 measure on 2004-02-28 at 00:58:47?",
+  "gold_answer": "Voltage of sensor 34.0 at 2004-02-28 00:58:47: 2.68742V",
+  "graph_prediction": "Voltage of sensor 34.0 at 2004-02-28T00:58:47.044836: 2.68742V",
+  "graph_exact_match": false,
+  "graph_f1": 0.8571428571428571,
+  "graph_faithfulness": 1.0,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 34.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:47\"\nRETURN m.time AS time, m.voltage AS value\nORDER BY m.time ASC\nLIMIT 1",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "The voltage measured by sensor 34.0 on 2004-02-28 at 00:58:47 was 2.65143V.\n\nThis can be seen from the following entry in the data:\n\n\"On 2004-02-28 at 00:58:47, sensor 34.0 measured a voltage of 2.65143V (along with other measurements).\"",
+  "base_exact_match": false,
+  "base_f1": 0.40625,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "qwen2.5:32b-instruct",
+  "judge_model": "qwen2.5:32b-instruct",
+  "log_path": "/app/tests/outputs/compare/logs/20251220T155948/0008_9.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 34.0})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:47\"\nRETURN m.time AS time, m.voltage AS value\nORDER BY m.time ASC\nLIMIT 1"
+      },
+      "organizer": {
+        "analysis_json": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 2.68742,
+              "rows": 1
+            }
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.68742,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.68742,
+                    "timestamp": "2004-02-28T00:58:47.044836"
+                  },
+                  "max": {
+                    "value": 2.68742,
+                    "timestamp": "2004-02-28T00:58:47.044836"
+                  },
+                  "quantiles": {
+                    "p05": 2.68742,
+                    "p50": 2.68742,
+                    "p95": 2.68742
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                },
+                "windowed_aggregates": {
+                  "bucket_size_seconds": 0,
+                  "buckets": []
+                },
+                "highlights": {
+                  "anomalies": []
+                }
+              }
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T00:58:47.044836",
+                "value": 2.68742
+              }
+            ]
+          }
+        },
+        "analysis_json_for_faithfulness": {
+          "context": {
+            "entity_count": 1,
+            "entities": [
+              "Unknown"
+            ],
+            "provenance": "Cypher Query Result",
+            "aggregate": {
+              "field": "value",
+              "value": 2.68742,
+              "rows": 1
+            }
+          },
+          "raw": {
+            "total_records": 1,
+            "records": [
+              {
+                "time": "2004-02-28T00:58:47.044836",
+                "value": 2.68742
+              }
+            ]
+          },
+          "analysis": {
+            "Unknown": {
+              "value": {
+                "stats_global": {
+                  "count": 1,
+                  "mean": 2.68742,
+                  "std": 0.0,
+                  "min": {
+                    "value": 2.68742,
+                    "timestamp": "2004-02-28T00:58:47.044836"
+                  },
+                  "max": {
+                    "value": 2.68742,
+                    "timestamp": "2004-02-28T00:58:47.044836"
+                  },
+                  "quantiles": {
+                    "p05": 2.68742,
+                    "p50": 2.68742,
+                    "p95": 2.68742
+                  }
+                },
+                "trend": {
+                  "direction": "flat",
+                  "slope": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "generator": {
+        "answer": "Voltage of sensor 34.0 at 2004-02-28T00:58:47.044836: 2.68742V",
+        "model": "qwen2.5:32b-instruct"
+      },
+      "retriever": {
+        "documents_total": 1,
+        "documents": [
+          {
+            "content": "{\"time\": \"2004-02-28T00:58:47.044836\", \"value\": 2.68742}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 50,
+        "documents": [
+          {
+            "content": "On 2004-02-28 at 00:58:47.044836, sensor 34.0 measured temperature 19.4298°C, humidity 39.0763%, light 60.72 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:47.044836",
+              "epoch": "2",
+              "moteid": "34.0",
+              "temperature": "19.4298",
+              "humidity": "39.0763",
+              "light": "60.72",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 00:58:47.179192, sensor 20.0 measured temperature 21.576°C, humidity 33.4905%, light 128.8 Lux, and voltage 3.15915V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:47.179192",
+              "epoch": "2",
+              "moteid": "20.0",
+              "temperature": "21.576",
+              "humidity": "33.4905",
+              "light": "128.8",
+              "voltage": "3.15915"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 00:58:47.132121, sensor 43.0 measured temperature 19.7532°C, humidity 35.853%, light 478.4 Lux, and voltage 2.65143V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:47.132121",
+              "epoch": "2",
+              "moteid": "43.0",
+              "temperature": "19.7532",
+              "humidity": "35.853",
+              "light": "478.4",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 00:58:47.222833, sensor 40.0 measured temperature 19.5964°C, humidity 37.5737%, light 172.96 Lux, and voltage 2.68742V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "00:58:47.222833",
+              "epoch": "2",
+              "moteid": "40.0",
+              "temperature": "19.5964",
+              "humidity": "37.5737",
+              "light": "172.96",
+              "voltage": "2.68742"
+            }
+          },
+          {
+            "content": "On 2004-02-28 at 12:00:47.428241, sensor 47.0 measured temperature 22.8696°C, humidity 34.536%, light 1847.36 Lux, and voltage 2.71196V.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "12:00:47.428241",
+              "epoch": "1326",
+              "moteid": "47.0",
+              "temperature": "22.8696",
+              "humidity": "34.536",
+              "light": "1847.36",
+              "voltage": "2.71196"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "The voltage measured by sensor 34.0 on 2004-02-28 at 00:58:47 was 2.65143V.\n\nThis can be seen from the following entry in the data:\n\n\"On 2004-02-28 at 00:58:47, sensor 34.0 measured a voltage of 2.65143V (along with other measurements).\"",
+        "model": "qwen2.5:32b-instruct"
+      }
+    },
+    "gold_row": {
+      "id": 9,
+      "category": "factual",
+      "question": "What voltage did sensor 34.0 measure on 2004-02-28 at 00:58:47?",
+      "gold_answer": "Voltage of sensor 34.0 at 2004-02-28 00:58:47: 2.68742V",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 34})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T00:58:47\"\nRETURN m.time AS time, m.voltage AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}

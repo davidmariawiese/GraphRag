@@ -1,0 +1,393 @@
+{
+  "id": 5,
+  "category": "factual",
+  "question": "What temperature did sensor 2.0 measure on 2004-02-28 at 01:15:16?",
+  "gold_answer": "No data available.",
+  "graph_prediction": "Um die Frage zu beantworten, müssen wir zunächst den MODE LIST oder MODE ANSWER auswählen. Da der Benutzer keine spezifischen Anforderungen an eine Liste aller Messungen stellt, wählen wir den MODE ANSWER.\n\nAls nächstes suchen wir nach der Messung mit der ID 0 (da die IDs in der Liste nicht explizit angegeben sind, nehmen wir an, dass die erste Messung die ID 0 hat). Die Messung mit der ID 0 ist:\n\n{\"m.temperature\": 23.6144}\n\nDies entspricht einer Temperatur von 23,61°C.\n\nDie endgültige Antwort lautet also: **23,61°C**",
+  "graph_exact_match": false,
+  "graph_f1": 0.0,
+  "graph_faithfulness": 0.2,
+  "graph_faithfulness_error": null,
+  "graph_cypher": "MATCH (s:Sensor {mote_id: 2.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 15})\nRETURN m.temperature",
+  "graph_cypher_policy_ok": true,
+  "graph_cypher_explain_ok": true,
+  "graph_cypher_error": null,
+  "graph_error": null,
+  "base_prediction": "Ich kann keine Daten zu diesem Zeitpunkt finden, da die genannten Messwerte für den Sensor 54.0 und nicht 2.0 beziehungsweise am 2004-02-28 um 01:15:16 keinen Temperaturwert von 15.8136°C (dieser Wert ist für Sensor 54.0) haben, sondern einen Wert für Sensor 2.0 nicht vorhanden sind.",
+  "base_exact_match": false,
+  "base_f1": 0.0,
+  "base_faithfulness": 1.0,
+  "base_faithfulness_error": null,
+  "base_error": null,
+  "generator_model": "llama3.1:8b",
+  "judge_model": "llama3.1:8b",
+  "log_path": "/app/tests/outputs/compare/logs/20251219T203601/0004_5.json",
+  "component_outputs": {
+    "graph": {
+      "query_processor": {
+        "cypher": "MATCH (s:Sensor {mote_id: 2.0})-[:GENERATED]->(m:Measurement)-[:AT_DATE]->(d:Date {date: \"2004-02-28\"})-[:HAS_HOUR]->(h:Hour {hour: 1})-[:HAS_MINUTE]->(mi:Minute {minute: 15})\nRETURN m.temperature"
+      },
+      "organizer": {
+        "context": ""
+      },
+      "generator": {
+        "answer": "Um die Frage zu beantworten, müssen wir zunächst den MODE LIST oder MODE ANSWER auswählen. Da der Benutzer keine spezifischen Anforderungen an eine Liste aller Messungen stellt, wählen wir den MODE ANSWER.\n\nAls nächstes suchen wir nach der Messung mit der ID 0 (da die IDs in der Liste nicht explizit angegeben sind, nehmen wir an, dass die erste Messung die ID 0 hat). Die Messung mit der ID 0 ist:\n\n{\"m.temperature\": 23.6144}\n\nDies entspricht einer Temperatur von 23,61°C.\n\nDie endgültige Antwort lautet also: **23,61°C**",
+        "model": "llama3.1:8b"
+      },
+      "retriever": {
+        "documents_total": 696,
+        "documents": [
+          {
+            "content": "{\"m.temperature\": 19.3416}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.9104}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.3028}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.928}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.0284}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 22.262}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 17.9304}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.2322}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 19.028}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 22.1444}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.146}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.242}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 19.371}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.5752}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 19.4004}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 21.674}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.0068}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.44}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.1754}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 21.723}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 22.1836}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.9496}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 21.9288}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 22.9284}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.8692}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.0264}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.5066}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.6164}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.5772}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.3792}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.636}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 24.0358}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.3694}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.3126}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.4772}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.2048}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 22.3404}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 19.1358}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 21.9092}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 21.968}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 22.703}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.2244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.0284}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 18.2244}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 17.9892}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 17.9892}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 19.1358}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.5654}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 23.1636}",
+            "meta": {}
+          },
+          {
+            "content": "{\"m.temperature\": 20.792}",
+            "meta": {}
+          }
+        ]
+      }
+    },
+    "base": {
+      "retriever": {
+        "documents_total": 10,
+        "documents": [
+          {
+            "content": "Am date um time hat Sensor moteid temperature°C Temperatur, humidity% Luftfeuchtigkeit, light Lux Licht und voltageV Spannung gemessen.",
+            "meta": {
+              "date": "date",
+              "time": "time",
+              "epoch": "epoch",
+              "moteid": "moteid",
+              "temperature": "temperature",
+              "humidity": "humidity",
+              "light": "light",
+              "voltage": "voltage"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:15:15.932851 hat Sensor 16.0 16.9308°C Temperatur, 44.4488% Luftfeuchtigkeit, 18.4 Lux Licht und 2.61639V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:15:15.932851",
+              "epoch": "35",
+              "moteid": "16.0",
+              "temperature": "16.9308",
+              "humidity": "44.4488",
+              "light": "18.4",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 07:01:16.842533 hat Sensor 15.0 15.9116°C Temperatur, 43.6521% Luftfeuchtigkeit, 202.4 Lux Licht und 2.42416V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "07:01:16.842533",
+              "epoch": "80",
+              "moteid": "15.0",
+              "temperature": "15.9116",
+              "humidity": "43.6521",
+              "light": "202.4",
+              "voltage": "2.42416"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:15:16.573413 hat Sensor 54.0 15.8136°C Temperatur, 46.3281% Luftfeuchtigkeit, 41.4 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:15:16.573413",
+              "epoch": "35",
+              "moteid": "54.0",
+              "temperature": "15.8136",
+              "humidity": "46.3281",
+              "light": "41.4",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:24:15.937459 hat Sensor 16.0 16.921°C Temperatur, 44.6144% Luftfeuchtigkeit, 18.4 Lux Licht und 2.62796V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:24:15.937459",
+              "epoch": "53",
+              "moteid": "16.0",
+              "temperature": "16.921",
+              "humidity": "44.6144",
+              "light": "18.4",
+              "voltage": "2.62796"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:27:15.953472 hat Sensor 16.0 16.97°C Temperatur, 44.4488% Luftfeuchtigkeit, 18.4 Lux Licht und 2.61639V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:27:15.953472",
+              "epoch": "59",
+              "moteid": "16.0",
+              "temperature": "16.97",
+              "humidity": "44.4488",
+              "light": "18.4",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:30:15.967156 hat Sensor 16.0 16.9504°C Temperatur, 44.3825% Luftfeuchtigkeit, 18.4 Lux Licht und 2.61639V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:30:15.967156",
+              "epoch": "65",
+              "moteid": "16.0",
+              "temperature": "16.9504",
+              "humidity": "44.3825",
+              "light": "18.4",
+              "voltage": "2.61639"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:16:16.054745 hat Sensor 54.0 15.794°C Temperatur, 46.2953% Luftfeuchtigkeit, 41.4 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:16:16.054745",
+              "epoch": "37",
+              "moteid": "54.0",
+              "temperature": "15.794",
+              "humidity": "46.2953",
+              "light": "41.4",
+              "voltage": "2.65143"
+            }
+          },
+          {
+            "content": "Am 2004-03-01 um 20:01:56.519402 hat Sensor 15.0 21.3408°C Temperatur, 41.3771% Luftfeuchtigkeit, 143.52 Lux Licht und 2.38522V Spannung gemessen.",
+            "meta": {
+              "date": "2004-03-01",
+              "time": "20:01:56.519402",
+              "epoch": "21",
+              "moteid": "15.0",
+              "temperature": "21.3408",
+              "humidity": "41.3771",
+              "light": "143.52",
+              "voltage": "2.38522"
+            }
+          },
+          {
+            "content": "Am 2004-02-28 um 01:42:15.96382 hat Sensor 53.0 15.9508°C Temperatur, 45.8353% Luftfeuchtigkeit, 8.28 Lux Licht und 2.65143V Spannung gemessen.",
+            "meta": {
+              "date": "2004-02-28",
+              "time": "01:42:15.96382",
+              "epoch": "89",
+              "moteid": "53.0",
+              "temperature": "15.9508",
+              "humidity": "45.8353",
+              "light": "8.28",
+              "voltage": "2.65143"
+            }
+          }
+        ]
+      },
+      "prompt_builder": {},
+      "llm": {
+        "answer": "Ich kann keine Daten zu diesem Zeitpunkt finden, da die genannten Messwerte für den Sensor 54.0 und nicht 2.0 beziehungsweise am 2004-02-28 um 01:15:16 keinen Temperaturwert von 15.8136°C (dieser Wert ist für Sensor 54.0) haben, sondern einen Wert für Sensor 2.0 nicht vorhanden sind.",
+        "model": "llama3.1:8b"
+      }
+    },
+    "gold_row": {
+      "id": 5,
+      "category": "factual",
+      "question": "What temperature did sensor 2.0 measure on 2004-02-28 at 01:15:16?",
+      "gold_answer": "No data available.",
+      "gold_cypher": "MATCH (s:Sensor {mote_id: 2})-[:GENERATED]->(m:Measurement)\nWHERE m.time STARTS WITH \"2004-02-28T01:15:16\"\nRETURN m.time AS time, m.temperature AS value\nORDER BY m.time ASC\nLIMIT 1"
+    }
+  }
+}
