@@ -6,7 +6,7 @@ Natural-language question answering over IoT sensor data with a **graph-based Re
 
 **Result:** On 100 test questions with deterministic gold labels, GraphRAG reaches a token-level macro-F1 of **0.726**, compared to **0.150** for a BM25 TextRAG baseline using the same LLM, prompts and generation parameters.
 
-\---
+---
 
 ## Why GraphRAG for sensor data?
 
@@ -28,7 +28,7 @@ Question ──► Query Processor ──► Graph Retriever ──► Organizer
 |**Graph Retriever**|Executes the Cypher query against Neo4j and normalizes the result to JSON (one row per measurement). No generative parts.|
 |**Organizer**|Deterministic analysis per sensor and metric: global statistics, linear-regression trend, adaptive time buckets, z-score anomaly flags; capped raw rows for list questions; detects aggregate queries.|
 |**Generator**|Produces the final answer strictly from the organizer's context with fixed output formats; returns `No data available` if the context is insufficient.|
-|**TextRAG baseline**|BM25 retrieval (`top\\\_k = 50`) over one text line per measurement, with the identical generator — the only difference is knowledge representation and retrieval.|
+|**TextRAG baseline**|BM25 retrieval (`top_k = 50`) over one text line per measurement, with the identical generator — the only difference is knowledge representation and retrieval.|
 
 ## Results
 
@@ -55,9 +55,9 @@ Python 3.11 · [Haystack 2](https://haystack.deepset.ai/) · Neo4j 5 / Cypher ·
 
 [Intel Berkeley Research Lab Sensor Data](http://db.csail.mit.edu/labdata/labdata.html): 54 sensors measuring temperature, humidity, light and voltage. This project uses the first 2,000 epochs.
 
-The raw file (`data.txt`, \~150 MB) is **not included**. The preprocessed graph import (`data/graph/data.csv`) and the baseline corpus (`data/base/data.jsonl`) are included, so you can skip preprocessing.
+The raw file (`data.txt`, ~150 MB) is **not included**. The preprocessed graph import (`data/graph/data.csv`) and the baseline corpus (`data/base/data.jsonl`) are included, so you can skip preprocessing.
 
-To rebuild from scratch, download `data.txt.gz` from the link above, unpack it to `data/raw/data.txt` and run notebook `01\\\_preprocessing.ipynb`.
+To rebuild from scratch, download `data.txt.gz` from the link above, unpack it to `data/raw/data.txt` and run notebook `01_preprocessing.ipynb`.
 
 ## Getting started
 
@@ -75,12 +75,12 @@ Then open Jupyter at http://localhost:8888 and run the notebooks in order:
 
 |Notebook|Purpose|
 |-|-|
-|`01\\\_preprocessing`|Raw data → CSV (graph) and JSONL (baseline)|
-|`02\\\_graph\\\_construction`|Builds the knowledge graph in Neo4j|
-|`03\\\_graphRag\\\_pipeline\\\_test`|Try the GraphRAG pipeline with your own questions|
-|`04\\\_base\\\_pipeline\\\_test`|Try the TextRAG baseline|
-|`05\\\_generate\\\_goldlabels`|Creates gold answers for the test set|
-|`06\\\_pipeline\\\_testing`|Runs the evaluation and writes results to `tests/outputs/`|
+|`01_preprocessing`|Raw data → CSV (graph) and JSONL (baseline)|
+|`02_graph_construction`|Builds the knowledge graph in Neo4j|
+|`03_graphRag_pipeline_test`|Try the GraphRAG pipeline with your own questions|
+|`04_base_pipeline_test`|Try the TextRAG baseline|
+|`05_generate_goldlabels`|Creates gold answers for the test set|
+|`06_pipeline_testing`|Runs the evaluation and writes results to `tests/outputs/`|
 
 Neo4j Browser: http://localhost:7474 (default credentials `neo4j` / `password`, local development only).
 
