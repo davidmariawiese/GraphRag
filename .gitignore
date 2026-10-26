@@ -25,3 +25,4 @@ neo4j_data/
 # VS Code
 .vscode/
 data/raw/*
+tests/outputs/
